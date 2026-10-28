@@ -1,10 +1,25 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="th">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>เด็ก LAMS ม.อ.สุราษฎร์ฯ คว้ารางวัลชนะเลิศแผนธุรกิจระดับประเทศ | คณะศิลปศาสตร์และวิทยาการจัดการ</title>
   <meta name="description" content="ทีมนักศึกษาตัวแทนคณะ LAMS ม.อ.สุราษฎร์ธานี คว้ารางวัลชนะเลิศการประกวดแผนธุรกิจระดับประเทศ National Business Competition 2026">
+  <link rel="canonical" href="https://thanachai-p.github.io/lams-website/pages/news-detail.html">
+  
+  <!-- Open Graph / Facebook / LINE Metadata -->
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="คณะศิลปศาสตร์และวิทยาการจัดการ ม.อ.สุราษฎร์ธานี">
+  <meta property="og:title" content="เด็ก LAMS ม.อ.สุราษฎร์ฯ คว้ารางวัลชนะเลิศแผนธุรกิจระดับประเทศ">
+  <meta property="og:description" content="ทีมนักศึกษาตัวแทนคณะ LAMS ม.อ.สุราษฎร์ธานี คว้ารางวัลชนะเลิศการประกวดแผนธุรกิจระดับประเทศ National Business Competition 2026">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1200&q=80">
+  <meta property="og:url" content="https://thanachai-p.github.io/lams-website/pages/news-detail.html">
+  
+  <!-- Twitter Card Metadata -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="เด็ก LAMS ม.อ.สุราษฎร์ฯ คว้ารางวัลชนะเลิศแผนธุรกิจระดับประเทศ">
+  <meta name="twitter:description" content="ทีมนักศึกษาตัวแทนคณะ LAMS ม.อ.สุราษฎร์ธานี คว้ารางวัลชนะเลิศการประกวดแผนธุรกิจระดับประเทศ National Business Competition 2026">
+  <meta name="twitter:image" content="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1200&q=80">
   
   <!-- Fonts & Icons -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -99,16 +114,31 @@
           </p>
         </div>
 
-        <!-- Social Share Bar -->
-        <div style="margin-top: 35px; padding-top: 20px; border-top: 1px solid var(--border-subtle); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 15px;">
-          <span style="font-size: 0.95rem; color: var(--text-muted); font-weight: 600;">แบ่งปันข่าวนี้:</span>
-          <div style="display: flex; gap: 10px;">
-            <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Flams.surat.psu.ac.th%2Fpages%2Fnews-detail.html" target="_blank" rel="noopener noreferrer" class="btn-card-pdf" style="padding: 8px 16px; background: rgba(24, 119, 242, 0.15); border-color: #1877F2; color: #fff;">
-              <i class="fa-brands fa-facebook" style="color: #1877F2;"></i> Facebook
-            </a>
-            <a href="https://social-plugins.line.me/lineit/share?url=https%3A%2F%2Flams.surat.psu.ac.th%2Fpages%2Fnews-detail.html" target="_blank" rel="noopener noreferrer" class="btn-card-pdf" style="padding: 8px 16px; background: rgba(6, 199, 85, 0.15); border-color: #06C755; color: #fff;">
-              <i class="fa-brands fa-line" style="color: #06C755;"></i> LINE
-            </a>
+        <!-- Social Share Bar (Hybrid Share System) -->
+        <div class="news-share-bar">
+          <div class="news-share-label">
+            <i class="fa-solid fa-share-nodes" style="color: var(--theme-red-bright);"></i>
+            <span>แบ่งปันข่าวนี้:</span>
+          </div>
+          <div class="news-share-actions">
+            <!-- Primary Share Trigger: Mobile WebShare or Desktop In-Page Modal -->
+            <button type="button" id="btnMainShare" class="btn-share-main" title="เปิดหน้าต่างแบ่งปันข่าวสาร">
+              <i class="fa-solid fa-share-nodes"></i>
+              <span>แชร์ข่าวนี้</span>
+            </button>
+            <!-- Quick Copy Link -->
+            <button type="button" id="btnQuickCopy" class="btn-share-quick btn-quick-copy" title="คัดลอกลิงก์ข่าว">
+              <i class="fa-regular fa-copy"></i>
+              <span class="btn-quick-copy-text">คัดลอกลิงก์</span>
+            </button>
+            <!-- Quick Centered Facebook Popup -->
+            <button type="button" class="btn-share-quick btn-quick-fb" data-share="facebook" title="แชร์ลง Facebook (หน้าต่างกึ่งกลางจอ)">
+              <i class="fa-brands fa-facebook"></i>
+            </button>
+            <!-- Quick Centered LINE Popup -->
+            <button type="button" class="btn-share-quick btn-quick-line" data-share="line" title="แชร์ลง LINE (หน้าต่างกึ่งกลางจอ)">
+              <i class="fa-brands fa-line"></i>
+            </button>
           </div>
         </div>
       </div>
@@ -163,6 +193,66 @@
       <div>&copy; 2026 Faculty of Liberal Arts and Management Sciences, PSU Surat Thani. All Rights Reserved.</div>
     </div>
   </footer>
+
+  <!-- In-Page Share Modal (Hybrid Share System) -->
+  <div id="shareNewsModal" class="share-modal" role="dialog" aria-modal="true" aria-labelledby="shareModalTitle" style="display: none;">
+    <div class="share-dialog" role="document">
+      <!-- Modal Header -->
+      <div class="share-dialog-header">
+        <div class="share-dialog-title-box">
+          <i class="fa-solid fa-share-nodes" style="color: var(--theme-red-bright);"></i>
+          <h3 id="shareModalTitle" class="share-dialog-title">แบ่งปันข่าวสาร LAMS PSU</h3>
+        </div>
+        <button id="closeShareModal" type="button" class="share-dialog-close" aria-label="ปิดหน้าต่างแชร์">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <!-- News Preview Summary -->
+      <div class="share-news-preview">
+        <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=240&q=80" alt="ภาพข่าว LAMS PSU" class="share-news-thumb">
+        <div class="share-news-info">
+          <span class="share-news-badge">LAMS NEWS 2026</span>
+          <div class="share-news-headline">เด็ก LAMS ม.อ.สุราษฎร์ฯ คว้ารางวัลชนะเลิศแผนธุรกิจระดับประเทศ</div>
+          <span class="share-news-domain"><i class="fa-solid fa-globe"></i> lams.surat.psu.ac.th</span>
+        </div>
+      </div>
+
+      <!-- Social Channels Grid -->
+      <div class="share-platforms-grid">
+        <button type="button" class="share-platform-btn platform-facebook" data-share="facebook">
+          <div class="platform-icon"><i class="fa-brands fa-facebook-f"></i></div>
+          <span class="platform-name">Facebook</span>
+        </button>
+        <button type="button" class="share-platform-btn platform-line" data-share="line">
+          <div class="platform-icon"><i class="fa-brands fa-line"></i></div>
+          <span class="platform-name">LINE</span>
+        </button>
+        <button type="button" class="share-platform-btn platform-x" data-share="x">
+          <div class="platform-icon"><i class="fa-brands fa-x-twitter"></i></div>
+          <span class="platform-name">X (Twitter)</span>
+        </button>
+      </div>
+
+      <!-- Copy Link Input Bar -->
+      <div class="share-copy-container">
+        <label for="shareUrlInput" class="share-copy-label">หรือคัดลอกลิงก์สำหรับส่งต่อ:</label>
+        <div class="share-copy-bar">
+          <input id="shareUrlInput" type="text" readonly class="share-copy-input">
+          <button id="btnModalCopyLink" type="button" class="share-copy-btn">
+            <i class="fa-regular fa-copy"></i>
+            <span class="share-copy-btn-text">คัดลอก</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Accessible Toast Notification -->
+  <div id="shareToast" class="share-toast" role="status" aria-live="polite" aria-atomic="true">
+    <i class="fa-solid fa-circle-check" style="color: #10B981; font-size: 1.1rem;"></i>
+    <span id="shareToastText">คัดลอกลิงก์ข่าวสำเร็จแล้ว!</span>
+  </div>
 
   <script src="../js/main.js"></script>
 </body>

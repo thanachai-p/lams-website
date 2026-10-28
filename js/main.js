@@ -453,5 +453,189 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // 13. Hybrid Social Share System (Native Web Share, In-Page Modal, Centered Popup & Copy Link)
+  const btnMainShare = document.getElementById('btnMainShare');
+  const btnQuickCopy = document.getElementById('btnQuickCopy');
+  const shareNewsModal = document.getElementById('shareNewsModal');
+  const closeShareModal = document.getElementById('closeShareModal');
+  const shareUrlInput = document.getElementById('shareUrlInput');
+  const btnModalCopyLink = document.getElementById('btnModalCopyLink');
+  const shareToast = document.getElementById('shareToast');
+  const shareToastText = document.getElementById('shareToastText');
+
+  const currentShareUrl = window.location.href.split('#')[0];
+  const currentShareTitle = document.title.split('|')[0].trim() || 'ข่าวสาร LAMS PSU Surat Thani';
+
+  const shareProviders = {
+    facebook: url => `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`,
+    line: url => `https://social-plugins.line.me/lineit/share?url=${encodeURIComponent(url)}`,
+    x: (url, title) => `https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}&text=${encodeURIComponent(title)}`
+  };
+
+  let shareToastTimer = null;
+  function showShareToast(message) {
+    if (!shareToast) return;
+    if (shareToastText) shareToastText.textContent = message;
+    shareToast.classList.add('show');
+    clearTimeout(shareToastTimer);
+    shareToastTimer = setTimeout(() => {
+      shareToast.classList.remove('show');
+    }, 2500);
+  }
+
+  function openCenteredShare(platform) {
+    const providerFn = shareProviders[platform];
+    if (!providerFn) return;
+    const targetUrl = providerFn(currentShareUrl, currentShareTitle);
+    const width = 600;
+    const height = 550;
+    const left = Math.max(0, window.screenX + (window.outerWidth - width) / 2);
+    const top = Math.max(0, window.screenY + (window.outerHeight - height) / 2);
+    const features = `width=${width},height=${height},top=${top},left=${left},scrollbars=yes,resizable=yes`;
+    
+    // Synchronous execution within user gesture prevents Safari popup blocking
+    const popup = window.open(targetUrl, 'lamsSharePopup', features);
+    if (!popup || popup.closed || typeof popup.closed === 'undefined') {
+      showShareToast('เบราว์เซอร์บล็อกหน้าต่างแชร์ กรุณาใช้ปุ่มคัดลอกลิงก์แทน');
+    } else {
+      try { popup.opener = null; } catch (e) {}
+    }
+  }
+
+  async function copyNewsUrl(buttonElement) {
+    let success = false;
+    if (navigator.clipboard && window.isSecureContext) {
+      try {
+        await navigator.clipboard.writeText(currentShareUrl);
+        success = true;
+      } catch (e) {}
+    }
+    if (!success) {
+      try {
+        const tempInput = document.createElement('input');
+        tempInput.value = currentShareUrl;
+        tempInput.style.position = 'fixed';
+        tempInput.style.opacity = '0';
+        document.body.appendChild(tempInput);
+        tempInput.select();
+        success = document.execCommand('copy');
+        document.body.removeChild(tempInput);
+      } catch (e) {}
+    }
+
+    if (success) {
+      showShareToast('คัดลอกลิงก์ข่าวสำเร็จแล้ว!');
+      if (buttonElement) {
+        const originalHtml = buttonElement.innerHTML;
+        buttonElement.classList.add('copied');
+        buttonElement.innerHTML = '<i class="fa-solid fa-check"></i> คัดลอกแล้ว!';
+        setTimeout(() => {
+          buttonElement.classList.remove('copied');
+          buttonElement.innerHTML = originalHtml;
+        }, 2000);
+      }
+    } else {
+      showShareToast('ไม่สามารถคัดลอกได้อัตโนมัติ กรุณากดเลือกในช่องข้อความ');
+    }
+  }
+
+  let lastFocusedShareElement = null;
+  function openShareModal() {
+    if (!shareNewsModal) return;
+    lastFocusedShareElement = document.activeElement;
+    if (shareUrlInput) shareUrlInput.value = currentShareUrl;
+    shareNewsModal.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+    setTimeout(() => {
+      if (closeShareModal) closeShareModal.focus();
+    }, 60);
+  }
+
+  function closeShareModalDialog() {
+    if (!shareNewsModal) return;
+    shareNewsModal.style.display = 'none';
+    document.body.style.overflow = '';
+    if (lastFocusedShareElement && typeof lastFocusedShareElement.focus === 'function') {
+      lastFocusedShareElement.focus();
+    }
+  }
+
+  if (btnMainShare) {
+    btnMainShare.addEventListener('click', async () => {
+      const isMobileDevice = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent) || 
+                             (window.innerWidth <= 768 && 'ontouchstart' in window);
+      if (isMobileDevice && typeof navigator.share === 'function') {
+        try {
+          await navigator.share({
+            title: currentShareTitle,
+            text: 'ข่าวสารคณะศิลปศาสตร์และวิทยาการจัดการ ม.อ.สุราษฎร์ธานี',
+            url: currentShareUrl
+          });
+        } catch (err) {
+          if (err.name !== 'AbortError') {
+            openShareModal();
+          }
+        }
+      } else {
+        openShareModal();
+      }
+    });
+  }
+
+  if (btnQuickCopy) {
+    btnQuickCopy.addEventListener('click', () => copyNewsUrl(btnQuickCopy));
+  }
+
+  if (btnModalCopyLink) {
+    btnModalCopyLink.addEventListener('click', () => copyNewsUrl(btnModalCopyLink));
+  }
+
+  document.querySelectorAll('[data-share]').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const platform = btn.getAttribute('data-share');
+      openCenteredShare(platform);
+    });
+  });
+
+  if (closeShareModal) {
+    closeShareModal.addEventListener('click', closeShareModalDialog);
+  }
+
+  if (shareNewsModal) {
+    shareNewsModal.addEventListener('click', (e) => {
+      if (e.target === shareNewsModal) {
+        closeShareModalDialog();
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && shareNewsModal.style.display === 'flex') {
+        closeShareModalDialog();
+      }
+    });
+
+    // Focus trap inside share modal
+    shareNewsModal.addEventListener('keydown', (e) => {
+      if (e.key === 'Tab') {
+        const focusables = shareNewsModal.querySelectorAll('button:not([hidden]):not([disabled]), [href]:not([hidden]):not([disabled]), input:not([hidden]), [tabindex]:not([tabindex="-1"]):not([hidden])');
+        if (focusables.length === 0) return;
+        const first = focusables[0];
+        const last = focusables[focusables.length - 1];
+        if (e.shiftKey) {
+          if (document.activeElement === first) {
+            e.preventDefault();
+            last.focus();
+          }
+        } else {
+          if (document.activeElement === last) {
+            e.preventDefault();
+            first.focus();
+          }
+        }
+      }
+    });
+  }
+
   console.log('✅ LAMS PSU Surat Thani 2026 - Main Scripts Initialized.');
 });
