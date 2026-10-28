@@ -587,10 +587,32 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // 1. Primary Share Button: Always opens In-Page Share Modal directly
+  function isMobileDevice() {
+    return /Android|iPhone|iPad|iPod/i.test(navigator.userAgent) || 
+           (navigator.maxTouchPoints > 1 && window.innerWidth <= 1024) ||
+           (window.innerWidth <= 768 && 'ontouchstart' in window);
+  }
+
+  // 1. Primary Share Button: Triggers Native Share Sheet on mobile, or opens In-Page Modal on desktop
   if (btnMainShare) {
-    btnMainShare.addEventListener('click', (e) => {
+    btnMainShare.addEventListener('click', async (e) => {
       e.preventDefault();
+      if (isMobileDevice() && typeof navigator.share === 'function') {
+        try {
+          await navigator.share({
+            title: currentShareTitle,
+            text: currentShareTitle,
+            url: currentShareUrl
+          });
+          return;
+        } catch (err) {
+          if (err?.name === 'AbortError') return;
+          copyNewsUrl(btnMainShare);
+          showShareToast('คัดลอกลิงก์แล้ว! เปิดแอปเพื่อวางโพสต์ได้ทันที');
+          return;
+        }
+      }
+
       openShareModal();
     });
   }
@@ -610,22 +632,44 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 3. Social Platform Buttons (Native Anchor on Mobile, Centered Popup on Desktop)
+  // 3. Social Platform Buttons
   document.querySelectorAll('[data-share]').forEach(btn => {
-    // Sync dynamic URL to anchor href immediately
     const platform = btn.getAttribute('data-share');
     const providerFn = shareProviders[platform];
     if (providerFn && btn.tagName === 'A') {
       btn.href = providerFn(currentShareUrl, currentShareTitle);
     }
 
-    btn.addEventListener('click', (e) => {
-      const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent) || 
-                       (window.innerWidth <= 768 && 'ontouchstart' in window);
+    btn.addEventListener('click', async (e) => {
+      if (isMobileDevice()) {
+        // Facebook App on mobile does not support sharer.php deep-linking (redirects to home feed).
+        // On mobile devices, using Web Share API is the only reliable standard to open the native Facebook Composer.
+        if (platform === 'facebook') {
+          if (typeof navigator.share === 'function') {
+            e.preventDefault();
+            try {
+              await navigator.share({
+                title: currentShareTitle,
+                text: currentShareTitle,
+                url: currentShareUrl
+              });
+              return;
+            } catch (err) {
+              if (err?.name === 'AbortError') return;
+              copyNewsUrl(btn);
+              showShareToast('คัดลอกลิงก์แล้ว! เปิดแอป Facebook เพื่อวางโพสต์ได้ทันที');
+              return;
+            }
+          } else {
+            // Fallback for older mobile browsers without navigator.share: prevent blank feed redirect
+            e.preventDefault();
+            copyNewsUrl(btn);
+            showShareToast('คัดลอกลิงก์แล้ว! เปิดแอป Facebook เพื่อวางโพสต์ได้ทันที');
+            return;
+          }
+        }
 
-      if (isMobile) {
-        // Allow mobile browsers (iOS Safari, Android Chrome) to handle link natively
-        // Never call preventDefault or window.open on mobile to avoid popup blockers and enable Universal Links
+        // For LINE or fallback, allow native browser navigation
         if (providerFn && btn.tagName === 'A') {
           btn.href = providerFn(currentShareUrl, currentShareTitle);
         }
@@ -646,10 +690,17 @@ document.addEventListener('DOMContentLoaded', () => {
         try {
           await navigator.share({
             title: currentShareTitle,
-            text: 'ข่าวสารคณะศิลปศาสตร์และวิทยาการจัดการ ม.อ.สุราษฎร์ธานี',
+            text: currentShareTitle,
             url: currentShareUrl
           });
-        } catch (err) {}
+        } catch (err) {
+          if (err?.name === 'AbortError') return;
+          copyNewsUrl(btnShareNative);
+          showShareToast('คัดลอกลิงก์แล้ว! เปิดแอปเพื่อวางโพสต์ได้ทันที');
+        }
+      } else {
+        copyNewsUrl(btnShareNative);
+        showShareToast('คัดลอกลิงก์แล้ว! เปิดแอปเพื่อวางโพสต์ได้ทันที');
       }
     });
   }
