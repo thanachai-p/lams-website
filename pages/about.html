@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="th">
 <head>
   <meta charset="UTF-8">
@@ -15,7 +15,7 @@
   <!-- CSS Stylesheets -->
   <link rel="stylesheet" href="../css/style.css">
   <link rel="stylesheet" href="../css/components.css?v=20261028_1315">
-  <link rel="stylesheet" href="../css/pages.css">
+  <link rel="stylesheet" href="../css/pages.css?v=20261028_1358">
 </head>
 <body class="subpage subpage-about">
 
@@ -103,7 +103,7 @@
 
     <!-- Campus Location & Directions Section (id="campus") -->
     <section id="campus" style="margin-bottom: 60px; scroll-margin-top: 100px;">
-      <div class="detail-section-card" style="padding: 40px 30px;">
+      <div class="detail-section-card campus-location-card">
         <div style="text-align: center; max-width: 800px; margin: 0 auto 30px;">
           <div class="subpage-tag"><i class="fa-solid fa-map-location-dot"></i> CAMPUS LOCATION & ACCESS</div>
           <h2 style="font-size: 1.8rem; color: var(--text-primary); margin-bottom: 12px;">ที่ตั้งและการเดินทาง (Campus Location & Directions)</h2>
@@ -119,8 +119,8 @@
         </div>
 
         <!-- Campus Map Navigation Strip -->
-        <div style="background: var(--surface-band); border-radius: 14px; padding: 25px; border: 1px solid var(--border-card);">
-          <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; margin-bottom: 20px;">
+        <div class="campus-map-container">
+          <div class="campus-map-header">
             <div>
               <h3 style="color: var(--text-primary); font-size: 1.25rem; font-weight: 700; margin-bottom: 6px;"><i class="fa-solid fa-map-location-dot" style="color: var(--theme-amber); margin-right: 8px;"></i> แผนที่</h3>
               <p style="color: var(--text-muted); font-size: 0.92rem; margin: 0;">31 หมู่ 6 ต.ขุนทะเล อ.เมือง จ.สุราษฎร์ธานี 84000</p>
@@ -130,8 +130,8 @@
             </div>
           </div>
           <!-- Google Maps Responsive Iframe Embed -->
-          <div style="border-radius: 12px; overflow: hidden; border: 1px solid var(--border-card); box-shadow: 0 10px 25px rgba(0,0,0,0.4); line-height: 0;">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4847.635434515865!2d99.35404947501965!3d9.09419369096976!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x305407dcd4945125%3A0x79e6c165f730c0af!2z4LiE4LiT4Liw4Lio4Li04Lil4Lib4Lio4Liy4Liq4LiV4Lij4LmM4LmB4Lil4Liw4Lin4Li04LiX4Lii4Liy4LiB4Liy4Lij4LiI4Lix4LiU4LiB4Liy4Lij!5e1!3m2!1sth!2sth!4v1793092213557!5m2!1sth!2sth" width="100%" height="420" style="border:0; display:block;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+          <div class="campus-map-embed">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4847.635434515865!2d99.35404947501965!3d9.09419369096976!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x305407dcd4945125%3A0x79e6c165f730c0af!2z4LiE4LiT4Liw4Lio4Li04Lil4Lib4Lio4Liy4Liq4LiV4Lij4LmM4LmB4Lil4Liw4Lin4Li04LiX4Lii4Liy4LiB4Liy4Lij4LiI4Lix4LiU4LiB4Liy4Lij!5e1!3m2!1sth!2sth!4v1793092213557!5m2!1sth!2sth" title="แผนที่ตั้ง คณะศิลปศาสตร์และวิทยาการจัดการ ม.อ.สุราษฎร์ธานี" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
           </div>
         </div>
       </div>
