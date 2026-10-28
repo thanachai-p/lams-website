@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <!-- 1. Homepage (TH / EN) -->
+  <url>
+    <loc>https://lams.surat.psu.ac.th/index.html</loc>
+    <xhtml:link rel="alternate" hreflang="th" href="https://lams.surat.psu.ac.th/index.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lams.surat.psu.ac.th/en/index.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lams.surat.psu.ac.th/index.html"/>
+    <lastmod>2026-10-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://lams.surat.psu.ac.th/en/index.html</loc>
+    <xhtml:link rel="alternate" hreflang="th" href="https://lams.surat.psu.ac.th/index.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lams.surat.psu.ac.th/en/index.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lams.surat.psu.ac.th/index.html"/>
+    <lastmod>2026-10-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- 2. Academic Programs Catalog (TH / EN) -->
+  <url>
+    <loc>https://lams.surat.psu.ac.th/pages/programs.html</loc>
+    <xhtml:link rel="alternate" hreflang="th" href="https://lams.surat.psu.ac.th/pages/programs.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lams.surat.psu.ac.th/en/programs.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lams.surat.psu.ac.th/pages/programs.html"/>
+    <lastmod>2026-10-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://lams.surat.psu.ac.th/en/programs.html</loc>
+    <xhtml:link rel="alternate" hreflang="th" href="https://lams.surat.psu.ac.th/pages/programs.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lams.surat.psu.ac.th/en/programs.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lams.surat.psu.ac.th/pages/programs.html"/>
+    <lastmod>2026-10-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- 3. Curriculum Details (TH / EN) -->
+  <url>
+    <loc>https://lams.surat.psu.ac.th/pages/program-detail.html</loc>
+    <xhtml:link rel="alternate" hreflang="th" href="https://lams.surat.psu.ac.th/pages/program-detail.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lams.surat.psu.ac.th/en/program-detail.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lams.surat.psu.ac.th/pages/programs.html"/>
+    <lastmod>2026-10-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://lams.surat.psu.ac.th/en/program-detail.html</loc>
+    <xhtml:link rel="alternate" hreflang="th" href="https://lams.surat.psu.ac.th/pages/program-detail.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lams.surat.psu.ac.th/en/program-detail.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lams.surat.psu.ac.th/pages/programs.html"/>
+    <lastmod>2026-10-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- 4. About Faculty (TH / EN) -->
+  <url>
+    <loc>https://lams.surat.psu.ac.th/pages/about.html</loc>
+    <xhtml:link rel="alternate" hreflang="th" href="https://lams.surat.psu.ac.th/pages/about.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lams.surat.psu.ac.th/en/about.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lams.surat.psu.ac.th/pages/about.html"/>
+    <lastmod>2026-10-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://lams.surat.psu.ac.th/en/about.html</loc>
+    <xhtml:link rel="alternate" hreflang="th" href="https://lams.surat.psu.ac.th/pages/about.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lams.surat.psu.ac.th/en/about.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lams.surat.psu.ac.th/pages/about.html"/>
+    <lastmod>2026-10-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- 5. Thai Native Sections (News, People, Procurement, Staff) -->
+  <url>
+    <loc>https://lams.surat.psu.ac.th/pages/news.html</loc>
+    <lastmod>2026-10-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://lams.surat.psu.ac.th/pages/people.html</loc>
+    <lastmod>2026-10-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://lams.surat.psu.ac.th/pages/procurement.html</loc>
+    <lastmod>2026-10-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://lams.surat.psu.ac.th/pages/staff.html</loc>
+    <lastmod>2026-10-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+</urlset>

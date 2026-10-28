@@ -1,10 +1,16 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="th">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title id="page-title">รายละเอียดหลักสูตร | คณะศิลปศาสตร์และวิทยาการจัดการ ม.อ.สุราษฎร์ธานี (LAMS PSU)</title>
   <meta name="description" content="รายละเอียดโครงสร้างหลักสูตร ปรัชญาการศึกษา กลุ่มวิชาเอกเลือก และโอกาสทางอาชีพ คณะศิลปศาสตร์และวิทยาการจัดการ มหาวิทยาลัยสงขลานครินทร์ วิทยาเขตสุราษฎร์ธานี">
+
+  <!-- Canonical & Multilingual SEO Mapping -->
+  <link rel="canonical" id="canonical-tag" href="https://lams.surat.psu.ac.th/pages/program-detail.html">
+  <link rel="alternate" id="hreflang-th" hreflang="th" href="https://lams.surat.psu.ac.th/pages/program-detail.html">
+  <link rel="alternate" id="hreflang-en" hreflang="en" href="https://lams.surat.psu.ac.th/en/program-detail.html">
+  <link rel="alternate" hreflang="x-default" href="https://lams.surat.psu.ac.th/pages/programs.html">
   
   <!-- Fonts & Icons -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -40,8 +46,8 @@
       </a>
       <div class="lang-switch" role="group" aria-label="เลือกภาษา / Select Language">
         <i class="fa-solid fa-globe lang-globe-icon"></i>
-        <button type="button" class="lang-switch-btn active" data-lang="th" aria-pressed="true">TH</button>
-        <button type="button" class="lang-switch-btn" data-lang="en" aria-pressed="false">EN</button>
+        <a href="program-detail.html" id="lang-switch-th-link" class="lang-switch-btn active" hreflang="th" aria-pressed="true" title="ภาษาไทย">TH</a>
+        <a href="../en/program-detail.html" id="lang-switch-en-link" class="lang-switch-btn" hreflang="en" title="English Version">EN</a>
       </div>
       <a href="https://entrance.surat.psu.ac.th/" target="_blank" rel="noopener noreferrer" class="btn-apply-sparkle">
         สมัครเรียน <span class="btn-apply-tcas-text">TCAS</span> <i class="fa-solid fa-arrow-up-right-from-square" style="font-size: 0.8rem; margin-left: 4px;"></i>
@@ -214,9 +220,25 @@
       const urlParams = new URLSearchParams(window.location.search);
       const programId = urlParams.get('id') || 'bba-mgmt';
 
+      // Synchronize Language Switcher Links
+      const thSwitch = document.getElementById('lang-switch-th-link');
+      const enSwitch = document.getElementById('lang-switch-en-link');
+      if (thSwitch) thSwitch.href = `program-detail.html?id=${encodeURIComponent(programId)}`;
+      if (enSwitch) enSwitch.href = `../en/program-detail.html?id=${encodeURIComponent(programId)}`;
+
       // 2. Lookup program data
       if (typeof window.getLamsProgramById === 'function') {
-        const program = window.getLamsProgramById(programId) || (window.LAMS_PROGRAMS_DATA && window.LAMS_PROGRAMS_DATA[0]);
+        const exactProgram = window.getLamsProgramById(programId);
+        const program = exactProgram || (window.LAMS_PROGRAMS_DATA && window.LAMS_PROGRAMS_DATA[0]);
+        if (!exactProgram && program) {
+          const hero = document.getElementById('detail-hero');
+          if (hero) {
+            const alertBox = document.createElement('div');
+            alertBox.style.cssText = 'background: rgba(245, 158, 11, 0.15); border: 1px solid var(--theme-amber); color: #fff; padding: 12px 18px; border-radius: 10px; margin-bottom: 20px; font-size: 0.9rem; max-width: 800px;';
+            alertBox.innerHTML = '<i class="fa-solid fa-circle-exclamation" style="color: var(--theme-amber); margin-right: 8px;"></i> ไม่พบรหัสหลักสูตรที่ระบุ ระบบกำลังแสดงผลหลักสูตรแนะนำเริ่มต้น';
+            hero.querySelector('.subpage-hero-container').prepend(alertBox);
+          }
+        }
         if (program) {
           // Update Page Title
           document.title = `${program.shortName} | คณะศิลปศาสตร์และวิทยาการจัดการ ม.อ.สุราษฎร์ธานี`;

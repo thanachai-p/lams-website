@@ -184,79 +184,19 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 11. Interactive Bilingual Switcher (TH | EN)
+  // 11. Interactive Bilingual Switcher (TH | EN) & Dedicated /en/ Router
   const langBtns = document.querySelectorAll('.lang-switch-btn');
   if (langBtns.length > 0) {
-    const navAnchors = document.querySelectorAll('.nav-links-bu a');
-    const staffBtn = document.querySelector('.btn-staff-portal');
-    const applyBtn = document.querySelector('.btn-apply-sparkle');
-    const thTranslations = [
-      'หลักสูตร',
-      'บรรยากาศแคมปัส',
-      'รอบรั้ว ม.อ.สุราษฎร์ฯ',
-      'เกี่ยวกับคณะ LAMS',
-      'สำหรับบุคลากร'
-    ];
-    const enTranslations = [
-      'Programs',
-      'Campus',
-      'LAMS News',
-      'About LAMS',
-      'Staff Portal'
-    ];
-
-    const applyLanguage = (lang) => {
-      langBtns.forEach(btn => {
-        const isActive = btn.getAttribute('data-lang') === lang;
-        btn.classList.toggle('active', isActive);
-        btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
-      });
-
-      if (navAnchors.length >= 4) {
-        navAnchors.forEach((a, idx) => {
-          if (idx < thTranslations.length) {
-            const hasIcon = a.querySelector('i');
-            const iconHtml = hasIcon ? hasIcon.outerHTML + ' ' : '';
-            a.innerHTML = iconHtml + (lang === 'en' ? enTranslations[idx] : thTranslations[idx]);
-          }
-        });
-      }
-
-      if (staffBtn) {
-        staffBtn.innerHTML = lang === 'en'
-          ? '<i class="fa-solid fa-user-tie"></i> Staff Portal'
-          : '<i class="fa-solid fa-user-tie"></i> สำหรับบุคลากร';
-      }
-
-      if (applyBtn) {
-        applyBtn.innerHTML = lang === 'en'
-          ? 'Apply TCAS <i class="fa-solid fa-arrow-up-right-from-square" style="font-size: 0.8rem; margin-left: 4px;"></i>'
-          : 'สมัครเรียน TCAS <i class="fa-solid fa-arrow-up-right-from-square" style="font-size: 0.8rem; margin-left: 4px;"></i>';
-      }
-
-      const heroTag = document.querySelector('.hero-tag');
-      if (heroTag && lang === 'th') {
-        heroTag.textContent = 'คณะศิลปศาสตร์และวิทยาการจัดการ มหาวิทยาลัยสงขลานครินทร์';
-      } else if (heroTag && lang === 'en') {
-        heroTag.textContent = 'FACULTY OF LIBERAL ARTS AND MANAGEMENT SCIENCES';
-      }
-
-      try {
-        localStorage.setItem('lams_lang', lang);
-      } catch (e) {}
-    };
-
     langBtns.forEach(btn => {
-      btn.addEventListener('click', () => {
-        const lang = btn.getAttribute('data-lang');
-        applyLanguage(lang);
+      btn.addEventListener('click', (e) => {
+        const lang = btn.getAttribute('hreflang') || btn.getAttribute('data-lang') || (btn.textContent.trim().toLowerCase());
+        if (lang) {
+          try {
+            localStorage.setItem('lams_lang', lang);
+          } catch (err) {}
+        }
       });
     });
-
-    try {
-      const savedLang = localStorage.getItem('lams_lang');
-      if (savedLang) applyLanguage(savedLang);
-    } catch (e) {}
   }
 
   // 12. Campus Facility Video Modal Handlers (YouTube, TikTok & Native MP4 Architecture)

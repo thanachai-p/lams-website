@@ -1,0 +1,15 @@
+# Robots.txt for LAMS PSU Surat Thani (2026 Production)
+User-agent: *
+Allow: /
+Allow: /en/
+Allow: /pages/
+Allow: /assets/
+Allow: /css/
+Allow: /js/
+
+# Disallow internal query strings & admin caches
+Disallow: /*?*fbclid=
+Disallow: /*?*utm_
+
+# Multilingual XML Sitemap
+Sitemap: https://lams.surat.psu.ac.th/sitemap.xml
