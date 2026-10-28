@@ -55,11 +55,11 @@
       <li><a href="#campus">Campus Life</a></li>
       <li><a href="news.html">News</a></li>
       <li><a href="about.html">About LAMS</a></li>
-      <li class="mobile-only-staff"><a href="../pages/staff.html"><i class="fa-solid fa-user-tie"></i> Staff Portal</a></li>
+      <li class="mobile-only-staff"><a href="staff.html"><i class="fa-solid fa-user-tie"></i> Staff Portal</a></li>
     </ul>
 
     <div class="header-right">
-      <a href="../pages/staff.html" class="btn-staff-portal" title="Information system and services for faculty and staff">
+      <a href="staff.html" class="btn-staff-portal" title="Information system and services for faculty and staff">
         <i class="fa-solid fa-user-tie"></i> Staff Portal
       </a>
       <div class="lang-switch" role="group" aria-label="Select Language">
@@ -68,7 +68,7 @@
         <a href="index.html" class="lang-switch-btn active" hreflang="en" aria-pressed="true" title="English Version">EN</a>
       </div>
       <a href="https://entrance.surat.psu.ac.th/" target="_blank" rel="noopener noreferrer" class="btn-apply-sparkle">
-        Apply Online <i class="fa-solid fa-arrow-up-right-from-square" style="font-size: 0.8rem; margin-left: 2px;"></i>
+        Apply TCAS <i class="fa-solid fa-arrow-up-right-from-square" style="font-size: 0.8rem; margin-left: 2px;"></i>
       </a>
       <button class="mobile-menu-btn" aria-label="Toggle navigation menu">
         <i class="fa-solid fa-bars"></i>
@@ -90,7 +90,7 @@
   <div class="floating-action-bar">
     <a href="programs.html" class="bar-item"><i class="fa-solid fa-graduation-cap"></i> Explore Programs</a>
     <a href="programs.html" class="bar-item"><i class="fa-solid fa-book-open"></i> Curriculum Guides</a>
-    <a href="https://entrance.surat.psu.ac.th/" target="_blank" rel="noopener noreferrer" class="bar-item"><i class="fa-solid fa-arrow-up-right-from-square"></i> Apply Online</a>
+    <a href="https://entrance.surat.psu.ac.th/" target="_blank" rel="noopener noreferrer" class="bar-item"><i class="fa-solid fa-arrow-up-right-from-square"></i> Apply TCAS</a>
     <a href="about.html" class="bar-item"><i class="fa-solid fa-building-columns"></i> About Faculty</a>
   </div>
 
@@ -174,80 +174,108 @@
         </p>
       </div>
 
-      <!-- Campus Photos Grid with Popups -->
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px;">
-        <!-- Card 1 -->
-        <div class="campus-facility-card"
-             data-video-provider="tiktok"
-             data-video-id="7540166186642787605"
-             data-video-title="Discover Faculty of Liberal Arts and Management Sciences"
-             data-video-url="https://www.tiktok.com/@lamssuratpsu/video/7540166186642787605"
-             data-video-thumb="https://images.unsplash.com/photo-1541829070764-84a7d30dd3f3?auto=format&fit=crop&w=800&q=80"
-             role="button"
-             tabindex="0"
-             aria-label="Watch video: Discover LAMS PSU"
-             style="height: 230px; border-radius: 16px; background: url('https://images.unsplash.com/photo-1541829070764-84a7d30dd3f3?auto=format&fit=crop&w=600&q=80') center/cover; position: relative; overflow: hidden; border: 1px solid var(--border-card); box-shadow: 0 10px 25px rgba(0,0,0,0.5); cursor: pointer;">
-          <div style="position: absolute; top: 12px; right: 12px; background: rgba(0, 0, 0, 0.65); backdrop-filter: blur(6px); border: 1px solid rgba(255,255,255,0.2); color: #fff; padding: 4px 10px; border-radius: 999px; font-size: 0.75rem; font-weight: 700; display: inline-flex; align-items: center; gap: 6px; z-index: 2;">
-            <i class="fa-brands fa-tiktok" style="color: #25F4EE;"></i> TikTok
-          </div>
-          <div class="facility-play-overlay" style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,0.28); transition: all 0.25s ease;">
-            <div class="play-btn-pulse" style="width: 52px; height: 52px; border-radius: 50%; background: rgba(220, 38, 38, 0.9); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 1.25rem; box-shadow: 0 8px 20px rgba(0,0,0,0.6); padding-left: 3px;">
-              <i class="fa-solid fa-play"></i>
+      <!-- Campus Media Wrapper (Future Video Tour 16:9 ready) -->
+      <div class="campus-media-wrapper">
+        <!-- Campus Photos Grid with Captions Overlay & Interactive Video Popups -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px;">
+          <!-- Card 1: Get to Know LAMS PSU (TikTok) -->
+          <div class="campus-facility-card"
+               data-video-provider="tiktok"
+               data-video-id="7540166186642787605"
+               data-video-title="Get to Know Faculty of Liberal Arts and Management Sciences"
+               data-video-url="https://www.tiktok.com/@lamssuratpsu/video/7540166186642787605"
+               data-video-thumb="https://images.unsplash.com/photo-1541829070764-84a7d30dd3f3?auto=format&fit=crop&w=800&q=80"
+               role="button"
+               tabindex="0"
+               aria-label="Watch video: Get to Know LAMS PSU"
+               style="height: 230px; border-radius: 16px; background: url('https://images.unsplash.com/photo-1541829070764-84a7d30dd3f3?auto=format&fit=crop&w=600&q=80') center/cover; position: relative; overflow: hidden; border: 1px solid var(--border-card); box-shadow: 0 10px 25px rgba(0,0,0,0.5); cursor: pointer;">
+            <div style="position: absolute; top: 12px; right: 12px; background: rgba(0, 0, 0, 0.65); backdrop-filter: blur(6px); border: 1px solid rgba(255,255,255,0.2); color: #fff; padding: 4px 10px; border-radius: 999px; font-size: 0.75rem; font-weight: 700; display: inline-flex; align-items: center; gap: 6px; z-index: 2;">
+              <i class="fa-brands fa-tiktok" style="color: #25F4EE;"></i> TikTok
+            </div>
+            <div class="facility-play-overlay" style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,0.28); transition: all 0.25s ease;">
+              <div class="play-btn-pulse" style="width: 52px; height: 52px; border-radius: 50%; background: rgba(220, 38, 38, 0.9); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 1.25rem; box-shadow: 0 8px 20px rgba(0,0,0,0.6); padding-left: 3px; transition: transform 0.2s ease;">
+                <i class="fa-solid fa-play"></i>
+              </div>
+            </div>
+            <div style="position: absolute; bottom: 0; left: 0; right: 0; padding: 14px; background: linear-gradient(transparent, rgba(14, 2, 4, 0.95)); color: #fff; font-size: 0.95rem; font-weight: 600; display: flex; align-items: center; justify-content: space-between; z-index: 2;">
+              <span><i class="fa-solid fa-graduation-cap" style="color: var(--theme-red-bright); margin-right: 6px;"></i> Get to Know LAMS PSU</span>
+              <span style="font-size: 0.78rem; color: var(--theme-amber); font-weight: 500;"><i class="fa-solid fa-circle-play"></i> Watch Clip</span>
             </div>
           </div>
-          <div style="position: absolute; bottom: 0; left: 0; right: 0; padding: 16px; background: linear-gradient(to top, rgba(0,0,0,0.95), transparent); color: #fff;">
-            <div style="font-weight: 700; font-size: 0.95rem;">LAMS Campus Video Profile</div>
-            <div style="font-size: 0.8rem; color: #cbd5e1;">Modern learning spaces & faculty atmosphere</div>
-          </div>
-        </div>
 
-        <!-- Card 2 -->
-        <div class="campus-facility-card"
-             data-video-provider="tiktok"
-             data-video-id="7550882655072423186"
-             data-video-title="Digital Media Studio & Modern Business Facilities"
-             data-video-url="https://www.tiktok.com/@lamssuratpsu/video/7550882655072423186"
-             data-video-thumb="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=800&q=80"
-             role="button"
-             tabindex="0"
-             aria-label="Watch video: Digital Media Studio"
-             style="height: 230px; border-radius: 16px; background: url('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=600&q=80') center/cover; position: relative; overflow: hidden; border: 1px solid var(--border-card); box-shadow: 0 10px 25px rgba(0,0,0,0.5); cursor: pointer;">
-          <div style="position: absolute; top: 12px; right: 12px; background: rgba(0, 0, 0, 0.65); backdrop-filter: blur(6px); border: 1px solid rgba(255,255,255,0.2); color: #fff; padding: 4px 10px; border-radius: 999px; font-size: 0.75rem; font-weight: 700; display: inline-flex; align-items: center; gap: 6px; z-index: 2;">
-            <i class="fa-brands fa-tiktok" style="color: #25F4EE;"></i> TikTok
-          </div>
-          <div class="facility-play-overlay" style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,0.28); transition: all 0.25s ease;">
-            <div class="play-btn-pulse" style="width: 52px; height: 52px; border-radius: 50%; background: rgba(220, 38, 38, 0.9); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 1.25rem; box-shadow: 0 8px 20px rgba(0,0,0,0.6); padding-left: 3px;">
-              <i class="fa-solid fa-play"></i>
+          <!-- Card 2: Life at LAMS PSU — Real Experience (TikTok) -->
+          <div class="campus-facility-card"
+               data-video-provider="tiktok"
+               data-video-id="7557261861243079957"
+               data-video-title="Life at LAMS PSU — Real Experience"
+               data-video-url="https://www.tiktok.com/@lamssuratpsu/video/7557261861243079957"
+               data-video-thumb="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=800&q=80"
+               role="button"
+               tabindex="0"
+               aria-label="Watch video: Life at LAMS PSU"
+               style="height: 230px; border-radius: 16px; background: url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=600&q=80') center/cover; position: relative; overflow: hidden; border: 1px solid var(--border-card); box-shadow: 0 10px 25px rgba(0,0,0,0.5); cursor: pointer;">
+            <div style="position: absolute; top: 12px; right: 12px; background: rgba(0, 0, 0, 0.65); backdrop-filter: blur(6px); border: 1px solid rgba(255,255,255,0.2); color: #fff; padding: 4px 10px; border-radius: 999px; font-size: 0.75rem; font-weight: 700; display: inline-flex; align-items: center; gap: 6px; z-index: 2;">
+              <i class="fa-brands fa-tiktok" style="color: #25F4EE;"></i> TikTok
+            </div>
+            <div class="facility-play-overlay" style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,0.28); transition: all 0.25s ease;">
+              <div class="play-btn-pulse" style="width: 52px; height: 52px; border-radius: 50%; background: rgba(220, 38, 38, 0.9); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 1.25rem; box-shadow: 0 8px 20px rgba(0,0,0,0.6); padding-left: 3px; transition: transform 0.2s ease;">
+                <i class="fa-solid fa-play"></i>
+              </div>
+            </div>
+            <div style="position: absolute; bottom: 0; left: 0; right: 0; padding: 14px; background: linear-gradient(transparent, rgba(14, 2, 4, 0.95)); color: #fff; font-size: 0.95rem; font-weight: 600; display: flex; align-items: center; justify-content: space-between; z-index: 2;">
+              <span><i class="fa-solid fa-circle-check" style="color: var(--theme-amber); margin-right: 6px;"></i> Life at LAMS PSU — Real Experience</span>
+              <span style="font-size: 0.78rem; color: var(--theme-amber); font-weight: 500;"><i class="fa-solid fa-circle-play"></i> Watch Clip</span>
             </div>
           </div>
-          <div style="position: absolute; bottom: 0; left: 0; right: 0; padding: 16px; background: linear-gradient(to top, rgba(0,0,0,0.95), transparent); color: #fff;">
-            <div style="font-weight: 700; font-size: 0.95rem;">Digital Studio & Labs</div>
-            <div style="font-size: 0.8rem; color: #cbd5e1;">Content creation & business simulation</div>
-          </div>
-        </div>
 
-        <!-- Card 3 -->
-        <div class="campus-facility-card"
-             data-video-provider="tiktok"
-             data-video-id="7551608670102981906"
-             data-video-title="Student Lifestyle & Creative Activities"
-             data-video-url="https://www.tiktok.com/@lamssuratpsu/video/7551608670102981906"
-             data-video-thumb="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=800&q=80"
-             role="button"
-             tabindex="0"
-             aria-label="Watch video: Student Lifestyle"
-             style="height: 230px; border-radius: 16px; background: url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=600&q=80') center/cover; position: relative; overflow: hidden; border: 1px solid var(--border-card); box-shadow: 0 10px 25px rgba(0,0,0,0.5); cursor: pointer;">
-          <div style="position: absolute; top: 12px; right: 12px; background: rgba(0, 0, 0, 0.65); backdrop-filter: blur(6px); border: 1px solid rgba(255,255,255,0.2); color: #fff; padding: 4px 10px; border-radius: 999px; font-size: 0.75rem; font-weight: 700; display: inline-flex; align-items: center; gap: 6px; z-index: 2;">
-            <i class="fa-brands fa-tiktok" style="color: #25F4EE;"></i> TikTok
-          </div>
-          <div class="facility-play-overlay" style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,0.28); transition: all 0.25s ease;">
-            <div class="play-btn-pulse" style="width: 52px; height: 52px; border-radius: 50%; background: rgba(220, 38, 38, 0.9); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 1.25rem; box-shadow: 0 8px 20px rgba(0,0,0,0.6); padding-left: 3px;">
-              <i class="fa-solid fa-play"></i>
+          <!-- Card 3: LAMSIL DNA (YouTube) -->
+          <div class="campus-facility-card"
+               data-video-provider="youtube"
+               data-video-id="CTqFAf2hbG8"
+               data-video-title="LAMSIL DNA"
+               data-video-url="https://youtu.be/CTqFAf2hbG8?si=5plLwgCboaq8kWT6"
+               data-video-thumb="https://i.ytimg.com/vi/CTqFAf2hbG8/hqdefault.jpg"
+               role="button"
+               tabindex="0"
+               aria-label="Watch video: LAMSIL DNA"
+               style="height: 230px; border-radius: 16px; background: url('https://i.ytimg.com/vi/CTqFAf2hbG8/hqdefault.jpg') center/cover; position: relative; overflow: hidden; border: 1px solid var(--border-card); box-shadow: 0 10px 25px rgba(0,0,0,0.5); cursor: pointer;">
+            <div style="position: absolute; top: 12px; right: 12px; background: rgba(0, 0, 0, 0.65); backdrop-filter: blur(6px); border: 1px solid rgba(255,255,255,0.2); color: #fff; padding: 4px 10px; border-radius: 999px; font-size: 0.75rem; font-weight: 700; display: inline-flex; align-items: center; gap: 6px; z-index: 2;">
+              <i class="fa-brands fa-youtube" style="color: #FF0000;"></i> YouTube
+            </div>
+            <div class="facility-play-overlay" style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,0.28); transition: all 0.25s ease;">
+              <div class="play-btn-pulse" style="width: 52px; height: 52px; border-radius: 50%; background: rgba(220, 38, 38, 0.9); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 1.25rem; box-shadow: 0 8px 20px rgba(0,0,0,0.6); padding-left: 3px; transition: transform 0.2s ease;">
+                <i class="fa-solid fa-play"></i>
+              </div>
+            </div>
+            <div style="position: absolute; bottom: 0; left: 0; right: 0; padding: 14px; background: linear-gradient(transparent, rgba(14, 2, 4, 0.95)); color: #fff; font-size: 0.95rem; font-weight: 600; display: flex; align-items: center; justify-content: space-between; z-index: 2;">
+              <span><i class="fa-solid fa-dna" style="color: var(--theme-red-light); margin-right: 6px;"></i> LAMSIL DNA</span>
+              <span style="font-size: 0.78rem; color: var(--theme-amber); font-weight: 500;"><i class="fa-solid fa-circle-play"></i> Watch Clip</span>
             </div>
           </div>
-          <div style="position: absolute; bottom: 0; left: 0; right: 0; padding: 16px; background: linear-gradient(to top, rgba(0,0,0,0.95), transparent); color: #fff;">
-            <div style="font-weight: 700; font-size: 0.95rem;">Lakeside Campus & Sports</div>
-            <div style="font-size: 0.8rem; color: #cbd5e1;">Healthy balance & vibrant student communities</div>
+
+          <!-- Card 4: Campus Facilities & Tour (YouTube) -->
+          <div class="campus-facility-card"
+               data-video-provider="youtube"
+               data-video-id="8wEqdL3Dk7Q"
+               data-video-title="Campus Facilities & Tour"
+               data-video-url="https://youtu.be/8wEqdL3Dk7Q?si=QHsQzg12IBP4NIbT"
+               data-video-thumb="https://i.ytimg.com/vi/8wEqdL3Dk7Q/hqdefault.jpg"
+               role="button"
+               tabindex="0"
+               aria-label="Watch video: Campus Facilities & Tour"
+               style="height: 230px; border-radius: 16px; background: url('https://i.ytimg.com/vi/8wEqdL3Dk7Q/hqdefault.jpg') center/cover; position: relative; overflow: hidden; border: 1px solid var(--border-card); box-shadow: 0 10px 25px rgba(0,0,0,0.5); cursor: pointer;">
+            <div style="position: absolute; top: 12px; right: 12px; background: rgba(0, 0, 0, 0.65); backdrop-filter: blur(6px); border: 1px solid rgba(255,255,255,0.2); color: #fff; padding: 4px 10px; border-radius: 999px; font-size: 0.75rem; font-weight: 700; display: inline-flex; align-items: center; gap: 6px; z-index: 2;">
+              <i class="fa-brands fa-youtube" style="color: #FF0000;"></i> YouTube
+            </div>
+            <div class="facility-play-overlay" style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,0.28); transition: all 0.25s ease;">
+              <div class="play-btn-pulse" style="width: 52px; height: 52px; border-radius: 50%; background: rgba(220, 38, 38, 0.9); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 1.25rem; box-shadow: 0 8px 20px rgba(0,0,0,0.6); padding-left: 3px; transition: transform 0.2s ease;">
+                <i class="fa-solid fa-play"></i>
+              </div>
+            </div>
+            <div style="position: absolute; bottom: 0; left: 0; right: 0; padding: 14px; background: linear-gradient(transparent, rgba(14, 2, 4, 0.95)); color: #fff; font-size: 0.95rem; font-weight: 600; display: flex; align-items: center; justify-content: space-between; z-index: 2;">
+              <span><i class="fa-solid fa-building-columns" style="color: var(--theme-success); margin-right: 6px;"></i> Campus Facilities & Tour</span>
+              <span style="font-size: 0.78rem; color: var(--theme-amber); font-weight: 500;"><i class="fa-solid fa-circle-play"></i> Watch Clip</span>
+            </div>
           </div>
         </div>
       </div>
@@ -374,8 +402,8 @@
       <div class="navy-col">
         <h5>Admissions & Grants</h5>
         <ul>
-          <li><a href="https://entrance.surat.psu.ac.th/" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none;"><i class="fa-solid fa-arrow-up-right-from-square" style="color: var(--theme-amber); margin-right: 6px; font-size: 0.8rem;"></i> Undergraduate Admission Portal</a></li>
-          <li><a href="https://grad.surat.psu.ac.th/" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none;"><i class="fa-solid fa-arrow-up-right-from-square" style="color: var(--theme-amber); margin-right: 6px; font-size: 0.8rem;"></i> Graduate MBA Admission Portal</a></li>
+          <li><a href="https://entrance.surat.psu.ac.th/" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none;"><i class="fa-solid fa-arrow-up-right-from-square" style="color: var(--theme-amber); margin-right: 6px; font-size: 0.8rem;"></i> Apply TCAS (Undergraduate)</a></li>
+          <li><a href="https://grad.surat.psu.ac.th/" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none;"><i class="fa-solid fa-arrow-up-right-from-square" style="color: var(--theme-amber); margin-right: 6px; font-size: 0.8rem;"></i> Apply MBA (Graduate)</a></li>
           <li><a href="javascript:void(0)" onclick="document.getElementById('card-scholarships-btn').click()" style="color: inherit; text-decoration: none;"><i class="fa-solid fa-hand-holding-dollar" style="color: var(--theme-amber); margin-right: 6px;"></i> Scholarships & Financial Aid</a></li>
         </ul>
       </div>
@@ -384,9 +412,8 @@
         <h5>Faculty & Services</h5>
         <ul>
           <li><a href="about.html" style="color: inherit; text-decoration: none;"><i class="fa-solid fa-angle-right" style="color: var(--theme-red-bright); margin-right: 6px;"></i> About Faculty & Leadership</a></li>
-          <li><a href="../pages/people.html" style="color: inherit; text-decoration: none;"><i class="fa-solid fa-angle-right" style="color: var(--theme-red-bright); margin-right: 6px;"></i> Faculty Directory (TH)</a></li>
-          <li><a href="../pages/procurement.html" style="color: inherit; text-decoration: none;"><i class="fa-solid fa-angle-right" style="color: var(--theme-red-bright); margin-right: 6px;"></i> Procurement Announcements (e-GP)</a></li>
-          <li><a href="../pages/staff.html" style="color: inherit; text-decoration: none;"><i class="fa-solid fa-angle-right" style="color: var(--theme-red-bright); margin-right: 6px;"></i> Staff Intranet Portal</a></li>
+          <li><a href="people.html" style="color: inherit; text-decoration: none;"><i class="fa-solid fa-angle-right" style="color: var(--theme-red-bright); margin-right: 6px;"></i> Faculty & Staff Directory</a></li>
+          <li><a href="staff.html" style="color: inherit; text-decoration: none;"><i class="fa-solid fa-angle-right" style="color: var(--theme-red-bright); margin-right: 6px;"></i> Staff Intranet Portal</a></li>
         </ul>
       </div>
     </div>

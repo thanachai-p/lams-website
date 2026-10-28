@@ -102,24 +102,52 @@
     <priority>0.8</priority>
   </url>
 
-  <!-- 6. Specialized Thai Native Sections (People, Procurement, Staff) -->
+  <!-- 6. Faculty & Staff Directory (TH / EN) -->
   <url>
     <loc>https://lams.surat.psu.ac.th/pages/people.html</loc>
+    <xhtml:link rel="alternate" hreflang="th" href="https://lams.surat.psu.ac.th/pages/people.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lams.surat.psu.ac.th/en/people.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lams.surat.psu.ac.th/pages/people.html"/>
     <lastmod>2026-10-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://lams.surat.psu.ac.th/en/people.html</loc>
+    <xhtml:link rel="alternate" hreflang="th" href="https://lams.surat.psu.ac.th/pages/people.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lams.surat.psu.ac.th/en/people.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lams.surat.psu.ac.th/pages/people.html"/>
+    <lastmod>2026-10-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- 7. Faculty & Staff Internal Portal (TH / EN) -->
+  <url>
+    <loc>https://lams.surat.psu.ac.th/pages/staff.html</loc>
+    <xhtml:link rel="alternate" hreflang="th" href="https://lams.surat.psu.ac.th/pages/staff.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lams.surat.psu.ac.th/en/staff.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lams.surat.psu.ac.th/pages/staff.html"/>
+    <lastmod>2026-10-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://lams.surat.psu.ac.th/en/staff.html</loc>
+    <xhtml:link rel="alternate" hreflang="th" href="https://lams.surat.psu.ac.th/pages/staff.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lams.surat.psu.ac.th/en/staff.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lams.surat.psu.ac.th/pages/staff.html"/>
+    <lastmod>2026-10-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- 8. Thai Native Procurement Announcements (e-GP Thai Only) -->
+  <url>
     <loc>https://lams.surat.psu.ac.th/pages/procurement.html</loc>
     <lastmod>2026-10-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://lams.surat.psu.ac.th/pages/staff.html</loc>
-    <lastmod>2026-10-28</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
   </url>
 
 </urlset>
