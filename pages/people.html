@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ทำเนียบผู้บริหาร คณาจารย์ และบุคลากร | คณะศิลปศาสตร์และวิทยาการจัดการ ม.อ.สุราษฎร์ธานี (LAMS PSU)</title>
+  <meta name="description" content="ทำเนียบผู้บริหาร คณาจารย์ประจำหลักสูตร และบุคลากรสายสนับสนุน คณะศิลปศาสตร์และวิทยาการจัดการ มหาวิทยาลัยสงขลานครินทร์ วิทยาเขตสุราษฎร์ธานี">
+  
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- CSS Stylesheets -->
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/pages.css">
+</head>
+<body class="subpage subpage-people">
+
+  <!-- Header Navigation Bar -->
+  <header class="header-bu">
+    <a href="../index.html" class="logo-bu-box">
+      <div class="logo-bu-icon">ม.อ.</div>
+      <div>LAMS PSU SURAT THANI</div>
+    </a>
+
+    <ul class="nav-links-bu">
+      <li><a href="programs.html">หลักสูตร</a></li>
+      <li><a href="../index.html#campus">บรรยากาศแคมปัส</a></li>
+      <li><a href="news.html">รอบรั้ว ม.อ.สุราษฎร์ฯ</a></li>
+      <li><a href="about.html" class="active">เกี่ยวกับคณะ LAMS</a></li>
+      <li class="mobile-only-staff"><a href="staff.html"><i class="fa-solid fa-user-tie"></i> สำหรับบุคลากร</a></li>
+    </ul>
+
+    <div class="header-right">
+      <a href="staff.html" class="btn-staff-portal" title="ระบบสารสนเทศและบริการสำหรับบุคลากร">
+        <i class="fa-solid fa-user-tie"></i> สำหรับบุคลากร
+      </a>
+      <div class="lang-switch" role="group" aria-label="เลือกภาษา / Select Language">
+        <i class="fa-solid fa-globe lang-globe-icon"></i>
+        <button type="button" class="lang-switch-btn active" data-lang="th" aria-pressed="true">TH</button>
+        <button type="button" class="lang-switch-btn" data-lang="en" aria-pressed="false">EN</button>
+      </div>
+      <a href="https://entrance.surat.psu.ac.th/" target="_blank" rel="noopener noreferrer" class="btn-apply-sparkle">
+        สมัครเรียน TCAS <i class="fa-solid fa-arrow-up-right-from-square" style="font-size: 0.8rem; margin-left: 4px;"></i>
+      </a>
+      <button class="mobile-menu-btn" aria-label="เปิดเมนู">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- Subpage Hero -->
+  <section class="subpage-hero">
+    <div class="subpage-hero-container">
+      <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+        <a href="../index.html"><i class="fa-solid fa-house"></i> หน้าแรก</a>
+        <span class="breadcrumb-separator">/</span>
+        <a href="about.html">เกี่ยวกับคณะ LAMS</a>
+        <span class="breadcrumb-separator">/</span>
+        <span class="current">ผู้บริหารและบุคลากร</span>
+      </nav>
+
+      <div class="subpage-tag"><i class="fa-solid fa-users"></i> LAMS LEADERSHIP & DIRECTORY</div>
+      <h1 class="subpage-title">ทำเนียบผู้บริหาร คณาจารย์ และบุคลากร</h1>
+      <p class="subpage-desc">ศูนย์รวมข้อมูลคณะผู้บริหาร คณาจารย์ประจำหลักสูตร และบุคลากรสายสนับสนุน คณะศิลปศาสตร์และวิทยาการจัดการ มหาวิทยาลัยสงขลานครินทร์ วิทยาเขตสุราษฎร์ธานี</p>
+    </div>
+  </section>
+
+  <!-- Toolbar Filters -->
+  <div class="catalog-toolbar">
+    <div class="catalog-filters" id="peopleFilters">
+      <button class="catalog-tab active" data-filter="all"><i class="fa-solid fa-users"></i> ทั้งหมด</button>
+      <button class="catalog-tab" data-filter="executive"><i class="fa-solid fa-user-tie"></i> ผู้บริหารคณะ</button>
+      <button class="catalog-tab" data-filter="faculty"><i class="fa-solid fa-graduation-cap"></i> คณาจารย์ประจำหลักสูตร</button>
+      <button class="catalog-tab" data-filter="staff"><i class="fa-solid fa-headset"></i> บุคลากรสายสนับสนุน</button>
+    </div>
+
+    <div class="catalog-search-box">
+      <i class="fa-solid fa-magnifying-glass"></i>
+      <input type="text" id="peopleSearchInput" class="catalog-search-input" placeholder="ค้นหาชื่อ ตำแหน่ง หรือสาขาวิชา..." aria-label="ค้นหาบุคลากร">
+    </div>
+  </div>
+
+  <!-- Main People Directory Container -->
+  <main class="programs-container" style="padding-top: 30px;">
+    
+    <div class="people-grid" id="peopleGrid">
+
+      <!-- ================= 1. EXECUTIVES (คณะผู้บริหาร) ================= -->
+      
+      <!-- Featured Dean Card -->
+      <div class="people-card people-featured-dean" data-category="executive" data-keywords="คณบดี ผู้บริหาร สุทธิดา รักขพันธ์ dean suthida">
+        <div class="people-avatar-wrap">
+          <div class="people-avatar-placeholder">
+            <i class="fa-solid fa-user-tie"></i>
+          </div>
+          <span class="people-badge"><i class="fa-solid fa-star" style="color: var(--theme-amber);"></i> คณบดีคณะ LAMS</span>
+        </div>
+        <div class="people-body">
+          <div class="people-role"><i class="fa-solid fa-shield-halved"></i> คณบดีคณะศิลปศาสตร์และวิทยาการจัดการ</div>
+          <h3 class="people-name">รองศาสตราจารย์ ดร.สุทธิดา รักขพันธ์</h3>
+          <div class="people-name-en">Assoc. Prof. Dr. Suthida Rakkaphan</div>
+          <p class="people-department">ผู้บริหารสูงสุดในการกำกับนโยบาย ยุทธศาสตร์การพัฒนาคณะ และการขับเคลื่อนความเป็นเลิศทางวิชาการและนวัตกรรมธุรกิจภาคใต้</p>
+          <div class="people-contacts">
+            <a href="mailto:suthida.r@psu.ac.th"><i class="fa-solid fa-envelope"></i> suthida.r@psu.ac.th</a>
+            <a href="tel:077278873"><i class="fa-solid fa-phone"></i> 077-278873 ต่อ 8801</a>
+            <span><i class="fa-solid fa-location-dot"></i> สำนักงานคณบดี ชั้น 2 อาคารเรียนรวม LAMS</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Executive 2: รองคณบดีฝ่ายบริหาร -->
+      <div class="people-card" data-category="executive" data-keywords="รองคณบดี บริหาร ยุทธศาสตร์ นฤมล ขาวมาก narumon">
+        <div class="people-avatar-wrap">
+          <div class="people-avatar-placeholder">
+            <i class="fa-solid fa-user-tie"></i>
+          </div>
+          <span class="people-badge">ผู้บริหาร</span>
+        </div>
+        <div class="people-body">
+          <div class="people-role"><i class="fa-solid fa-award"></i> รองคณบดีฝ่ายบริหารและยุทธศาสตร์</div>
+          <h3 class="people-name">ผู้ช่วยศาสตราจารย์ ดร.นฤมล ขาวมาก</h3>
+          <div class="people-name-en">Asst. Prof. Dr. Narumon Khaomark</div>
+          <p class="people-department">รับผิดชอบงานบริหารยุทธศาสตร์ ทรัพยากรบุคคล การคลังและพัสดุ และการขับเคลื่อนองค์กรดิจิทัล</p>
+          <div class="people-contacts">
+            <a href="mailto:narumon.k@psu.ac.th"><i class="fa-solid fa-envelope"></i> narumon.k@psu.ac.th</a>
+            <a href="tel:077278873"><i class="fa-solid fa-phone"></i> 077-278873 ต่อ 8802</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Executive 3: รองคณบดีฝ่ายวิชาการ -->
+      <div class="people-card" data-category="executive" data-keywords="รองคณบดี วิชาการ วิจัย ปิยะฉัตร จิตต์ธรรม piyachat">
+        <div class="people-avatar-wrap">
+          <div class="people-avatar-placeholder">
+            <i class="fa-solid fa-user-tie"></i>
+          </div>
+          <span class="people-badge">ผู้บริหาร</span>
+        </div>
+        <div class="people-body">
+          <div class="people-role"><i class="fa-solid fa-book-open-reader"></i> รองคณบดีฝ่ายวิชาการและวิจัย</div>
+          <h3 class="people-name">ผู้ช่วยศาสตราจารย์ ดร.ปิยะฉัตร จิตต์ธรรม</h3>
+          <div class="people-name-en">Asst. Prof. Dr. Piyachat Jittam</div>
+          <p class="people-department">กำกับดูแลการจัดการเรียนการสอน พัฒนาหลักสูตร OBE งานวิจัย และบริการวิชาการแก่สังคม</p>
+          <div class="people-contacts">
+            <a href="mailto:piyachat.j@psu.ac.th"><i class="fa-solid fa-envelope"></i> piyachat.j@psu.ac.th</a>
+            <a href="tel:077278873"><i class="fa-solid fa-phone"></i> 077-278873 ต่อ 8803</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Executive 4: รองคณบดีฝ่ายพัฒนานักศึกษา -->
+      <div class="people-card" data-category="executive" data-keywords="รองคณบดี พัฒนานักศึกษา ศิษย์เก่า กฤษดา ประทุมทอง krisada">
+        <div class="people-avatar-wrap">
+          <div class="people-avatar-placeholder">
+            <i class="fa-solid fa-user-tie"></i>
+          </div>
+          <span class="people-badge">ผู้บริหาร</span>
+        </div>
+        <div class="people-body">
+          <div class="people-role"><i class="fa-solid fa-users"></i> รองคณบดีฝ่ายพัฒนานักศึกษาและศิษย์เก่า</div>
+          <h3 class="people-name">อาจารย์กฤษดา ประทุมทอง</h3>
+          <div class="people-name-en">Ajarn Krisada Prathumthong</div>
+          <p class="people-department">ดูแลกิจการนักศึกษา กิจกรรมเสริมหลักสูตร วินัย สวัสดิการ ทุนการศึกษา และเครือข่ายศิษย์เก่า</p>
+          <div class="people-contacts">
+            <a href="mailto:krisada.p@psu.ac.th"><i class="fa-solid fa-envelope"></i> krisada.p@psu.ac.th</a>
+            <a href="tel:077278873"><i class="fa-solid fa-phone"></i> 077-278873 ต่อ 8804</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Executive 5: ผู้ช่วยคณบดี -->
+      <div class="people-card" data-category="executive" data-keywords="ผู้ช่วยคณบดี สื่อสารองค์กร นวัตกรรม ศิริพร บุญรอด siriporn">
+        <div class="people-avatar-wrap">
+          <div class="people-avatar-placeholder">
+            <i class="fa-solid fa-user-tie"></i>
+          </div>
+          <span class="people-badge">ผู้บริหาร</span>
+        </div>
+        <div class="people-body">
+          <div class="people-role"><i class="fa-solid fa-bullhorn"></i> ผู้ช่วยคณบดีฝ่ายสื่อสารองค์กรและนวัตกรรม</div>
+          <h3 class="people-name">อาจารย์ ดร.ศิริพร บุญรอด</h3>
+          <div class="people-name-en">Dr. Siriporn Boonrod</div>
+          <p class="people-department">รับผิดชอบงานสื่อสารภาพลักษณ์องค์กร การประชาสัมพันธ์ และการพัฒนานวัตกรรมการเรียนรู้ดิจิทัล</p>
+          <div class="people-contacts">
+            <a href="mailto:siriporn.b@psu.ac.th"><i class="fa-solid fa-envelope"></i> siriporn.b@psu.ac.th</a>
+            <a href="tel:077278873"><i class="fa-solid fa-phone"></i> 077-278873 ต่อ 8805</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- ================= 2. FACULTY (คณาจารย์ประจำหลักสูตร) ================= -->
+
+      <!-- Faculty 1: BBA Management -->
+      <div class="people-card" data-category="faculty" data-keywords="การจัดการธุรกิจ บริหาร วรัญญา รัตนพันธ์ waranya management">
+        <div class="people-avatar-wrap">
+          <div class="people-avatar-placeholder">
+            <i class="fa-solid fa-chalkboard-user"></i>
+          </div>
+          <span class="people-badge">การจัดการธุรกิจ</span>
+        </div>
+        <div class="people-body">
+          <div class="people-role"><i class="fa-solid fa-graduation-cap"></i> ประธานหลักสูตรการจัดการธุรกิจ</div>
+          <h3 class="people-name">อาจารย์ ดร.วรัญญา รัตนพันธ์</h3>
+          <div class="people-name-en">Dr. Waranya Rattanaphan</div>
+          <p class="people-department">ความเชี่ยวชาญ: กลยุทธ์การจัดการธุรกิจสมัยใหม่, การเป็นผู้ประกอบการดิจิทัล, การจัดการทรัพยากรมนุษย์</p>
+          <div class="people-contacts">
+            <a href="mailto:waranya.r@psu.ac.th"><i class="fa-solid fa-envelope"></i> waranya.r@psu.ac.th</a>
+            <span><i class="fa-solid fa-book"></i> หลักสูตรบริหารธุรกิจบัณฑิต (การจัดการธุรกิจ)</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Faculty 2: BBA Tourism -->
+      <div class="people-card" data-category="faculty" data-keywords="การท่องเที่ยว บริการ อนุสรณ์ ไชยแก้ว anusorn tourism hospitality">
+        <div class="people-avatar-wrap">
+          <div class="people-avatar-placeholder">
+            <i class="fa-solid fa-chalkboard-user"></i>
+          </div>
+          <span class="people-badge">การจัดการท่องเที่ยว</span>
+        </div>
+        <div class="people-body">
+          <div class="people-role"><i class="fa-solid fa-graduation-cap"></i> ประธานหลักสูตรการจัดการธุรกิจการท่องเที่ยว</div>
+          <h3 class="people-name">ผู้ช่วยศาสตราจารย์ ดร.อนุสรณ์ ไชยแก้ว</h3>
+          <div class="people-name-en">Asst. Prof. Dr. Anusorn Chaikaew</div>
+          <p class="people-department">ความเชี่ยวชาญ: การจัดการการท่องเที่ยวเชิงสร้างสรรค์, การจัดการโรงแรมและรีสอร์ต, ธุรกิจการบิน</p>
+          <div class="people-contacts">
+            <a href="mailto:anusorn.c@psu.ac.th"><i class="fa-solid fa-envelope"></i> anusorn.c@psu.ac.th</a>
+            <span><i class="fa-solid fa-book"></i> หลักสูตรบริหารธุรกิจบัณฑิต (การจัดการธุรกิจการท่องเที่ยว)</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Faculty 3: Accounting -->
+      <div class="people-card" data-category="faculty" data-keywords="บัญชี การเงิน สุภาณี สุขสวัสดิ์ supanee accounting">
+        <div class="people-avatar-wrap">
+          <div class="people-avatar-placeholder">
+            <i class="fa-solid fa-chalkboard-user"></i>
+          </div>
+          <span class="people-badge">บัญชีบัณฑิต</span>
+        </div>
+        <div class="people-body">
+          <div class="people-role"><i class="fa-solid fa-graduation-cap"></i> ประธานหลักสูตรบัญชีบัณฑิต</div>
+          <h3 class="people-name">ผู้ช่วยศาสตราจารย์ สุภาณี สุขสวัสดิ์</h3>
+          <div class="people-name-en">Asst. Prof. Supanee Suksawat</div>
+          <p class="people-department">ความเชี่ยวชาญ: ระบบสารสนเทศทางการบัญชี, การตรวจสอบบัญชีและการควบคุมภายใน, ภาษีอากร</p>
+          <div class="people-contacts">
+            <a href="mailto:supanee.s@psu.ac.th"><i class="fa-solid fa-envelope"></i> supanee.s@psu.ac.th</a>
+            <span><i class="fa-solid fa-book"></i> หลักสูตรบัญชีบัณฑิต (B.Acc)</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Faculty 4: Economics -->
+      <div class="people-card" data-category="faculty" data-keywords="เศรษฐศาสตร์ ธุรกิจ ธีรภัทร ชูชาติ theerapat economics">
+        <div class="people-avatar-wrap">
+          <div class="people-avatar-placeholder">
+            <i class="fa-solid fa-chalkboard-user"></i>
+          </div>
+          <span class="people-badge">เศรษฐศาสตร์ธุรกิจ</span>
+        </div>
+        <div class="people-body">
+          <div class="people-role"><i class="fa-solid fa-graduation-cap"></i> ประธานหลักสูตรเศรษฐศาสตร์ธุรกิจ</div>
+          <h3 class="people-name">ผู้ช่วยศาสตราจารย์ ดร.ธีรภัทร ชูชาติ</h3>
+          <div class="people-name-en">Asst. Prof. Dr. Theerapat Chuchart</div>
+          <p class="people-department">ความเชี่ยวชาญ: เศรษฐศาสตร์การเงินและการลงทุน, การวิเคราะห์ข้อมูลเชิงปริมาณ, เศรษฐศาสตร์สิ่งแวดล้อม</p>
+          <div class="people-contacts">
+            <a href="mailto:theerapat.c@psu.ac.th"><i class="fa-solid fa-envelope"></i> theerapat.c@psu.ac.th</a>
+            <span><i class="fa-solid fa-book"></i> หลักสูตรเศรษฐศาสตรบัณฑิต (เศรษฐศาสตร์ธุรกิจ)</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Faculty 5: Public Administration -->
+      <div class="people-card" data-category="faculty" data-keywords="รัฐประศาสนศาสตร์ การจัดการรัฐกิจ สุรศักดิ์ สุวรรณโณ surasak public administration">
+        <div class="people-avatar-wrap">
+          <div class="people-avatar-placeholder">
+            <i class="fa-solid fa-chalkboard-user"></i>
+          </div>
+          <span class="people-badge">การจัดการรัฐกิจ</span>
+        </div>
+        <div class="people-body">
+          <div class="people-role"><i class="fa-solid fa-graduation-cap"></i> ประธานหลักสูตรการจัดการรัฐกิจ</div>
+          <h3 class="people-name">ผู้ช่วยศาสตราจารย์ ดร.สุรศักดิ์ สุวรรณโณ</h3>
+          <div class="people-name-en">Asst. Prof. Dr. Surasak Suwanno</div>
+          <p class="people-department">ความเชี่ยวชาญ: นโยบายสาธารณะและการวางแผน, การบริหารจัดการภาครัฐแนวใหม่, ธรรมาภิบาลท้องถิ่น</p>
+          <div class="people-contacts">
+            <a href="mailto:surasak.s@psu.ac.th"><i class="fa-solid fa-envelope"></i> surasak.s@psu.ac.th</a>
+            <span><i class="fa-solid fa-book"></i> หลักสูตรรัฐประศาสนศาสตรบัณฑิต (การจัดการรัฐกิจ)</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Faculty 6: English -->
+      <div class="people-card" data-category="faculty" data-keywords="ภาษาอังกฤษ ธุรกิจ ธนกฤต วิเศษสัจธรรม thanakrit english">
+        <div class="people-avatar-wrap">
+          <div class="people-avatar-placeholder">
+            <i class="fa-solid fa-chalkboard-user"></i>
+          </div>
+          <span class="people-badge">ภาษาอังกฤษธุรกิจ</span>
+        </div>
+        <div class="people-body">
+          <div class="people-role"><i class="fa-solid fa-graduation-cap"></i> ประธานหลักสูตรภาษาอังกฤษเพื่อการสื่อสารทางธุรกิจ</div>
+          <h3 class="people-name">อาจารย์ ดร.ธนกฤต วิเศษสัจธรรม</h3>
+          <div class="people-name-en">Dr. Thanakrit Wisetsajjatham</div>
+          <p class="people-department">ความเชี่ยวชาญ: การสื่อสารภาษาอังกฤษเชิงธุรกิจข้ามวัฒนธรรม, ภาษาศาสตร์ประยุกต์, วาทศิลป์การเจรจาต่อรอง</p>
+          <div class="people-contacts">
+            <a href="mailto:thanakrit.w@psu.ac.th"><i class="fa-solid fa-envelope"></i> thanakrit.w@psu.ac.th</a>
+            <span><i class="fa-solid fa-book"></i> หลักสูตรศิลปศาสตรบัณฑิต (ภาษาอังกฤษเพื่อการสื่อสารทางธุรกิจ)</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Faculty 7: Chinese -->
+      <div class="people-card" data-category="faculty" data-keywords="ภาษาจีน ธุรกิจ หลี่ เสี่ยวเฟิง li xiaofeng chinese">
+        <div class="people-avatar-wrap">
+          <div class="people-avatar-placeholder">
+            <i class="fa-solid fa-chalkboard-user"></i>
+          </div>
+          <span class="people-badge">ภาษาจีนธุรกิจ (นานาชาติ)</span>
+        </div>
+        <div class="people-body">
+          <div class="people-role"><i class="fa-solid fa-graduation-cap"></i> ประธานหลักสูตรภาษาจีนเพื่อการสื่อสารทางธุรกิจ</div>
+          <h3 class="people-name">อาจารย์หลี่ เสี่ยวเฟิง</h3>
+          <div class="people-name-en">Ajarn Li Xiaofeng (李晓峰)</div>
+          <p class="people-department">ความเชี่ยวชาญ: ภาษาจีนเพื่อการค้าระหว่างประเทศ, การแปลและการล่ามเชิงธุรกิจ, วัฒนธรรมธุรกิจจีนร่วมสมัย</p>
+          <div class="people-contacts">
+            <a href="mailto:li.xiaofeng@psu.ac.th"><i class="fa-solid fa-envelope"></i> li.xiaofeng@psu.ac.th</a>
+            <span><i class="fa-solid fa-book"></i> หลักสูตรศิลปศาสตรบัณฑิต (ภาษาจีนเพื่อการสื่อสารทางธุรกิจ หลักสูตรนานาชาติ)</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ================= 3. SUPPORT STAFF (บุคลากรสายสนับสนุน) ================= -->
+
+      <!-- Staff 1: หัวหน้าสำนักงานคณบดี -->
+      <div class="people-card" data-category="staff" data-keywords="หัวหน้าสำนักงาน ธุรการ รัชนีพร สุวรรณมณี ratchaneeporn staff">
+        <div class="people-avatar-wrap">
+          <div class="people-avatar-placeholder">
+            <i class="fa-solid fa-id-badge"></i>
+          </div>
+          <span class="people-badge">สายสนับสนุน</span>
+        </div>
+        <div class="people-body">
+          <div class="people-role"><i class="fa-solid fa-briefcase"></i> หัวหน้าสำนักงานคณบดี</div>
+          <h3 class="people-name">นางสาวรัชนีพร สุวรรณมณี</h3>
+          <div class="people-name-en">Ms. Ratchaneeporn Suwanmanee</div>
+          <p class="people-department">ภารกิจ: อำนวยการงานบริหารทั่วไป ประสานงานยุทธศาสตร์ และกำกับดูแลการปฏิบัติงานของสำนักงานคณบดี</p>
+          <div class="people-contacts">
+            <a href="mailto:ratchaneeporn.s@psu.ac.th"><i class="fa-solid fa-envelope"></i> ratchaneeporn.s@psu.ac.th</a>
+            <a href="tel:077278873"><i class="fa-solid fa-phone"></i> 077-278873 ต่อ 8810</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Staff 2: งานบริการการศึกษา -->
+      <div class="people-card" data-category="staff" data-keywords="บริการการศึกษา ทะเบียน ตารางเรียน สมเกียรติ ยิ้มหวาน somkiat education">
+        <div class="people-avatar-wrap">
+          <div class="people-avatar-placeholder">
+            <i class="fa-solid fa-id-badge"></i>
+          </div>
+          <span class="people-badge">สายสนับสนุน</span>
+        </div>
+        <div class="people-body">
+          <div class="people-role"><i class="fa-solid fa-graduation-cap"></i> นักวิชาการอุดมศึกษา (งานบริการการศึกษา)</div>
+          <h3 class="people-name">นายสมเกียรติ ยิ้มหวาน</h3>
+          <div class="people-name-en">Mr. Somkiat Yimwan</div>
+          <p class="people-department">ภารกิจ: ดูแลงานรับสมัครนักศึกษาใหม่ ตารางเรียน-ตารางสอบ บริการข้อมูลหลักสูตร และงานทะเบียนคณะ</p>
+          <div class="people-contacts">
+            <a href="mailto:somkiat.y@psu.ac.th"><i class="fa-solid fa-envelope"></i> somkiat.y@psu.ac.th</a>
+            <a href="tel:077278873"><i class="fa-solid fa-phone"></i> 077-278873 ต่อ 8812</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Staff 3: งานการเงินและพัสดุ -->
+      <div class="people-card" data-category="staff" data-keywords="การเงิน พัสดุ จัดซื้อจัดจ้าง เพ็ญศรี สิทธิโชค pensri finance">
+        <div class="people-avatar-wrap">
+          <div class="people-avatar-placeholder">
+            <i class="fa-solid fa-id-badge"></i>
+          </div>
+          <span class="people-badge">สายสนับสนุน</span>
+        </div>
+        <div class="people-body">
+          <div class="people-role"><i class="fa-solid fa-coins"></i> นักวิชาการเงินและบัญชีชำนาญการ</div>
+          <h3 class="people-name">นางเพ็ญศรี สิทธิโชค</h3>
+          <div class="people-name-en">Mrs. Pensri Sitthichok</div>
+          <p class="people-department">ภารกิจ: บริหารจัดการงบประมาณ การเบิกจ่ายงบประมาณแผ่นดินและเงินรายได้ และงานพัสดุครุภัณฑ์คณะ</p>
+          <div class="people-contacts">
+            <a href="mailto:pensri.s@psu.ac.th"><i class="fa-solid fa-envelope"></i> pensri.s@psu.ac.th</a>
+            <a href="tel:077278873"><i class="fa-solid fa-phone"></i> 077-278873 ต่อ 8815</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Staff 4: งานเทคโนโลยีสารสนเทศ -->
+      <div class="people-card" data-category="staff" data-keywords="ไอที คอมพิวเตอร์ เว็บไซต์ โสตฯ อภิสิทธิ์ วงศ์สุวรรณ apisit it">
+        <div class="people-avatar-wrap">
+          <div class="people-avatar-placeholder">
+            <i class="fa-solid fa-id-badge"></i>
+          </div>
+          <span class="people-badge">สายสนับสนุน</span>
+        </div>
+        <div class="people-body">
+          <div class="people-role"><i class="fa-solid fa-laptop-code"></i> นักวิชาการคอมพิวเตอร์</div>
+          <h3 class="people-name">นายอภิสิทธิ์ วงศ์สุวรรณ</h3>
+          <div class="people-name-en">Mr. Apisit Wongsuwan</div>
+          <p class="people-department">ภารกิจ: ดูแลระบบสารสนเทศ เครือข่ายคอมพิวเตอร์ เว็บไซต์คณะ และห้องปฏิบัติการดิจิทัลมัลติมีเดีย</p>
+          <div class="people-contacts">
+            <a href="mailto:apisit.w@psu.ac.th"><i class="fa-solid fa-envelope"></i> apisit.w@psu.ac.th</a>
+            <a href="tel:077278873"><i class="fa-solid fa-phone"></i> 077-278873 ต่อ 8818</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Empty Results Alert (hidden by default) -->
+    <div id="peopleEmptyState" style="display: none; text-align: center; padding: 60px 20px; background: var(--surface-card); border: 1px dashed var(--border-card); border-radius: 16px; margin-top: 30px;">
+      <i class="fa-solid fa-user-slash" style="font-size: 3rem; color: var(--theme-red-light); margin-bottom: 16px;"></i>
+      <h3 style="color: var(--text-primary); font-size: 1.3rem; margin-bottom: 8px;">ไม่พบบุคลากรที่ตรงกับคำค้นหา</h3>
+      <p style="color: var(--text-muted); font-size: 0.95rem;">ลองเปลี่ยนคำค้นหา หรือคลิกเลือกหมวดหมู่ "ทั้งหมด" ด้านบนเพื่อดูรายชื่อทั้งหมด</p>
+    </div>
+
+  </main>
+
+  <!-- Pre-Footer Quick Links & Contact Strip -->
+  <section class="navy-accordion-section" style="margin-top: 60px;">
+    <div class="navy-links-grid" style="max-width: var(--container-max-width); margin: 0 auto;">
+      <div class="navy-col">
+        <h5>ข้อมูลการศึกษา</h5>
+        <ul>
+          <li><a href="programs.html" style="color: inherit; text-decoration: none;"><i class="fa-solid fa-angle-right" style="color: var(--theme-red-bright); margin-right: 6px;"></i> คณะและหลักสูตรที่เปิดสอน</a></li>
+          <li><a href="about.html#campus" style="color: inherit; text-decoration: none;"><i class="fa-solid fa-angle-right" style="color: var(--theme-red-bright); margin-right: 6px;"></i> สิ่งอำนวยความสะดวก LAMS</a></li>
+        </ul>
+      </div>
+
+      <div class="navy-col">
+        <h5>ข้อมูลการสมัคร</h5>
+        <ul>
+          <li><a href="https://entrance.surat.psu.ac.th/" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none;"><i class="fa-solid fa-arrow-up-right-from-square" style="color: var(--theme-amber); margin-right: 6px; font-size: 0.8rem;"></i> สมัครเรียน TCAS</a></li>
+          <li><a href="https://grad.surat.psu.ac.th/" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none;"><i class="fa-solid fa-arrow-up-right-from-square" style="color: var(--theme-amber); margin-right: 6px; font-size: 0.8rem;"></i> สมัครเรียน MBA (บัณฑิตศึกษา)</a></li>
+        </ul>
+      </div>
+
+      <div class="navy-col">
+        <h5>ติดต่อคณะ & บริการ</h5>
+        <ul>
+          <li><a href="about.html" style="color: inherit; text-decoration: none;"><i class="fa-solid fa-angle-right" style="color: var(--theme-red-bright); margin-right: 6px;"></i> ติดต่อคณะ</a></li>
+          <li><a href="people.html" style="color: inherit; text-decoration: none;"><i class="fa-solid fa-angle-right" style="color: var(--theme-red-bright); margin-right: 6px;"></i> ผู้บริหารและบุคลากร</a></li>
+          <li><a href="procurement.html" style="color: inherit; text-decoration: none;"><i class="fa-solid fa-angle-right" style="color: var(--theme-red-bright); margin-right: 6px;"></i> ข่าวจัดซื้อจัดจ้าง e-GP</a></li>
+          <li><a href="staff.html" style="color: inherit; text-decoration: none;"><i class="fa-solid fa-angle-right" style="color: var(--theme-red-bright); margin-right: 6px;"></i> สำหรับบุคลากร</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer id="about">
+    <div class="footer-flex-bu">
+      <div class="footer-slogan">
+        <i class="fa-solid fa-gem" style="color: var(--theme-red-bright);"></i>
+        สร้างนวัตกรรมธุรกิจ <span>+ ขับเคลื่อนด้วยภาษา</span>
+      </div>
+      <div>&copy; 2026 Faculty of Liberal Arts and Management Sciences, PSU Surat Thani. All Rights Reserved.</div>
+    </div>
+  </footer>
+
+  <!-- Interactive Search and Filter Script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Mobile Nav Toggle
+      const mobileBtn = document.querySelector('.mobile-menu-btn');
+      const navLinks = document.querySelector('.nav-links-bu');
+      if (mobileBtn && navLinks) {
+        mobileBtn.addEventListener('click', () => {
+          const isVisible = navLinks.style.display === 'flex';
+          navLinks.style.display = isVisible ? 'none' : 'flex';
+          if (!isVisible) {
+            navLinks.style.flexDirection = 'column';
+            navLinks.style.position = 'absolute';
+            navLinks.style.top = '100%';
+            navLinks.style.left = '0';
+            navLinks.style.width = '100%';
+            navLinks.style.background = 'var(--surface-header)';
+            navLinks.style.padding = '20px';
+            navLinks.style.borderBottom = '1px solid var(--border-subtle)';
+          }
+        });
+      }
+
+      // Filter Tabs & Search Filtering
+      const tabs = document.querySelectorAll('#peopleFilters .catalog-tab');
+      const searchInput = document.getElementById('peopleSearchInput');
+      const cards = document.querySelectorAll('#peopleGrid .people-card');
+      const emptyState = document.getElementById('peopleEmptyState');
+
+      let currentFilter = 'all';
+      let currentQuery = '';
+
+      function filterDirectory() {
+        let visibleCount = 0;
+        cards.forEach(card => {
+          const cardCategory = card.getAttribute('data-category');
+          const keywords = (card.getAttribute('data-keywords') || '').toLowerCase();
+          const cardText = card.innerText.toLowerCase();
+
+          const matchesCategory = (currentFilter === 'all') || (cardCategory === currentFilter);
+          const matchesSearch = !currentQuery || keywords.includes(currentQuery) || cardText.includes(currentQuery);
+
+          if (matchesCategory && matchesSearch) {
+            card.style.display = card.classList.contains('people-featured-dean') ? 'grid' : 'flex';
+            visibleCount++;
+          } else {
+            card.style.display = 'none';
+          }
+        });
+
+        if (emptyState) {
+          emptyState.style.display = visibleCount === 0 ? 'block' : 'none';
+        }
+      }
+
+      tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          tabs.forEach(t => t.classList.remove('active'));
+          tab.classList.add('active');
+          currentFilter = tab.getAttribute('data-filter');
+          filterDirectory();
+        });
+      });
+
+      if (searchInput) {
+        searchInput.addEventListener('input', (e) => {
+          currentQuery = e.target.value.trim().toLowerCase();
+          filterDirectory();
+        });
+      }
+    });
+  </script>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>หลักสูตรที่เปิดสอน | คณะศิลปศาสตร์และวิทยาการจัดการ ม.อ.สุราษฎร์ธานี (LAMS PSU)</title>
+  <meta name="description" content="สำรวจหลักสูตรปริญญาตรี 7 สาขาวิชา และปริญญาโท MBA คณะศิลปศาสตร์และวิทยาการจัดการ มหาวิทยาลัยสงขลานครินทร์ วิทยาเขตสุราษฎร์ธานี ดาวน์โหลดเล่มหลักสูตร รหัส 69">
+  
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- CSS Stylesheets -->
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/pages.css">
+</head>
+<body class="subpage subpage-programs">
+
+  <!-- Header Navigation Bar -->
+  <header class="header-bu">
+    <a href="../index.html" class="logo-bu-box">
+      <div class="logo-bu-icon">ม.อ.</div>
+      <div>LAMS PSU SURAT THANI</div>
+    </a>
+
+    <ul class="nav-links-bu">
+      <li><a href="programs.html" class="active">หลักสูตร</a></li>
+      <li><a href="../index.html#campus">บรรยากาศแคมปัส</a></li>
+      <li><a href="news.html">รอบรั้ว ม.อ.สุราษฎร์ฯ</a></li>
+      <li><a href="about.html">เกี่ยวกับคณะ LAMS</a></li>
+      <li class="mobile-only-staff"><a href="staff.html"><i class="fa-solid fa-user-tie"></i> สำหรับบุคลากร</a></li>
+    </ul>
+
+    <div class="header-right">
+      <a href="staff.html" class="btn-staff-portal" title="ระบบสารสนเทศและบริการสำหรับบุคลากร">
+        <i class="fa-solid fa-user-tie"></i> สำหรับบุคลากร
+      </a>
+      <div class="lang-switch" role="group" aria-label="เลือกภาษา / Select Language">
+        <i class="fa-solid fa-globe lang-globe-icon"></i>
+        <button type="button" class="lang-switch-btn active" data-lang="th" aria-pressed="true">TH</button>
+        <button type="button" class="lang-switch-btn" data-lang="en" aria-pressed="false">EN</button>
+      </div>
+      <a href="https://entrance.surat.psu.ac.th/" target="_blank" rel="noopener noreferrer" class="btn-apply-sparkle">
+        สมัครเรียน TCAS <i class="fa-solid fa-arrow-up-right-from-square" style="font-size: 0.8rem; margin-left: 4px;"></i>
+      </a>
+      <button class="mobile-menu-btn" aria-label="เปิดเมนู">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- Subpage Hero -->
+  <section class="subpage-hero">
+    <div class="subpage-hero-container">
+      <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+        <a href="../index.html"><i class="fa-solid fa-house"></i> หน้าแรก</a>
+        <span class="breadcrumb-separator">/</span>
+        <span class="current">หลักสูตรที่เปิดสอน</span>
+      </nav>
+
+      <div class="subpage-tag"><i class="fa-solid fa-graduation-cap"></i> ACADEMIC PROGRAMS 2026</div>
+      <h1 class="subpage-title">หลักสูตรที่เปิดสอน คณะศิลปศาสตร์และวิทยาการจัดการ</h1>
+      <p class="subpage-desc">มุ่งสร้างนวัตกรรมบริหารธุรกิจและภาษาการสื่อสารสากล ณ มหาวิทยาลัยสงขลานครินทร์ วิทยาเขตสุราษฎร์ธานี ด้วยหลักสูตรทันสมัย 7 สาขาวิชาปริญญาตรี และ 1 สาขาวิชาปริญญาโท (MBA) พร้อมดาวน์โหลดคู่มือเล่มหลักสูตรทางการ</p>
+    </div>
+  </section>
+
+  <!-- Catalog Toolbar (Filter Tabs & Search) -->
+  <div class="catalog-toolbar">
+    <div class="catalog-filters" role="tablist">
+      <button class="catalog-tab active" data-filter="all" role="tab" aria-selected="true">
+        <i class="fa-solid fa-layer-group"></i> ทั้งหมด <span class="count-badge" id="count-all">8</span>
+      </button>
+      <button class="catalog-tab" data-filter="bachelor" role="tab" aria-selected="false">
+        <i class="fa-solid fa-user-graduate"></i> ระดับปริญญาตรี <span class="count-badge" id="count-bachelor">7</span>
+      </button>
+      <button class="catalog-tab" data-filter="master" role="tab" aria-selected="false">
+        <i class="fa-solid fa-award"></i> ระดับปริญญาโท <span class="count-badge" id="count-master">1</span>
+      </button>
+    </div>
+
+    <div class="catalog-search-box">
+      <i class="fa-solid fa-magnifying-glass"></i>
+      <input type="text" id="program-search-input" class="catalog-search-input" placeholder="ค้นหาชื่อหลักสูตร, สาขา, อาชีพ..." aria-label="ค้นหาหลักสูตร">
+    </div>
+  </div>
+
+  <!-- Main Programs Grid Section -->
+  <main class="programs-container">
+    <div class="programs-grid" id="programs-grid">
+
+      <!-- Card 1: การจัดการธุรกิจ -->
+      <article class="program-card-item" data-category="bachelor" data-id="bba-mgmt" data-wp-post-type="program">
+        <div class="program-card-thumb" style="background-image: url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80');">
+          <div class="program-card-badges">
+            <span class="badge-pill badge-hot">ยอดนิยม</span>
+            <span class="badge-pill badge-accent">ปริญญาตรี</span>
+          </div>
+        </div>
+        <div class="program-card-body">
+          <div class="program-degree-code"><i class="fa-solid fa-briefcase"></i> บธ.บ. (การจัดการธุรกิจ)</div>
+          <h2 class="program-card-title">หลักสูตรบริหารธุรกิจบัณฑิต สาขาวิชาการจัดการธุรกิจ</h2>
+          <div class="program-card-title-en">Bachelor of Business Administration in Business Management</div>
+          
+          <div class="program-meta-strip">
+            <span><i class="fa-regular fa-clock"></i> 4 ปี</span>
+            <span><i class="fa-solid fa-book-open"></i> 128 หน่วยกิต</span>
+            <span><i class="fa-solid fa-location-dot"></i> ม.อ.สุราษฎร์ฯ</span>
+          </div>
+
+          <div class="program-card-tracks">
+            <strong>กลุ่มวิชาเอกเลือกเด่น:</strong>
+            <ul>
+              <li>การบริหารธุรกิจดิจิทัลเพื่อการประกอบการ</li>
+              <li>การบริหารธุรกิจระหว่างประเทศและโลจิสติกส์</li>
+              <li>การบริหารทรัพยากรมนุษย์และการสื่อสารองค์กร</li>
+            </ul>
+          </div>
+
+          <div class="program-card-footer">
+            <a href="program-detail.html?id=bba-mgmt" class="btn-card-detail">ดูรายละเอียด <i class="fa-solid fa-arrow-right"></i></a>
+            <a href="https://lams.surat.psu.ac.th/UserFiles/file/%E0%B9%80%E0%B8%A5%E0%B9%88%E0%B8%A1%E0%B8%AB%E0%B8%A5%E0%B8%B1%E0%B8%81%E0%B8%AA%E0%B8%B9%E0%B8%95%E0%B8%A3/2569/BM%2069-Final.pdf" target="_blank" rel="noopener noreferrer" class="btn-card-pdf" title="ดาวน์โหลดเล่มหลักสูตร รหัส 69 (PDF)"><i class="fa-solid fa-file-pdf"></i> เล่ม 69</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 2: การจัดการธุรกิจการท่องเที่ยว -->
+      <article class="program-card-item" data-category="bachelor" data-id="bba-tourism" data-wp-post-type="program">
+        <div class="program-card-thumb" style="background-image: url('https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&w=800&q=80');">
+          <div class="program-card-badges">
+            <span class="badge-pill badge-accent">ภาคใต้สู่สากล</span>
+            <span class="badge-pill badge-accent">ปริญญาตรี</span>
+          </div>
+        </div>
+        <div class="program-card-body">
+          <div class="program-degree-code"><i class="fa-solid fa-plane-departure"></i> บธ.บ. (การจัดการธุรกิจการท่องเที่ยว)</div>
+          <h2 class="program-card-title">หลักสูตรบริหารธุรกิจบัณฑิต สาขาวิชาการจัดการธุรกิจการท่องเที่ยว</h2>
+          <div class="program-card-title-en">Bachelor of Business Administration in Tourism Business Management</div>
+          
+          <div class="program-meta-strip">
+            <span><i class="fa-regular fa-clock"></i> 4 ปี</span>
+            <span><i class="fa-solid fa-book-open"></i> 126 หน่วยกิต</span>
+            <span><i class="fa-solid fa-location-dot"></i> ม.อ.สุราษฎร์ฯ</span>
+          </div>
+
+          <div class="program-card-tracks">
+            <strong>กลุ่มวิชาเอกเลือกเด่น:</strong>
+            <ul>
+              <li>การจัดการธุรกิจการท่องเที่ยวเชิงสร้างสรรค์และยั่งยืน</li>
+              <li>การบริหารจัดการอีเวนต์และการท่องเที่ยวเชิงธุรกิจ (MICE)</li>
+            </ul>
+          </div>
+
+          <div class="program-card-footer">
+            <a href="program-detail.html?id=bba-tourism" class="btn-card-detail">ดูรายละเอียด <i class="fa-solid fa-arrow-right"></i></a>
+            <a href="https://lams.surat.psu.ac.th/UserFiles/file/%E0%B9%80%E0%B8%A5%E0%B9%88%E0%B8%A1%E0%B8%AB%E0%B8%A5%E0%B8%B1%E0%B8%81%E0%B8%AA%E0%B8%B9%E0%B8%95%E0%B8%A3/2569/B.B.A.(Tourism%20Business%20Management)%2069.pdf" target="_blank" rel="noopener noreferrer" class="btn-card-pdf" title="ดาวน์โหลดเล่มหลักสูตร รหัส 69 (PDF)"><i class="fa-solid fa-file-pdf"></i> เล่ม 69</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 3: บัญชีบัณฑิต -->
+      <article class="program-card-item" data-category="bachelor" data-id="b-acc" data-wp-post-type="program">
+        <div class="program-card-thumb" style="background-image: url('https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=800&q=80');">
+          <div class="program-card-badges">
+            <span class="badge-pill badge-hot">วิชาชีพรับรอง</span>
+            <span class="badge-pill badge-accent">ปริญญาตรี</span>
+          </div>
+        </div>
+        <div class="program-card-body">
+          <div class="program-degree-code"><i class="fa-solid fa-calculator"></i> บช.บ. (บัญชีบัณฑิต)</div>
+          <h2 class="program-card-title">หลักสูตรบัญชีบัณฑิต (Accounting)</h2>
+          <div class="program-card-title-en">Bachelor of Accountancy Program</div>
+          
+          <div class="program-meta-strip">
+            <span><i class="fa-regular fa-clock"></i> 4 ปี</span>
+            <span><i class="fa-solid fa-book-open"></i> 132 หน่วยกิต</span>
+            <span><i class="fa-solid fa-location-dot"></i> ม.อ.สุราษฎร์ฯ</span>
+          </div>
+
+          <div class="program-card-tracks">
+            <strong>กลุ่มวิชาเอกเลือกเด่น:</strong>
+            <ul>
+              <li>การบัญชีดิจิทัล ระบบ ERP และการเงินองค์กร</li>
+              <li>การสอบบัญชีและการควบคุมภายใน (มุ่งสู่ CPA/TA)</li>
+            </ul>
+          </div>
+
+          <div class="program-card-footer">
+            <a href="program-detail.html?id=b-acc" class="btn-card-detail">ดูรายละเอียด <i class="fa-solid fa-arrow-right"></i></a>
+            <a href="https://lams.surat.psu.ac.th/UserFiles/file/%E0%B9%80%E0%B8%A5%E0%B9%88%E0%B8%A1%E0%B8%AB%E0%B8%A5%E0%B8%B1%E0%B8%81%E0%B8%AA%E0%B8%B9%E0%B8%95%E0%B8%A3/2569/B.Acc%2069.pdf" target="_blank" rel="noopener noreferrer" class="btn-card-pdf" title="ดาวน์โหลดเล่มหลักสูตร รหัส 69 (PDF)"><i class="fa-solid fa-file-pdf"></i> เล่ม 69</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 4: เศรษฐศาสตร์ธุรกิจ -->
+      <article class="program-card-item" data-category="bachelor" data-id="b-econ" data-wp-post-type="program">
+        <div class="program-card-thumb" style="background-image: url('https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=800&q=80');">
+          <div class="program-card-badges">
+            <span class="badge-pill badge-accent">เศรษฐกิจยุคใหม่</span>
+            <span class="badge-pill badge-accent">ปริญญาตรี</span>
+          </div>
+        </div>
+        <div class="program-card-body">
+          <div class="program-degree-code"><i class="fa-solid fa-chart-line"></i> ศ.บ. (เศรษฐศาสตร์ธุรกิจ)</div>
+          <h2 class="program-card-title">หลักสูตรเศรษฐศาสตรบัณฑิต สาขาวิชาเศรษฐศาสตร์ธุรกิจ</h2>
+          <div class="program-card-title-en">Bachelor of Economics Program in Business Economics</div>
+          
+          <div class="program-meta-strip">
+            <span><i class="fa-regular fa-clock"></i> 4 ปี</span>
+            <span><i class="fa-solid fa-book-open"></i> 128 หน่วยกิต</span>
+            <span><i class="fa-solid fa-location-dot"></i> ม.อ.สุราษฎร์ฯ</span>
+          </div>
+
+          <div class="program-card-tracks">
+            <strong>กลุ่มวิชาเอกเลือกเด่น:</strong>
+            <ul>
+              <li>เศรษฐศาสตร์การเงินและการลงทุนสินทรัพย์ดิจิทัล</li>
+              <li>เศรษฐศาสตร์ธุรกิจ การค้าระหว่างประเทศ และโลจิสติกส์</li>
+            </ul>
+          </div>
+
+          <div class="program-card-footer">
+            <a href="program-detail.html?id=b-econ" class="btn-card-detail">ดูรายละเอียด <i class="fa-solid fa-arrow-right"></i></a>
+            <a href="https://lams.surat.psu.ac.th/UserFiles/file/%E0%B9%80%E0%B8%A5%E0%B9%88%E0%B8%A1%E0%B8%AB%E0%B8%A5%E0%B8%B1%E0%B8%81%E0%B8%AA%E0%B8%B9%E0%B8%95%E0%B8%A3/2569/B.Econ%2069.pdf" target="_blank" rel="noopener noreferrer" class="btn-card-pdf" title="ดาวน์โหลดเล่มหลักสูตร รหัส 69 (PDF)"><i class="fa-solid fa-file-pdf"></i> เล่ม 69</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 5: การจัดการรัฐกิจ -->
+      <article class="program-card-item" data-category="bachelor" data-id="b-pa" data-wp-post-type="program">
+        <div class="program-card-thumb" style="background-image: url('https://images.unsplash.com/photo-1541872703-74c5e44368f9?auto=format&fit=crop&w=800&q=80');">
+          <div class="program-card-badges">
+            <span class="badge-pill badge-accent">ผู้นำภาครัฐ</span>
+            <span class="badge-pill badge-accent">ปริญญาตรี</span>
+          </div>
+        </div>
+        <div class="program-card-body">
+          <div class="program-degree-code"><i class="fa-solid fa-landmark"></i> รป.บ. (การจัดการรัฐกิจ)</div>
+          <h2 class="program-card-title">หลักสูตรรัฐประศาสนศาสตรบัณฑิต สาขาวิชาการจัดการรัฐกิจ</h2>
+          <div class="program-card-title-en">Bachelor of Public Administration in Public Affairs Management</div>
+          
+          <div class="program-meta-strip">
+            <span><i class="fa-regular fa-clock"></i> 4 ปี</span>
+            <span><i class="fa-solid fa-book-open"></i> 126 หน่วยกิต</span>
+            <span><i class="fa-solid fa-location-dot"></i> ม.อ.สุราษฎร์ฯ</span>
+          </div>
+
+          <div class="program-card-tracks">
+            <strong>กลุ่มวิชาเอกเลือกเด่น:</strong>
+            <ul>
+              <li>การบริหารงานภาครัฐดิจิทัลและนวัตกรรมบริการสาธารณะ</li>
+              <li>การบริหารการปกครองส่วนท้องถิ่นและการพัฒนาชุมชน</li>
+            </ul>
+          </div>
+
+          <div class="program-card-footer">
+            <a href="program-detail.html?id=b-pa" class="btn-card-detail">ดูรายละเอียด <i class="fa-solid fa-arrow-right"></i></a>
+            <a href="https://lams.surat.psu.ac.th/UserFiles/file/%E0%B9%80%E0%B8%A5%E0%B9%88%E0%B8%A1%E0%B8%AB%E0%B8%A5%E0%B8%B1%E0%B8%81%E0%B8%AA%E0%B8%B9%E0%B8%95%E0%B8%A3/2569/B.P.A.%2069.pdf" target="_blank" rel="noopener noreferrer" class="btn-card-pdf" title="ดาวน์โหลดเล่มหลักสูตร รหัส 69 (PDF)"><i class="fa-solid fa-file-pdf"></i> เล่ม 69</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 6: ภาษาอังกฤษเพื่อการสื่อสารทางธุรกิจ -->
+      <article class="program-card-item" data-category="bachelor" data-id="ba-eng" data-wp-post-type="program">
+        <div class="program-card-thumb" style="background-image: url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=800&q=80');">
+          <div class="program-card-badges">
+            <span class="badge-pill badge-hot">ภาษาสากล</span>
+            <span class="badge-pill badge-accent">ปริญญาตรี</span>
+          </div>
+        </div>
+        <div class="program-card-body">
+          <div class="program-degree-code"><i class="fa-solid fa-comments"></i> ศศ.บ. (ภาษาอังกฤษธุรกิจ)</div>
+          <h2 class="program-card-title">หลักสูตรศิลปศาสตรบัณฑิต สาขาวิชาภาษาอังกฤษเพื่อการสื่อสารทางธุรกิจ</h2>
+          <div class="program-card-title-en">Bachelor of Arts in English for Business Communication</div>
+          
+          <div class="program-meta-strip">
+            <span><i class="fa-regular fa-clock"></i> 4 ปี</span>
+            <span><i class="fa-solid fa-book-open"></i> 128 หน่วยกิต</span>
+            <span><i class="fa-solid fa-location-dot"></i> ม.อ.สุราษฎร์ฯ</span>
+          </div>
+
+          <div class="program-card-tracks">
+            <strong>กลุ่มวิชาเอกเลือกเด่น:</strong>
+            <ul>
+              <li>ภาษาอังกฤษเพื่อการเจรจาต่อรองและการตลาดสากล</li>
+              <li>ภาษาอังกฤษเพื่ออุตสาหกรรมการบริการและการบิน</li>
+            </ul>
+          </div>
+
+          <div class="program-card-footer">
+            <a href="program-detail.html?id=ba-eng" class="btn-card-detail">ดูรายละเอียด <i class="fa-solid fa-arrow-right"></i></a>
+            <a href="https://lams.surat.psu.ac.th/UserFiles/file/%E0%B9%80%E0%B8%A5%E0%B9%88%E0%B8%A1%E0%B8%AB%E0%B8%A5%E0%B8%B1%E0%B8%81%E0%B8%AA%E0%B8%B9%E0%B8%95%E0%B8%A3/2569/B.A.%20(English)%2069.pdf" target="_blank" rel="noopener noreferrer" class="btn-card-pdf" title="ดาวน์โหลดเล่มหลักสูตร รหัส 69 (PDF)"><i class="fa-solid fa-file-pdf"></i> เล่ม 69</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 7: ภาษาจีนเพื่อการสื่อสารทางธุรกิจ (นานาชาติ) -->
+      <article class="program-card-item" data-category="bachelor" data-id="ba-chinese" data-wp-post-type="program">
+        <div class="program-card-thumb" style="background-image: url('https://images.unsplash.com/photo-1508807526345-15e9b5f4eaff?auto=format&fit=crop&w=800&q=80');">
+          <div class="program-card-badges">
+            <span class="badge-pill badge-hot">เรียนต่อจีน 3+1</span>
+            <span class="badge-pill badge-accent">หลักสูตรนานาชาติ</span>
+          </div>
+        </div>
+        <div class="program-card-body">
+          <div class="program-degree-code"><i class="fa-solid fa-earth-asia"></i> ศศ.บ. ภาษาจีนธุรกิจ หลักสูตรนานาชาติ</div>
+          <h2 class="program-card-title">หลักสูตรศิลปศาสตรบัณฑิต สาขาวิชาภาษาจีนเพื่อการสื่อสารทางธุรกิจ หลักสูตรนานาชาติ</h2>
+          <div class="program-card-title-en">Bachelor of Arts in Chinese for Business Communication (International)</div>
+          
+          <div class="program-meta-strip">
+            <span><i class="fa-regular fa-clock"></i> 4 ปี (3+1)</span>
+            <span><i class="fa-solid fa-book-open"></i> 128 หน่วยกิต</span>
+            <span><i class="fa-solid fa-plane"></i> ม.อ. + จีน</span>
+          </div>
+
+          <div class="program-card-tracks">
+            <strong>กลุ่มวิชาเอกเลือกเด่น:</strong>
+            <ul>
+              <li>การค้าระหว่างประเทศและ E-Commerce จีน-อาเซียน</li>
+              <li>ภาษาจีนเพื่อธุรกิจการท่องเที่ยวและการบริการสากล</li>
+            </ul>
+          </div>
+
+          <div class="program-card-footer">
+            <a href="program-detail.html?id=ba-chinese" class="btn-card-detail">ดูรายละเอียด <i class="fa-solid fa-arrow-right"></i></a>
+            <a href="https://lams.surat.psu.ac.th/UserFiles/file/%E0%B9%80%E0%B8%A5%E0%B9%88%E0%B8%A1%E0%B8%AB%E0%B8%A5%E0%B8%B1%E0%B8%81%E0%B8%AA%E0%B8%B9%E0%B8%95%E0%B8%A3/2569/B.A.%20(Chinese)%2069.pdf" target="_blank" rel="noopener noreferrer" class="btn-card-pdf" title="ดาวน์โหลดเล่มหลักสูตร รหัส 69 (PDF)"><i class="fa-solid fa-file-pdf"></i> เล่ม 69</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 8: บริหารธุรกิจมหาบัณฑิต (MBA) -->
+      <article class="program-card-item" data-category="master" data-id="mba" data-wp-post-type="program">
+        <div class="program-card-thumb" style="background-image: url('https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&w=800&q=80');">
+          <div class="program-card-badges">
+            <span class="badge-pill badge-gold">ยกระดับผู้บริหาร</span>
+            <span class="badge-pill badge-gold">ปริญญาโท MBA</span>
+          </div>
+        </div>
+        <div class="program-card-body">
+          <div class="program-degree-code"><i class="fa-solid fa-graduation-cap"></i> บธ.ม. บริหารธุรกิจมหาบัณฑิต</div>
+          <h2 class="program-card-title">หลักสูตรบริหารธุรกิจมหาบัณฑิต</h2>
+          <div class="program-card-title-en">Master of Business Administration Program (Weekend Study)</div>
+          
+          <div class="program-meta-strip">
+            <span><i class="fa-regular fa-clock"></i> 2 ปี (เสาร์-อาทิตย์)</span>
+            <span><i class="fa-solid fa-book-open"></i> 36 หน่วยกิต</span>
+            <span><i class="fa-solid fa-user-tie"></i> แผน ก / ข</span>
+          </div>
+
+          <div class="program-card-tracks">
+            <strong>กลุ่มวิชาเอกเลือกเด่น:</strong>
+            <ul>
+              <li>การบริหารธุรกิจเชิงกลยุทธ์และการเปลี่ยนผ่านสู่ดิจิทัล (Digital Transformation)</li>
+              <li>การเป็นผู้ประกอบการและการจัดการนวัตกรรมธุรกิจ (Innovation & Entrepreneurship)</li>
+            </ul>
+          </div>
+
+          <div class="program-card-footer">
+            <a href="program-detail.html?id=mba" class="btn-card-detail">ดูรายละเอียด <i class="fa-solid fa-arrow-right"></i></a>
+            <a href="https://grad.surat.psu.ac.th/" target="_blank" rel="noopener noreferrer" class="btn-card-pdf" style="background: rgba(245, 158, 11, 0.15); border-color: var(--theme-amber); color: var(--theme-amber-light); font-weight: 600;" title="สมัครเรียนผ่านระบบรับสมัครบัณฑิตศึกษา ม.อ."><i class="fa-solid fa-arrow-up-right-from-square"></i> สมัคร MBA</a>
+            <a href="https://lams.surat.psu.ac.th/UserFiles/file/%E0%B9%80%E0%B8%A5%E0%B9%88%E0%B8%A1%E0%B8%AB%E0%B8%A5%E0%B8%B1%E0%B8%81%E0%B8%AA%E0%B8%B9%E0%B8%95%E0%B8%A3/2569/MBA%2069.pdf" target="_blank" rel="noopener noreferrer" class="btn-card-pdf" title="ดาวน์โหลดเล่มหลักสูตร รหัส 69 (PDF)"><i class="fa-solid fa-file-pdf"></i> เล่ม 69</a>
+          </div>
+        </div>
+      </article>
+
+    </div>
+
+    <!-- Empty State -->
+    <div class="catalog-empty-state" id="catalog-empty-state">
+      <i class="fa-solid fa-magnifying-glass"></i>
+      <h3>ไม่พบหลักสูตรที่ตรงกับคำค้นหา</h3>
+      <p>ลองพิมพ์คำค้นหาอื่น เช่น "การจัดการ", "บัญชี", "ภาษาจีน", "การท่องเที่ยว", "MBA" หรือเลือกแท็บ "ทั้งหมด"</p>
+    </div>
+
+    <!-- Official Notice Box -->
+    <div class="notice-box" style="margin-top: 40px;">
+      <i class="fa-solid fa-circle-info"></i> <strong>หมายเหตุเกี่ยวกับค่าธรรมเนียมและระเบียบการ:</strong> รายละเอียดค่าธรรมเนียมการศึกษา ทุนการศึกษา ม.อ. และกองทุนกู้ยืม กยศ. อยู่ระหว่างการจัดเตรียมประกาศระเบียบการอย่างเป็นทางการสำหรับปีการศึกษาใหม่ ท่านสามารถติดตามประกาศรับสมัครได้ที่ <a href="https://entrance.surat.psu.ac.th/" target="_blank" rel="noopener noreferrer" style="color: var(--theme-amber); font-weight: 600; text-decoration: underline;">ระบบรับสมัครนักศึกษา ม.อ. สุราษฎร์ธานี ➔</a>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer id="about">
+    <div class="footer-flex-bu">
+      <div class="footer-slogan">
+        <i class="fa-solid fa-gem" style="color: var(--theme-red-bright);"></i>
+        สร้างนวัตกรรมธุรกิจ <span>+ ขับเคลื่อนด้วยภาษา</span>
+      </div>
+      <div>&copy; 2026 Faculty of Liberal Arts and Management Sciences, PSU Surat Thani. All Rights Reserved.</div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="../js/programs-data.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const tabs = document.querySelectorAll('.catalog-tab');
+      const searchInput = document.getElementById('program-search-input');
+      const cards = document.querySelectorAll('.program-card-item');
+      const emptyState = document.getElementById('catalog-empty-state');
+
+      // Check URL parameters (e.g. ?level=bachelor or ?level=master)
+      const urlParams = new URLSearchParams(window.location.search);
+      const initialLevel = urlParams.get('level');
+      if (initialLevel) {
+        tabs.forEach(tab => {
+          if (tab.getAttribute('data-filter') === initialLevel) {
+            tabs.forEach(t => t.classList.remove('active'));
+            tab.classList.add('active');
+          }
+        });
+      }
+
+      function filterPrograms() {
+        const activeTab = document.querySelector('.catalog-tab.active');
+        const filterCategory = activeTab ? activeTab.getAttribute('data-filter') : 'all';
+        const query = searchInput.value.toLowerCase().trim();
+
+        let visibleCount = 0;
+
+        cards.forEach(card => {
+          const cardCategory = card.getAttribute('data-category');
+          const cardText = card.textContent.toLowerCase();
+          
+          const matchesCategory = (filterCategory === 'all' || cardCategory === filterCategory);
+          const matchesQuery = !query || cardText.includes(query);
+
+          if (matchesCategory && matchesQuery) {
+            card.style.display = 'flex';
+            visibleCount++;
+          } else {
+            card.style.display = 'none';
+          }
+        });
+
+        if (visibleCount === 0) {
+          emptyState.style.display = 'block';
+        } else {
+          emptyState.style.display = 'none';
+        }
+      }
+
+      // Tab click handler
+      tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          tabs.forEach(t => {
+            t.classList.remove('active');
+            t.setAttribute('aria-selected', 'false');
+          });
+          tab.classList.add('active');
+          tab.setAttribute('aria-selected', 'true');
+          filterPrograms();
+        });
+      });
+
+      // Search input handler
+      if (searchInput) {
+        searchInput.addEventListener('input', filterPrograms);
+      }
+
+      // Initial filter run
+      filterPrograms();
+    });
+  </script>
+  <script src="../js/main.js"></script>
+</body>
+</html>

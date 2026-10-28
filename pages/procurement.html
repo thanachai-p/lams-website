@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ข่าวจัดซื้อจัดจ้างและพัสดุ | คณะศิลปศาสตร์และวิทยาการจัดการ ม.อ.สุราษฎร์ธานี (LAMS PSU)</title>
+  <meta name="description" content="ประกาศจัดซื้อจัดจ้าง ประกวดราคาอิเล็กทรอนิกส์ (e-Bidding) ราคากลาง ผลผู้ชนะ และแผนจัดซื้อจัดจ้าง คณะศิลปศาสตร์และวิทยาการจัดการ มหาวิทยาลัยสงขลานครินทร์ วิทยาเขตสุราษฎร์ธานี">
+  
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- CSS Stylesheets -->
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/pages.css">
+</head>
+<body class="subpage subpage-procurement">
+
+  <!-- Header Navigation Bar -->
+  <header class="header-bu">
+    <a href="../index.html" class="logo-bu-box">
+      <div class="logo-bu-icon">ม.อ.</div>
+      <div>LAMS PSU SURAT THANI</div>
+    </a>
+
+    <ul class="nav-links-bu">
+      <li><a href="programs.html">หลักสูตร</a></li>
+      <li><a href="../index.html#campus">บรรยากาศแคมปัส</a></li>
+      <li><a href="news.html">รอบรั้ว ม.อ.สุราษฎร์ฯ</a></li>
+      <li><a href="about.html">เกี่ยวกับคณะ LAMS</a></li>
+      <li class="mobile-only-staff"><a href="staff.html"><i class="fa-solid fa-user-tie"></i> สำหรับบุคลากร</a></li>
+    </ul>
+
+    <div class="header-right">
+      <a href="staff.html" class="btn-staff-portal" title="ระบบสารสนเทศและบริการสำหรับบุคลากร">
+        <i class="fa-solid fa-user-tie"></i> สำหรับบุคลากร
+      </a>
+      <div class="lang-switch" role="group" aria-label="เลือกภาษา / Select Language">
+        <i class="fa-solid fa-globe lang-globe-icon"></i>
+        <button type="button" class="lang-switch-btn active" data-lang="th" aria-pressed="true">TH</button>
+        <button type="button" class="lang-switch-btn" data-lang="en" aria-pressed="false">EN</button>
+      </div>
+      <a href="https://entrance.surat.psu.ac.th/" target="_blank" rel="noopener noreferrer" class="btn-apply-sparkle">
+        สมัครเรียน TCAS <i class="fa-solid fa-arrow-up-right-from-square" style="font-size: 0.8rem; margin-left: 4px;"></i>
+      </a>
+      <button class="mobile-menu-btn" aria-label="เปิดเมนู">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- Subpage Hero -->
+  <section class="subpage-hero">
+    <div class="subpage-hero-container">
+      <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+        <a href="../index.html"><i class="fa-solid fa-house"></i> หน้าแรก</a>
+        <span class="breadcrumb-separator">/</span>
+        <span class="current">ข่าวจัดซื้อจัดจ้างและพัสดุ</span>
+      </nav>
+
+      <div class="subpage-tag"><i class="fa-solid fa-file-contract"></i> PROCUREMENT & E-GP TRANSPARENCY</div>
+      <h1 class="subpage-title">ประกาศจัดซื้อจัดจ้างและพัสดุ คณะ LAMS</h1>
+      <p class="subpage-desc">ศูนย์รวมประกาศประกวดราคาอิเล็กทรอนิกส์ (e-Bidding) ราคากลาง ประกาศผลผู้ชนะการเสนอราคา และแผนการจัดซื้อจัดจ้างประจำปีงบประมาณ คณะศิลปศาสตร์และวิทยาการจัดการ</p>
+    </div>
+  </section>
+
+  <!-- Toolbar Filters -->
+  <div class="catalog-toolbar">
+    <div class="catalog-filters">
+      <button class="catalog-tab active" data-filter="all"><i class="fa-solid fa-list-check"></i> ทั้งหมด (6)</button>
+      <button class="catalog-tab" data-filter="ebidding"><i class="fa-solid fa-gavel"></i> ประกวดราคา e-Bidding (2)</button>
+      <button class="catalog-tab" data-filter="price"><i class="fa-solid fa-coins"></i> ประกาศราคากลาง (1)</button>
+      <button class="catalog-tab" data-filter="winner"><i class="fa-solid fa-circle-check"></i> ประกาศผลผู้ชนะ (1)</button>
+      <button class="catalog-tab" data-filter="plan"><i class="fa-solid fa-calendar-days"></i> แผนจัดซื้อจัดจ้าง (2)</button>
+    </div>
+
+    <div class="catalog-search-box">
+      <i class="fa-solid fa-magnifying-glass"></i>
+      <input type="text" id="procure-search-input" class="catalog-search-input" placeholder="ค้นหาชื่อประกาศ โครงการ หรือเลขที่..." aria-label="ค้นหาประกาศ">
+    </div>
+  </div>
+
+  <!-- Main Procurement List -->
+  <main class="programs-container">
+    <div class="procurement-full-list" id="procurement-list">
+      
+      <!-- Item 1 -->
+      <div class="procurement-item" data-category="ebidding" style="background: var(--surface-card); border: 1px solid var(--border-card); border-radius: 14px; padding: 22px; display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap;">
+        <div class="procurement-item-left" style="flex: 1; min-width: 300px;">
+          <span class="procurement-badge badge-ebidding">e-Bidding</span>
+          <div class="procurement-item-title" style="margin: 8px 0;">
+            <a href="#" style="color: var(--text-primary); font-size: 1.15rem; font-weight: 600; text-decoration: none; line-height: 1.5;">ประกวดราคาจ้างปรับปรุงห้องปฏิบัติการทางภาษาและคอมพิวเตอร์ ด้วยวิธีประกวดราคาอิเล็กทรอนิกส์ (e-Bidding) ประจำปี 2569</a>
+          </div>
+          <div class="procurement-meta">
+            <span><i class="fa-regular fa-calendar"></i> เผยแพร่: 08 ต.ค. 2569</span>
+            <span><i class="fa-solid fa-coins"></i> ราคากลาง: 1,850,000 บาท</span>
+            <span><i class="fa-regular fa-clock"></i> สิ้นสุดรับซอง: 25 ต.ค. 2569</span>
+          </div>
+        </div>
+        <div class="procurement-item-right">
+          <a href="#" class="btn-download-pdf" title="ดาวน์โหลดเอกสารประกาศ PDF">
+            <i class="fa-solid fa-file-pdf"></i> เอกสารแนบ (PDF)
+          </a>
+        </div>
+      </div>
+
+      <!-- Item 2 -->
+      <div class="procurement-item" data-category="price" style="background: var(--surface-card); border: 1px solid var(--border-card); border-radius: 14px; padding: 22px; display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap;">
+        <div class="procurement-item-left" style="flex: 1; min-width: 300px;">
+          <span class="procurement-badge badge-price">ประกาศราคากลาง</span>
+          <div class="procurement-item-title" style="margin: 8px 0;">
+            <a href="#" style="color: var(--text-primary); font-size: 1.15rem; font-weight: 600; text-decoration: none; line-height: 1.5;">ประกาศราคากลาง โครงการปรับปรุงพื้นที่ Co-Working Space นวัตกรรมธุรกิจ อาคารเรียนรวม LAMS</a>
+          </div>
+          <div class="procurement-meta">
+            <span><i class="fa-regular fa-calendar"></i> เผยแพร่: 02 ต.ค. 2569</span>
+            <span><i class="fa-solid fa-coins"></i> ราคากลาง: 920,000 บาท</span>
+            <span><i class="fa-solid fa-building-columns"></i> งบประมาณเงินรายได้ 2569</span>
+          </div>
+        </div>
+        <div class="procurement-item-right">
+          <a href="#" class="btn-download-pdf" title="ดาวน์โหลดเอกสารประกาศ PDF">
+            <i class="fa-solid fa-file-pdf"></i> เอกสารแนบ (PDF)
+          </a>
+        </div>
+      </div>
+
+      <!-- Item 3 -->
+      <div class="procurement-item" data-category="winner" style="background: var(--surface-card); border: 1px solid var(--border-card); border-radius: 14px; padding: 22px; display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap;">
+        <div class="procurement-item-left" style="flex: 1; min-width: 300px;">
+          <span class="procurement-badge badge-winner">ประกาศผลผู้ชนะ</span>
+          <div class="procurement-item-title" style="margin: 8px 0;">
+            <a href="#" style="color: var(--text-primary); font-size: 1.15rem; font-weight: 600; text-decoration: none; line-height: 1.5;">ประกาศผู้ชนะการเสนอราคา จ้างเหมาบริการบำรุงรักษาระบบเครือข่ายและเครื่องแม่ข่าย ประจำปีงบประมาณ 2569</a>
+          </div>
+          <div class="procurement-meta">
+            <span><i class="fa-regular fa-calendar"></i> เผยแพร่: 28 ก.ย. 2569</span>
+            <span><i class="fa-solid fa-coins"></i> วงเงินสัญญา: 450,000 บาท</span>
+            <span><i class="fa-solid fa-circle-check"></i> ดำเนินการเสร็จสิ้น</span>
+          </div>
+        </div>
+        <div class="procurement-item-right">
+          <a href="#" class="btn-download-pdf" title="ดาวน์โหลดเอกสารประกาศ PDF">
+            <i class="fa-solid fa-file-pdf"></i> เอกสารแนบ (PDF)
+          </a>
+        </div>
+      </div>
+
+      <!-- Item 4 -->
+      <div class="procurement-item" data-category="plan" style="background: var(--surface-card); border: 1px solid var(--border-card); border-radius: 14px; padding: 22px; display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap;">
+        <div class="procurement-item-left" style="flex: 1; min-width: 300px;">
+          <span class="procurement-badge badge-plan">แผนจัดซื้อจัดจ้าง</span>
+          <div class="procurement-item-title" style="margin: 8px 0;">
+            <a href="#" style="color: var(--text-primary); font-size: 1.15rem; font-weight: 600; text-decoration: none; line-height: 1.5;">ประกาศเผยแพร่แผนการจัดซื้อจัดจ้าง ประจำปีงบประมาณ พ.ศ. 2569 โครงการพัฒนาระบบนิเวศการเรียนรู้ดิจิทัล</a>
+          </div>
+          <div class="procurement-meta">
+            <span><i class="fa-regular fa-calendar"></i> เผยแพร่: 20 ก.ย. 2569</span>
+            <span><i class="fa-solid fa-coins"></i> งบประมาณรวม: 2,400,000 บาท</span>
+            <span><i class="fa-solid fa-file-lines"></i> แผนประจำปี 2569</span>
+          </div>
+        </div>
+        <div class="procurement-item-right">
+          <a href="#" class="btn-download-pdf" title="ดาวน์โหลดเอกสารประกาศ PDF">
+            <i class="fa-solid fa-file-pdf"></i> เอกสารแนบ (PDF)
+          </a>
+        </div>
+      </div>
+
+      <!-- Item 5 (จากฐานข้อมูลจริง 2568) -->
+      <div class="procurement-item" data-category="plan" style="background: var(--surface-card); border: 1px solid var(--border-card); border-radius: 14px; padding: 22px; display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap;">
+        <div class="procurement-item-left" style="flex: 1; min-width: 300px;">
+          <span class="procurement-badge badge-plan">แผนจัดซื้อจัดจ้าง</span>
+          <div class="procurement-item-title" style="margin: 8px 0;">
+            <a href="#" style="color: var(--text-primary); font-size: 1.15rem; font-weight: 600; text-decoration: none; line-height: 1.5;">ประกาศคณะศิลปศาสตร์และวิทยาการจัดการ เรื่อง แผนการจัดซื้อจัดจ้าง ประจำปีงบประมาณ พ.ศ. 2568</a>
+          </div>
+          <div class="procurement-meta">
+            <span><i class="fa-regular fa-calendar"></i> เผยแพร่: 15 ก.ย. 2567</span>
+            <span><i class="fa-solid fa-file-lines"></i> แผนประจำปี 2568</span>
+            <span><i class="fa-solid fa-check"></i> ดำเนินการแล้ว</span>
+          </div>
+        </div>
+        <div class="procurement-item-right">
+          <a href="#" class="btn-download-pdf" title="ดาวน์โหลดเอกสารประกาศ PDF">
+            <i class="fa-solid fa-file-pdf"></i> เอกสารแนบ (PDF)
+          </a>
+        </div>
+      </div>
+
+      <!-- Item 6 (จากฐานข้อมูลจริง e-Bidding เดินทางศึกษาโครงการจีน) -->
+      <div class="procurement-item" data-category="ebidding" style="background: var(--surface-card); border: 1px solid var(--border-card); border-radius: 14px; padding: 22px; display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap;">
+        <div class="procurement-item-left" style="flex: 1; min-width: 300px;">
+          <span class="procurement-badge badge-ebidding">e-Bidding</span>
+          <div class="procurement-item-title" style="margin: 8px 0;">
+            <a href="#" style="color: var(--text-primary); font-size: 1.15rem; font-weight: 600; text-decoration: none; line-height: 1.5;">ประกวดราคาจ้างเหมาบริการพาหนะเดินทาง (ตั๋วเครื่องบิน) สำหรับโครงการแลกเปลี่ยนนักศึกษา 3+1 สาขาวิชาภาษาจีนเพื่อการสื่อสารทางธุรกิจ (นานาชาติ)</a>
+          </div>
+          <div class="procurement-meta">
+            <span><i class="fa-regular fa-calendar"></i> เผยแพร่: 05 ก.ค. 2567</span>
+            <span><i class="fa-solid fa-coins"></i> ราคากลาง: 890,000 บาท</span>
+            <span><i class="fa-solid fa-plane"></i> เดินทางศึกษา ณ ประเทศจีน</span>
+          </div>
+        </div>
+        <div class="procurement-item-right">
+          <a href="#" class="btn-download-pdf" title="ดาวน์โหลดเอกสารประกาศ PDF">
+            <i class="fa-solid fa-file-pdf"></i> เอกสารแนบ (PDF)
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Empty State -->
+    <div class="catalog-empty-state" id="procure-empty-state" style="margin-top: 25px;">
+      <i class="fa-solid fa-magnifying-glass"></i>
+      <h3>ไม่พบประกาศจัดซื้อจัดจ้างที่ค้นหา</h3>
+      <p>ลองค้นหาด้วยคำอื่น หรือเลือกแท็บ "ทั้งหมด"</p>
+    </div>
+
+    <!-- Official e-GP Link -->
+    <div class="procurement-egp-note" style="margin-top: 35px;">
+      <i class="fa-solid fa-circle-info"></i> คณะศิลปศาสตร์และวิทยาการจัดการ ดำเนินการจัดซื้อจัดจ้างตามระเบียบกระทรวงการคลังฯ ผ่านระบบการจัดซื้อจัดจ้างภาครัฐด้วยอิเล็กทรอนิกส์ 
+      <a href="http://www.gprocurement.go.th" target="_blank" rel="noopener noreferrer">ระบบ e-GP กรมบัญชีกลาง ➔</a>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer id="about">
+    <div class="footer-flex-bu">
+      <div class="footer-slogan">
+        <i class="fa-solid fa-gem" style="color: var(--theme-red-bright);"></i>
+        สร้างนวัตกรรมธุรกิจ <span>+ ขับเคลื่อนด้วยภาษา</span>
+      </div>
+      <div>&copy; 2026 Faculty of Liberal Arts and Management Sciences, PSU Surat Thani. All Rights Reserved.</div>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const tabs = document.querySelectorAll('.catalog-tab');
+      const searchInput = document.getElementById('procure-search-input');
+      const items = document.querySelectorAll('.procurement-item');
+      const emptyState = document.getElementById('procure-empty-state');
+
+      function filterProcure() {
+        const activeTab = document.querySelector('.catalog-tab.active');
+        const cat = activeTab ? activeTab.getAttribute('data-filter') : 'all';
+        const q = searchInput.value.toLowerCase().trim();
+
+        let visibleCount = 0;
+        items.forEach(it => {
+          const itemCat = it.getAttribute('data-category');
+          const text = it.textContent.toLowerCase();
+          const matchCat = (cat === 'all' || itemCat === cat);
+          const matchQ = !q || text.includes(q);
+
+          if (matchCat && matchQ) {
+            it.style.display = 'flex';
+            visibleCount++;
+          } else {
+            it.style.display = 'none';
+          }
+        });
+
+        emptyState.style.display = visibleCount === 0 ? 'block' : 'none';
+      }
+
+      tabs.forEach(t => {
+        t.addEventListener('click', () => {
+          tabs.forEach(item => item.classList.remove('active'));
+          t.classList.add('active');
+          filterProcure();
+        });
+      });
+
+      if (searchInput) searchInput.addEventListener('input', filterProcure);
+    });
+  </script>
+  <script src="../js/main.js"></script>
+</body>
+</html>

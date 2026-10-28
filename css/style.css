@@ -1,0 +1,208 @@
+/**
+ * LAMS PSU SURAT THANI 2026 - CORE STYLESHEET
+ * Faculty of Liberal Arts and Management Sciences, Prince of Songkla University
+ * Design Architecture: Crimson & Burgundy Athletic Command Center (REDVOLUTION Aesthetic)
+ */
+
+:root {
+  color-scheme: dark;
+
+  /* ==========================================================================
+     1. Semantic Red & Crimson Color Tokens (REDVOLUTION Aesthetic)
+     ========================================================================== */
+  --theme-red-deep: #450A0A;        /* Deep rich dark red / burgundy */
+  --theme-red-dark: #7F1D1D;        /* Dark wine / crimson secondary */
+  --theme-red-primary: #B91C1C;     /* Strong primary crimson (WCAG AAA) */
+  --theme-red-bright: #DC2626;      /* Vibrant athletic ruby red */
+  --theme-red-light: #F87171;       /* Rose highlight / light accent */
+  --theme-red-pale: #FECDD3;        /* Soft pale rose for subtle tags & selections */
+
+  --theme-ruby: #991B1B;            /* Deep ruby core */
+  --theme-wine: #280A11;            /* Dark wine tone for card surfaces */
+
+  /* Flame & Amber Accents (Matches the gold torch / badge accents) */
+  --theme-amber: #F59E0B;
+  --theme-amber-light: #FBBF24;
+  --theme-amber-dark: #D97706;
+
+  /* Success & Status (Preserved Emerald for complete/success badges) */
+  --theme-success: #10B981;
+  --theme-success-dark: #047857;
+
+  /* ==========================================================================
+     2. Surface & Background Tokens (Layered Burgundy Noir)
+     ========================================================================== */
+  --surface-page: #140406;          /* Near-black burgundy body background */
+  --surface-header: #0E0204;        /* Deep header background */
+  --surface-footer: #0A0103;        /* Deepest footer background */
+  --surface-card: #22080D;          /* Rich wine card surface */
+  --surface-card-raised: #280A11;   /* Raised card surface on hover/emphasis */
+  --surface-band: #2E0D13;          /* Dark burgundy slogan band */
+  --surface-overlay: rgba(14, 2, 4, 0.94);
+
+  /* ==========================================================================
+     3. Text & Typography Tokens
+     ========================================================================== */
+  --text-primary: #FFFFFF;          /* Pure white high contrast headers */
+  --text-secondary: #FECDD3;        /* Soft rose tinted secondary text */
+  --text-muted: #CBD5E1;            /* Clean light slate muted text */
+  --text-subtle: #FCA5A5;           /* Light coral for subtle meta tags */
+  --text-dark: #1A0508;             /* Dark text for amber badges */
+
+  /* ==========================================================================
+     4. Borders, Focus & Atmospheric Glow Tokens
+     ========================================================================== */
+  --border-subtle: rgba(248, 113, 113, 0.16);
+  --border-card: rgba(248, 113, 113, 0.22);
+  --border-strong: rgba(252, 165, 165, 0.38);
+  --border-focus: #FBBF24;          /* Warm amber focus indicator */
+
+  --theme-red-glow: rgba(220, 38, 38, 0.35);
+  --theme-red-glow-strong: rgba(220, 38, 38, 0.55);
+  --theme-amber-glow: rgba(245, 158, 11, 0.35);
+
+  /* ==========================================================================
+     5. Backward-Compatible Aliases (Instant System Parity)
+     ========================================================================== */
+  --psu-navy: var(--theme-red-deep);
+  --psu-blue: var(--theme-red-dark);
+  --psu-teal: var(--theme-red-bright);
+  --psu-cyan: var(--theme-red-light);
+  --psu-gold: var(--theme-amber);
+  --psu-gold-dark: var(--theme-amber-dark);
+
+  --bu-dark-bg: var(--surface-page);
+  --bu-card-dark: var(--surface-card);
+  --bu-header-bg: var(--surface-header);
+  --bu-gray-band: var(--surface-band);
+  --bu-footer-bg: var(--surface-footer);
+  
+  --text-white: var(--text-primary);
+  --text-light: var(--text-muted);
+
+  /* Typography & Layout Tokens */
+  --font-family: 'Prompt', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --container-max-width: 1280px;
+  --section-padding: 85px 5%;
+  --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Global Reset */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-family);
+  background:
+    radial-gradient(
+      circle at 50% -20%,
+      rgba(127, 29, 29, 0.25),
+      transparent 50%
+    ),
+    var(--surface-page);
+  background-color: var(--surface-page);
+  color: var(--text-white);
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--theme-red-pale);
+  color: var(--theme-red-deep);
+}
+
+button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible {
+  outline: 2px solid var(--border-focus);
+  outline-offset: 2px;
+}
+
+button, input, select, textarea {
+  font-family: inherit;
+}
+
+/* Typography Presets */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 800;
+  color: var(--text-white);
+  line-height: 1.25;
+}
+
+p {
+  color: var(--text-light);
+  font-weight: 300;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: var(--transition-smooth);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Utility Containers */
+.container {
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.text-center { text-align: center; }
+.text-cyan { color: var(--psu-cyan); }
+.text-teal { color: var(--psu-teal); }
+.text-gold { color: var(--psu-gold); }
+.text-red { color: var(--theme-red-bright); }
+.text-crimson { color: var(--theme-red-light); }
+
+/* Floating Messenger Button */
+.fb-messenger-float {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  z-index: 999;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: #0084FF;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.7rem;
+  box-shadow: 0 10px 25px rgba(0, 132, 255, 0.4);
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+
+.fb-messenger-float:hover {
+  transform: scale(1.08);
+}
+
+/* Base Responsive Rules */
+@media (max-width: 768px) {
+  html { font-size: 15px; }
+  :root { --section-padding: 60px 5%; }
+}
+
+/* Accessibility: Motion Safeguard */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
