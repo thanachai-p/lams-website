@@ -20,18 +20,37 @@ document.addEventListener('DOMContentLoaded', () => {
   const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
   const navLinks = document.querySelector('.nav-links-bu');
   if (mobileMenuBtn && navLinks) {
-    mobileMenuBtn.addEventListener('click', () => {
-      const isVisible = navLinks.style.display === 'flex';
-      navLinks.style.display = isVisible ? 'none' : 'flex';
-      if (!isVisible) {
-        navLinks.style.flexDirection = 'column';
-        navLinks.style.position = 'absolute';
-        navLinks.style.top = '100%';
-        navLinks.style.left = '0';
-        navLinks.style.width = '100%';
-        navLinks.style.background = 'var(--bu-header-bg)';
-        navLinks.style.padding = '20px';
-        navLinks.style.borderBottom = '1px solid var(--border-subtle)';
+    function closeMobileMenu() {
+      navLinks.classList.remove('active');
+      mobileMenuBtn.setAttribute('aria-expanded', 'false');
+    }
+
+    mobileMenuBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isOpen = navLinks.classList.toggle('active');
+      mobileMenuBtn.setAttribute('aria-expanded', String(isOpen));
+    });
+
+    // Close mobile nav when clicking any link
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        if (window.innerWidth <= 992) {
+          closeMobileMenu();
+        }
+      });
+    });
+
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', (e) => {
+      if (navLinks.classList.contains('active') && !navLinks.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+        closeMobileMenu();
+      }
+    });
+
+    // Reset state on window resize across breakpoint
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 992 && navLinks.classList.contains('active')) {
+        closeMobileMenu();
       }
     });
   }
@@ -315,57 +334,41 @@ document.addEventListener('DOMContentLoaded', () => {
         videoNative.style.display = 'none';
       }
 
-      const isLocalFile = window.location.protocol === 'file:';
+      // Mode B: Interactive Video Player via Iframe (TikTok 9:16 vertical & YouTube 16:9 widescreen)
+      if (videoShowcase) videoShowcase.style.display = 'none';
+      if (videoIframe) {
+        videoIframe.style.display = 'block';
 
-      // Mode B: Local file:// or TikTok -> Showcase Player (Zero Error 153, Zero Broken Frames)
-      if (isLocalFile || provider === 'tiktok') {
-        if (videoIframe) {
-          videoIframe.style.display = 'none';
-          videoIframe.src = '';
-        }
-        if (videoShowcase) {
-          videoShowcase.style.display = 'flex';
-          if (videoPoster) {
-            videoPoster.style.backgroundImage = thumbUrl ? `url('${thumbUrl}')` : '';
-            videoPoster.setAttribute('aria-label', `เปิดรับชมวิดีโอ ${title}`);
+        if (provider === 'tiktok') {
+          // TikTok official embedded player (plays directly inside website modal)
+          videoIframe.style.aspectRatio = '9 / 16';
+          videoIframe.style.maxWidth = '360px';
+          videoIframe.style.width = '100%';
+          videoIframe.style.height = 'min(620px, 72vh)';
+          videoIframe.src = `https://www.tiktok.com/player/v1/${videoId}`;
+          if (videoDialog) {
+            videoDialog.style.maxWidth = '440px';
           }
-          if (videoHeroBtn) {
-            videoHeroBtn.href = directUrl;
-          }
-          if (videoHeroIcon) {
-            videoHeroIcon.className = provider === 'tiktok' ? 'fa-brands fa-tiktok' : 'fa-brands fa-youtube';
-            videoHeroIcon.style.color = provider === 'tiktok' ? '#25F4EE' : '#FF0000';
-          }
-          if (videoHeroText) {
-            videoHeroText.textContent = provider === 'tiktok'
-              ? 'เปิดรับชมคลิปบน TikTok ➔'
-              : 'เปิดรับชมวิดีโอบน YouTube ➔';
-          }
-        }
-        if (videoDialog) {
-          videoDialog.style.maxWidth = provider === 'tiktok' ? '540px' : '760px';
-        }
-      } else {
-        // Mode C: Web Server (HTTP/HTTPS) with YouTube Embed
-        if (videoShowcase) videoShowcase.style.display = 'none';
-        if (videoIframe) {
-          videoIframe.style.display = 'block';
+        } else {
+          // YouTube embed player (plays directly inside website modal)
           videoIframe.style.aspectRatio = '16 / 9';
+          videoIframe.style.maxWidth = '100%';
+          videoIframe.style.width = '100%';
           videoIframe.style.height = 'auto';
           videoIframe.src = `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&rel=0`;
+          if (videoDialog) {
+            videoDialog.style.maxWidth = '860px';
+          }
         }
-        if (videoDialog) videoDialog.style.maxWidth = '860px';
       }
     }
 
     videoModal.style.display = 'flex';
     document.body.style.overflow = 'hidden';
 
-    // Accessibility: Focus Hero button or Close button
+    // Accessibility: Focus Close button
     setTimeout(() => {
-      if (videoHeroBtn && videoShowcase && videoShowcase.style.display !== 'none') {
-        videoHeroBtn.focus();
-      } else if (closeVideoModal) {
+      if (closeVideoModal) {
         closeVideoModal.focus();
       }
     }, 60);
@@ -374,7 +377,10 @@ document.addEventListener('DOMContentLoaded', () => {
   function closeCampusVideo() {
     if (!videoModal) return;
     videoModal.style.display = 'none';
-    if (videoIframe) videoIframe.src = '';
+    if (videoIframe) {
+      videoIframe.src = '';
+      videoIframe.style.display = 'none';
+    }
     if (videoNative) {
       try { videoNative.pause(); } catch (e) {}
       videoNative.removeAttribute('src');
