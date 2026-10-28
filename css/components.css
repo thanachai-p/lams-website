@@ -1696,6 +1696,29 @@ footer {
   box-shadow: 0 8px 20px rgba(255, 255, 255, 0.15);
 }
 
+.platform-native .platform-icon {
+  background: rgba(220, 38, 38, 0.15);
+  color: var(--theme-red-bright);
+  border: 1px solid rgba(220, 38, 38, 0.35);
+}
+
+.platform-native:hover {
+  border-color: var(--theme-red-bright);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(220, 38, 38, 0.25);
+}
+
+.btn-share-main,
+.btn-share-quick,
+.share-platform-btn,
+.share-copy-btn,
+.share-dialog-close {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
 .share-copy-container {
   padding: 0 20px 24px;
   display: flex;

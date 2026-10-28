@@ -453,13 +453,14 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 13. Hybrid Social Share System (Native Web Share, In-Page Modal, Centered Popup & Copy Link)
+  // 13. Hybrid Social Share System (In-Page Modal, Mobile Native Share, Centered Popup & Copy Link)
   const btnMainShare = document.getElementById('btnMainShare');
   const btnQuickCopy = document.getElementById('btnQuickCopy');
   const shareNewsModal = document.getElementById('shareNewsModal');
   const closeShareModal = document.getElementById('closeShareModal');
   const shareUrlInput = document.getElementById('shareUrlInput');
   const btnModalCopyLink = document.getElementById('btnModalCopyLink');
+  const btnShareNative = document.getElementById('btnShareNative');
   const shareToast = document.getElementById('shareToast');
   const shareToastText = document.getElementById('shareToastText');
 
@@ -487,39 +488,64 @@ document.addEventListener('DOMContentLoaded', () => {
     const providerFn = shareProviders[platform];
     if (!providerFn) return;
     const targetUrl = providerFn(currentShareUrl, currentShareTitle);
-    const width = 600;
-    const height = 550;
-    const left = Math.max(0, window.screenX + (window.outerWidth - width) / 2);
-    const top = Math.max(0, window.screenY + (window.outerHeight - height) / 2);
-    const features = `width=${width},height=${height},top=${top},left=${left},scrollbars=yes,resizable=yes`;
-    
-    // Synchronous execution within user gesture prevents Safari popup blocking
-    const popup = window.open(targetUrl, 'lamsSharePopup', features);
-    if (!popup || popup.closed || typeof popup.closed === 'undefined') {
-      showShareToast('เบราว์เซอร์บล็อกหน้าต่างแชร์ กรุณาใช้ปุ่มคัดลอกลิงก์แทน');
+
+    const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent) || 
+                     (window.innerWidth <= 768 && 'ontouchstart' in window);
+
+    if (isMobile) {
+      // On mobile devices, open in new tab directly without desktop window features to bypass Safari popup blocker
+      window.open(targetUrl, '_blank', 'noopener,noreferrer');
     } else {
-      try { popup.opener = null; } catch (e) {}
+      // On desktop, open a neat centered 600x550 window
+      const width = 600;
+      const height = 550;
+      const left = Math.max(0, window.screenX + (window.outerWidth - width) / 2);
+      const top = Math.max(0, window.screenY + (window.outerHeight - height) / 2);
+      const features = `width=${width},height=${height},top=${top},left=${left},scrollbars=yes,resizable=yes`;
+      
+      const popup = window.open(targetUrl, 'lamsSharePopup', features);
+      if (!popup || popup.closed || typeof popup.closed === 'undefined') {
+        window.open(targetUrl, '_blank', 'noopener,noreferrer');
+      } else {
+        try { popup.opener = null; } catch (e) {}
+      }
     }
   }
 
   async function copyNewsUrl(buttonElement) {
     let success = false;
+    const url = currentShareUrl;
+
+    // Method 1: Modern Async Clipboard API
     if (navigator.clipboard && window.isSecureContext) {
       try {
-        await navigator.clipboard.writeText(currentShareUrl);
+        await navigator.clipboard.writeText(url);
         success = true;
       } catch (e) {}
     }
+
+    // Method 2: High-Compatibility Fallback for iOS Safari & Android WebViews
     if (!success) {
       try {
-        const tempInput = document.createElement('input');
-        tempInput.value = currentShareUrl;
-        tempInput.style.position = 'fixed';
-        tempInput.style.opacity = '0';
-        document.body.appendChild(tempInput);
-        tempInput.select();
+        const textarea = document.createElement('textarea');
+        textarea.value = url;
+        textarea.setAttribute('readonly', '');
+        textarea.style.position = 'fixed';
+        textarea.style.top = '0';
+        textarea.style.left = '0';
+        textarea.style.width = '2em';
+        textarea.style.height = '2em';
+        textarea.style.padding = '0';
+        textarea.style.border = 'none';
+        textarea.style.outline = 'none';
+        textarea.style.boxShadow = 'none';
+        textarea.style.background = 'transparent';
+        document.body.appendChild(textarea);
+        textarea.focus();
+        textarea.select();
+        textarea.setSelectionRange(0, url.length);
         success = document.execCommand('copy');
-        document.body.removeChild(tempInput);
+        document.body.removeChild(textarea);
       } catch (e) {}
     }
 
@@ -535,7 +561,12 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 2000);
       }
     } else {
-      showShareToast('ไม่สามารถคัดลอกได้อัตโนมัติ กรุณากดเลือกในช่องข้อความ');
+      openShareModal();
+      if (shareUrlInput) {
+        shareUrlInput.focus();
+        shareUrlInput.select();
+      }
+      showShareToast('กรุณากดคัดลอกจากกล่องข้อความ');
     }
   }
 
@@ -544,6 +575,12 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!shareNewsModal) return;
     lastFocusedShareElement = document.activeElement;
     if (shareUrlInput) shareUrlInput.value = currentShareUrl;
+
+    // Show Native Share button in modal if supported by mobile OS
+    if (btnShareNative && typeof navigator.share === 'function') {
+      btnShareNative.style.display = 'flex';
+    }
+
     shareNewsModal.style.display = 'flex';
     document.body.style.overflow = 'hidden';
     setTimeout(() => {
@@ -560,36 +597,30 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+  // 1. Primary Share Button: Always opens In-Page Share Modal directly
   if (btnMainShare) {
-    btnMainShare.addEventListener('click', async () => {
-      const isMobileDevice = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent) || 
-                             (window.innerWidth <= 768 && 'ontouchstart' in window);
-      if (isMobileDevice && typeof navigator.share === 'function') {
-        try {
-          await navigator.share({
-            title: currentShareTitle,
-            text: 'ข่าวสารคณะศิลปศาสตร์และวิทยาการจัดการ ม.อ.สุราษฎร์ธานี',
-            url: currentShareUrl
-          });
-        } catch (err) {
-          if (err.name !== 'AbortError') {
-            openShareModal();
-          }
-        }
-      } else {
-        openShareModal();
-      }
+    btnMainShare.addEventListener('click', (e) => {
+      e.preventDefault();
+      openShareModal();
     });
   }
 
+  // 2. Quick Copy Buttons
   if (btnQuickCopy) {
-    btnQuickCopy.addEventListener('click', () => copyNewsUrl(btnQuickCopy));
+    btnQuickCopy.addEventListener('click', (e) => {
+      e.preventDefault();
+      copyNewsUrl(btnQuickCopy);
+    });
   }
 
   if (btnModalCopyLink) {
-    btnModalCopyLink.addEventListener('click', () => copyNewsUrl(btnModalCopyLink));
+    btnModalCopyLink.addEventListener('click', (e) => {
+      e.preventDefault();
+      copyNewsUrl(btnModalCopyLink);
+    });
   }
 
+  // 3. Social Platform Buttons
   document.querySelectorAll('[data-share]').forEach(btn => {
     btn.addEventListener('click', (e) => {
       e.preventDefault();
@@ -598,6 +629,23 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  // 4. Native OS Share Sheet inside Modal
+  if (btnShareNative) {
+    btnShareNative.addEventListener('click', async (e) => {
+      e.preventDefault();
+      if (typeof navigator.share === 'function') {
+        try {
+          await navigator.share({
+            title: currentShareTitle,
+            text: 'ข่าวสารคณะศิลปศาสตร์และวิทยาการจัดการ ม.อ.สุราษฎร์ธานี',
+            url: currentShareUrl
+          });
+        } catch (err) {}
+      }
+    });
+  }
+
+  // 5. Close Events
   if (closeShareModal) {
     closeShareModal.addEventListener('click', closeShareModalDialog);
   }
