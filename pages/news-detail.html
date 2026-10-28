@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="th">
 <head>
   <meta charset="UTF-8">
@@ -28,9 +28,9 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   
   <!-- CSS Stylesheets -->
-  <link rel="stylesheet" href="../css/style.css?v=20261028_1315">
-  <link rel="stylesheet" href="../css/components.css?v=20261028_1315">
-  <link rel="stylesheet" href="../css/pages.css?v=20261028_1315">
+  <link rel="stylesheet" href="../css/style.css?v=20261028_1345">
+  <link rel="stylesheet" href="../css/components.css?v=20261028_1345">
+  <link rel="stylesheet" href="../css/pages.css?v=20261028_1345">
 </head>
 <body class="subpage subpage-news-detail">
 
@@ -131,14 +131,14 @@
               <i class="fa-regular fa-copy"></i>
               <span class="btn-quick-copy-text">คัดลอกลิงก์</span>
             </button>
-            <!-- Quick Centered Facebook Popup -->
-            <button type="button" class="btn-share-quick btn-quick-fb" data-share="facebook" title="แชร์ลง Facebook (หน้าต่างกึ่งกลางจอ)">
-              <i class="fa-brands fa-facebook"></i>
-            </button>
-            <!-- Quick Centered LINE Popup -->
-            <button type="button" class="btn-share-quick btn-quick-line" data-share="line" title="แชร์ลง LINE (หน้าต่างกึ่งกลางจอ)">
+            <!-- Quick Facebook Share Link -->
+            <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fthanachai-p.github.io%2Flams-website%2Fpages%2Fnews-detail.html" target="_blank" rel="noopener noreferrer" class="btn-share-quick btn-quick-fb" data-share="facebook" title="แชร์ลง Facebook" aria-label="แชร์ลง Facebook">
+              <i class="fa-brands fa-facebook-f"></i>
+            </a>
+            <!-- Quick LINE Share Link -->
+            <a href="https://social-plugins.line.me/lineit/share?url=https%3A%2F%2Fthanachai-p.github.io%2Flams-website%2Fpages%2Fnews-detail.html" target="_blank" rel="noopener noreferrer" class="btn-share-quick btn-quick-line" data-share="line" title="แชร์ลง LINE" aria-label="แชร์ลง LINE">
               <i class="fa-brands fa-line"></i>
-            </button>
+            </a>
           </div>
         </div>
       </div>
@@ -220,18 +220,14 @@
 
       <!-- Social Channels Grid -->
       <div class="share-platforms-grid" id="sharePlatformsGrid">
-        <button type="button" class="share-platform-btn platform-facebook" data-share="facebook">
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fthanachai-p.github.io%2Flams-website%2Fpages%2Fnews-detail.html" target="_blank" rel="noopener noreferrer" class="share-platform-btn platform-facebook" data-share="facebook">
           <div class="platform-icon"><i class="fa-brands fa-facebook-f"></i></div>
           <span class="platform-name">Facebook</span>
-        </button>
-        <button type="button" class="share-platform-btn platform-line" data-share="line">
+        </a>
+        <a href="https://social-plugins.line.me/lineit/share?url=https%3A%2F%2Fthanachai-p.github.io%2Flams-website%2Fpages%2Fnews-detail.html" target="_blank" rel="noopener noreferrer" class="share-platform-btn platform-line" data-share="line">
           <div class="platform-icon"><i class="fa-brands fa-line"></i></div>
           <span class="platform-name">LINE</span>
-        </button>
-        <button type="button" class="share-platform-btn platform-x" data-share="x">
-          <div class="platform-icon"><i class="fa-brands fa-x-twitter"></i></div>
-          <span class="platform-name">X (Twitter)</span>
-        </button>
+        </a>
         <button type="button" id="btnShareNative" class="share-platform-btn platform-native" style="display: none;" title="เปิดแผ่นแชร์ของระบบ">
           <div class="platform-icon"><i class="fa-solid fa-arrow-up-from-bracket"></i></div>
           <span class="platform-name">แชร์ผ่านแอป</span>
@@ -258,6 +254,6 @@
     <span id="shareToastText">คัดลอกลิงก์ข่าวสำเร็จแล้ว!</span>
   </div>
 
-  <script src="../js/main.js?v=20261028_1315"></script>
+  <script src="../js/main.js?v=20261028_1345"></script>
 </body>
 </html>

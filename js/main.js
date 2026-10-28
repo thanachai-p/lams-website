@@ -469,8 +469,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const shareProviders = {
     facebook: url => `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`,
-    line: url => `https://social-plugins.line.me/lineit/share?url=${encodeURIComponent(url)}`,
-    x: (url, title) => `https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}&text=${encodeURIComponent(title)}`
+    line: url => `https://social-plugins.line.me/lineit/share?url=${encodeURIComponent(url)}`
   };
 
   let shareToastTimer = null;
@@ -484,31 +483,22 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 2500);
   }
 
-  function openCenteredShare(platform) {
+  function openCenteredShare(platform, fallbackHref) {
     const providerFn = shareProviders[platform];
-    if (!providerFn) return;
-    const targetUrl = providerFn(currentShareUrl, currentShareTitle);
+    const targetUrl = providerFn ? providerFn(currentShareUrl, currentShareTitle) : (fallbackHref || currentShareUrl);
 
-    const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent) || 
-                     (window.innerWidth <= 768 && 'ontouchstart' in window);
-
-    if (isMobile) {
-      // On mobile devices, open in new tab directly without desktop window features to bypass Safari popup blocker
+    // On desktop, open a neat centered 600x550 window
+    const width = 600;
+    const height = 550;
+    const left = Math.max(0, window.screenX + (window.outerWidth - width) / 2);
+    const top = Math.max(0, window.screenY + (window.outerHeight - height) / 2);
+    const features = `width=${width},height=${height},top=${top},left=${left},scrollbars=yes,resizable=yes,noopener,noreferrer`;
+    
+    const popup = window.open(targetUrl, 'lamsSharePopup', features);
+    if (!popup || popup.closed || typeof popup.closed === 'undefined') {
       window.open(targetUrl, '_blank', 'noopener,noreferrer');
     } else {
-      // On desktop, open a neat centered 600x550 window
-      const width = 600;
-      const height = 550;
-      const left = Math.max(0, window.screenX + (window.outerWidth - width) / 2);
-      const top = Math.max(0, window.screenY + (window.outerHeight - height) / 2);
-      const features = `width=${width},height=${height},top=${top},left=${left},scrollbars=yes,resizable=yes`;
-      
-      const popup = window.open(targetUrl, 'lamsSharePopup', features);
-      if (!popup || popup.closed || typeof popup.closed === 'undefined') {
-        window.open(targetUrl, '_blank', 'noopener,noreferrer');
-      } else {
-        try { popup.opener = null; } catch (e) {}
-      }
+      try { popup.opener = null; } catch (e) {}
     }
   }
 
@@ -620,12 +610,31 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 3. Social Platform Buttons
+  // 3. Social Platform Buttons (Native Anchor on Mobile, Centered Popup on Desktop)
   document.querySelectorAll('[data-share]').forEach(btn => {
+    // Sync dynamic URL to anchor href immediately
+    const platform = btn.getAttribute('data-share');
+    const providerFn = shareProviders[platform];
+    if (providerFn && btn.tagName === 'A') {
+      btn.href = providerFn(currentShareUrl, currentShareTitle);
+    }
+
     btn.addEventListener('click', (e) => {
+      const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent) || 
+                       (window.innerWidth <= 768 && 'ontouchstart' in window);
+
+      if (isMobile) {
+        // Allow mobile browsers (iOS Safari, Android Chrome) to handle link natively
+        // Never call preventDefault or window.open on mobile to avoid popup blockers and enable Universal Links
+        if (providerFn && btn.tagName === 'A') {
+          btn.href = providerFn(currentShareUrl, currentShareTitle);
+        }
+        return;
+      }
+
+      // On desktop, open centered popup
       e.preventDefault();
-      const platform = btn.getAttribute('data-share');
-      openCenteredShare(platform);
+      openCenteredShare(platform, btn.href);
     });
   });
 

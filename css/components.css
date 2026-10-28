@@ -1622,7 +1622,7 @@ footer {
 
 .share-platforms-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
   gap: 12px;
   padding: 0 20px;
   margin-bottom: 20px;
@@ -1684,18 +1684,6 @@ footer {
   box-shadow: 0 8px 20px rgba(6, 199, 85, 0.25);
 }
 
-.platform-x .platform-icon {
-  background: rgba(255, 255, 255, 0.1);
-  color: #fff;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.platform-x:hover {
-  border-color: rgba(255, 255, 255, 0.4);
-  transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgba(255, 255, 255, 0.15);
-}
-
 .platform-native .platform-icon {
   background: rgba(220, 38, 38, 0.15);
   color: var(--theme-red-bright);
@@ -1706,6 +1694,12 @@ footer {
   border-color: var(--theme-red-bright);
   transform: translateY(-3px);
   box-shadow: 0 8px 20px rgba(220, 38, 38, 0.25);
+}
+
+a.share-platform-btn,
+a.btn-share-quick {
+  text-decoration: none;
+  color: inherit;
 }
 
 .btn-share-main,
