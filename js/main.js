@@ -593,26 +593,10 @@ document.addEventListener('DOMContentLoaded', () => {
            (window.innerWidth <= 768 && 'ontouchstart' in window);
   }
 
-  // 1. Primary Share Button: Triggers Native Share Sheet on mobile, or opens In-Page Modal on desktop
+  // 1. Primary Share Button: Always opens the website's In-Page Modal (both Mobile & Desktop)
   if (btnMainShare) {
-    btnMainShare.addEventListener('click', async (e) => {
+    btnMainShare.addEventListener('click', (e) => {
       e.preventDefault();
-      if (isMobileDevice() && typeof navigator.share === 'function') {
-        try {
-          await navigator.share({
-            title: currentShareTitle,
-            text: currentShareTitle,
-            url: currentShareUrl
-          });
-          return;
-        } catch (err) {
-          if (err?.name === 'AbortError') return;
-          copyNewsUrl(btnMainShare);
-          showShareToast('คัดลอกลิงก์แล้ว! เปิดแอปเพื่อวางโพสต์ได้ทันที');
-          return;
-        }
-      }
-
       openShareModal();
     });
   }
@@ -653,6 +637,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 text: currentShareTitle,
                 url: currentShareUrl
               });
+              closeShareModalDialog();
               return;
             } catch (err) {
               if (err?.name === 'AbortError') return;
@@ -693,6 +678,7 @@ document.addEventListener('DOMContentLoaded', () => {
             text: currentShareTitle,
             url: currentShareUrl
           });
+          closeShareModalDialog();
         } catch (err) {
           if (err?.name === 'AbortError') return;
           copyNewsUrl(btnShareNative);
