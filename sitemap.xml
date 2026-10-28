@@ -82,13 +82,27 @@
     <priority>0.8</priority>
   </url>
 
-  <!-- 5. Thai Native Sections (News, People, Procurement, Staff) -->
+  <!-- 5. News & Campus Highlights (TH / EN) -->
   <url>
     <loc>https://lams.surat.psu.ac.th/pages/news.html</loc>
+    <xhtml:link rel="alternate" hreflang="th" href="https://lams.surat.psu.ac.th/pages/news.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lams.surat.psu.ac.th/en/news.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lams.surat.psu.ac.th/pages/news.html"/>
     <lastmod>2026-10-28</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
+  <url>
+    <loc>https://lams.surat.psu.ac.th/en/news.html</loc>
+    <xhtml:link rel="alternate" hreflang="th" href="https://lams.surat.psu.ac.th/pages/news.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lams.surat.psu.ac.th/en/news.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lams.surat.psu.ac.th/pages/news.html"/>
+    <lastmod>2026-10-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- 6. Specialized Thai Native Sections (People, Procurement, Staff) -->
   <url>
     <loc>https://lams.surat.psu.ac.th/pages/people.html</loc>
     <lastmod>2026-10-28</lastmod>
