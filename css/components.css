@@ -2385,3 +2385,159 @@ a.btn-share-quick {
   color: #10B981;
   font-size: 1.1rem;
 }
+
+
+/* ==========================================================================
+   ABOUT PAGE COMPONENTS & UTILITIES (BATCH 3.11)
+   Co-Authored by: Qwen 3.7 Plus & GLM-5.3
+   ========================================================================== */
+
+.checklist-item {
+  margin-bottom: 12px;
+  display: flex;
+  gap: 10px;
+}
+
+.checklist-item__icon {
+  color: var(--theme-red-bright);
+  margin-top: 5px;
+}
+
+.gateway-banner__tag {
+  margin-bottom: 8px;
+}
+
+.gateway-banner__title {
+  color: var(--text-primary);
+  font-size: 1.35rem;
+  font-weight: 700;
+  margin: 0 0 6px;
+}
+
+.gateway-banner__desc {
+  color: var(--text-muted);
+  font-size: 0.92rem;
+  margin: 0;
+}
+
+.btn-card-detail--lg {
+  padding: 12px 24px;
+  font-weight: 600;
+}
+
+.btn-card-detail--md {
+  padding: 10px 20px;
+}
+
+.campus-location-section {
+  margin-bottom: 60px;
+  scroll-margin-top: 100px;
+}
+
+.campus-location-header {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 30px;
+}
+
+.campus-location-title {
+  font-size: 1.8rem;
+  color: var(--text-primary);
+  margin-bottom: 12px;
+}
+
+.campus-location-desc {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+.campus-video-cta {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.btn-pill-video {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 28px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-decoration: none;
+  border-radius: 999px;
+  background: rgba(220, 38, 38, 0.15);
+  border: 1px solid var(--theme-red-bright);
+  color: #fff;
+  box-shadow: 0 4px 15px rgba(220, 38, 38, 0.2);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.btn-pill-video:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(220, 38, 38, 0.35);
+}
+
+.map-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.map-card-title {
+  color: var(--text-primary);
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.map-card-address {
+  color: var(--text-muted);
+  font-size: 0.92rem;
+  margin: 0;
+}
+
+.contact-address {
+  margin-bottom: 16px;
+}
+
+.contact-item {
+  margin-bottom: 10px;
+}
+
+.icon-fixed-w {
+  color: var(--theme-red-light);
+  width: 25px;
+}
+
+.icon-brand--fb {
+  color: #1877F2;
+  width: 25px;
+}
+
+.hours-item {
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border-subtle);
+  display: flex;
+  justify-content: space-between;
+}
+
+.hours-item--last {
+  border-bottom: none;
+}
+
+.hours-label {
+  color: var(--text-muted);
+}
+
+.hours-val {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.hours-val--closed {
+  color: var(--theme-red-light);
+  font-weight: 600;
+}
