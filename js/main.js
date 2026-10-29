@@ -6,15 +6,13 @@
 document.addEventListener('DOMContentLoaded', () => {
   // 1. Sticky Header Visual Scroll Effect
   const header = document.querySelector('.header-bu');
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 50) {
-      header.style.boxShadow = '0 8px 30px rgba(0, 0, 0, 0.6)';
-      header.style.backgroundColor = 'rgba(6, 11, 17, 0.96)';
-    } else {
-      header.style.boxShadow = 'none';
-      header.style.backgroundColor = 'var(--bu-header-bg)';
-    }
-  });
+  if (header) {
+    const handleScroll = () => {
+      header.classList.toggle('header-bu--scrolled', window.scrollY > 50);
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
+  }
 
   // 2. Mobile Menu Toggle
   const mobileMenuBtn = document.querySelector('.mobile-menu-btn');

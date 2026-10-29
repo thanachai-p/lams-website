@@ -411,8 +411,12 @@
   padding-top: 15px;
 }
 
-.btn-card-detail {
+.program-card-footer > .btn-card-detail,
+.program-card-footer > .btn-card-pdf {
   flex: 1;
+}
+
+.btn-card-detail {
   background: var(--theme-red-primary);
   color: #FFFFFF;
   text-decoration: none;

@@ -21,6 +21,11 @@
   transition: var(--transition-smooth);
 }
 
+.header-bu--scrolled {
+  background-color: rgba(14, 2, 4, 0.96);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
+}
+
 .logo-bu-box {
   background: #FFFFFF;
   color: var(--psu-navy);
@@ -1265,7 +1270,7 @@ footer {
     top: 100%;
     left: 0;
     width: 100%;
-    background: rgba(6, 11, 17, 0.98);
+    background: rgba(14, 2, 4, 0.98);
     backdrop-filter: blur(14px);
     -webkit-backdrop-filter: blur(14px);
     padding: 20px 24px;
@@ -1783,7 +1788,7 @@ a.btn-share-quick {
   bottom: 30px;
   left: 50%;
   transform: translateX(-50%) translateY(100px);
-  background: rgba(15, 23, 42, 0.95);
+  background: rgba(20, 4, 6, 0.95);
   border: 1px solid rgba(16, 185, 129, 0.4);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
