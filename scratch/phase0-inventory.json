@@ -1,0 +1,868 @@
+{
+  "meta": {
+    "timestamp": "2026-10-29T04:48:22.388Z",
+    "rootDir": "D:\\Projects\\lams-website",
+    "totalFiles": 16,
+    "expectedFiles": 16
+  },
+  "totals": {
+    "inlineStyleAttributes": 438,
+    "declarationsTotal": 1317,
+    "byCategory": {
+      "DYNAMIC_BACKGROUND": 54,
+      "STATE_TOGGLE": 9,
+      "HARDCODED_LAYOUT_VISUAL": 1254
+    },
+    "topProperties": {
+      "color": 203,
+      "font-size": 159,
+      "display": 88,
+      "margin-bottom": 80,
+      "padding": 78,
+      "border-radius": 57,
+      "font-weight": 56,
+      "background-image": 54,
+      "gap": 51,
+      "background": 46,
+      "text-decoration": 41,
+      "align-items": 37,
+      "margin": 36,
+      "border": 35,
+      "justify-content": 25
+    }
+  },
+  "files": [
+    {
+      "file": "en/about.html",
+      "inlineCount": 48,
+      "hardcodedCount": 48,
+      "dynamicBgCount": 0,
+      "stateToggleCount": 0,
+      "stylesheets": [
+        {
+          "line": 29,
+          "rel": "stylesheet",
+          "href": "https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700;800;900&display=swap",
+          "fileName": "css2",
+          "versionParam": null,
+          "hasVersion": false
+        },
+        {
+          "line": 30,
+          "rel": "stylesheet",
+          "href": "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css",
+          "fileName": "all.min.css",
+          "versionParam": null,
+          "hasVersion": false
+        },
+        {
+          "line": 33,
+          "rel": "stylesheet",
+          "href": "../css/style.css",
+          "fileName": "style.css",
+          "versionParam": null,
+          "hasVersion": false
+        },
+        {
+          "line": 34,
+          "rel": "stylesheet",
+          "href": "../css/components.css?v=20261029_0900",
+          "fileName": "components.css",
+          "versionParam": "20261029_0900",
+          "hasVersion": true
+        },
+        {
+          "line": 35,
+          "rel": "stylesheet",
+          "href": "../css/pages.css?v=20261029_0900",
+          "fileName": "pages.css",
+          "versionParam": "20261029_0900",
+          "hasVersion": true
+        }
+      ],
+      "styleTagsCount": 0,
+      "dynamicDomScriptsCount": 0,
+      "dynamicDomScripts": []
+    },
+    {
+      "file": "en/index.html",
+      "inlineCount": 79,
+      "hardcodedCount": 71,
+      "dynamicBgCount": 8,
+      "stateToggleCount": 0,
+      "stylesheets": [
+        {
+          "line": 29,
+          "rel": "stylesheet",
+          "href": "https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700;800;900&display=swap",
+          "fileName": "css2",
+          "versionParam": null,
+          "hasVersion": false
+        },
+        {
+          "line": 32,
+          "rel": "stylesheet",
+          "href": "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css",
+          "fileName": "all.min.css",
+          "versionParam": null,
+          "hasVersion": false
+        },
+        {
+          "line": 35,
+          "rel": "stylesheet",
+          "href": "../css/style.css",
+          "fileName": "style.css",
+          "versionParam": null,
+          "hasVersion": false
+        },
+        {
+          "line": 36,
+          "rel": "stylesheet",
+          "href": "../css/components.css?v=20261029_0900",
+          "fileName": "components.css",
+          "versionParam": "20261029_0900",
+          "hasVersion": true
+        },
+        {
+          "line": 37,
+          "rel": "stylesheet",
+          "href": "../css/pages.css?v=20261029_0900",
+          "fileName": "pages.css",
+          "versionParam": "20261029_0900",
+          "hasVersion": true
+        }
+      ],
+      "styleTagsCount": 0,
+      "dynamicDomScriptsCount": 0,
+      "dynamicDomScripts": []
+    },
+    {
+      "file": "en/news.html",
+      "inlineCount": 8,
+      "hardcodedCount": 2,
+      "dynamicBgCount": 6,
+      "stateToggleCount": 0,
+      "stylesheets": [
+        {
+          "line": 22,
+          "rel": "stylesheet",
+          "href": "https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700;800;900&display=swap",
+          "fileName": "css2",
+          "versionParam": null,
+          "hasVersion": false
+        },
+        {
+          "line": 23,
+          "rel": "stylesheet",
+          "href": "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css",
+          "fileName": "all.min.css",
+          "versionParam": null,
+          "hasVersion": false
+        },
+        {
+          "line": 26,
+          "rel": "stylesheet",
+          "href": "../css/style.css",
+          "fileName": "style.css",
+          "versionParam": null,
+          "hasVersion": false
+        },
+        {
+          "line": 27,
+          "rel": "stylesheet",
+          "href": "../css/components.css?v=20261029_0900",
+          "fileName": "components.css",
+          "versionParam": "20261029_0900",
+          "hasVersion": true
+        },
+        {
+          "line": 28,
+          "rel": "stylesheet",
+          "href": "../css/pages.css",
+          "fileName": "pages.css",
+          "versionParam": null,
+          "hasVersion": false
+        }
+      ],
+      "styleTagsCount": 0,
+      "dynamicDomScriptsCount": 0,
+      "dynamicDomScripts": []
+    },
+    {
+      "file": "en/people.html",
+      "inlineCount": 11,
+      "hardcodedCount": 11,
+      "dynamicBgCount": 0,
+      "stateToggleCount": 0,
+      "stylesheets": [
+        {
+          "line": 22,
+          "rel": "stylesheet",
+          "href": "https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700;800;900&display=swap",
+          "fileName": "css2",
+          "versionParam": null,
+          "hasVersion": false
+        },
+        {
+          "line": 23,
+          "rel": "stylesheet",
+          "href": "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css",
+          "fileName": "all.min.css",
+          "versionParam": null,
+          "hasVersion": false
+        },
+        {
+          "line": 26,
+          "rel": "stylesheet",
+          "href": "../css/style.css",
+          "fileName": "style.css",
+          "versionParam": null,
+          "hasVersion": false
+        },
+        {
+          "line": 27,
+          "rel": "stylesheet",
+          "href": "../css/components.css?v=20261029_0900",
+          "fileName": "components.css",
+          "versionParam": "20261029_0900",
+          "hasVersion": true
+        },
+        {
+          "line": 28,
+          "rel": "stylesheet",
+          "href": "../css/pages.css",
+          "fileName": "pages.css",
+          "versionParam": null,
+          "hasVersion": false
+        }
+      ],
+      "styleTagsCount": 0,
+      "dynamicDomScriptsCount": 0,
+      "dynamicDomScripts": []
+    },
+    {
+      "file": "en/program-detail.html",
+      "inlineCount": 11,
+      "hardcodedCount": 11,
+      "dynamicBgCount": 0,
+      "stateToggleCount": 0,
+      "stylesheets": [
+        {
+          "line": 27,
+          "rel": "stylesheet",
+          "href": "https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700;800;900&display=swap",
+          "fileName": "css2",
+          "versionParam": null,
+          "hasVersion": false
+        },
+        {
+          "line": 28,
+          "rel": "stylesheet",
+          "href": "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css",
+          "fileName": "all.min.css",
+          "versionParam": null,
+          "hasVersion": false
+        },
+        {
+          "line": 31,
+          "rel": "stylesheet",
+          "href": "../css/style.css",
+          "fileName": "style.css",
+          "versionParam": null,
+          "hasVersion": false
+        },
+        {
+          "line": 32,
+          "rel": "stylesheet",
+          "href": "../css/components.css?v=20261029_0900",
+          "fileName": "components.css",
+          "versionParam": "20261029_0900",
+          "hasVersion": true
+        },
+        {
+          "line": 33,
+          "rel": "stylesheet",
+          "href": "../css/pages.css?v=20261029_0900",
+          "fileName": "pages.css",
+          "versionParam": "20261029_0900",
+          "hasVersion": true
+        }
+      ],
+      "styleTagsCount": 0,
+      "dynamicDomScriptsCount": 0,
+      "dynamicDomScripts": []
+    },
+    {
+      "file": "en/programs.html",
+      "inlineCount": 16,
+      "hardcodedCount": 8,
+      "dynamicBgCount": 8,
+      "stateToggleCount": 0,
+      "stylesheets": [
+        {
+          "line": 29,
+          "rel": "stylesheet",
+          "href": "https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700;800;900&display=swap",
+          "fileName": "css2",
+          "versionParam": null,
+          "hasVersion": false
+        },
+        {
+          "line": 30,
+          "rel": "stylesheet",
+          "href": "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css",
+          "fileName": "all.min.css",
+          "versionParam": null,
+          "hasVersion": false
+        },
+        {
+          "line": 33,
+          "rel": "stylesheet",
+          "href": "../css/style.css",
+          "fileName": "style.css",
+          "versionParam": null,
+          "hasVersion": false
+        },
+        {
+          "line": 34,
+          "rel": "stylesheet",
+          "href": "../css/components.css?v=20261029_0900",
+          "fileName": "components.css",
+          "versionParam": "20261029_0900",
+          "hasVersion": true
+        },
+        {
+          "line": 35,
+          "rel": "stylesheet",
+          "href": "../css/pages.css?v=20261029_0900",
+          "fileName": "pages.css",
+          "versionParam": "20261029_0900",
+          "hasVersion": true
+        }
+      ],
+      "styleTagsCount": 0,
+      "dynamicDomScriptsCount": 0,
+      "dynamicDomScripts": []
+    },
+    {
+      "file": "en/staff.html",
+      "inlineCount": 13,
+      "hardcodedCount": 13,
+      "dynamicBgCount": 0,
+      "stateToggleCount": 0,
+      "stylesheets": [
+        {
+          "line": 22,
+          "rel": "stylesheet",
+          "href": "https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700;800;900&display=swap",
+          "fileName": "css2",
+          "versionParam": null,
+          "hasVersion": false
+        },
+        {
+          "line": 23,
+          "rel": "stylesheet",
+          "href": "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css",
+          "fileName": "all.min.css",
+          "versionParam": null,
+          "hasVersion": false
+        },
+        {
+          "line": 26,
+          "rel": "stylesheet",
+          "href": "../css/style.css",
+          "fileName": "style.css",
+          "versionParam": null,
+          "hasVersion": false
+        },
+        {
+          "line": 27,
+          "rel": "stylesheet",
+          "href": "../css/components.css?v=20261029_0900",
+          "fileName": "components.css",
+          "versionParam": "20261029_0900",
+          "hasVersion": true
+        },
+        {
+          "line": 28,
+          "rel": "stylesheet",
+          "href": "../css/pages.css",
+          "fileName": "pages.css",
+          "versionParam": null,
+          "hasVersion": false
+        }
+      ],
+      "styleTagsCount": 0,
+      "dynamicDomScriptsCount": 0,
+      "dynamicDomScripts": []
+    },
+    {
+      "file": "index.html",
+      "inlineCount": 97,
+      "hardcodedCount": 89,
+      "dynamicBgCount": 8,
+      "stateToggleCount": 0,
+      "stylesheets": [
+        {
+          "line": 19,
+          "rel": "stylesheet",
+          "href": "https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700;800;900&display=swap",
+          "fileName": "css2",
+          "versionParam": null,
+          "hasVersion": false
+        },
+        {
+          "line": 22,
+          "rel": "stylesheet",
+          "href": "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css",
+          "fileName": "all.min.css",
+          "versionParam": null,
+          "hasVersion": false
+        },
+        {
+          "line": 25,
+          "rel": "stylesheet",
+          "href": "css/style.css",
+          "fileName": "style.css",
+          "versionParam": null,
+          "hasVersion": false
+        },
+        {
+          "line": 26,
+          "rel": "stylesheet",
+          "href": "css/components.css?v=20261029_0900",
+          "fileName": "components.css",
+          "versionParam": "20261029_0900",
+          "hasVersion": true
+        },
+        {
+          "line": 27,
+          "rel": "stylesheet",
+          "href": "css/pages.css?v=20261029_0900",
+          "fileName": "pages.css",
+          "versionParam": "20261029_0900",
+          "hasVersion": true
+        }
+      ],
+      "styleTagsCount": 0,
+      "dynamicDomScriptsCount": 0,
+      "dynamicDomScripts": []
+    },
+    {
+      "file": "pages/about.html",
+      "inlineCount": 48,
+      "hardcodedCount": 48,
+      "dynamicBgCount": 0,
+      "stateToggleCount": 0,
+      "stylesheets": [
+        {
+          "line": 18,
+          "rel": "stylesheet",
+          "href": "https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700;800;900&display=swap",
+          "fileName": "css2",
+          "versionParam": null,
+          "hasVersion": false
+        },
+        {
+          "line": 19,
+          "rel": "stylesheet",
+          "href": "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css",
+          "fileName": "all.min.css",
+          "versionParam": null,
+          "hasVersion": false
+        },
+        {
+          "line": 22,
+          "rel": "stylesheet",
+          "href": "../css/style.css",
+          "fileName": "style.css",
+          "versionParam": null,
+          "hasVersion": false
+        },
+        {
+          "line": 23,
+          "rel": "stylesheet",
+          "href": "../css/components.css?v=20261029_0900",
+          "fileName": "components.css",
+          "versionParam": "20261029_0900",
+          "hasVersion": true
+        },
+        {
+          "line": 24,
+          "rel": "stylesheet",
+          "href": "../css/pages.css?v=20261029_0900",
+          "fileName": "pages.css",
+          "versionParam": "20261029_0900",
+          "hasVersion": true
+        }
+      ],
+      "styleTagsCount": 0,
+      "dynamicDomScriptsCount": 0,
+      "dynamicDomScripts": []
+    },
+    {
+      "file": "pages/news-detail.html",
+      "inlineCount": 22,
+      "hardcodedCount": 20,
+      "dynamicBgCount": 0,
+      "stateToggleCount": 2,
+      "stylesheets": [
+        {
+          "line": 27,
+          "rel": "stylesheet",
+          "href": "https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700;800;900&display=swap",
+          "fileName": "css2",
+          "versionParam": null,
+          "hasVersion": false
+        },
+        {
+          "line": 28,
+          "rel": "stylesheet",
+          "href": "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css",
+          "fileName": "all.min.css",
+          "versionParam": null,
+          "hasVersion": false
+        },
+        {
+          "line": 31,
+          "rel": "stylesheet",
+          "href": "../css/style.css?v=20261029_0900",
+          "fileName": "style.css",
+          "versionParam": "20261029_0900",
+          "hasVersion": true
+        },
+        {
+          "line": 32,
+          "rel": "stylesheet",
+          "href": "../css/components.css?v=20261029_0900",
+          "fileName": "components.css",
+          "versionParam": "20261029_0900",
+          "hasVersion": true
+        },
+        {
+          "line": 33,
+          "rel": "stylesheet",
+          "href": "../css/pages.css?v=20261029_0900",
+          "fileName": "pages.css",
+          "versionParam": "20261029_0900",
+          "hasVersion": true
+        }
+      ],
+      "styleTagsCount": 0,
+      "dynamicDomScriptsCount": 0,
+      "dynamicDomScripts": []
+    },
+    {
+      "file": "pages/news.html",
+      "inlineCount": 8,
+      "hardcodedCount": 2,
+      "dynamicBgCount": 6,
+      "stateToggleCount": 0,
+      "stylesheets": [
+        {
+          "line": 18,
+          "rel": "stylesheet",
+          "href": "https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700;800;900&display=swap",
+          "fileName": "css2",
+          "versionParam": null,
+          "hasVersion": false
+        },
+        {
+          "line": 19,
+          "rel": "stylesheet",
+          "href": "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css",
+          "fileName": "all.min.css",
+          "versionParam": null,
+          "hasVersion": false
+        },
+        {
+          "line": 22,
+          "rel": "stylesheet",
+          "href": "../css/style.css",
+          "fileName": "style.css",
+          "versionParam": null,
+          "hasVersion": false
+        },
+        {
+          "line": 23,
+          "rel": "stylesheet",
+          "href": "../css/components.css?v=20261029_0900",
+          "fileName": "components.css",
+          "versionParam": "20261029_0900",
+          "hasVersion": true
+        },
+        {
+          "line": 24,
+          "rel": "stylesheet",
+          "href": "../css/pages.css",
+          "fileName": "pages.css",
+          "versionParam": null,
+          "hasVersion": false
+        }
+      ],
+      "styleTagsCount": 0,
+      "dynamicDomScriptsCount": 0,
+      "dynamicDomScripts": []
+    },
+    {
+      "file": "pages/people.html",
+      "inlineCount": 11,
+      "hardcodedCount": 11,
+      "dynamicBgCount": 0,
+      "stateToggleCount": 0,
+      "stylesheets": [
+        {
+          "line": 22,
+          "rel": "stylesheet",
+          "href": "https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700;800;900&display=swap",
+          "fileName": "css2",
+          "versionParam": null,
+          "hasVersion": false
+        },
+        {
+          "line": 23,
+          "rel": "stylesheet",
+          "href": "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css",
+          "fileName": "all.min.css",
+          "versionParam": null,
+          "hasVersion": false
+        },
+        {
+          "line": 26,
+          "rel": "stylesheet",
+          "href": "../css/style.css",
+          "fileName": "style.css",
+          "versionParam": null,
+          "hasVersion": false
+        },
+        {
+          "line": 27,
+          "rel": "stylesheet",
+          "href": "../css/components.css?v=20261029_0900",
+          "fileName": "components.css",
+          "versionParam": "20261029_0900",
+          "hasVersion": true
+        },
+        {
+          "line": 28,
+          "rel": "stylesheet",
+          "href": "../css/pages.css",
+          "fileName": "pages.css",
+          "versionParam": null,
+          "hasVersion": false
+        }
+      ],
+      "styleTagsCount": 0,
+      "dynamicDomScriptsCount": 0,
+      "dynamicDomScripts": []
+    },
+    {
+      "file": "pages/procurement.html",
+      "inlineCount": 28,
+      "hardcodedCount": 28,
+      "dynamicBgCount": 0,
+      "stateToggleCount": 0,
+      "stylesheets": [
+        {
+          "line": 12,
+          "rel": "stylesheet",
+          "href": "https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700;800;900&display=swap",
+          "fileName": "css2",
+          "versionParam": null,
+          "hasVersion": false
+        },
+        {
+          "line": 13,
+          "rel": "stylesheet",
+          "href": "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css",
+          "fileName": "all.min.css",
+          "versionParam": null,
+          "hasVersion": false
+        },
+        {
+          "line": 16,
+          "rel": "stylesheet",
+          "href": "../css/style.css",
+          "fileName": "style.css",
+          "versionParam": null,
+          "hasVersion": false
+        },
+        {
+          "line": 17,
+          "rel": "stylesheet",
+          "href": "../css/components.css?v=20261029_0900",
+          "fileName": "components.css",
+          "versionParam": "20261029_0900",
+          "hasVersion": true
+        },
+        {
+          "line": 18,
+          "rel": "stylesheet",
+          "href": "../css/pages.css",
+          "fileName": "pages.css",
+          "versionParam": null,
+          "hasVersion": false
+        }
+      ],
+      "styleTagsCount": 0,
+      "dynamicDomScriptsCount": 0,
+      "dynamicDomScripts": []
+    },
+    {
+      "file": "pages/program-detail.html",
+      "inlineCount": 12,
+      "hardcodedCount": 12,
+      "dynamicBgCount": 0,
+      "stateToggleCount": 0,
+      "stylesheets": [
+        {
+          "line": 18,
+          "rel": "stylesheet",
+          "href": "https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700;800;900&display=swap",
+          "fileName": "css2",
+          "versionParam": null,
+          "hasVersion": false
+        },
+        {
+          "line": 19,
+          "rel": "stylesheet",
+          "href": "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css",
+          "fileName": "all.min.css",
+          "versionParam": null,
+          "hasVersion": false
+        },
+        {
+          "line": 22,
+          "rel": "stylesheet",
+          "href": "../css/style.css",
+          "fileName": "style.css",
+          "versionParam": null,
+          "hasVersion": false
+        },
+        {
+          "line": 23,
+          "rel": "stylesheet",
+          "href": "../css/components.css?v=20261029_0900",
+          "fileName": "components.css",
+          "versionParam": "20261029_0900",
+          "hasVersion": true
+        },
+        {
+          "line": 24,
+          "rel": "stylesheet",
+          "href": "../css/pages.css",
+          "fileName": "pages.css",
+          "versionParam": null,
+          "hasVersion": false
+        }
+      ],
+      "styleTagsCount": 0,
+      "dynamicDomScriptsCount": 0,
+      "dynamicDomScripts": []
+    },
+    {
+      "file": "pages/programs.html",
+      "inlineCount": 13,
+      "hardcodedCount": 5,
+      "dynamicBgCount": 8,
+      "stateToggleCount": 0,
+      "stylesheets": [
+        {
+          "line": 18,
+          "rel": "stylesheet",
+          "href": "https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700;800;900&display=swap",
+          "fileName": "css2",
+          "versionParam": null,
+          "hasVersion": false
+        },
+        {
+          "line": 19,
+          "rel": "stylesheet",
+          "href": "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css",
+          "fileName": "all.min.css",
+          "versionParam": null,
+          "hasVersion": false
+        },
+        {
+          "line": 22,
+          "rel": "stylesheet",
+          "href": "../css/style.css",
+          "fileName": "style.css",
+          "versionParam": null,
+          "hasVersion": false
+        },
+        {
+          "line": 23,
+          "rel": "stylesheet",
+          "href": "../css/components.css?v=20261029_0900",
+          "fileName": "components.css",
+          "versionParam": "20261029_0900",
+          "hasVersion": true
+        },
+        {
+          "line": 24,
+          "rel": "stylesheet",
+          "href": "../css/pages.css",
+          "fileName": "pages.css",
+          "versionParam": null,
+          "hasVersion": false
+        }
+      ],
+      "styleTagsCount": 0,
+      "dynamicDomScriptsCount": 0,
+      "dynamicDomScripts": []
+    },
+    {
+      "file": "pages/staff.html",
+      "inlineCount": 13,
+      "hardcodedCount": 13,
+      "dynamicBgCount": 0,
+      "stateToggleCount": 0,
+      "stylesheets": [
+        {
+          "line": 18,
+          "rel": "stylesheet",
+          "href": "https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700;800;900&display=swap",
+          "fileName": "css2",
+          "versionParam": null,
+          "hasVersion": false
+        },
+        {
+          "line": 19,
+          "rel": "stylesheet",
+          "href": "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css",
+          "fileName": "all.min.css",
+          "versionParam": null,
+          "hasVersion": false
+        },
+        {
+          "line": 22,
+          "rel": "stylesheet",
+          "href": "../css/style.css",
+          "fileName": "style.css",
+          "versionParam": null,
+          "hasVersion": false
+        },
+        {
+          "line": 23,
+          "rel": "stylesheet",
+          "href": "../css/components.css?v=20261029_0900",
+          "fileName": "components.css",
+          "versionParam": "20261029_0900",
+          "hasVersion": true
+        },
+        {
+          "line": 24,
+          "rel": "stylesheet",
+          "href": "../css/pages.css",
+          "fileName": "pages.css",
+          "versionParam": null,
+          "hasVersion": false
+        }
+      ],
+      "styleTagsCount": 0,
+      "dynamicDomScriptsCount": 0,
+      "dynamicDomScripts": []
+    }
+  ]
+}

@@ -1,0 +1,319 @@
+{
+  "manifest_version": "1.0.0",
+  "generated_at": "2026-10-29T04:49:26.947Z",
+  "git": {
+    "branch": "refactor/clean-css-architecture",
+    "base_commit": "509ed8e155a03490140857251bcba741c0986dcd",
+    "working_tree_clean": false
+  },
+  "metrics": {
+    "files_scanned": 16,
+    "inline_style_elements": 438,
+    "css_declarations": 1317,
+    "by_category": {
+      "DYNAMIC_BACKGROUND": 54,
+      "STATE_TOGGLE": 9,
+      "HARDCODED_LAYOUT_VISUAL": 1254
+    },
+    "top_properties": {
+      "color": 203,
+      "font-size": 159,
+      "display": 88,
+      "margin-bottom": 80,
+      "padding": 78,
+      "border-radius": 57,
+      "font-weight": 56,
+      "background-image": 54,
+      "gap": 51,
+      "background": 46,
+      "text-decoration": 41,
+      "align-items": 37,
+      "margin": 36,
+      "border": 35,
+      "justify-content": 25
+    },
+    "baseline_screenshots_count": 34
+  },
+  "environment": {
+    "viewport_desktop": "1440x900",
+    "viewport_mobile": "360x800",
+    "device_scale_factor": 1,
+    "browser": "Chrome DevTools Headless",
+    "font_stack": "Prompt (Google Fonts), FontAwesome 6.4.0"
+  },
+  "artifacts_sha256": {
+    "scratch/phase0-inventory.json": "3dae6c1a64a14aff1c6a3a8689f091d5a7bad86de2e86b44eddd317e8cb4c61b",
+    "scratch/phase0-inline-styles.csv": "09620d57cadac41b9863a1579339b838fe588fc79119cd70ff37cdfc7bc3a52a",
+    "scratch/phase0-cache-versions.csv": "e1bcf752b68bb52e6faa46ce4929782e9e59ca80ee91b5acfbf2ec61b14400ae",
+    "scratch/pixel-diff.js": "3bc50515e19dc9044e012b51470742de1fda6136f962d8817fc38ecce4dbc6a6"
+  },
+  "cross_verification_samples": [
+    {
+      "page": "index.html",
+      "sourceInlineCount": 97,
+      "scannerInventoryCount": 97,
+      "hardcodedCount": 89,
+      "dynamicBgCount": 8,
+      "stateToggleCount": 0,
+      "matchPerfect": true
+    },
+    {
+      "page": "pages/about.html",
+      "sourceInlineCount": 48,
+      "scannerInventoryCount": 48,
+      "hardcodedCount": 48,
+      "dynamicBgCount": 0,
+      "stateToggleCount": 0,
+      "matchPerfect": true
+    },
+    {
+      "page": "pages/procurement.html",
+      "sourceInlineCount": 28,
+      "scannerInventoryCount": 28,
+      "hardcodedCount": 28,
+      "dynamicBgCount": 0,
+      "stateToggleCount": 0,
+      "matchPerfect": true
+    }
+  ],
+  "baseline_screenshots": [
+    {
+      "file": "en_about-1440.png",
+      "sizeBytes": 261108,
+      "width": 1440,
+      "height": 900,
+      "sha256": "136762e24eae7c5da08130abf1663c503f085a875a0c6267c75e6c86c0d87b3b"
+    },
+    {
+      "file": "en_about-360.png",
+      "sizeBytes": 119794,
+      "width": 360,
+      "height": 800,
+      "sha256": "56d42227eb8426917597629f7b8302163be94f2365016ca481d558ff805843ac"
+    },
+    {
+      "file": "en_index-1440.png",
+      "sizeBytes": 813142,
+      "width": 1440,
+      "height": 900,
+      "sha256": "657a3366eefeab7445c026a87c7c69c4fa950ed82454be031616dc90b6279547"
+    },
+    {
+      "file": "en_index-360.png",
+      "sizeBytes": 191156,
+      "width": 360,
+      "height": 800,
+      "sha256": "a26ee3c76197c72c9a8611a7ba4379b069dc003fae99da6c8fac229a01fc76b9"
+    },
+    {
+      "file": "en_news-1440.png",
+      "sizeBytes": 489523,
+      "width": 1440,
+      "height": 900,
+      "sha256": "4fd460e2b2bee347308c40549a7df8fc6f9f42d9499f7006c28437eb55e25cfd"
+    },
+    {
+      "file": "en_news-360.png",
+      "sizeBytes": 127324,
+      "width": 360,
+      "height": 800,
+      "sha256": "113378613c955c58ee692798fb3213f00a1605cf9b2bc307bb303f34b3d8c19e"
+    },
+    {
+      "file": "en_people-1440.png",
+      "sizeBytes": 361123,
+      "width": 1440,
+      "height": 900,
+      "sha256": "7908d2a28e7d52161c5acb38a4cff146d7e2a8ab1b8f95d63278451153781441"
+    },
+    {
+      "file": "en_people-360.png",
+      "sizeBytes": 125935,
+      "width": 360,
+      "height": 800,
+      "sha256": "2629e27d77e741b74efbc231d22c75da972ff72242ae8a50e66cdee4cd3a674b"
+    },
+    {
+      "file": "en_program-detail-1440.png",
+      "sizeBytes": 299443,
+      "width": 1440,
+      "height": 900,
+      "sha256": "9e332694a62f82c1c7d2896c9728e63c4e12142e5443dcb4fc4803622f187675"
+    },
+    {
+      "file": "en_program-detail-360.png",
+      "sizeBytes": 119367,
+      "width": 360,
+      "height": 800,
+      "sha256": "eeca94874df47224cf96b3478f78ddf93c63b5e1b1d158b5c9a808a8404e7c54"
+    },
+    {
+      "file": "en_programs-1440.png",
+      "sizeBytes": 522827,
+      "width": 1440,
+      "height": 900,
+      "sha256": "c3344c8173b764c8f9c29194f28e8417f72eb21a6dee12b3d65644448add9522"
+    },
+    {
+      "file": "en_programs-360.png",
+      "sizeBytes": 143300,
+      "width": 360,
+      "height": 800,
+      "sha256": "e30fb5494cf15f5f8c668fb35b89cbca90e2f4bc4b986cd37931a5abd953e2de"
+    },
+    {
+      "file": "en_staff-1440.png",
+      "sizeBytes": 233467,
+      "width": 1440,
+      "height": 900,
+      "sha256": "76ab0ae7f88a3c93e9b1ccee444a0e2688c82da47e7f9fa99902f2ab72504d0c"
+    },
+    {
+      "file": "en_staff-360.png",
+      "sizeBytes": 127848,
+      "width": 360,
+      "height": 800,
+      "sha256": "34bcf234b0c57da1a1137ec00eb385b01c36dc56a90c123e2726d75532cf2f33"
+    },
+    {
+      "file": "index-1440.png",
+      "sizeBytes": 769389,
+      "width": 1440,
+      "height": 900,
+      "sha256": "5575e75d8d31a169ff759530bd7557ad3cd0c23bd07d72e314025491f7e67dab"
+    },
+    {
+      "file": "index-360.png",
+      "sizeBytes": 187187,
+      "width": 360,
+      "height": 800,
+      "sha256": "f725d8abb500eeb731fb15d5b01223c38cec58bbf8de67bf629c05cfa0c33904"
+    },
+    {
+      "file": "pages_about-1440.png",
+      "sizeBytes": 261751,
+      "width": 1440,
+      "height": 900,
+      "sha256": "81f8eb1660058b0b002aee038d2b9e8c7b600efe479cc926308e992be8ba15a1"
+    },
+    {
+      "file": "pages_about-360.png",
+      "sizeBytes": 115638,
+      "width": 360,
+      "height": 800,
+      "sha256": "9bb1752ef82b446faea8b5c120c87bfe41e7b8c37baa974b3edd4bf5b4731fe0"
+    },
+    {
+      "file": "pages_news-1440.png",
+      "sizeBytes": 512159,
+      "width": 1440,
+      "height": 900,
+      "sha256": "3e58ce2aa7b7e282a45504aaa60840a1e75c6234ca0f571f589ba7a75d138f6f"
+    },
+    {
+      "file": "pages_news-360.png",
+      "sizeBytes": 156916,
+      "width": 360,
+      "height": 800,
+      "sha256": "fb117386758767ea6c30192388ceb8d42653af1cb6b6fd97f2faa862441c6ab6"
+    },
+    {
+      "file": "pages_news-detail-1440.png",
+      "sizeBytes": 492781,
+      "width": 1440,
+      "height": 900,
+      "sha256": "2d655a3080df6a88a9780bc854c2e1c0fb27b8ac49b1da899afd71c94b76d890"
+    },
+    {
+      "file": "pages_news-detail-360.png",
+      "sizeBytes": 184645,
+      "width": 360,
+      "height": 800,
+      "sha256": "99857adcc72448352cf49abadfe467a74953da13ebd2fcc30d9387723157c5ca"
+    },
+    {
+      "file": "pages_people-1440.png",
+      "sizeBytes": 362073,
+      "width": 1440,
+      "height": 900,
+      "sha256": "28576cbcb65fe6a6df667fe689dc3e4886a7a769338b21abd2e4098c5b3772f5"
+    },
+    {
+      "file": "pages_people-360.png",
+      "sizeBytes": 130902,
+      "width": 360,
+      "height": 800,
+      "sha256": "fe122c4349cd9ea466efc650bb4b76ec7f2d4d9da63e3ed9274adca660359059"
+    },
+    {
+      "file": "pages_procurement-1440.png",
+      "sizeBytes": 241415,
+      "width": 1440,
+      "height": 900,
+      "sha256": "f73edda6e4d5b2ced917a8afc87cc008fce02c5807e3871e7133b81d69fa5715"
+    },
+    {
+      "file": "pages_procurement-360.png",
+      "sizeBytes": 122230,
+      "width": 360,
+      "height": 800,
+      "sha256": "0918fc5603c8600920bea57b50bf8c3e010828087bcfee0263aace835854a093"
+    },
+    {
+      "file": "pages_program-detail-1440.png",
+      "sizeBytes": 312302,
+      "width": 1440,
+      "height": 900,
+      "sha256": "0723b512cc3f9caf7e9e1506bce3ea6f52cb7a3440e2338c1c952eb304efbc49"
+    },
+    {
+      "file": "pages_program-detail-360.png",
+      "sizeBytes": 121451,
+      "width": 360,
+      "height": 800,
+      "sha256": "b493c37c756b92ba66d6490b17e483ebd79520267e9caf65f6111d77911cb136"
+    },
+    {
+      "file": "pages_programs-1440.png",
+      "sizeBytes": 539239,
+      "width": 1440,
+      "height": 900,
+      "sha256": "d015f2f6a661645ca83a46ea24ecbd67052bb27fda8c8cc550609e6272a5c02d"
+    },
+    {
+      "file": "pages_programs-360.png",
+      "sizeBytes": 161875,
+      "width": 360,
+      "height": 800,
+      "sha256": "3db6df67bc6eb6a1647ef7f373b536aa0837b297f282dc1d2bf9fe739153e73e"
+    },
+    {
+      "file": "pages_staff-1440.png",
+      "sizeBytes": 228396,
+      "width": 1440,
+      "height": 900,
+      "sha256": "ec7a3a6adbabb13002e0085c9087699751ed22f61d6385ce75f25a6b32d7d85b"
+    },
+    {
+      "file": "pages_staff-360.png",
+      "sizeBytes": 121226,
+      "width": 360,
+      "height": 800,
+      "sha256": "fe00d55146febee1e2946cab9bb010990c5de69c9fc6ee934809e551d71623e6"
+    },
+    {
+      "file": "test-360.png",
+      "sizeBytes": 190601,
+      "width": 360,
+      "height": 800,
+      "sha256": "b50e6442360249b7325a56f098ecd4022601c7502278059b810d1b8afb4cb004"
+    },
+    {
+      "file": "test.png",
+      "sizeBytes": 293725,
+      "width": 764,
+      "height": 485,
+      "sha256": "608111fae26ab3e449161370bf246273c702160d6ab2248cc78a8d9b3dde20e3"
+    }
+  ]
+}
