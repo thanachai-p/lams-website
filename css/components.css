@@ -80,20 +80,6 @@
   gap: 14px;
 }
 
-.btn-search-toggle {
-  background: transparent;
-  border: none;
-  color: white;
-  cursor: pointer;
-  font-size: 1.1rem;
-  padding: 6px;
-  transition: var(--transition-smooth);
-}
-
-.btn-search-toggle:hover {
-  color: var(--theme-red-light);
-}
-
 /* Language Switcher Segmented Pill Toggle (TH | EN) */
 .lang-switch {
   display: inline-flex;
@@ -138,10 +124,6 @@
   background: var(--theme-red-bright);
   color: #FFFFFF;
   box-shadow: 0 0 10px rgba(220, 38, 38, 0.4);
-}
-
-.btn-lang {
-  display: none;
 }
 
 /* Staff Portal Header Button */
@@ -706,73 +688,6 @@
   box-shadow: inset 0 20px 40px rgba(0, 0, 0, 0.35), inset 0 -20px 40px rgba(0, 0, 0, 0.35);
 }
 
-.campus-title {
-  font-size: 2.3rem;
-  font-weight: 800;
-  margin-bottom: 25px;
-  color: white;
-}
-
-.pill-buttons-group {
-  display: flex;
-  gap: 16px;
-  justify-content: center;
-  margin-bottom: 40px;
-  flex-wrap: wrap;
-}
-
-.btn-green-pill {
-  background: linear-gradient(135deg, var(--theme-red-bright), var(--theme-ruby));
-  color: white;
-  padding: 14px 32px;
-  border-radius: 30px;
-  font-weight: 800;
-  font-size: 1.02rem;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  box-shadow: 0 10px 25px var(--theme-red-glow);
-  transition: var(--transition-smooth);
-}
-
-.btn-green-pill:hover {
-  transform: scale(1.05);
-  background: linear-gradient(135deg, #EF4444, var(--theme-red-primary));
-}
-
-.mosaic-gallery {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 16px;
-}
-
-.mosaic-item {
-  height: 190px;
-  border-radius: 16px;
-  background-size: cover;
-  background-position: center;
-  transition: var(--transition-smooth);
-  cursor: pointer;
-  position: relative;
-  overflow: hidden;
-}
-
-.mosaic-item::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: rgba(69, 10, 10, 0.25);
-  transition: var(--transition-smooth);
-}
-
-.mosaic-item:hover {
-  transform: scale(1.03);
-}
-
-.mosaic-item:hover::after {
-  background: rgba(69, 10, 10, 0);
-}
-
 /* Campus Facility Video Interactive Cards */
 .campus-facility-card {
   height: 230px;
@@ -1042,24 +957,6 @@
 .quick-links__col ul li:hover {
   color: var(--theme-red-light);
   padding-left: 4px;
-}
-
-.btn-more-white {
-  background: #FFFFFF;
-  color: var(--theme-red-deep);
-  padding: 14px 38px;
-  border-radius: 30px;
-  font-weight: 800;
-  font-size: 1.02rem;
-  display: inline-block;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-  transition: var(--transition-smooth);
-}
-
-.btn-more-white:hover {
-  transform: scale(1.05);
-  background: var(--theme-red-bright);
-  color: white;
 }
 
 /* ==========================================================================
@@ -1392,7 +1289,6 @@ footer,
   .pride-grid { grid-template-columns: 1fr; }
   .pride-subgrid { grid-template-columns: repeat(2, 1fr); }
   .sub-pride-action-card { grid-column: span 2; }
-  .mosaic-gallery { grid-template-columns: repeat(2, 1fr); }
   .programs-showcase__grid { grid-template-columns: 1fr; }
   .card-full-banner { grid-column: span 1; }
   .quick-links { grid-template-columns: 1fr; }
@@ -1516,7 +1412,7 @@ footer,
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: linear-gradient(135deg, var(--theme-red-bright, #dc2626), #b91c1c);
+  background: linear-gradient(135deg, var(--theme-red-bright), #b91c1c);
   color: #fff;
   border: none;
   padding: 9px 18px;
@@ -1612,8 +1508,8 @@ footer,
 }
 
 .share-dialog {
-  background: var(--surface-card, #120306);
-  border: 1px solid var(--border-card, rgba(220, 38, 38, 0.3));
+  background: var(--surface-card);
+  border: 1px solid var(--border-card);
   border-radius: 20px;
   max-width: 460px;
   width: 100%;
@@ -1696,7 +1592,7 @@ footer,
 .share-news-badge {
   font-size: 0.68rem;
   font-weight: 800;
-  color: var(--theme-amber, #fbbf24);
+  color: var(--theme-amber);
   letter-spacing: 0.5px;
 }
 
@@ -1852,7 +1748,7 @@ a.btn-share-quick {
 }
 
 .share-copy-btn {
-  background: linear-gradient(135deg, var(--theme-red-bright, #dc2626), #b91c1c);
+  background: linear-gradient(135deg, var(--theme-red-bright), #b91c1c);
   color: #fff;
   border: none;
   padding: 8px 16px;
