@@ -211,7 +211,7 @@
     "max_channel_delta": 730,
     "exact_diff_pixels": 0,
     "classification": "Bit-Identical (Zero Diff)",
-    "difference_explanation": "Identical render across baseline and candidate (0 diff pixels, 0.00%).",
+    "difference_explanation": "Bit-identical render across baseline and candidate (0 exact diff pixels, identical SHA-256).",
     "baseline_sha256": "e30fb5494cf15f5f8c668fb35b89cbca90e2f4bc4b986cd37931a5abd953e2de",
     "candidate_sha256": "e30fb5494cf15f5f8c668fb35b89cbca90e2f4bc4b986cd37931a5abd953e2de"
   },
@@ -355,7 +355,7 @@
     "max_channel_delta": 730,
     "exact_diff_pixels": 0,
     "classification": "Bit-Identical (Zero Diff)",
-    "difference_explanation": "Bit-identical render (0 diff pixels, identical SHA-256).",
+    "difference_explanation": "Bit-identical render across baseline and candidate (0 exact diff pixels, identical SHA-256).",
     "baseline_sha256": "fb117386758767ea6c30192388ceb8d42653af1cb6b6fd97f2faa862441c6ab6",
     "candidate_sha256": "fb117386758767ea6c30192388ceb8d42653af1cb6b6fd97f2faa862441c6ab6"
   },
@@ -534,8 +534,8 @@
     "tolerance_rule": "|R1-R2| + |G1-G2| + |B1-B2| > 15",
     "max_channel_delta": 2,
     "exact_diff_pixels": 427,
-    "classification": "Bit-Identical (Zero Diff)",
-    "difference_explanation": "Tolerance diff 0.00% (0 diff pixels with tolerance > 15).",
+    "classification": "Tolerance-Equivalent (Zero Pixels Above Threshold)",
+    "difference_explanation": "No pixels exceeded tolerance threshold (>15); 427 sub-threshold pixel differences exist; differing SHA-256 checksums.",
     "baseline_sha256": "3db6df67bc6eb6a1647ef7f373b536aa0837b297f282dc1d2bf9fe739153e73e",
     "candidate_sha256": "b7982a97116ab33c08b17780850997b45bad4040951ed3bacc76da4d2996ca37"
   },
