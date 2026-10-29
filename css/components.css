@@ -2141,3 +2141,37 @@ a.btn-share-quick {
   list-style: none;
   padding: 0;
 }
+
+
+/* Staff Portal Component Classes (Batch 3.5) */
+.portal-group {
+  margin-bottom: 45px;
+}
+
+.portal-group--mb-md {
+  margin-bottom: 40px;
+}
+
+.portal-group__title {
+  font-size: 1.35rem;
+  color: var(--text-primary);
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.programs-container--pt {
+  padding-top: 40px;
+}
+
+.btn-staff-portal--active {
+  border-color: var(--theme-red-bright);
+  background: rgba(220, 38, 38, 0.2);
+}
+
+
+/* Text color utilities */
+.text-red-bright { color: var(--theme-red-bright); }
+.text-amber { color: var(--theme-amber); }
+.text-red-light { color: var(--theme-red-light); }
