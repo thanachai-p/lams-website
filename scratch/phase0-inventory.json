@@ -1,6 +1,6 @@
 {
   "meta": {
-    "timestamp": "2026-10-29T05:48:44.799Z",
+    "timestamp": "2026-10-29T05:52:19.915Z",
     "rootDir": "D:\\Projects\\lams-website",
     "totalFiles": 16,
     "expectedFiles": 16
@@ -14,7 +14,7 @@
       "HARDCODED_LAYOUT_VISUAL": 0
     },
     "topProperties": {
-      "background-image": 54,
+      "--bg-image": 54,
       "display": 5
     }
   },

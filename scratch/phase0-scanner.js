@@ -241,7 +241,7 @@ function scanFile(filePath, rootDir) {
         const val = d.slice(colonIdx + 1).trim();
 
         let category = 'HARDCODED_LAYOUT_VISUAL';
-        if (/^background(-image)?$/i.test(prop) && /url\(/i.test(val)) {
+        if ((/^background(-image)?$/i.test(prop) || /^--bg-image$/i.test(prop)) && /url\(/i.test(val)) {
           category = 'DYNAMIC_BACKGROUND';
           hasBg = true;
         } else if (prop === 'display' && /^none$/i.test(val)) {
