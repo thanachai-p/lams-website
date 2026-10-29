@@ -233,13 +233,13 @@ document.addEventListener('DOMContentLoaded', () => {
     if (videoDirectLink) {
       videoDirectLink.href = directUrl;
       videoDirectLink.innerHTML = provider === 'tiktok' 
-        ? '<i class="fa-brands fa-tiktok" style="color: #25F4EE; margin-right: 6px;"></i> เปิดดูบน TikTok ➔' 
+        ? '<i class="fa-brands fa-tiktok" style="color: var(--brand-tiktok-cyan); margin-right: 6px;"></i> เปิดดูบน TikTok ➔' 
         : '<i class="fa-brands fa-youtube" style="color: #FF0000; margin-right: 6px;"></i> เปิดดูบน YouTube ➔';
     }
 
     if (videoBadge) {
       if (provider === 'tiktok') {
-        videoBadge.innerHTML = '<i class="fa-brands fa-tiktok" style="color: #25F4EE;"></i> TikTok Clip';
+        videoBadge.innerHTML = '<i class="fa-brands fa-tiktok" style="color: var(--brand-tiktok-cyan);"></i> TikTok Clip';
         videoBadge.style.background = 'rgba(37, 244, 238, 0.15)';
         videoBadge.style.color = '#fff';
       } else {

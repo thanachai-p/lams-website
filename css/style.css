@@ -61,6 +61,20 @@
   --theme-red-glow-strong: rgba(220, 38, 38, 0.55);
   --theme-amber-glow: rgba(245, 158, 11, 0.35);
 
+  /* Off-Palette Semantic & Brand Color Tokens */
+  --badge-ebidding-bg: rgba(56, 189, 248, 0.18);
+  --badge-ebidding-text: #38BDF8;
+  --badge-ebidding-border: rgba(56, 189, 248, 0.4);
+
+  --badge-plan-bg: rgba(168, 85, 247, 0.18);
+  --badge-plan-text: #C084FC;
+  --badge-plan-border: rgba(168, 85, 247, 0.4);
+
+  --brand-facebook: #1877F2;
+  --brand-line: #06C755;
+  --brand-tiktok-cyan: #25F4EE;
+  --brand-tiktok-red: #FE2C55;
+
   /* ==========================================================================
      5. Backward-Compatible Aliases (Instant System Parity)
      ========================================================================== */
@@ -109,7 +123,7 @@ body {
     ),
     var(--surface-page);
   background-color: var(--surface-page);
-  color: var(--text-white);
+  color: var(--text-primary);
   line-height: 1.6;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
@@ -132,12 +146,12 @@ button, input, select, textarea {
 /* Typography Presets */
 h1, h2, h3, h4, h5, h6 {
   font-weight: 800;
-  color: var(--text-white);
+  color: var(--text-primary);
   line-height: 1.25;
 }
 
 p {
-  color: var(--text-light);
+  color: var(--text-muted);
   font-weight: 300;
 }
 
@@ -161,9 +175,9 @@ img {
 }
 
 .text-center { text-align: center; }
-.text-cyan { color: var(--psu-cyan); }
-.text-teal { color: var(--psu-teal); }
-.text-gold { color: var(--psu-gold); }
+.text-cyan { color: var(--theme-red-light); }
+.text-teal { color: var(--theme-red-bright); }
+.text-gold { color: var(--theme-amber); }
 .text-red { color: var(--theme-red-bright); }
 .text-crimson { color: var(--theme-red-light); }
 

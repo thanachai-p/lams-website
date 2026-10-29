@@ -8,7 +8,7 @@
    1. Header Navigation Bar (.header-bu)
    ========================================================================== */
 .header-bu {
-  background: var(--bu-header-bg);
+  background: var(--surface-header);
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -28,7 +28,7 @@
 
 .logo-bu-box {
   background: #FFFFFF;
-  color: var(--psu-navy);
+  color: var(--theme-red-deep);
   padding: 6px 14px;
   border-radius: 6px;
   display: flex;
@@ -41,7 +41,7 @@
 }
 
 .logo-bu-icon {
-  background: var(--psu-navy);
+  background: var(--theme-red-deep);
   color: white;
   width: 34px;
   height: 34px;
@@ -51,7 +51,7 @@
   justify-content: center;
   font-size: 0.95rem;
   font-weight: 900;
-  border-bottom: 3px solid var(--psu-teal);
+  border-bottom: 3px solid var(--theme-red-bright);
   flex-shrink: 0;
 }
 
@@ -64,14 +64,14 @@
 }
 
 .nav-links-bu a {
-  color: var(--text-white);
+  color: var(--text-primary);
   font-weight: 600;
   font-size: 0.92rem;
   white-space: nowrap;
 }
 
 .nav-links-bu a:hover {
-  color: var(--psu-cyan);
+  color: var(--theme-red-light);
 }
 
 .header-right {
@@ -91,7 +91,7 @@
 }
 
 .btn-search-toggle:hover {
-  color: var(--psu-cyan);
+  color: var(--theme-red-light);
 }
 
 /* Language Switcher Segmented Pill Toggle (TH | EN) */
@@ -148,7 +148,7 @@
 .btn-staff-portal {
   background: rgba(255, 255, 255, 0.08);
   border: 1px solid rgba(255, 255, 255, 0.2);
-  color: var(--text-light);
+  color: var(--text-muted);
   padding: 7px 15px;
   border-radius: 20px;
   font-size: 0.84rem;
@@ -163,13 +163,13 @@
 
 .btn-staff-portal:hover {
   background: rgba(220, 38, 38, 0.15);
-  border-color: var(--psu-teal);
-  color: var(--psu-cyan);
+  border-color: var(--theme-red-bright);
+  color: var(--theme-red-light);
   transform: translateY(-1px);
 }
 
 .btn-staff-portal i {
-  color: var(--psu-teal);
+  color: var(--theme-red-bright);
 }
 
 .mobile-only-staff {
@@ -231,8 +231,8 @@
 
 .hero-tag {
   background: rgba(220, 38, 38, 0.2);
-  border: 1px solid var(--psu-teal);
-  color: var(--psu-cyan);
+  border: 1px solid var(--theme-red-bright);
+  color: var(--theme-red-light);
   padding: 4px 16px;
   border-radius: 20px;
   font-weight: 700;
@@ -246,19 +246,19 @@
   font-size: 3.3rem;
   font-weight: 900;
   line-height: 1.15;
-  color: var(--text-white);
+  color: var(--text-primary);
   margin-bottom: 12px;
 }
 
 .hero-sub {
-  color: var(--psu-teal);
+  color: var(--theme-red-bright);
   font-size: 1.6rem;
   font-weight: 800;
   margin-bottom: 15px;
 }
 
 .hero-desc {
-  color: var(--text-light);
+  color: var(--text-muted);
   font-size: 1.08rem;
   font-weight: 300;
   line-height: 1.7;
@@ -302,7 +302,7 @@
 }
 
 .bar-item:hover {
-  color: var(--psu-cyan);
+  color: var(--theme-red-light);
   transform: translateY(-2px);
 }
 
@@ -325,7 +325,7 @@
       #7f1d1d 48%,
       #991b1b 100%
     );
-  color: var(--text-white);
+  color: var(--text-primary);
   padding: clamp(56px, 7vw, 75px) 5%;
   text-align: center;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
@@ -438,7 +438,7 @@
    5. Gray Slogan Band (.gray-slogan-band)
    ========================================================================== */
 .gray-slogan-band {
-  background: var(--bu-gray-band);
+  background: var(--surface-band);
   padding: 38px 5%;
   display: flex;
   justify-content: space-between;
@@ -455,7 +455,7 @@
 .slogan-right {
   font-size: 1.25rem;
   font-weight: 700;
-  color: var(--text-light);
+  color: var(--text-muted);
   text-align: right;
 }
 
@@ -490,7 +490,7 @@
 }
 
 .pride-card {
-  background: var(--bu-card-dark);
+  background: var(--surface-card);
   border-radius: 20px;
   overflow: hidden;
   border: 1px solid var(--border-card);
@@ -499,7 +499,7 @@
 
 .pride-card:hover {
   transform: translateY(-4px);
-  border-color: var(--psu-teal);
+  border-color: var(--theme-red-bright);
   box-shadow: 0 20px 40px rgba(220, 38, 38, 0.2);
 }
 
@@ -515,7 +515,7 @@
 
 .pride-date {
   font-size: 0.82rem;
-  color: var(--psu-cyan);
+  color: var(--theme-red-light);
   font-weight: 700;
   margin-bottom: 6px;
 }
@@ -537,7 +537,7 @@
 }
 
 .sub-pride-card {
-  background: var(--bu-card-dark);
+  background: var(--surface-card);
   border-radius: 14px;
   overflow: hidden;
   border: 1px solid var(--border-card);
@@ -550,7 +550,7 @@
 
 .sub-pride-card:hover {
   transform: translateY(-4px);
-  border-color: var(--psu-teal);
+  border-color: var(--theme-red-bright);
   box-shadow: 0 12px 25px rgba(220, 38, 38, 0.2);
 }
 
@@ -578,13 +578,13 @@
 
 .sub-pride-date {
   font-size: 0.74rem;
-  color: var(--psu-cyan);
+  color: var(--theme-red-light);
   font-weight: 700;
 }
 
 .sub-pride-tag {
   font-size: 0.7rem;
-  color: var(--psu-teal);
+  color: var(--theme-red-bright);
   background: rgba(220, 38, 38, 0.18);
   padding: 1px 6px;
   border-radius: 4px;
@@ -617,7 +617,7 @@
 
 .sub-pride-action-card:hover {
   background: linear-gradient(135deg, rgba(127, 29, 29, 0.55), rgba(220, 38, 38, 0.35));
-  border-color: var(--psu-cyan);
+  border-color: var(--theme-red-light);
   transform: translateY(-4px);
   box-shadow: 0 15px 30px rgba(220, 38, 38, 0.25);
 }
@@ -635,8 +635,8 @@
   height: 44px;
   border-radius: 50%;
   background: rgba(220, 38, 38, 0.2);
-  border: 1px solid var(--psu-teal);
-  color: var(--psu-cyan);
+  border: 1px solid var(--theme-red-bright);
+  color: var(--theme-red-light);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -646,7 +646,7 @@
 }
 
 .sub-pride-action-card:hover .action-card-icon {
-  background: var(--psu-teal);
+  background: var(--theme-red-bright);
   color: white;
   transform: scale(1.1);
 }
@@ -654,7 +654,7 @@
 .action-card-badge {
   font-size: 0.72rem;
   font-weight: 700;
-  color: var(--psu-teal);
+  color: var(--theme-red-bright);
   letter-spacing: 0.5px;
   margin-bottom: 4px;
 }
@@ -675,7 +675,7 @@
 }
 
 .btn-read-all {
-  background: var(--bu-card-dark);
+  background: var(--surface-card);
   border: 1px solid rgba(255, 255, 255, 0.2);
   color: white;
   padding: 14px 34px;
@@ -690,8 +690,8 @@
 }
 
 .btn-read-all:hover {
-  background: var(--psu-blue);
-  border-color: var(--psu-teal);
+  background: var(--theme-red-dark);
+  border-color: var(--theme-red-bright);
 }
 
 /* ==========================================================================
@@ -885,13 +885,13 @@
 .card-overlay-badge {
   font-size: 1.85rem;
   font-weight: 900;
-  color: var(--text-white);
+  color: var(--text-primary);
   line-height: 1.2;
 }
 
 .card-overlay-sub {
   font-size: 0.98rem;
-  color: var(--psu-cyan);
+  color: var(--theme-red-light);
   font-weight: 600;
   margin-top: 4px;
 }
@@ -900,7 +900,7 @@
    9. Accordion Section (.navy-accordion-section)
    ========================================================================== */
 .navy-accordion-section {
-  background: linear-gradient(135deg, var(--psu-navy), var(--psu-blue));
+  background: linear-gradient(135deg, var(--theme-red-deep), var(--theme-red-dark));
   color: white;
   padding: var(--section-padding);
   text-align: center;
@@ -931,7 +931,7 @@
 
 .accordion-select-box:hover {
   background: rgba(255, 255, 255, 0.18);
-  border-color: var(--psu-teal);
+  border-color: var(--theme-red-bright);
 }
 
 .navy-links-grid {
@@ -947,9 +947,9 @@
   font-size: 1.1rem;
   font-weight: 800;
   margin-bottom: 12px;
-  border-bottom: 2px solid var(--psu-teal);
+  border-bottom: 2px solid var(--theme-red-bright);
   padding-bottom: 6px;
-  color: var(--psu-cyan);
+  color: var(--theme-red-light);
 }
 
 .navy-col ul {
@@ -965,13 +965,13 @@
 }
 
 .navy-col ul li:hover {
-  color: var(--psu-cyan);
+  color: var(--theme-red-light);
   padding-left: 4px;
 }
 
 .btn-more-white {
   background: #FFFFFF;
-  color: var(--psu-navy);
+  color: var(--theme-red-deep);
   padding: 14px 38px;
   border-radius: 30px;
   font-weight: 800;
@@ -983,7 +983,7 @@
 
 .btn-more-white:hover {
   transform: scale(1.05);
-  background: var(--psu-teal);
+  background: var(--theme-red-bright);
   color: white;
 }
 
@@ -991,7 +991,7 @@
    10. Footer Section (footer)
    ========================================================================== */
 footer {
-  background: var(--bu-footer-bg);
+  background: var(--surface-footer);
   color: var(--text-muted);
   padding: 60px 5% 30px;
   font-size: 0.9rem;
@@ -1016,7 +1016,7 @@ footer {
 }
 
 .footer-slogan span {
-  color: var(--psu-teal);
+  color: var(--theme-red-bright);
 }
 
 /* ==========================================================================
@@ -1044,8 +1044,8 @@ footer {
 
 .procurement-tag {
   background: rgba(220, 38, 38, 0.18);
-  border: 1px solid var(--psu-teal);
-  color: var(--psu-cyan);
+  border: 1px solid var(--theme-red-bright);
+  color: var(--theme-red-light);
   padding: 4px 14px;
   border-radius: 20px;
   font-weight: 700;
@@ -1069,7 +1069,7 @@ footer {
 }
 
 .btn-procurement-all {
-  background: var(--bu-card-dark);
+  background: var(--surface-card);
   border: 1px solid rgba(255, 255, 255, 0.18);
   color: white;
   padding: 10px 22px;
@@ -1084,8 +1084,8 @@ footer {
 }
 
 .btn-procurement-all:hover {
-  background: var(--psu-blue);
-  border-color: var(--psu-teal);
+  background: var(--theme-red-dark);
+  border-color: var(--theme-red-bright);
   color: white;
 }
 
@@ -1099,7 +1099,7 @@ footer {
 .filter-pill {
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.12);
-  color: var(--text-light);
+  color: var(--text-muted);
   padding: 6px 16px;
   border-radius: 20px;
   font-size: 0.85rem;
@@ -1109,8 +1109,8 @@ footer {
 }
 
 .filter-pill:hover, .filter-pill.active {
-  background: var(--psu-teal);
-  border-color: var(--psu-teal);
+  background: var(--theme-red-bright);
+  border-color: var(--theme-red-bright);
   color: white;
 }
 
@@ -1121,7 +1121,7 @@ footer {
 }
 
 .procurement-item {
-  background: var(--bu-card-dark);
+  background: var(--surface-card);
   border: 1px solid var(--border-card);
   border-radius: 14px;
   padding: 20px 25px;
@@ -1133,7 +1133,7 @@ footer {
 }
 
 .procurement-item:hover {
-  border-color: var(--psu-teal);
+  border-color: var(--theme-red-bright);
   transform: translateX(4px);
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35);
 }
@@ -1152,27 +1152,31 @@ footer {
 }
 
 .badge-ebidding {
-  background: rgba(56, 189, 248, 0.18);
-  color: var(--psu-cyan);
-  border: 1px solid rgba(56, 189, 248, 0.4);
+  background: var(--badge-ebidding-bg);
+  color: var(--badge-ebidding-text);
+  border: 1px solid var(--badge-ebidding-border);
 }
 
 .badge-price {
   background: rgba(245, 158, 11, 0.18);
-  color: var(--psu-gold);
+  background: color-mix(in srgb, var(--theme-amber) 18%, transparent);
+  color: var(--theme-amber);
   border: 1px solid rgba(245, 158, 11, 0.4);
+  border: 1px solid color-mix(in srgb, var(--theme-amber) 40%, transparent);
 }
 
 .badge-winner {
   background: rgba(16, 185, 129, 0.18);
+  background: color-mix(in srgb, var(--theme-success) 18%, transparent);
   color: var(--theme-success);
   border: 1px solid rgba(16, 185, 129, 0.4);
+  border: 1px solid color-mix(in srgb, var(--theme-success) 40%, transparent);
 }
 
 .badge-plan {
-  background: rgba(168, 85, 247, 0.18);
-  color: #C084FC;
-  border: 1px solid rgba(168, 85, 247, 0.4);
+  background: var(--badge-plan-bg);
+  color: var(--badge-plan-text);
+  border: 1px solid var(--badge-plan-border);
 }
 
 .procurement-item-title {
@@ -1188,7 +1192,7 @@ footer {
 }
 
 .procurement-item-title a:hover {
-  color: var(--psu-cyan);
+  color: var(--theme-red-light);
 }
 
 .procurement-meta {
@@ -1248,7 +1252,7 @@ footer {
 }
 
 .procurement-egp-note a {
-  color: var(--psu-cyan);
+  color: var(--theme-red-light);
   font-weight: 700;
 }
 
@@ -1478,8 +1482,10 @@ footer {
 
 .btn-quick-fb {
   background: rgba(24, 119, 242, 0.12);
+  background: color-mix(in srgb, var(--brand-facebook) 12%, transparent);
   border-color: rgba(24, 119, 242, 0.35);
-  color: #1877F2;
+  border-color: color-mix(in srgb, var(--brand-facebook) 35%, transparent);
+  color: var(--brand-facebook);
   width: 38px;
   height: 38px;
   padding: 0;
@@ -1487,7 +1493,7 @@ footer {
 }
 
 .btn-quick-fb:hover {
-  background: #1877F2;
+  background: var(--brand-facebook);
   color: #fff;
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(24, 119, 242, 0.4);
@@ -1495,8 +1501,10 @@ footer {
 
 .btn-quick-line {
   background: rgba(6, 199, 85, 0.12);
+  background: color-mix(in srgb, var(--brand-line) 12%, transparent);
   border-color: rgba(6, 199, 85, 0.35);
-  color: #06C755;
+  border-color: color-mix(in srgb, var(--brand-line) 35%, transparent);
+  color: var(--brand-line);
   width: 38px;
   height: 38px;
   padding: 0;
@@ -1504,7 +1512,7 @@ footer {
 }
 
 .btn-quick-line:hover {
-  background: #06C755;
+  background: var(--brand-line);
   color: #fff;
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(6, 199, 85, 0.4);
@@ -1672,26 +1680,32 @@ footer {
 
 .platform-facebook .platform-icon {
   background: rgba(24, 119, 242, 0.15);
-  color: #1877F2;
+  background: color-mix(in srgb, var(--brand-facebook) 15%, transparent);
+  color: var(--brand-facebook);
   border: 1px solid rgba(24, 119, 242, 0.3);
+  border: 1px solid color-mix(in srgb, var(--brand-facebook) 30%, transparent);
 }
 
 .platform-facebook:hover {
-  border-color: #1877F2;
+  border-color: var(--brand-facebook);
   transform: translateY(-3px);
   box-shadow: 0 8px 20px rgba(24, 119, 242, 0.25);
+  box-shadow: 0 8px 20px color-mix(in srgb, var(--brand-facebook) 25%, transparent);
 }
 
 .platform-line .platform-icon {
   background: rgba(6, 199, 85, 0.15);
-  color: #06C755;
+  background: color-mix(in srgb, var(--brand-line) 15%, transparent);
+  color: var(--brand-line);
   border: 1px solid rgba(6, 199, 85, 0.3);
+  border: 1px solid color-mix(in srgb, var(--brand-line) 30%, transparent);
 }
 
 .platform-line:hover {
-  border-color: #06C755;
+  border-color: var(--brand-line);
   transform: translateY(-3px);
   box-shadow: 0 8px 20px rgba(6, 199, 85, 0.25);
+  box-shadow: 0 8px 20px color-mix(in srgb, var(--brand-line) 25%, transparent);
 }
 
 .platform-native .platform-icon {
