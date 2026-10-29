@@ -947,3 +947,23 @@
   }
 }
 
+
+/* Program Detail Dynamic Alert */
+.program-detail-alert {
+  background: rgba(245, 158, 11, 0.15);
+  border: 1px solid var(--theme-amber);
+  color: var(--surface-white);
+  padding: 12px 18px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  font-size: 0.9rem;
+  max-width: 800px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.program-detail-alert i {
+  color: var(--theme-amber);
+  margin-right: 4px;
+}

@@ -118,10 +118,11 @@ for (const cls of forbiddenClasses) {
   assert(!regex.test(allCode), `Codebase still contains legacy class: .${cls}`);
 }
 
-// 6. Zero dev logs & zero var fallbacks
-console.log('6. Verifying clean production scripts (zero console.log, zero var hex fallbacks)...');
+// 6. Zero dev logs, zero var fallbacks & zero innerHTML
+console.log('6. Verifying clean production scripts (zero console.log, zero var hex fallbacks, zero innerHTML)...');
 const mainJs = fs.readFileSync(path.join(rootDir, 'js/main.js'), 'utf8');
 assert(!mainJs.includes('console.log('), 'js/main.js still contains console.log');
+assert(!mainJs.includes('.innerHTML =') && !mainJs.includes('.innerHTML='), 'js/main.js still contains .innerHTML assignments');
 
 const varHexFallbacks = allCode.match(/var\(--[\w-]+,\s*#[0-9a-fA-F]{3,8}\)/g);
 assert(!varHexFallbacks, `Codebase still contains var() with hardcoded hex fallbacks: ${varHexFallbacks}`);

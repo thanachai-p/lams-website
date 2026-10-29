@@ -123,17 +123,37 @@ function initSmoothScroll() {
   });
 }
 
-// 7. Interactive Procurement Filter Tabs & Search
-function initProcurementFilters() {
-  const procurementItems = document.querySelectorAll('.procurement-item');
-  if (procurementItems.length === 0) return;
 
-  const filterTabs = document.querySelectorAll('.catalog-filters .catalog-tab, .filter-pill');
+/**
+ * Safe URL validator for external/internal links (mitigates javascript: pseudo-protocol injection)
+ */
+function isSafeUrl(value) {
+  if (!value || typeof value !== 'string') return false;
+  const trimmed = value.trim();
+  if (trimmed.startsWith('/') || trimmed.startsWith('./') || trimmed.startsWith('../')) return true;
+  try {
+    const url = new URL(trimmed, window.location.href);
+    return ['http:', 'https:'].includes(url.protocol);
+  } catch {
+    return false;
+  }
+}
+
+// 7. Interactive Procurement Filter Tabs & Search (Hardened & Scoped)
+function initProcurementFilters() {
+  const procureList = document.getElementById('procurement-list');
+  if (!procureList) return;
+  if (procureList.dataset.initialized === 'true') return;
+  procureList.dataset.initialized = 'true';
+
+  const procurementItems = procureList.querySelectorAll('.procurement-item');
+  const toolbar = procureList.closest('section')?.querySelector('.catalog-toolbar') || document.querySelector('.catalog-toolbar');
+  const filterTabs = toolbar ? toolbar.querySelectorAll('.catalog-tab, .filter-pill') : [];
   const searchInput = document.getElementById('procure-search-input');
   const emptyState = document.getElementById('procure-empty-state');
 
   function filterProcure() {
-    const activeTab = document.querySelector('.catalog-filters .catalog-tab.active, .filter-pill.active, .catalog-filters .catalog-tab.filter-pill--active');
+    const activeTab = toolbar ? toolbar.querySelector('.catalog-tab.active, .filter-pill.active, .catalog-tab.filter-pill--active') : null;
     const cat = activeTab ? activeTab.getAttribute('data-filter') : 'all';
     const q = searchInput ? searchInput.value.toLowerCase().trim() : '';
 
@@ -147,6 +167,7 @@ function initProcurementFilters() {
 
       it.style.display = show ? '' : 'none';
       it.classList.toggle('is-hidden', !show);
+      it.hidden = !show;
       it.setAttribute('aria-hidden', (!show).toString());
 
       if (show) visibleCount++;
@@ -155,6 +176,7 @@ function initProcurementFilters() {
     if (emptyState) {
       emptyState.style.display = visibleCount === 0 ? 'block' : 'none';
       emptyState.classList.toggle('is-hidden', visibleCount !== 0);
+      emptyState.hidden = visibleCount !== 0;
     }
   }
 
@@ -288,27 +310,32 @@ function initCampusVideoModal() {
     if (videoTitle) videoTitle.textContent = title;
     if (videoShowcaseTitle) videoShowcaseTitle.textContent = title;
 
-    if (videoDirectLink) {
+    if (videoDirectLink && isSafeUrl(directUrl)) {
       videoDirectLink.href = directUrl;
-      videoDirectLink.innerHTML = provider === 'tiktok'
-        ? '<i class="fa-brands fa-tiktok" style="color: var(--brand-tiktok-cyan); margin-right: 6px;"></i> เปิดดูบน TikTok ➔'
-        : '<i class="fa-brands fa-youtube" style="color: #FF0000; margin-right: 6px;"></i> เปิดดูบน YouTube ➔';
+      videoDirectLink.replaceChildren();
+      const directIcon = document.createElement('i');
+      directIcon.className = provider === 'tiktok' ? 'fa-brands fa-tiktok' : 'fa-brands fa-youtube';
+      directIcon.style.color = provider === 'tiktok' ? 'var(--brand-tiktok-cyan)' : 'var(--brand-youtube)';
+      directIcon.style.marginRight = '6px';
+      const directSpan = document.createElement('span');
+      directSpan.textContent = provider === 'tiktok' ? 'เปิดดูบน TikTok ➔' : 'เปิดดูบน YouTube ➔';
+      videoDirectLink.append(directIcon, directSpan);
     }
 
     if (videoBadge) {
-      if (provider === 'tiktok') {
-        videoBadge.innerHTML = '<i class="fa-brands fa-tiktok" style="color: var(--brand-tiktok-cyan);"></i> TikTok Clip';
-        videoBadge.style.background = 'rgba(37, 244, 238, 0.15)';
-        videoBadge.style.color = '#fff';
-      } else {
-        videoBadge.innerHTML = '<i class="fa-brands fa-youtube" style="color: #FF0000;"></i> YouTube Video';
-        videoBadge.style.background = 'rgba(239, 68, 68, 0.15)';
-        videoBadge.style.color = '#fff';
-      }
+      videoBadge.replaceChildren();
+      const badgeIcon = document.createElement('i');
+      badgeIcon.className = provider === 'tiktok' ? 'fa-brands fa-tiktok' : 'fa-brands fa-youtube';
+      badgeIcon.style.color = provider === 'tiktok' ? 'var(--brand-tiktok-cyan)' : 'var(--brand-youtube)';
+      badgeIcon.style.marginRight = '6px';
+      const badgeSpan = document.createElement('span');
+      badgeSpan.textContent = provider === 'tiktok' ? 'TikTok Clip' : 'YouTube Video';
+      videoBadge.style.background = provider === 'tiktok' ? 'rgba(37, 244, 238, 0.15)' : 'rgba(239, 68, 68, 0.15)';
+      videoBadge.style.color = 'var(--surface-white)';
+      videoBadge.append(badgeIcon, badgeSpan);
     }
 
-    // Mode A: Future Server-Hosted MP4 Video playback
-    if (mp4Url && videoNative) {
+    if (mp4Url && videoNative && isSafeUrl(mp4Url)) {
       if (videoShowcase) videoShowcase.style.display = 'none';
       if (videoIframe) {
         videoIframe.style.display = 'none';
@@ -321,7 +348,6 @@ function initCampusVideoModal() {
       try { videoNative.play(); } catch (e) {}
       if (videoDialog) videoDialog.style.maxWidth = '860px';
     } else {
-      // Clean up native player if not MP4
       if (videoNative) {
         try { videoNative.pause(); } catch (e) {}
         videoNative.removeAttribute('src');
@@ -330,29 +356,23 @@ function initCampusVideoModal() {
         videoNative.style.display = 'none';
       }
 
-      // Mode B: Interactive Video Player via Iframe (TikTok 9:16 vertical & YouTube 16:9 widescreen)
       if (videoShowcase) videoShowcase.style.display = 'none';
       if (videoIframe) {
         videoIframe.style.display = 'block';
-
         if (provider === 'tiktok') {
           videoIframe.style.aspectRatio = '9 / 16';
           videoIframe.style.maxWidth = '360px';
           videoIframe.style.width = '100%';
           videoIframe.style.height = 'min(620px, 72vh)';
-          videoIframe.src = `https://www.tiktok.com/player/v1/${videoId}`;
-          if (videoDialog) {
-            videoDialog.style.maxWidth = '440px';
-          }
+          videoIframe.src = 'https://www.tiktok.com/player/v1/' + encodeURIComponent(videoId);
+          if (videoDialog) videoDialog.style.maxWidth = '440px';
         } else {
           videoIframe.style.aspectRatio = '16 / 9';
           videoIframe.style.maxWidth = '100%';
           videoIframe.style.width = '100%';
           videoIframe.style.height = 'auto';
-          videoIframe.src = `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&rel=0`;
-          if (videoDialog) {
-            videoDialog.style.maxWidth = '860px';
-          }
+          videoIframe.src = 'https://www.youtube-nocookie.com/embed/' + encodeURIComponent(videoId) + '?autoplay=1&rel=0';
+          if (videoDialog) videoDialog.style.maxWidth = '860px';
         }
       }
     }
@@ -360,11 +380,8 @@ function initCampusVideoModal() {
     videoModal.style.display = 'flex';
     document.body.style.overflow = 'hidden';
 
-    // Accessibility: Focus Close button
     setTimeout(() => {
-      if (closeVideoModal) {
-        closeVideoModal.focus();
-      }
+      if (closeVideoModal) closeVideoModal.focus();
     }, 60);
   }
 
@@ -400,7 +417,7 @@ function initCampusVideoModal() {
     if (videoPoster) {
       const handlePosterTrigger = () => {
         const url = videoHeroBtn ? videoHeroBtn.href : '#';
-        if (url && url !== '#') window.open(url, '_blank', 'noopener,noreferrer');
+        if (url && url !== '#' && isSafeUrl(url)) window.open(url, '_blank', 'noopener,noreferrer');
       };
       videoPoster.addEventListener('click', handlePosterTrigger);
       videoPoster.addEventListener('keydown', (e) => {
@@ -424,7 +441,6 @@ function initCampusVideoModal() {
       }
     });
 
-    // Focus trap inside video modal
     videoModal.addEventListener('keydown', (e) => {
       if (e.key === 'Tab') {
         const focusables = videoModal.querySelectorAll(
@@ -465,8 +481,8 @@ function initSocialShareSystem() {
   const currentShareTitle = document.title.split('|')[0].trim() || 'ข่าวสาร LAMS PSU Surat Thani';
 
   const shareProviders = {
-    facebook: (url) => `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`,
-    line: (url) => `https://social-plugins.line.me/lineit/share?url=${encodeURIComponent(url)}`
+    facebook: (url) => 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(url),
+    line: (url) => 'https://social-plugins.line.me/lineit/share?url=' + encodeURIComponent(url)
   };
 
   let shareToastTimer = null;
@@ -488,7 +504,7 @@ function initSocialShareSystem() {
     const height = 550;
     const left = Math.max(0, window.screenX + (window.outerWidth - width) / 2);
     const top = Math.max(0, window.screenY + (window.outerHeight - height) / 2);
-    const features = `width=${width},height=${height},top=${top},left=${left},scrollbars=yes,resizable=yes,noopener,noreferrer`;
+    const features = 'width=' + width + ',height=' + height + ',top=' + top + ',left=' + left + ',scrollbars=yes,resizable=yes,noopener,noreferrer';
 
     const popup = window.open(targetUrl, 'lamsSharePopup', features);
     if (!popup || popup.closed || typeof popup.closed === 'undefined') {
@@ -536,12 +552,12 @@ function initSocialShareSystem() {
     if (success) {
       showShareToast('คัดลอกลิงก์ข่าวสำเร็จแล้ว!');
       if (buttonElement) {
-        const originalHtml = buttonElement.innerHTML;
         buttonElement.classList.add('copied');
-        buttonElement.innerHTML = '<i class="fa-solid fa-check"></i> คัดลอกแล้ว!';
+        const origText = buttonElement.textContent;
+        buttonElement.textContent = ' คัดลอกแล้ว!';
         setTimeout(() => {
           buttonElement.classList.remove('copied');
-          buttonElement.innerHTML = originalHtml;
+          buttonElement.textContent = origText;
         }, 2000);
       }
     } else {
@@ -675,15 +691,11 @@ function initSocialShareSystem() {
     });
   }
 
-  if (closeShareModal) {
-    closeShareModal.addEventListener('click', closeShareModalDialog);
-  }
+  if (closeShareModal) closeShareModal.addEventListener('click', closeShareModalDialog);
 
   if (shareNewsModal) {
     shareNewsModal.addEventListener('click', (e) => {
-      if (e.target === shareNewsModal) {
-        closeShareModalDialog();
-      }
+      if (e.target === shareNewsModal) closeShareModalDialog();
     });
 
     document.addEventListener('keydown', (e) => {
@@ -716,18 +728,20 @@ function initSocialShareSystem() {
   }
 }
 
-
-// 14. News Filter System (Bilingual & Safe State)
+// 14. News Filter System (Hardened & Scoped)
 function initNewsFilter() {
-  const searchInput = document.getElementById('news-search-input');
-  const newsContainer = document.querySelector('.news-grid-page');
-  if (!newsContainer && !searchInput) return;
+  const newsGrid = document.getElementById('news-grid') || document.querySelector('.news-grid-page');
+  if (!newsGrid) return;
+  if (newsGrid.dataset.initialized === 'true') return;
+  newsGrid.dataset.initialized = 'true';
 
-  const tabs = document.querySelectorAll('.catalog-tab');
-  const cards = document.querySelectorAll('.news-grid-page .program-card-item');
+  const toolbar = newsGrid.closest('section')?.querySelector('.catalog-toolbar') || document.querySelector('.catalog-toolbar');
+  const tabs = toolbar ? toolbar.querySelectorAll('.catalog-tab') : [];
+  const searchInput = document.getElementById('news-search-input');
+  const cards = newsGrid.querySelectorAll('.program-card-item');
 
   function filterNews() {
-    const activeTab = document.querySelector('.catalog-tab.active, .catalog-tab.filter-pill--active');
+    const activeTab = toolbar ? toolbar.querySelector('.catalog-tab.active, .catalog-tab.filter-pill--active') : null;
     const cat = activeTab ? activeTab.getAttribute('data-filter') : 'all';
     const q = searchInput ? searchInput.value.toLowerCase().trim() : '';
 
@@ -740,6 +754,7 @@ function initNewsFilter() {
 
       c.style.display = show ? '' : 'none';
       c.classList.toggle('is-hidden', !show);
+      c.hidden = !show;
       c.setAttribute('aria-hidden', (!show).toString());
     });
   }
@@ -761,14 +776,16 @@ function initNewsFilter() {
   }
 }
 
-// 15. Directory & Faculty People Filter
+// 15. Directory & Faculty People Filter (Hardened & Scoped)
 function initPeopleFilter() {
   const peopleGrid = document.getElementById('peopleGrid');
   if (!peopleGrid) return;
+  if (peopleGrid.dataset.initialized === 'true') return;
+  peopleGrid.dataset.initialized = 'true';
 
   const tabs = document.querySelectorAll('#peopleFilters .catalog-tab');
   const searchInput = document.getElementById('peopleSearchInput');
-  const cards = document.querySelectorAll('#peopleGrid .people-card');
+  const cards = peopleGrid.querySelectorAll('.people-card');
   const emptyState = document.getElementById('peopleEmptyState');
 
   let currentFilter = 'all';
@@ -787,6 +804,7 @@ function initPeopleFilter() {
 
       card.style.display = show ? '' : 'none';
       card.classList.toggle('is-hidden', !show);
+      card.hidden = !show;
       card.setAttribute('aria-hidden', (!show).toString());
 
       if (show) visibleCount++;
@@ -795,6 +813,7 @@ function initPeopleFilter() {
     if (emptyState) {
       emptyState.style.display = visibleCount === 0 ? 'block' : 'none';
       emptyState.classList.toggle('is-hidden', visibleCount !== 0);
+      emptyState.hidden = visibleCount !== 0;
     }
   }
 
@@ -819,19 +838,19 @@ function initPeopleFilter() {
   }
 }
 
-// 16. Academic Degree Programs Catalog Filter & URL Sync
+// 16. Academic Degree Programs Catalog Filter & URL Sync (Hardened & Scoped)
 function initProgramCatalog() {
+  const programsGrid = document.getElementById('programs-grid');
+  if (!programsGrid) return;
+  if (programsGrid.dataset.initialized === 'true') return;
+  programsGrid.dataset.initialized = 'true';
+
   const programSearch = document.getElementById('program-search-input');
   const emptyState = document.getElementById('catalog-empty-state');
-  const programCards = document.querySelectorAll('.program-catalog-grid .program-card-item, .program-card-item');
+  const programCards = programsGrid.querySelectorAll('.program-card-item');
+  const toolbar = programsGrid.closest('main')?.previousElementSibling || document.querySelector('.catalog-toolbar');
+  const tabs = toolbar ? toolbar.querySelectorAll('.catalog-tab') : [];
 
-  // Guard: Run only on pages that have the program search or empty state and aren't news
-  if (!programSearch && !emptyState) return;
-  if (document.querySelector('.news-grid-page')) return; // Avoid colliding with news catalog
-
-  const tabs = document.querySelectorAll('.catalog-tab');
-
-  // Check URL query parameters (e.g. ?level=bachelor or ?level=master)
   const urlParams = new URLSearchParams(window.location.search);
   const initialLevel = urlParams.get('level');
   if (initialLevel) {
@@ -848,7 +867,7 @@ function initProgramCatalog() {
   }
 
   function filterPrograms() {
-    const activeTab = document.querySelector('.catalog-tab.active, .catalog-tab.filter-pill--active');
+    const activeTab = toolbar ? toolbar.querySelector('.catalog-tab.active, .catalog-tab.filter-pill--active') : null;
     const filterCategory = activeTab ? activeTab.getAttribute('data-filter') : 'all';
     const query = programSearch ? programSearch.value.toLowerCase().trim() : '';
 
@@ -864,6 +883,7 @@ function initProgramCatalog() {
 
       card.style.display = show ? '' : 'none';
       card.classList.toggle('is-hidden', !show);
+      card.hidden = !show;
       card.setAttribute('aria-hidden', (!show).toString());
 
       if (show) visibleCount++;
@@ -872,6 +892,7 @@ function initProgramCatalog() {
     if (emptyState) {
       emptyState.style.display = visibleCount === 0 ? 'block' : 'none';
       emptyState.classList.toggle('is-hidden', visibleCount !== 0);
+      emptyState.hidden = visibleCount !== 0;
     }
   }
 
@@ -891,25 +912,25 @@ function initProgramCatalog() {
     programSearch.addEventListener('input', filterPrograms);
   }
 
-  // Initial filter run
   filterPrograms();
 }
 
-// 17. Program Detail Page Renderer (Bilingual TH / EN)
+// 17. Program Detail Page Renderer (Hardened, Zero-innerHTML & Safe URL)
 function initProgramDetail() {
   const detailHero = document.getElementById('detail-hero');
-  const crumbName = document.getElementById('crumb-program-name');
-  if (!detailHero && !crumbName) return;
+  if (!detailHero) return;
+  if (detailHero.dataset.initialized === 'true') return;
+  detailHero.dataset.initialized = 'true';
 
+  const crumbName = document.getElementById('crumb-program-name');
   const isEn = document.documentElement.lang === 'en' || window.location.pathname.includes('/en/');
   const urlParams = new URLSearchParams(window.location.search);
   const programId = urlParams.get('id') || 'bba-mgmt';
 
-  // Synchronize Language Switcher Links
   const thSwitch = document.getElementById('lang-switch-th-link');
   const enSwitch = document.getElementById('lang-switch-en-link');
-  if (thSwitch) thSwitch.href = isEn ? `../pages/program-detail.html?id=${encodeURIComponent(programId)}` : `program-detail.html?id=${encodeURIComponent(programId)}`;
-  if (enSwitch) enSwitch.href = isEn ? `program-detail.html?id=${encodeURIComponent(programId)}` : `../en/program-detail.html?id=${encodeURIComponent(programId)}`;
+  if (thSwitch) thSwitch.href = isEn ? '../pages/program-detail.html?id=' + encodeURIComponent(programId) : 'program-detail.html?id=' + encodeURIComponent(programId);
+  if (enSwitch) enSwitch.href = isEn ? 'program-detail.html?id=' + encodeURIComponent(programId) : '../en/program-detail.html?id=' + encodeURIComponent(programId);
 
   if (typeof window.getLamsProgramById !== 'function') return;
 
@@ -918,71 +939,100 @@ function initProgramDetail() {
 
   if (!exactProgram && program && detailHero) {
     const alertBox = document.createElement('div');
-    alertBox.style.cssText = 'background: rgba(245, 158, 11, 0.15); border: 1px solid var(--theme-amber); color: #fff; padding: 12px 18px; border-radius: 10px; margin-bottom: 20px; font-size: 0.9rem; max-width: 800px;';
-    alertBox.innerHTML = isEn
-      ? '<i class="fa-solid fa-circle-exclamation" style="color: var(--theme-amber); margin-right: 8px;"></i> Notice: The specified curriculum ID was not found. Displaying default featured program.'
-      : '<i class="fa-solid fa-circle-exclamation" style="color: var(--theme-amber); margin-right: 8px;"></i> ไม่พบรหัสหลักสูตรที่ระบุ ระบบกำลังแสดงผลหลักสูตรแนะนำเริ่มต้น';
+    alertBox.className = 'program-detail-alert';
+    const alertIcon = document.createElement('i');
+    alertIcon.className = 'fa-solid fa-circle-exclamation';
+    alertIcon.setAttribute('aria-hidden', 'true');
+    const alertMsg = document.createElement('span');
+    alertMsg.textContent = isEn
+      ? 'Notice: The specified curriculum ID was not found. Displaying default featured program.'
+      : 'ไม่พบรหัสหลักสูตรที่ระบุ ระบบกำลังแสดงผลหลักสูตรแนะนำเริ่มต้น';
+    alertBox.append(alertIcon, alertMsg);
     const subHeroContainer = detailHero.querySelector('.subpage-hero-container');
     if (subHeroContainer) subHeroContainer.prepend(alertBox);
   }
 
   if (!program) return;
 
-  // Page Title & Breadcrumb
   const shortTitle = isEn ? (program.shortNameEn || program.nameEn) : program.shortName;
   document.title = isEn
-    ? `${shortTitle} | Faculty of Liberal Arts and Management Sciences, PSU`
-    : `${program.shortName} | คณะศิลปศาสตร์และวิทยาการจัดการ ม.อ.สุราษฎร์ธานี`;
+    ? shortTitle + ' | Faculty of Liberal Arts and Management Sciences, PSU'
+    : program.shortName + ' | คณะศิลปศาสตร์และวิทยาการจัดการ ม.อ.สุราษฎร์ธานี';
 
   if (crumbName) crumbName.textContent = shortTitle;
 
-  // Hero Fields
   const badgeText = document.getElementById('detail-badge-text');
   if (badgeText) {
     badgeText.textContent = isEn
-      ? `${program.levelNameEn || program.levelName} • ${program.durationEn || program.duration}`
-      : `${program.levelName} • ${program.duration}`;
+      ? (program.levelNameEn || program.levelName) + ' • ' + (program.durationEn || program.duration)
+      : program.levelName + ' • ' + program.duration;
   }
 
+  // Safe Degree Code DOM construction (Zero innerHTML)
   const degreeCode = document.getElementById('detail-degree-code');
   if (degreeCode) {
-    const icon = program.icon || 'fa-solid fa-graduation-cap';
-    degreeCode.innerHTML = isEn
-      ? `<i class="${icon}"></i> ${program.degreeCodeEn || program.degreeCode}`
-      : `<i class="${program.icon}"></i> ${program.degreeCode} (${program.shortName})`;
+    degreeCode.replaceChildren();
+    const icon = document.createElement('i');
+    const rawIcon = program.icon || 'fa-solid fa-graduation-cap';
+    icon.className = /^[a-z0-9-\s]+$/i.test(rawIcon) ? rawIcon : 'fa-solid fa-graduation-cap';
+    icon.setAttribute('aria-hidden', 'true');
+    icon.style.marginRight = '8px';
+    const textNode = document.createTextNode(
+      isEn
+        ? (program.degreeCodeEn || program.degreeCode)
+        : program.degreeCode + ' (' + program.shortName + ')'
+    );
+    degreeCode.append(icon, textNode);
   }
 
   const titleEn = document.getElementById('detail-title-en');
-  if (titleEn) titleEn.textContent = program.nameEn;
+  if (titleEn) titleEn.textContent = program.nameEn || '';
 
   const titleTh = document.getElementById('detail-title-th');
-  if (titleTh) titleTh.textContent = program.nameTh;
+  if (titleTh) titleTh.textContent = program.nameTh || '';
 
-  // Philosophy
   const philosophy = document.getElementById('detail-philosophy');
   if (philosophy) {
     philosophy.textContent = isEn ? (program.philosophyEn || program.philosophy) : program.philosophy;
   }
 
-  // Tracks
+  // Safe Tracks DOM construction (Zero innerHTML)
   const tracksContainer = document.getElementById('detail-tracks-container');
   const tracks = isEn ? (program.tracksEn || program.tracks) : program.tracks;
-  if (tracksContainer && tracks && tracks.length > 0) {
-    tracksContainer.innerHTML = tracks.map((t) => `
-      <div class="track-box">
-        <h4>${t.title}</h4>
-        <p>${t.desc}</p>
-      </div>
-    `).join('');
+  if (tracksContainer) {
+    tracksContainer.replaceChildren();
+    if (tracks && tracks.length > 0) {
+      tracks.forEach((t) => {
+        const box = document.createElement('div');
+        box.className = 'track-box';
+        const h4 = document.createElement('h4');
+        h4.textContent = t.title || '';
+        const p = document.createElement('p');
+        p.textContent = t.desc || '';
+        box.append(h4, p);
+        tracksContainer.appendChild(box);
+      });
+    }
   }
 
-  // Careers
+  // Safe Careers DOM construction (Zero innerHTML)
   const careersContainer = document.getElementById('detail-careers-container');
   const careers = isEn ? (program.careersEn || program.careers) : program.careers;
-  if (careersContainer && careers && careers.length > 0) {
-    careersContainer.innerHTML = careers.map((c) => `
-      <li><i class="fa-solid fa-circle-check"></i> ${c}</li>
-    `).join('');
+  if (careersContainer) {
+    careersContainer.replaceChildren();
+    if (careers && careers.length > 0) {
+      careers.forEach((c) => {
+        const li = document.createElement('li');
+        const icon = document.createElement('i');
+        icon.className = 'fa-solid fa-circle-check';
+        icon.setAttribute('aria-hidden', 'true');
+        icon.style.marginRight = '8px';
+        const span = document.createElement('span');
+        span.textContent = c;
+        li.append(icon, span);
+        careersContainer.appendChild(li);
+      });
+    }
   }
 
   // Sidebar Quick Facts
@@ -1002,28 +1052,33 @@ function initProgramDetail() {
       : (program.pdfYear || 'รหัส 69 (ล่าสุด)');
   }
 
+  // Safe PDF Link (Protocol Sanitized)
   const pdfBtn = document.getElementById('detail-pdf-btn');
-  if (pdfBtn && program.pdfCurriculum) {
+  if (pdfBtn && isSafeUrl(program.pdfCurriculum)) {
     pdfBtn.href = program.pdfCurriculum;
   }
 
-  // Admission Link Routing
+  // Safe Admission Outbound Link (Zero innerHTML)
   const applyBtn = document.getElementById('detail-apply-btn') || document.querySelector('.btn-sidebar-tcas');
   if (applyBtn) {
-    if (program.id === 'mba') {
-      applyBtn.href = 'https://grad.surat.psu.ac.th/';
-      applyBtn.innerHTML = isEn
-        ? 'Apply MBA <i class="fa-solid fa-arrow-up-right-from-square" style="font-size: 0.8rem; margin-left: 6px;"></i>'
-        : 'สมัครเรียน ป.โท MBA <i class="fa-solid fa-arrow-up-right-from-square" style="font-size: 0.8rem; margin-left: 6px;"></i>';
-    } else {
-      applyBtn.href = 'https://entrance.surat.psu.ac.th/';
-      applyBtn.innerHTML = isEn
-        ? 'Apply TCAS <i class="fa-solid fa-arrow-up-right-from-square" style="font-size: 0.8rem; margin-left: 6px;"></i>'
-        : 'สมัครเรียน TCAS ม.อ. <i class="fa-solid fa-arrow-up-right-from-square" style="font-size: 0.8rem; margin-left: 6px;"></i>';
-    }
+    const isMba = program.id === 'mba';
+    const targetUrl = isMba ? 'https://grad.surat.psu.ac.th/' : 'https://entrance.surat.psu.ac.th/';
+    applyBtn.href = targetUrl;
+    applyBtn.replaceChildren();
+
+    const btnText = document.createTextNode(
+      isEn
+        ? (isMba ? 'Apply MBA ' : 'Apply TCAS ')
+        : (isMba ? 'สมัครเรียน ป.โท MBA ' : 'สมัครเรียน TCAS ม.อ. ')
+    );
+    const arrowIcon = document.createElement('i');
+    arrowIcon.className = 'fa-solid fa-arrow-up-right-from-square';
+    arrowIcon.setAttribute('aria-hidden', 'true');
+    arrowIcon.style.fontSize = '0.8rem';
+    arrowIcon.style.marginLeft = '6px';
+    applyBtn.append(btnText, arrowIcon);
   }
 
-  // Tuition Note
   const feeNote = document.getElementById('detail-fee-note');
   if (feeNote) {
     feeNote.textContent = isEn
