@@ -1,6 +1,7 @@
 /**
  * LAMS Website - Architecture & Design System Quality Gate
- * Enforces pure static HTML/CSS/JS architecture, asset parity, zero legacy artifacts.
+ * Enforces pure static HTML/CSS/JS architecture, asset parity, zero legacy artifacts,
+ * 100% tokenized CSS, and zero inline scripts.
  */
 
 const fs = require('fs');
@@ -34,7 +35,7 @@ const enPages = [
 
 const allPages = [...thPages, ...enPages];
 const cssFiles = ['css/style.css', 'css/components.css', 'css/pages.css'];
-const jsFiles = ['js/main.js'];
+const jsFiles = ['js/main.js', 'js/programs-data.js'];
 
 let errors = [];
 let warnings = [];
@@ -134,6 +135,43 @@ for (const p of allPages) {
   assert(/<title[^>]*>[^<]+<\/title>/i.test(content), `${p} has missing or empty <title> tag`);
   assert(/<header\s+class=["'][^"']*site-header/i.test(content), `${p} missing .site-header`);
   assert(/<footer\s+class=["'][^"']*site-footer/i.test(content), `${p} missing .site-footer`);
+}
+
+// 8. Strict CSS Token Hygiene (Zero raw hex outside style.css :root)
+console.log('8. Verifying strict CSS token hygiene (zero raw hex outside :root)...');
+for (const cssFile of ['css/components.css', 'css/pages.css']) {
+  const content = fs.readFileSync(path.join(rootDir, cssFile), 'utf8');
+  const hexMatches = content.match(/#[0-9a-fA-F]{3,8}\b/g);
+  assert(!hexMatches, `${cssFile} contains raw hardcoded hex colors: ${hexMatches ? hexMatches.slice(0, 5).join(', ') : ''}`);
+}
+
+const styleOutsideRoot = styleCss.replace(/:root\s*\{([\s\S]*?)\}/, '');
+const styleHexMatches = styleOutsideRoot.match(/#[0-9a-fA-F]{3,8}\b/g);
+assert(!styleHexMatches, `css/style.css contains raw hardcoded hex colors outside :root: ${styleHexMatches ? styleHexMatches.join(', ') : ''}`);
+
+// 9. Zero inline scripts across all 16 pages
+console.log('9. Verifying zero inline scripts across all 16 HTML pages...');
+for (const p of allPages) {
+  const content = fs.readFileSync(path.join(rootDir, p), 'utf8');
+  const scriptMatches = [...content.matchAll(/<script\b([^>]*)>([\s\S]*?)<\/script>/gi)];
+  const inlineScripts = scriptMatches.filter(m => !m[1].includes('src=') && !m[1].includes('application/ld+json'));
+  assert(inlineScripts.length === 0, `${p} contains ${inlineScripts.length} forbidden inline script(s)`);
+}
+
+// 10. Canonical BEM Navigation state (.site-nav.is-open)
+console.log('10. Verifying canonical BEM navigation state (.is-open)...');
+assert(mainJs.includes("siteNav.classList.toggle('is-open')"), "js/main.js missing canonical 'is-open' toggle");
+assert(mainJs.includes("siteNav.classList.remove('is-open')"), "js/main.js missing canonical 'is-open' remover");
+
+// 11. Program Detail dependencies verification
+console.log('11. Verifying program detail data script loading...');
+for (const detailPage of ['pages/program-detail.html', 'en/program-detail.html']) {
+  const content = fs.readFileSync(path.join(rootDir, detailPage), 'utf8');
+  const dataIdx = content.indexOf('js/programs-data.js');
+  const mainIdx = content.indexOf('js/main.js');
+  assert(dataIdx !== -1, `${detailPage} is missing js/programs-data.js`);
+  assert(mainIdx !== -1, `${detailPage} is missing js/main.js`);
+  assert(dataIdx < mainIdx, `${detailPage} must load js/programs-data.js before js/main.js`);
 }
 
 // Summary
