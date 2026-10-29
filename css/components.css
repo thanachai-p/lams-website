@@ -1257,9 +1257,7 @@ footer,
     gap: 16px;
     align-items: flex-start;
   }
-  .site-nav.active,
-  .site-nav.is-open,
-  .site-nav--open {
+  .site-nav.is-open {
     display: flex;
   }
   .site-nav a {

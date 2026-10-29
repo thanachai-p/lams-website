@@ -22,15 +22,13 @@ function initSiteNav() {
   if (!mobileMenuBtn || !siteNav) return;
 
   function closeMobileMenu() {
-    siteNav.classList.remove('is-open', 'site-nav--open', 'active');
+    siteNav.classList.remove('is-open');
     mobileMenuBtn.setAttribute('aria-expanded', 'false');
   }
 
   mobileMenuBtn.addEventListener('click', (e) => {
     e.stopPropagation();
     const isOpen = siteNav.classList.toggle('is-open');
-    siteNav.classList.toggle('site-nav--open', isOpen);
-    siteNav.classList.toggle('active', isOpen);
     mobileMenuBtn.setAttribute('aria-expanded', String(isOpen));
   });
 
@@ -46,7 +44,7 @@ function initSiteNav() {
   // Close mobile menu when clicking outside
   document.addEventListener('click', (e) => {
     if (
-      (siteNav.classList.contains('is-open') || siteNav.classList.contains('active')) &&
+      siteNav.classList.contains('is-open') &&
       !siteNav.contains(e.target) &&
       !mobileMenuBtn.contains(e.target)
     ) {
@@ -56,7 +54,7 @@ function initSiteNav() {
 
   // Reset state on window resize across breakpoint
   window.addEventListener('resize', () => {
-    if (window.innerWidth > 992 && (siteNav.classList.contains('is-open') || siteNav.classList.contains('active'))) {
+    if (window.innerWidth > 992 && siteNav.classList.contains('is-open')) {
       closeMobileMenu();
     }
   });
