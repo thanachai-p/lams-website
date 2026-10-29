@@ -130,11 +130,21 @@ function initSmoothScroll() {
 function isSafeUrl(value) {
   if (!value || typeof value !== 'string') return false;
   const trimmed = value.trim();
-  if (trimmed.startsWith('//')) return false; // Strictly block protocol-relative hijacking
-  if (trimmed.startsWith('/') || trimmed.startsWith('./') || trimmed.startsWith('../')) return true;
+  // Strictly block protocol-relative URLs and backslash-based URL normalization hijacking
+  if (!trimmed || trimmed.startsWith('//') || trimmed.includes('\\')) return false;
+
   try {
     const url = new URL(trimmed, window.location.href);
-    return ['http:', 'https:'].includes(url.protocol);
+    if (!['http:', 'https:'].includes(url.protocol)) {
+      return false;
+    }
+
+    const isRelative = trimmed.startsWith('/') || trimmed.startsWith('./') || trimmed.startsWith('../');
+    if (isRelative && url.origin !== window.location.origin) {
+      return false;
+    }
+
+    return true;
   } catch {
     return false;
   }
