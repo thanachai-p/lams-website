@@ -22,9 +22,12 @@
   /* Flame & Amber Accents (Matches the gold torch / badge accents) */
   --theme-amber: #F59E0B;
   --theme-amber-light: #FBBF24;
+  --theme-amber-pale: #FDE68A;
+  --theme-red-hover: #EF4444;
 
   /* Success & Status (Preserved Emerald for complete/success badges) */
   --theme-success: #10B981;
+  --theme-success-dark: #059669;
 
   /* ==========================================================================
      2. Surface & Background Tokens (Layered Burgundy Noir)
@@ -34,6 +37,8 @@
   --surface-footer: #0A0103;        /* Deepest footer background */
   --surface-card: #22080D;          /* Rich wine card surface */
   --surface-band: #2E0D13;          /* Dark burgundy slogan band */
+  --surface-white: #FFFFFF;
+  --surface-black: #000000;
 
   /* ==========================================================================
      3. Text & Typography Tokens
@@ -41,6 +46,7 @@
   --text-primary: #FFFFFF;          /* Pure white high contrast headers */
   --text-secondary: #FECDD3;        /* Soft rose tinted secondary text */
   --text-muted: #CBD5E1;            /* Clean light slate muted text */
+  --text-dark-contrast: #1A0508;    /* Deep contrast text for bright badges */
 
   /* ==========================================================================
      4. Borders, Focus & Atmospheric Glow Tokens
@@ -51,6 +57,12 @@
 
   --theme-red-glow: rgba(220, 38, 38, 0.35);
   --theme-red-glow-strong: rgba(220, 38, 38, 0.55);
+
+  /* Composite Section Gradients */
+  --gradient-pride: linear-gradient(180deg, #100204 0%, #0C0103 100%);
+  --gradient-experience: linear-gradient(180deg, #260810 0%, #1A050B 100%);
+  --gradient-procurement: linear-gradient(180deg, #21070C 0%, #150407 100%);
+  --gradient-btn-sparkle: linear-gradient(135deg, #EF4444, #B91C1C);
 
   /* Off-Palette Semantic & Brand Color Tokens */
   --badge-ebidding-bg: rgba(56, 189, 248, 0.18);
@@ -64,6 +76,7 @@
   --brand-facebook: #1877F2;
   --brand-line: #06C755;
   --brand-tiktok-cyan: #25F4EE;
+  --brand-youtube: #FF0000;
 
   /* Typography & Layout Tokens */
   --font-family: 'Prompt', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;

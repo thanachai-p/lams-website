@@ -145,7 +145,7 @@
 
 .catalog-tab.active {
   background: var(--theme-red-bright);
-  color: #FFFFFF;
+  color: var(--text-primary);
   border-color: var(--theme-red-light);
   box-shadow: 0 4px 15px var(--theme-red-glow);
   font-weight: 600;
@@ -263,7 +263,7 @@
 
 .badge-hot {
   background: var(--theme-red-bright);
-  color: #FFFFFF;
+  color: var(--text-primary);
   box-shadow: 0 3px 10px rgba(220, 38, 38, 0.5);
 }
 
@@ -275,7 +275,7 @@
 
 .badge-gold {
   background: var(--theme-amber);
-  color: #1A0508;
+  color: var(--text-dark-contrast);
   font-weight: 800;
   box-shadow: 0 3px 10px rgba(245, 158, 11, 0.4);
 }
@@ -382,7 +382,7 @@
 
 .btn-card-detail {
   background: var(--theme-red-primary);
-  color: #FFFFFF;
+  color: var(--text-primary);
   text-decoration: none;
   text-align: center;
   padding: 11px 16px;
@@ -418,7 +418,7 @@
 
 .btn-card-pdf:hover {
   background: rgba(220, 38, 38, 0.2);
-  color: #FFFFFF;
+  color: var(--text-primary);
   border-color: var(--theme-red-light);
 }
 
@@ -598,7 +598,7 @@
   display: block;
   width: 100%;
   background: var(--theme-red-bright);
-  color: #FFFFFF;
+  color: var(--text-primary);
   text-align: center;
   text-decoration: none;
   padding: 13px 20px;
@@ -611,7 +611,7 @@
 }
 
 .btn-sidebar-tcas:hover {
-  background: #EF4444;
+  background: var(--theme-red-hover);
   transform: translateY(-2px);
 }
 
@@ -643,7 +643,7 @@
   border: 1px solid var(--theme-amber);
   border-radius: 12px;
   padding: 16px;
-  color: #FDE68A;
+  color: var(--theme-amber-pale);
   font-size: 0.88rem;
   line-height: 1.6;
 }

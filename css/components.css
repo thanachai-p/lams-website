@@ -27,7 +27,7 @@
 }
 
 .brand-logo {
-  background: #FFFFFF;
+  background: var(--surface-white);
   color: var(--theme-red-deep);
   padding: 6px 14px;
   border-radius: 6px;
@@ -117,12 +117,12 @@
 }
 
 .lang-switch-btn:hover {
-  color: #FFFFFF;
+  color: var(--text-primary);
 }
 
 .lang-switch-btn.active {
   background: var(--theme-red-bright);
-  color: #FFFFFF;
+  color: var(--text-primary);
   box-shadow: 0 0 10px rgba(220, 38, 38, 0.4);
 }
 
@@ -161,7 +161,7 @@
 /* BU Signature Diamond CTA Button */
 .btn-apply-sparkle {
   background: linear-gradient(135deg, var(--theme-red-bright), var(--theme-ruby));
-  color: #FFFFFF;
+  color: var(--text-primary);
   border: none;
   padding: 9px 18px;
   border-radius: 20px;
@@ -179,7 +179,7 @@
 
 .btn-apply-sparkle:hover {
   transform: scale(1.04);
-  background: linear-gradient(135deg, #EF4444, var(--theme-red-primary));
+  background: var(--gradient-btn-sparkle);
   box-shadow: 0 0 24px var(--theme-red-glow-strong);
 }
 
@@ -271,7 +271,7 @@
   align-items: center;
   justify-content: center;
   gap: 8px;
-  color: #E2E8F0;
+  color: var(--text-muted);
   font-size: 0.88rem;
   font-weight: 600;
   padding: 8px 10px;
@@ -303,9 +303,9 @@
     ),
     linear-gradient(
       135deg,
-      #450a0a 0%,
-      #7f1d1d 48%,
-      #991b1b 100%
+      var(--theme-red-deep) 0%,
+      var(--theme-red-dark) 48%,
+      var(--theme-ruby) 100%
     );
   color: var(--text-primary);
   padding: clamp(56px, 7vw, 75px) 5%;
@@ -390,7 +390,7 @@
 
 .video-box-campaign:hover .video-play-icon {
   background: var(--theme-amber-light);
-  color: #450a0a;
+  color: var(--theme-red-deep);
   transform: scale(1.1);
   box-shadow: 0 0 0 8px rgba(251, 191, 36, 0.25), 0 10px 30px rgba(0, 0, 0, 0.6);
 }
@@ -446,7 +446,7 @@
    ========================================================================== */
 .pride-section {
   padding: var(--section-padding);
-  background: linear-gradient(180deg, #100204 0%, #0C0103 100%);
+  background: var(--gradient-pride);
   border-top: 1px solid rgba(127, 29, 29, 0.35);
 }
 
@@ -682,7 +682,7 @@
 .campus-experience-section {
   padding: var(--section-padding);
   text-align: center;
-  background: linear-gradient(180deg, #260810 0%, #1A050B 100%);
+  background: var(--gradient-experience);
   border-top: 1px solid rgba(220, 38, 38, 0.32);
   border-bottom: 1px solid rgba(220, 38, 38, 0.2);
   box-shadow: inset 0 20px 40px rgba(0, 0, 0, 0.35), inset 0 -20px 40px rgba(0, 0, 0, 0.35);
@@ -717,7 +717,7 @@
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
   border: 1px solid rgba(255, 255, 255, 0.2);
-  color: #fff;
+  color: var(--text-primary);
   padding: 4px 10px;
   border-radius: 999px;
   font-size: 0.75rem;
@@ -748,7 +748,7 @@
   height: 52px;
   border-radius: 50%;
   background: rgba(220, 38, 38, 0.9);
-  color: #fff;
+  color: var(--text-primary);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -772,7 +772,7 @@
   right: 0;
   padding: 14px;
   background: linear-gradient(transparent, rgba(14, 2, 4, 0.95));
-  color: #fff;
+  color: var(--text-primary);
   font-size: 0.95rem;
   font-weight: 600;
   display: flex;
@@ -793,7 +793,7 @@
 .programs-showcase {
   padding: var(--section-padding);
   border-top: 1px solid var(--border-card);
-  background: radial-gradient(1200px 450px at 50% 0%, rgba(69, 10, 10, 0.55), transparent 70%), #140406;
+  background: radial-gradient(1200px 450px at 50% 0%, rgba(69, 10, 10, 0.55), transparent 70%), var(--surface-page);
 }
 
 .programs-showcase__intro {
@@ -997,7 +997,7 @@ footer,
    ========================================================================== */
 .procurement-section {
   padding: var(--section-padding);
-  background: linear-gradient(180deg, #21070C 0%, #150407 100%);
+  background: var(--gradient-procurement);
   border-top: 1px solid rgba(245, 158, 11, 0.28);
   border-bottom: 1px solid rgba(248, 113, 113, 0.15);
 }
@@ -1198,12 +1198,12 @@ footer,
 }
 
 .btn-download-pdf i {
-  color: #EF4444;
+  color: var(--theme-red-hover);
 }
 
 .btn-download-pdf:hover {
-  background: #EF4444;
-  border-color: #EF4444;
+  background: var(--theme-red-hover);
+  border-color: var(--theme-red-hover);
   color: white;
 }
 
@@ -1410,8 +1410,8 @@ footer,
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: linear-gradient(135deg, var(--theme-red-bright), #b91c1c);
-  color: #fff;
+  background: linear-gradient(135deg, var(--theme-red-bright), var(--theme-red-primary));
+  color: var(--text-primary);
   border: none;
   padding: 9px 18px;
   border-radius: 999px;
@@ -1448,7 +1448,7 @@ footer,
 .btn-quick-copy:hover {
   background: rgba(255, 255, 255, 0.12);
   border-color: rgba(255, 255, 255, 0.3);
-  color: #fff;
+  color: var(--text-primary);
   transform: translateY(-2px);
 }
 
@@ -1466,7 +1466,7 @@ footer,
 
 .btn-quick-fb:hover {
   background: var(--brand-facebook);
-  color: #fff;
+  color: var(--text-primary);
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(24, 119, 242, 0.4);
 }
@@ -1485,7 +1485,7 @@ footer,
 
 .btn-quick-line:hover {
   background: var(--brand-line);
-  color: #fff;
+  color: var(--text-primary);
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(6, 199, 85, 0.4);
 }
@@ -1557,7 +1557,7 @@ footer,
 
 .share-dialog-close:hover {
   background: rgba(220, 38, 38, 0.2);
-  color: #fff;
+  color: var(--text-primary);
 }
 
 .share-news-preview {
@@ -1746,8 +1746,8 @@ a.btn-share-quick {
 }
 
 .share-copy-btn {
-  background: linear-gradient(135deg, var(--theme-red-bright), #b91c1c);
-  color: #fff;
+  background: linear-gradient(135deg, var(--theme-red-bright), var(--theme-red-primary));
+  color: var(--text-primary);
   border: none;
   padding: 8px 16px;
   border-radius: 8px;
@@ -1764,8 +1764,8 @@ a.btn-share-quick {
 }
 
 .share-copy-btn.copied {
-  background: #059669;
-  color: #fff;
+  background: var(--theme-success-dark);
+  color: var(--text-primary);
 }
 
 /* Toast Floating Notification */
@@ -1778,7 +1778,7 @@ a.btn-share-quick {
   border: 1px solid rgba(16, 185, 129, 0.4);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  color: #fff;
+  color: var(--text-primary);
   padding: 12px 24px;
   border-radius: 999px;
   font-size: 0.92rem;
@@ -1890,7 +1890,7 @@ a.btn-share-quick {
 
 .site-modal__body {
   position: relative;
-  background: #000;
+  background: var(--surface-black);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1949,4 +1949,12 @@ a.btn-share-quick {
 .icon-prefix--rose {
   color: var(--theme-red-light);
   margin-right: 6px;
+}
+
+
+.icon-brand--tiktok {
+  color: var(--brand-tiktok-cyan);
+}
+.icon-brand--youtube {
+  color: var(--brand-youtube);
 }
