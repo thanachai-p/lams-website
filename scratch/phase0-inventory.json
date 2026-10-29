@@ -1,34 +1,21 @@
 {
   "meta": {
-    "timestamp": "2026-10-29T05:40:31.330Z",
+    "timestamp": "2026-10-29T05:48:44.799Z",
     "rootDir": "D:\\Projects\\lams-website",
     "totalFiles": 16,
     "expectedFiles": 16
   },
   "totals": {
-    "inlineStyleAttributes": 173,
-    "declarationsTotal": 586,
+    "inlineStyleAttributes": 59,
+    "declarationsTotal": 59,
     "byCategory": {
       "DYNAMIC_BACKGROUND": 54,
       "STATE_TOGGLE": 5,
-      "HARDCODED_LAYOUT_VISUAL": 527
+      "HARDCODED_LAYOUT_VISUAL": 0
     },
     "topProperties": {
-      "color": 71,
-      "font-size": 63,
       "background-image": 54,
-      "display": 40,
-      "border-radius": 32,
-      "padding": 31,
-      "background": 27,
-      "font-weight": 22,
-      "text-decoration": 20,
-      "gap": 20,
-      "border": 20,
-      "margin-bottom": 19,
-      "align-items": 19,
-      "margin": 17,
-      "width": 14
+      "display": 5
     }
   },
   "files": [
@@ -86,10 +73,10 @@
     },
     {
       "file": "en/index.html",
-      "inlineCount": 67,
-      "hardcodedCount": 59,
-      "dynamicBgCount": 8,
-      "stateToggleCount": 0,
+      "inlineCount": 15,
+      "hardcodedCount": 0,
+      "dynamicBgCount": 13,
+      "stateToggleCount": 2,
       "stylesheets": [
         {
           "line": 29,
@@ -398,10 +385,10 @@
     },
     {
       "file": "index.html",
-      "inlineCount": 77,
-      "hardcodedCount": 69,
-      "dynamicBgCount": 8,
-      "stateToggleCount": 0,
+      "inlineCount": 15,
+      "hardcodedCount": 0,
+      "dynamicBgCount": 13,
+      "stateToggleCount": 2,
       "stylesheets": [
         {
           "line": 19,
