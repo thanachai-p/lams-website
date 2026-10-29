@@ -5,10 +5,10 @@
 
 document.addEventListener('DOMContentLoaded', () => {
   // 1. Sticky Header Visual Scroll Effect
-  const header = document.querySelector('.header-bu');
+  const header = document.querySelector('.site-header');
   if (header) {
     const handleScroll = () => {
-      header.classList.toggle('header-bu--scrolled', window.scrollY > 50);
+      header.classList.toggle('site-header--scrolled', window.scrollY > 50);
     };
     window.addEventListener('scroll', handleScroll, { passive: true });
     handleScroll();
@@ -16,21 +16,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // 2. Mobile Menu Toggle
   const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-  const navLinks = document.querySelector('.nav-links-bu');
-  if (mobileMenuBtn && navLinks) {
+  const siteNav = document.querySelector('.site-nav');
+  if (mobileMenuBtn && siteNav) {
     function closeMobileMenu() {
-      navLinks.classList.remove('active');
+      siteNav.classList.remove('is-open', 'site-nav--open', 'active');
       mobileMenuBtn.setAttribute('aria-expanded', 'false');
     }
 
     mobileMenuBtn.addEventListener('click', (e) => {
       e.stopPropagation();
-      const isOpen = navLinks.classList.toggle('active');
+      const isOpen = siteNav.classList.toggle('is-open');
+      siteNav.classList.toggle('site-nav--open', isOpen);
+      siteNav.classList.toggle('active', isOpen);
       mobileMenuBtn.setAttribute('aria-expanded', String(isOpen));
     });
 
     // Close mobile nav when clicking any link
-    navLinks.querySelectorAll('a').forEach(link => {
+    siteNav.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', () => {
         if (window.innerWidth <= 992) {
           closeMobileMenu();

@@ -5,9 +5,9 @@
  */
 
 /* ==========================================================================
-   1. Header Navigation Bar (.header-bu)
+   1. Header Navigation Bar (.site-header)
    ========================================================================== */
-.header-bu {
+.site-header {
   background: var(--surface-header);
   position: sticky;
   top: 0;
@@ -21,12 +21,12 @@
   transition: var(--transition-smooth);
 }
 
-.header-bu--scrolled {
+.site-header--scrolled {
   background-color: rgba(14, 2, 4, 0.96);
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
 }
 
-.logo-bu-box {
+.brand-logo {
   background: #FFFFFF;
   color: var(--theme-red-deep);
   padding: 6px 14px;
@@ -40,7 +40,7 @@
   flex-shrink: 0;
 }
 
-.logo-bu-icon {
+.brand-logo__icon {
   background: var(--theme-red-deep);
   color: white;
   width: 34px;
@@ -55,7 +55,7 @@
   flex-shrink: 0;
 }
 
-.nav-links-bu {
+.site-nav {
   display: flex;
   gap: clamp(14px, 1.8vw, 28px);
   list-style: none;
@@ -63,14 +63,14 @@
   flex-wrap: nowrap;
 }
 
-.nav-links-bu a {
+.site-nav a {
   color: var(--text-primary);
   font-weight: 600;
   font-size: 0.92rem;
   white-space: nowrap;
 }
 
-.nav-links-bu a:hover {
+.site-nav a:hover {
   color: var(--theme-red-light);
 }
 
@@ -212,9 +212,9 @@
 }
 
 /* ==========================================================================
-   2. Hero Banner (.hero-bu)
+   2. Hero Banner (.hero-banner)
    ========================================================================== */
-.hero-bu {
+.hero-banner {
   position: relative;
   background: linear-gradient(135deg, rgba(69, 10, 10, 0.95), rgba(20, 4, 6, 0.88)),
               url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1600&q=80') center/cover;
@@ -224,7 +224,7 @@
   align-items: center;
 }
 
-.hero-bu-content {
+.hero-banner__content {
   max-width: 720px;
   z-index: 2;
 }
@@ -873,15 +873,15 @@
 }
 
 /* ==========================================================================
-   8. Course Cards Grid (.courses-section-bu)
+   8. Course Cards Grid (.programs-showcase)
    ========================================================================== */
-.courses-section-bu {
+.programs-showcase {
   padding: var(--section-padding);
   border-top: 1px solid var(--border-card);
   background: radial-gradient(1200px 450px at 50% 0%, rgba(69, 10, 10, 0.55), transparent 70%), #140406;
 }
 
-.courses-intro-bu {
+.programs-showcase__intro {
   margin-bottom: 45px;
   text-align: center;
 }
@@ -899,7 +899,7 @@
   margin: 12px auto 0;
 }
 
-.grid-cards-bu {
+.programs-showcase__grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 24px;
@@ -972,9 +972,9 @@
 }
 
 /* ==========================================================================
-   9. Accordion Section (.navy-accordion-section)
+   9. Accordion Section (.info-accordion)
    ========================================================================== */
-.navy-accordion-section {
+.info-accordion {
   background: linear-gradient(135deg, var(--theme-red-deep), var(--theme-red-dark));
   color: white;
   padding: var(--section-padding);
@@ -1009,7 +1009,7 @@
   border-color: var(--theme-red-bright);
 }
 
-.navy-links-grid {
+.quick-links {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 30px;
@@ -1018,7 +1018,7 @@
   text-align: left;
 }
 
-.navy-col h5 {
+.quick-links__col h5 {
   font-size: 1.1rem;
   font-weight: 800;
   margin-bottom: 12px;
@@ -1027,11 +1027,11 @@
   color: var(--theme-red-light);
 }
 
-.navy-col ul {
+.quick-links__col ul {
   list-style: none;
 }
 
-.navy-col ul li {
+.quick-links__col ul li {
   margin-bottom: 8px;
   font-size: 0.92rem;
   opacity: 0.9;
@@ -1039,7 +1039,7 @@
   transition: var(--transition-smooth);
 }
 
-.navy-col ul li:hover {
+.quick-links__col ul li:hover {
   color: var(--theme-red-light);
   padding-left: 4px;
 }
@@ -1065,14 +1065,15 @@
 /* ==========================================================================
    10. Footer Section (footer)
    ========================================================================== */
-footer {
+footer,
+.site-footer {
   background: var(--surface-footer);
   color: var(--text-muted);
   padding: 60px 5% 30px;
   font-size: 0.9rem;
 }
 
-.footer-flex-bu {
+.site-footer__inner {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -1338,11 +1339,11 @@ footer {
 /* Responsive Media Queries */
 @media (max-width: 992px) {
   /* Header & Mobile Drawer Navigation */
-  .header-bu {
+  .site-header {
     padding: 10px 4%;
     gap: 12px;
   }
-  .nav-links-bu {
+  .site-nav {
     display: none;
     flex-direction: column;
     position: absolute;
@@ -1359,10 +1360,12 @@ footer {
     gap: 16px;
     align-items: flex-start;
   }
-  .nav-links-bu.active {
+  .site-nav.active,
+  .site-nav.is-open,
+  .site-nav--open {
     display: flex;
   }
-  .nav-links-bu a {
+  .site-nav a {
     font-size: 1.05rem;
     padding: 6px 0;
     display: block;
@@ -1390,12 +1393,12 @@ footer {
   .pride-subgrid { grid-template-columns: repeat(2, 1fr); }
   .sub-pride-action-card { grid-column: span 2; }
   .mosaic-gallery { grid-template-columns: repeat(2, 1fr); }
-  .grid-cards-bu { grid-template-columns: 1fr; }
+  .programs-showcase__grid { grid-template-columns: 1fr; }
   .card-full-banner { grid-column: span 1; }
-  .navy-links-grid { grid-template-columns: 1fr; }
+  .quick-links { grid-template-columns: 1fr; }
   .gray-slogan-band { flex-direction: column; text-align: center; }
   .slogan-right { text-align: center; }
-  .footer-flex-bu { flex-direction: column; gap: 15px; text-align: center; }
+  .site-footer__inner { flex-direction: column; gap: 15px; text-align: center; }
   .procurement-header { flex-direction: column; align-items: flex-start; }
   .procurement-item { flex-direction: column; align-items: flex-start; }
   .procurement-item-right { width: 100%; margin-top: 8px; }
@@ -1403,16 +1406,16 @@ footer {
 }
 
 @media (max-width: 768px) {
-  .header-bu {
+  .site-header {
     padding: 10px 14px;
     gap: 10px;
   }
-  .logo-bu-box {
+  .brand-logo {
     padding: 5px 10px;
     font-size: 0.88rem;
     gap: 8px;
   }
-  .logo-bu-icon {
+  .brand-logo__icon {
     width: 30px;
     height: 30px;
     font-size: 0.85rem;
@@ -1442,21 +1445,21 @@ footer {
 }
 
 @media (max-width: 480px) {
-  .header-bu {
+  .site-header {
     padding: 8px 10px;
     gap: 6px;
   }
-  .logo-bu-box {
+  .brand-logo {
     padding: 4px 8px;
     font-size: 0.8rem;
     gap: 6px;
     max-width: 165px;
     overflow: hidden;
   }
-  .logo-bu-box span.logo-subtext {
+  .brand-logo span.logo-subtext {
     display: none;
   }
-  .logo-bu-icon {
+  .brand-logo__icon {
     width: 28px;
     height: 28px;
     font-size: 0.78rem;

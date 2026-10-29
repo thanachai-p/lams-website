@@ -30,13 +30,13 @@
 <body class="subpage subpage-people">
 
   <!-- Header Navigation Bar -->
-  <header class="header-bu">
-    <a href="index.html" class="logo-bu-box">
-      <div class="logo-bu-icon">PSU</div>
+  <header class="site-header">
+    <a href="index.html" class="brand-logo">
+      <div class="brand-logo__icon">PSU</div>
       <div>LAMS PSU <span class="logo-subtext">SURAT THANI</span></div>
     </a>
 
-    <ul class="nav-links-bu">
+    <ul class="site-nav">
       <li><a href="programs.html">Programs</a></li>
       <li><a href="index.html#campus">Campus Life</a></li>
       <li><a href="news.html">News</a></li>
@@ -438,9 +438,9 @@
   </main>
 
   <!-- Pre-Footer Quick Links & Contact Strip -->
-  <section class="navy-accordion-section" style="margin-top: 60px;">
-    <div class="navy-links-grid container">
-      <div class="navy-col">
+  <section class="info-accordion" style="margin-top: 60px;">
+    <div class="quick-links container">
+      <div class="quick-links__col">
         <h5>Academic Info</h5>
         <ul>
           <li><a class="link-reset" href="programs.html" ><i class="fa-solid fa-angle-right icon-prefix--red"></i> All Academic Programs</a></li>
@@ -448,7 +448,7 @@
         </ul>
       </div>
 
-      <div class="navy-col">
+      <div class="quick-links__col">
         <h5>Admissions</h5>
         <ul>
           <li><a class="link-reset" href="https://entrance.surat.psu.ac.th/" target="_blank" rel="noopener noreferrer" ><i class="fa-solid fa-arrow-up-right-from-square" style="color: var(--theme-amber); margin-right: 6px; font-size: 0.8rem;"></i> Apply TCAS</a></li>
@@ -456,7 +456,7 @@
         </ul>
       </div>
 
-      <div class="navy-col">
+      <div class="quick-links__col">
         <h5>Contact & Services</h5>
         <ul>
           <li><a class="link-reset" href="about.html" ><i class="fa-solid fa-angle-right icon-prefix--red"></i> Contact Faculty</a></li>
@@ -468,8 +468,8 @@
   </section>
 
   <!-- Footer -->
-  <footer id="about">
-    <div class="footer-flex-bu">
+  <footer class="site-footer" id="about">
+    <div class="site-footer__inner">
       <div class="footer-slogan">
         <i class="fa-solid fa-gem" style="color: var(--theme-red-bright);"></i>
         Innovating Business <span>+ Empowered by Language</span>
@@ -483,7 +483,7 @@
     document.addEventListener('DOMContentLoaded', () => {
       // Mobile Nav Toggle
       const mobileBtn = document.querySelector('.mobile-menu-btn');
-      const navLinks = document.querySelector('.nav-links-bu');
+      const navLinks = document.querySelector('.site-nav');
       if (mobileBtn && navLinks) {
         mobileBtn.addEventListener('click', () => {
           const isVisible = navLinks.style.display === 'flex';
