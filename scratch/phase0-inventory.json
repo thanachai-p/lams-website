@@ -1,34 +1,34 @@
 {
   "meta": {
-    "timestamp": "2026-10-29T04:48:22.388Z",
+    "timestamp": "2026-10-29T04:54:55.776Z",
     "rootDir": "D:\\Projects\\lams-website",
     "totalFiles": 16,
     "expectedFiles": 16
   },
   "totals": {
-    "inlineStyleAttributes": 438,
-    "declarationsTotal": 1317,
+    "inlineStyleAttributes": 412,
+    "declarationsTotal": 1191,
     "byCategory": {
       "DYNAMIC_BACKGROUND": 54,
       "STATE_TOGGLE": 9,
-      "HARDCODED_LAYOUT_VISUAL": 1254
+      "HARDCODED_LAYOUT_VISUAL": 1128
     },
     "topProperties": {
-      "color": 203,
-      "font-size": 159,
-      "display": 88,
-      "margin-bottom": 80,
-      "padding": 78,
-      "border-radius": 57,
-      "font-weight": 56,
+      "color": 195,
+      "font-size": 151,
+      "display": 80,
+      "margin-bottom": 78,
+      "padding": 70,
       "background-image": 54,
-      "gap": 51,
-      "background": 46,
-      "text-decoration": 41,
-      "align-items": 37,
-      "margin": 36,
-      "border": 35,
-      "justify-content": 25
+      "border-radius": 49,
+      "font-weight": 48,
+      "gap": 43,
+      "background": 38,
+      "text-decoration": 35,
+      "margin": 30,
+      "align-items": 29,
+      "border": 27,
+      "width": 23
     }
   },
   "files": [
@@ -58,25 +58,25 @@
         {
           "line": 33,
           "rel": "stylesheet",
-          "href": "../css/style.css",
+          "href": "../css/style.css?v=20261029_1200",
           "fileName": "style.css",
-          "versionParam": null,
-          "hasVersion": false
+          "versionParam": "20261029_1200",
+          "hasVersion": true
         },
         {
           "line": 34,
           "rel": "stylesheet",
-          "href": "../css/components.css?v=20261029_0900",
+          "href": "../css/components.css?v=20261029_1200",
           "fileName": "components.css",
-          "versionParam": "20261029_0900",
+          "versionParam": "20261029_1200",
           "hasVersion": true
         },
         {
           "line": 35,
           "rel": "stylesheet",
-          "href": "../css/pages.css?v=20261029_0900",
+          "href": "../css/pages.css?v=20261029_1200",
           "fileName": "pages.css",
-          "versionParam": "20261029_0900",
+          "versionParam": "20261029_1200",
           "hasVersion": true
         }
       ],
@@ -86,8 +86,8 @@
     },
     {
       "file": "en/index.html",
-      "inlineCount": 79,
-      "hardcodedCount": 71,
+      "inlineCount": 78,
+      "hardcodedCount": 70,
       "dynamicBgCount": 8,
       "stateToggleCount": 0,
       "stylesheets": [
@@ -110,25 +110,25 @@
         {
           "line": 35,
           "rel": "stylesheet",
-          "href": "../css/style.css",
+          "href": "../css/style.css?v=20261029_1200",
           "fileName": "style.css",
-          "versionParam": null,
-          "hasVersion": false
+          "versionParam": "20261029_1200",
+          "hasVersion": true
         },
         {
           "line": 36,
           "rel": "stylesheet",
-          "href": "../css/components.css?v=20261029_0900",
+          "href": "../css/components.css?v=20261029_1200",
           "fileName": "components.css",
-          "versionParam": "20261029_0900",
+          "versionParam": "20261029_1200",
           "hasVersion": true
         },
         {
           "line": 37,
           "rel": "stylesheet",
-          "href": "../css/pages.css?v=20261029_0900",
+          "href": "../css/pages.css?v=20261029_1200",
           "fileName": "pages.css",
-          "versionParam": "20261029_0900",
+          "versionParam": "20261029_1200",
           "hasVersion": true
         }
       ],
@@ -162,26 +162,26 @@
         {
           "line": 26,
           "rel": "stylesheet",
-          "href": "../css/style.css",
+          "href": "../css/style.css?v=20261029_1200",
           "fileName": "style.css",
-          "versionParam": null,
-          "hasVersion": false
+          "versionParam": "20261029_1200",
+          "hasVersion": true
         },
         {
           "line": 27,
           "rel": "stylesheet",
-          "href": "../css/components.css?v=20261029_0900",
+          "href": "../css/components.css?v=20261029_1200",
           "fileName": "components.css",
-          "versionParam": "20261029_0900",
+          "versionParam": "20261029_1200",
           "hasVersion": true
         },
         {
           "line": 28,
           "rel": "stylesheet",
-          "href": "../css/pages.css",
+          "href": "../css/pages.css?v=20261029_1200",
           "fileName": "pages.css",
-          "versionParam": null,
-          "hasVersion": false
+          "versionParam": "20261029_1200",
+          "hasVersion": true
         }
       ],
       "styleTagsCount": 0,
@@ -214,26 +214,26 @@
         {
           "line": 26,
           "rel": "stylesheet",
-          "href": "../css/style.css",
+          "href": "../css/style.css?v=20261029_1200",
           "fileName": "style.css",
-          "versionParam": null,
-          "hasVersion": false
+          "versionParam": "20261029_1200",
+          "hasVersion": true
         },
         {
           "line": 27,
           "rel": "stylesheet",
-          "href": "../css/components.css?v=20261029_0900",
+          "href": "../css/components.css?v=20261029_1200",
           "fileName": "components.css",
-          "versionParam": "20261029_0900",
+          "versionParam": "20261029_1200",
           "hasVersion": true
         },
         {
           "line": 28,
           "rel": "stylesheet",
-          "href": "../css/pages.css",
+          "href": "../css/pages.css?v=20261029_1200",
           "fileName": "pages.css",
-          "versionParam": null,
-          "hasVersion": false
+          "versionParam": "20261029_1200",
+          "hasVersion": true
         }
       ],
       "styleTagsCount": 0,
@@ -266,25 +266,25 @@
         {
           "line": 31,
           "rel": "stylesheet",
-          "href": "../css/style.css",
+          "href": "../css/style.css?v=20261029_1200",
           "fileName": "style.css",
-          "versionParam": null,
-          "hasVersion": false
+          "versionParam": "20261029_1200",
+          "hasVersion": true
         },
         {
           "line": 32,
           "rel": "stylesheet",
-          "href": "../css/components.css?v=20261029_0900",
+          "href": "../css/components.css?v=20261029_1200",
           "fileName": "components.css",
-          "versionParam": "20261029_0900",
+          "versionParam": "20261029_1200",
           "hasVersion": true
         },
         {
           "line": 33,
           "rel": "stylesheet",
-          "href": "../css/pages.css?v=20261029_0900",
+          "href": "../css/pages.css?v=20261029_1200",
           "fileName": "pages.css",
-          "versionParam": "20261029_0900",
+          "versionParam": "20261029_1200",
           "hasVersion": true
         }
       ],
@@ -318,25 +318,25 @@
         {
           "line": 33,
           "rel": "stylesheet",
-          "href": "../css/style.css",
+          "href": "../css/style.css?v=20261029_1200",
           "fileName": "style.css",
-          "versionParam": null,
-          "hasVersion": false
+          "versionParam": "20261029_1200",
+          "hasVersion": true
         },
         {
           "line": 34,
           "rel": "stylesheet",
-          "href": "../css/components.css?v=20261029_0900",
+          "href": "../css/components.css?v=20261029_1200",
           "fileName": "components.css",
-          "versionParam": "20261029_0900",
+          "versionParam": "20261029_1200",
           "hasVersion": true
         },
         {
           "line": 35,
           "rel": "stylesheet",
-          "href": "../css/pages.css?v=20261029_0900",
+          "href": "../css/pages.css?v=20261029_1200",
           "fileName": "pages.css",
-          "versionParam": "20261029_0900",
+          "versionParam": "20261029_1200",
           "hasVersion": true
         }
       ],
@@ -370,26 +370,26 @@
         {
           "line": 26,
           "rel": "stylesheet",
-          "href": "../css/style.css",
+          "href": "../css/style.css?v=20261029_1200",
           "fileName": "style.css",
-          "versionParam": null,
-          "hasVersion": false
+          "versionParam": "20261029_1200",
+          "hasVersion": true
         },
         {
           "line": 27,
           "rel": "stylesheet",
-          "href": "../css/components.css?v=20261029_0900",
+          "href": "../css/components.css?v=20261029_1200",
           "fileName": "components.css",
-          "versionParam": "20261029_0900",
+          "versionParam": "20261029_1200",
           "hasVersion": true
         },
         {
           "line": 28,
           "rel": "stylesheet",
-          "href": "../css/pages.css",
+          "href": "../css/pages.css?v=20261029_1200",
           "fileName": "pages.css",
-          "versionParam": null,
-          "hasVersion": false
+          "versionParam": "20261029_1200",
+          "hasVersion": true
         }
       ],
       "styleTagsCount": 0,
@@ -398,8 +398,8 @@
     },
     {
       "file": "index.html",
-      "inlineCount": 97,
-      "hardcodedCount": 89,
+      "inlineCount": 96,
+      "hardcodedCount": 88,
       "dynamicBgCount": 8,
       "stateToggleCount": 0,
       "stylesheets": [
@@ -422,25 +422,25 @@
         {
           "line": 25,
           "rel": "stylesheet",
-          "href": "css/style.css",
+          "href": "css/style.css?v=20261029_1200",
           "fileName": "style.css",
-          "versionParam": null,
-          "hasVersion": false
+          "versionParam": "20261029_1200",
+          "hasVersion": true
         },
         {
           "line": 26,
           "rel": "stylesheet",
-          "href": "css/components.css?v=20261029_0900",
+          "href": "css/components.css?v=20261029_1200",
           "fileName": "components.css",
-          "versionParam": "20261029_0900",
+          "versionParam": "20261029_1200",
           "hasVersion": true
         },
         {
           "line": 27,
           "rel": "stylesheet",
-          "href": "css/pages.css?v=20261029_0900",
+          "href": "css/pages.css?v=20261029_1200",
           "fileName": "pages.css",
-          "versionParam": "20261029_0900",
+          "versionParam": "20261029_1200",
           "hasVersion": true
         }
       ],
@@ -474,25 +474,25 @@
         {
           "line": 22,
           "rel": "stylesheet",
-          "href": "../css/style.css",
+          "href": "../css/style.css?v=20261029_1200",
           "fileName": "style.css",
-          "versionParam": null,
-          "hasVersion": false
+          "versionParam": "20261029_1200",
+          "hasVersion": true
         },
         {
           "line": 23,
           "rel": "stylesheet",
-          "href": "../css/components.css?v=20261029_0900",
+          "href": "../css/components.css?v=20261029_1200",
           "fileName": "components.css",
-          "versionParam": "20261029_0900",
+          "versionParam": "20261029_1200",
           "hasVersion": true
         },
         {
           "line": 24,
           "rel": "stylesheet",
-          "href": "../css/pages.css?v=20261029_0900",
+          "href": "../css/pages.css?v=20261029_1200",
           "fileName": "pages.css",
-          "versionParam": "20261029_0900",
+          "versionParam": "20261029_1200",
           "hasVersion": true
         }
       ],
@@ -526,25 +526,25 @@
         {
           "line": 31,
           "rel": "stylesheet",
-          "href": "../css/style.css?v=20261029_0900",
+          "href": "../css/style.css?v=20261029_1200",
           "fileName": "style.css",
-          "versionParam": "20261029_0900",
+          "versionParam": "20261029_1200",
           "hasVersion": true
         },
         {
           "line": 32,
           "rel": "stylesheet",
-          "href": "../css/components.css?v=20261029_0900",
+          "href": "../css/components.css?v=20261029_1200",
           "fileName": "components.css",
-          "versionParam": "20261029_0900",
+          "versionParam": "20261029_1200",
           "hasVersion": true
         },
         {
           "line": 33,
           "rel": "stylesheet",
-          "href": "../css/pages.css?v=20261029_0900",
+          "href": "../css/pages.css?v=20261029_1200",
           "fileName": "pages.css",
-          "versionParam": "20261029_0900",
+          "versionParam": "20261029_1200",
           "hasVersion": true
         }
       ],
@@ -578,26 +578,26 @@
         {
           "line": 22,
           "rel": "stylesheet",
-          "href": "../css/style.css",
+          "href": "../css/style.css?v=20261029_1200",
           "fileName": "style.css",
-          "versionParam": null,
-          "hasVersion": false
+          "versionParam": "20261029_1200",
+          "hasVersion": true
         },
         {
           "line": 23,
           "rel": "stylesheet",
-          "href": "../css/components.css?v=20261029_0900",
+          "href": "../css/components.css?v=20261029_1200",
           "fileName": "components.css",
-          "versionParam": "20261029_0900",
+          "versionParam": "20261029_1200",
           "hasVersion": true
         },
         {
           "line": 24,
           "rel": "stylesheet",
-          "href": "../css/pages.css",
+          "href": "../css/pages.css?v=20261029_1200",
           "fileName": "pages.css",
-          "versionParam": null,
-          "hasVersion": false
+          "versionParam": "20261029_1200",
+          "hasVersion": true
         }
       ],
       "styleTagsCount": 0,
@@ -630,26 +630,26 @@
         {
           "line": 26,
           "rel": "stylesheet",
-          "href": "../css/style.css",
+          "href": "../css/style.css?v=20261029_1200",
           "fileName": "style.css",
-          "versionParam": null,
-          "hasVersion": false
+          "versionParam": "20261029_1200",
+          "hasVersion": true
         },
         {
           "line": 27,
           "rel": "stylesheet",
-          "href": "../css/components.css?v=20261029_0900",
+          "href": "../css/components.css?v=20261029_1200",
           "fileName": "components.css",
-          "versionParam": "20261029_0900",
+          "versionParam": "20261029_1200",
           "hasVersion": true
         },
         {
           "line": 28,
           "rel": "stylesheet",
-          "href": "../css/pages.css",
+          "href": "../css/pages.css?v=20261029_1200",
           "fileName": "pages.css",
-          "versionParam": null,
-          "hasVersion": false
+          "versionParam": "20261029_1200",
+          "hasVersion": true
         }
       ],
       "styleTagsCount": 0,
@@ -658,8 +658,8 @@
     },
     {
       "file": "pages/procurement.html",
-      "inlineCount": 28,
-      "hardcodedCount": 28,
+      "inlineCount": 4,
+      "hardcodedCount": 4,
       "dynamicBgCount": 0,
       "stateToggleCount": 0,
       "stylesheets": [
@@ -682,26 +682,26 @@
         {
           "line": 16,
           "rel": "stylesheet",
-          "href": "../css/style.css",
+          "href": "../css/style.css?v=20261029_1200",
           "fileName": "style.css",
-          "versionParam": null,
-          "hasVersion": false
+          "versionParam": "20261029_1200",
+          "hasVersion": true
         },
         {
           "line": 17,
           "rel": "stylesheet",
-          "href": "../css/components.css?v=20261029_0900",
+          "href": "../css/components.css?v=20261029_1200",
           "fileName": "components.css",
-          "versionParam": "20261029_0900",
+          "versionParam": "20261029_1200",
           "hasVersion": true
         },
         {
           "line": 18,
           "rel": "stylesheet",
-          "href": "../css/pages.css",
+          "href": "../css/pages.css?v=20261029_1200",
           "fileName": "pages.css",
-          "versionParam": null,
-          "hasVersion": false
+          "versionParam": "20261029_1200",
+          "hasVersion": true
         }
       ],
       "styleTagsCount": 0,
@@ -734,26 +734,26 @@
         {
           "line": 22,
           "rel": "stylesheet",
-          "href": "../css/style.css",
+          "href": "../css/style.css?v=20261029_1200",
           "fileName": "style.css",
-          "versionParam": null,
-          "hasVersion": false
+          "versionParam": "20261029_1200",
+          "hasVersion": true
         },
         {
           "line": 23,
           "rel": "stylesheet",
-          "href": "../css/components.css?v=20261029_0900",
+          "href": "../css/components.css?v=20261029_1200",
           "fileName": "components.css",
-          "versionParam": "20261029_0900",
+          "versionParam": "20261029_1200",
           "hasVersion": true
         },
         {
           "line": 24,
           "rel": "stylesheet",
-          "href": "../css/pages.css",
+          "href": "../css/pages.css?v=20261029_1200",
           "fileName": "pages.css",
-          "versionParam": null,
-          "hasVersion": false
+          "versionParam": "20261029_1200",
+          "hasVersion": true
         }
       ],
       "styleTagsCount": 0,
@@ -786,26 +786,26 @@
         {
           "line": 22,
           "rel": "stylesheet",
-          "href": "../css/style.css",
+          "href": "../css/style.css?v=20261029_1200",
           "fileName": "style.css",
-          "versionParam": null,
-          "hasVersion": false
+          "versionParam": "20261029_1200",
+          "hasVersion": true
         },
         {
           "line": 23,
           "rel": "stylesheet",
-          "href": "../css/components.css?v=20261029_0900",
+          "href": "../css/components.css?v=20261029_1200",
           "fileName": "components.css",
-          "versionParam": "20261029_0900",
+          "versionParam": "20261029_1200",
           "hasVersion": true
         },
         {
           "line": 24,
           "rel": "stylesheet",
-          "href": "../css/pages.css",
+          "href": "../css/pages.css?v=20261029_1200",
           "fileName": "pages.css",
-          "versionParam": null,
-          "hasVersion": false
+          "versionParam": "20261029_1200",
+          "hasVersion": true
         }
       ],
       "styleTagsCount": 0,
@@ -838,26 +838,26 @@
         {
           "line": 22,
           "rel": "stylesheet",
-          "href": "../css/style.css",
+          "href": "../css/style.css?v=20261029_1200",
           "fileName": "style.css",
-          "versionParam": null,
-          "hasVersion": false
+          "versionParam": "20261029_1200",
+          "hasVersion": true
         },
         {
           "line": 23,
           "rel": "stylesheet",
-          "href": "../css/components.css?v=20261029_0900",
+          "href": "../css/components.css?v=20261029_1200",
           "fileName": "components.css",
-          "versionParam": "20261029_0900",
+          "versionParam": "20261029_1200",
           "hasVersion": true
         },
         {
           "line": 24,
           "rel": "stylesheet",
-          "href": "../css/pages.css",
+          "href": "../css/pages.css?v=20261029_1200",
           "fileName": "pages.css",
-          "versionParam": null,
-          "hasVersion": false
+          "versionParam": "20261029_1200",
+          "hasVersion": true
         }
       ],
       "styleTagsCount": 0,
