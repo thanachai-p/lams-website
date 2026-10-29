@@ -1,103 +1,117 @@
 /**
  * LAMS PSU SURAT THANI 2026 - MAIN JAVASCRIPT
- * Interactivity: Sticky Header, Mobile Nav, Accordion Toggle, Smooth Scrolling, Video Modal
+ * Modular Component Initializers: Header, Nav, Modals, Filters, Video Showcase & Social Share
  */
 
-document.addEventListener('DOMContentLoaded', () => {
-  // 1. Sticky Header Visual Scroll Effect
+// 1. Sticky Header Visual Scroll Effect
+function initSiteHeader() {
   const header = document.querySelector('.site-header');
-  if (header) {
-    const handleScroll = () => {
-      header.classList.toggle('site-header--scrolled', window.scrollY > 50);
-    };
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    handleScroll();
-  }
+  if (!header) return;
 
-  // 2. Mobile Menu Toggle
+  const handleScroll = () => {
+    header.classList.toggle('site-header--scrolled', window.scrollY > 50);
+  };
+  window.addEventListener('scroll', handleScroll, { passive: true });
+  handleScroll();
+}
+
+// 2. Mobile Menu Toggle
+function initSiteNav() {
   const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
   const siteNav = document.querySelector('.site-nav');
-  if (mobileMenuBtn && siteNav) {
-    function closeMobileMenu() {
-      siteNav.classList.remove('is-open', 'site-nav--open', 'active');
-      mobileMenuBtn.setAttribute('aria-expanded', 'false');
-    }
+  if (!mobileMenuBtn || !siteNav) return;
 
-    mobileMenuBtn.addEventListener('click', (e) => {
-      e.stopPropagation();
-      const isOpen = siteNav.classList.toggle('is-open');
-      siteNav.classList.toggle('site-nav--open', isOpen);
-      siteNav.classList.toggle('active', isOpen);
-      mobileMenuBtn.setAttribute('aria-expanded', String(isOpen));
-    });
-
-    // Close mobile nav when clicking any link
-    siteNav.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        if (window.innerWidth <= 992) {
-          closeMobileMenu();
-        }
-      });
-    });
-
-    // Close mobile menu when clicking outside
-    document.addEventListener('click', (e) => {
-      if (navLinks.classList.contains('active') && !navLinks.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
-        closeMobileMenu();
-      }
-    });
-
-    // Reset state on window resize across breakpoint
-    window.addEventListener('resize', () => {
-      if (window.innerWidth > 992 && navLinks.classList.contains('active')) {
-        closeMobileMenu();
-      }
-    });
+  function closeMobileMenu() {
+    siteNav.classList.remove('is-open', 'site-nav--open', 'active');
+    mobileMenuBtn.setAttribute('aria-expanded', 'false');
   }
 
-  // 3. Interactive Accordion Program Drawer Toggle
+  mobileMenuBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const isOpen = siteNav.classList.toggle('is-open');
+    siteNav.classList.toggle('site-nav--open', isOpen);
+    siteNav.classList.toggle('active', isOpen);
+    mobileMenuBtn.setAttribute('aria-expanded', String(isOpen));
+  });
+
+  // Close mobile nav when clicking any link
+  siteNav.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', () => {
+      if (window.innerWidth <= 992) {
+        closeMobileMenu();
+      }
+    });
+  });
+
+  // Close mobile menu when clicking outside
+  document.addEventListener('click', (e) => {
+    if (
+      (siteNav.classList.contains('is-open') || siteNav.classList.contains('active')) &&
+      !siteNav.contains(e.target) &&
+      !mobileMenuBtn.contains(e.target)
+    ) {
+      closeMobileMenu();
+    }
+  });
+
+  // Reset state on window resize across breakpoint
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 992 && (siteNav.classList.contains('is-open') || siteNav.classList.contains('active'))) {
+      closeMobileMenu();
+    }
+  });
+}
+
+// 3. Interactive Accordion Program Drawer Toggle
+function initInfoAccordion() {
   const accordionToggle = document.getElementById('accordionProgramToggle') || document.querySelector('.accordion-select-box');
   const programDrawer = document.getElementById('accordionProgramDrawer');
   const accordionChevron = document.getElementById('accordionChevron');
-  
-  if (accordionToggle && programDrawer) {
-    accordionToggle.addEventListener('click', () => {
-      const isHidden = programDrawer.style.display === 'none' || programDrawer.style.display === '';
-      programDrawer.style.display = isHidden ? 'block' : 'none';
-      accordionToggle.setAttribute('aria-expanded', isHidden ? 'true' : 'false');
-      if (accordionChevron) {
-        accordionChevron.className = isHidden ? 'fa-solid fa-chevron-up' : 'fa-solid fa-chevron-down';
-      }
-    });
 
-    // Support Enter or Space key for Accessibility
-    accordionToggle.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        accordionToggle.click();
-      }
-    });
-  }
+  if (!accordionToggle || !programDrawer) return;
 
-  // 4. Video Box Campaign Click Handler
+  accordionToggle.addEventListener('click', () => {
+    const isHidden = programDrawer.style.display === 'none' || programDrawer.style.display === '';
+    programDrawer.style.display = isHidden ? 'block' : 'none';
+    accordionToggle.setAttribute('aria-expanded', isHidden ? 'true' : 'false');
+    if (accordionChevron) {
+      accordionChevron.className = isHidden ? 'fa-solid fa-chevron-up' : 'fa-solid fa-chevron-down';
+    }
+  });
+
+  // Support Enter or Space key for Accessibility
+  accordionToggle.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      accordionToggle.click();
+    }
+  });
+}
+
+// 4. Video Box Campaign Click Handler
+function initVideoCampaign() {
   const videoBox = document.querySelector('.video-box-campaign');
-  if (videoBox) {
-    videoBox.addEventListener('click', () => {
-      alert('🎬 กำลังเปิดคลิปวิดีโอแนะนำคณะ: "เด็กจบใหม่ LAMS ม.อ.สุราษฎร์ฯ ไม่ อวสาน แน่นอน" (YouTube Player Embed)');
-    });
-  }
+  if (!videoBox) return;
 
-  // 5. Floating Messenger Quick Chat
+  videoBox.addEventListener('click', () => {
+    alert('🎬 กำลังเปิดคลิปวิดีโอแนะนำคณะ: "เด็กจบใหม่ LAMS ม.อ.สุราษฎร์ฯ ไม่ อวสาน แน่นอน" (YouTube Player Embed)');
+  });
+}
+
+// 5. Floating Messenger Quick Chat
+function initFloatingMessenger() {
   const messengerBtn = document.querySelector('.fb-messenger-float');
-  if (messengerBtn) {
-    messengerBtn.addEventListener('click', () => {
-      alert('💬 เปิดกล่องข้อความ Facebook Messenger คณะ LAMS PSU Surat Thani (หรือเปลี่ยนเป็น LINE Official Account)');
-    });
-  }
+  if (!messengerBtn) return;
 
-  // 6. Smooth Scroll for Floating Action Bar Items
+  messengerBtn.addEventListener('click', () => {
+    alert('💬 เปิดกล่องข้อความ Facebook Messenger คณะ LAMS PSU Surat Thani (หรือเปลี่ยนเป็น LINE Official Account)');
+  });
+}
+
+// 6. Smooth Scroll for Floating Action Bar Items
+function initSmoothScroll() {
   const barItems = document.querySelectorAll('.bar-item');
-  barItems.forEach(item => {
+  barItems.forEach((item) => {
     item.addEventListener('click', (e) => {
       const href = item.getAttribute('href');
       if (href && href.startsWith('#') && href.length > 1) {
@@ -109,97 +123,116 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   });
+}
 
-  // 7. Interactive Procurement Filter Tabs
+// 7. Interactive Procurement Filter Tabs
+function initProcurementFilters() {
   const filterPills = document.querySelectorAll('.filter-pill');
   const procurementItems = document.querySelectorAll('.procurement-item');
-  if (filterPills.length > 0 && procurementItems.length > 0) {
-    filterPills.forEach(pill => {
-      pill.addEventListener('click', () => {
-        filterPills.forEach(p => p.classList.remove('active'));
-        pill.classList.add('active');
-        const filter = pill.getAttribute('data-filter');
-        procurementItems.forEach(item => {
-          if (filter === 'all' || item.getAttribute('data-category') === filter) {
-            item.style.display = 'flex';
-          } else {
-            item.style.display = 'none';
-          }
-        });
+  if (filterPills.length === 0 || procurementItems.length === 0) return;
+
+  filterPills.forEach((pill) => {
+    pill.addEventListener('click', () => {
+      filterPills.forEach((p) => {
+        p.classList.remove('active', 'is-active', 'filter-pill--active');
+      });
+      pill.classList.add('active', 'is-active', 'filter-pill--active');
+      const filter = pill.getAttribute('data-filter');
+      procurementItems.forEach((item) => {
+        if (filter === 'all' || item.getAttribute('data-category') === filter) {
+          item.style.display = 'flex';
+        } else {
+          item.style.display = 'none';
+        }
       });
     });
-  }
+  });
+}
 
-  // 8. Toast Helper Function
-  function showToast(message) {
-    const toast = document.getElementById('lamsToast');
-    const toastText = document.getElementById('lamsToastText');
-    if (toast && toastText) {
-      toastText.textContent = message;
-      toast.style.transform = 'translateX(-50%) translateY(0)';
-      toast.style.opacity = '1';
-      setTimeout(() => {
-        toast.style.transform = 'translateX(-50%) translateY(100px)';
-        toast.style.opacity = '0';
-      }, 3500);
-    } else {
-      alert(message);
-    }
+// 8. Toast Helper Function
+let lamsToastTimer = null;
+function showToast(message) {
+  const toast = document.getElementById('lamsToast');
+  const toastText = document.getElementById('lamsToastText');
+  if (toast && toastText) {
+    toastText.textContent = message;
+    toast.style.transform = 'translateX(-50%) translateY(0)';
+    toast.style.opacity = '1';
+    clearTimeout(lamsToastTimer);
+    lamsToastTimer = setTimeout(() => {
+      toast.style.transform = 'translateX(-50%) translateY(100px)';
+      toast.style.opacity = '0';
+    }, 3500);
+  } else {
+    alert(message);
   }
+}
+window.showLamsToast = showToast;
 
-  // 9. Scholarship Modal Interactive Handlers
+function initToastHelper() {
+  // Attached globally as window.showLamsToast
+}
+
+// 9. Scholarship Modal Interactive Handlers
+function initScholarshipModal() {
   const scholarshipBtn = document.getElementById('card-scholarships-btn');
   const scholarshipModal = document.getElementById('scholarshipModal');
   const closeScholarshipModal = document.getElementById('closeScholarshipModal');
   const dismissScholarshipBtn = document.getElementById('dismissScholarshipBtn');
 
-  if (scholarshipBtn && scholarshipModal) {
-    scholarshipBtn.addEventListener('click', () => {
-      scholarshipModal.style.display = 'flex';
-    });
+  if (!scholarshipBtn || !scholarshipModal) return;
 
-    const hideModal = () => {
-      scholarshipModal.style.display = 'none';
-    };
+  scholarshipBtn.addEventListener('click', () => {
+    scholarshipModal.style.display = 'flex';
+  });
 
-    if (closeScholarshipModal) closeScholarshipModal.addEventListener('click', hideModal);
-    if (dismissScholarshipBtn) dismissScholarshipBtn.addEventListener('click', hideModal);
+  const hideModal = () => {
+    scholarshipModal.style.display = 'none';
+  };
 
-    scholarshipModal.addEventListener('click', (e) => {
-      if (e.target === scholarshipModal) hideModal();
-    });
+  if (closeScholarshipModal) closeScholarshipModal.addEventListener('click', hideModal);
+  if (dismissScholarshipBtn) dismissScholarshipBtn.addEventListener('click', hideModal);
 
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && scholarshipModal.style.display === 'flex') {
-        hideModal();
+  scholarshipModal.addEventListener('click', (e) => {
+    if (e.target === scholarshipModal) hideModal();
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && scholarshipModal.style.display === 'flex') {
+      hideModal();
+    }
+  });
+}
+
+// 10. Research "Coming Soon" Handler
+function initResearchHandlers() {
+  const researchBtn = document.getElementById('card-research-btn');
+  if (!researchBtn) return;
+
+  researchBtn.addEventListener('click', () => {
+    showToast('🔬 ระบบสารสนเทศงานวิจัยและนวัตกรรม คณะ LAMS อยู่ระหว่างการพัฒนาและเชื่อมโยงระบบ (เร็วๆ นี้)');
+  });
+}
+
+// 11. Interactive Bilingual Switcher (TH | EN) & Dedicated /en/ Router
+function initLanguageSwitcher() {
+  const langBtns = document.querySelectorAll('.lang-switch-btn');
+  if (langBtns.length === 0) return;
+
+  langBtns.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const lang = btn.getAttribute('hreflang') || btn.getAttribute('data-lang') || btn.textContent.trim().toLowerCase();
+      if (lang) {
+        try {
+          localStorage.setItem('lams_lang', lang);
+        } catch (err) {}
       }
     });
-  }
+  });
+}
 
-  // 10. Research "Coming Soon" Handler (Short-Course now links to LAMS Academy)
-  const researchBtn = document.getElementById('card-research-btn');
-  if (researchBtn) {
-    researchBtn.addEventListener('click', () => {
-      showToast('🔬 ระบบสารสนเทศงานวิจัยและนวัตกรรม คณะ LAMS อยู่ระหว่างการพัฒนาและเชื่อมโยงระบบ (เร็วๆ นี้)');
-    });
-  }
-
-  // 11. Interactive Bilingual Switcher (TH | EN) & Dedicated /en/ Router
-  const langBtns = document.querySelectorAll('.lang-switch-btn');
-  if (langBtns.length > 0) {
-    langBtns.forEach(btn => {
-      btn.addEventListener('click', (e) => {
-        const lang = btn.getAttribute('hreflang') || btn.getAttribute('data-lang') || (btn.textContent.trim().toLowerCase());
-        if (lang) {
-          try {
-            localStorage.setItem('lams_lang', lang);
-          } catch (err) {}
-        }
-      });
-    });
-  }
-
-  // 12. Campus Facility Video Modal Handlers (YouTube, TikTok & Native MP4 Architecture)
+// 12. Campus Facility Video Modal Handlers (YouTube, TikTok & Native MP4 Architecture)
+function initCampusVideoModal() {
   const facilityCards = document.querySelectorAll('.campus-facility-card');
   const videoModal = document.getElementById('campusVideoModal');
   const videoDialog = document.getElementById('campusVideoDialog');
@@ -209,8 +242,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const videoPoster = document.getElementById('campusVideoPoster');
   const videoShowcaseTitle = document.getElementById('campusVideoShowcaseTitle');
   const videoHeroBtn = document.getElementById('campusVideoHeroBtn');
-  const videoHeroIcon = document.getElementById('campusVideoHeroIcon');
-  const videoHeroText = document.getElementById('campusVideoHeroText');
   const videoTitle = document.getElementById('campusVideoTitle');
   const videoBadge = document.getElementById('campusVideoBadge');
   const videoDirectLink = document.getElementById('campusVideoDirectLink');
@@ -226,7 +257,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const videoId = card.getAttribute('data-video-id');
     const title = card.getAttribute('data-video-title') || 'วิดีโอบรรยากาศแคมปัส';
     const directUrl = card.getAttribute('data-video-url') || '#';
-    const thumbUrl = card.getAttribute('data-video-thumb') || '';
     const mp4Url = card.getAttribute('data-video-mp4');
 
     if (videoTitle) videoTitle.textContent = title;
@@ -234,8 +264,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (videoDirectLink) {
       videoDirectLink.href = directUrl;
-      videoDirectLink.innerHTML = provider === 'tiktok' 
-        ? '<i class="fa-brands fa-tiktok" style="color: var(--brand-tiktok-cyan); margin-right: 6px;"></i> เปิดดูบน TikTok ➔' 
+      videoDirectLink.innerHTML = provider === 'tiktok'
+        ? '<i class="fa-brands fa-tiktok" style="color: var(--brand-tiktok-cyan); margin-right: 6px;"></i> เปิดดูบน TikTok ➔'
         : '<i class="fa-brands fa-youtube" style="color: #FF0000; margin-right: 6px;"></i> เปิดดูบน YouTube ➔';
     }
 
@@ -280,7 +310,6 @@ document.addEventListener('DOMContentLoaded', () => {
         videoIframe.style.display = 'block';
 
         if (provider === 'tiktok') {
-          // TikTok official embedded player (plays directly inside website modal)
           videoIframe.style.aspectRatio = '9 / 16';
           videoIframe.style.maxWidth = '360px';
           videoIframe.style.width = '100%';
@@ -290,7 +319,6 @@ document.addEventListener('DOMContentLoaded', () => {
             videoDialog.style.maxWidth = '440px';
           }
         } else {
-          // YouTube embed player (plays directly inside website modal)
           videoIframe.style.aspectRatio = '16 / 9';
           videoIframe.style.maxWidth = '100%';
           videoIframe.style.width = '100%';
@@ -333,7 +361,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   if (facilityCards.length > 0 && videoModal) {
-    facilityCards.forEach(card => {
+    facilityCards.forEach((card) => {
       card.addEventListener('click', () => openCampusVideo(card));
       card.addEventListener('keydown', (e) => {
         if (e.key === 'Enter' || e.key === ' ') {
@@ -343,7 +371,6 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
 
-    // Poster Click opens direct video URL in new tab
     if (videoPoster) {
       const handlePosterTrigger = () => {
         const url = videoHeroBtn ? videoHeroBtn.href : '#';
@@ -374,7 +401,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // Focus trap inside video modal
     videoModal.addEventListener('keydown', (e) => {
       if (e.key === 'Tab') {
-        const focusables = videoModal.querySelectorAll('button:not([hidden]):not([disabled]), [href]:not([hidden]):not([disabled]), input:not([hidden]), [tabindex]:not([tabindex="-1"]):not([hidden])');
+        const focusables = videoModal.querySelectorAll(
+          'button:not([hidden]):not([disabled]), [href]:not([hidden]):not([disabled]), input:not([hidden]), [tabindex]:not([tabindex="-1"]):not([hidden])'
+        );
         if (focusables.length === 0) return;
         const first = focusables[0];
         const last = focusables[focusables.length - 1];
@@ -392,8 +421,10 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   }
+}
 
-  // 13. Hybrid Social Share System (In-Page Modal, Mobile Native Share, Centered Popup & Copy Link)
+// 13. Hybrid Social Share System
+function initSocialShareSystem() {
   const btnMainShare = document.getElementById('btnMainShare');
   const btnQuickCopy = document.getElementById('btnQuickCopy');
   const shareNewsModal = document.getElementById('shareNewsModal');
@@ -408,8 +439,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const currentShareTitle = document.title.split('|')[0].trim() || 'ข่าวสาร LAMS PSU Surat Thani';
 
   const shareProviders = {
-    facebook: url => `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`,
-    line: url => `https://social-plugins.line.me/lineit/share?url=${encodeURIComponent(url)}`
+    facebook: (url) => `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`,
+    line: (url) => `https://social-plugins.line.me/lineit/share?url=${encodeURIComponent(url)}`
   };
 
   let shareToastTimer = null;
@@ -427,13 +458,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const providerFn = shareProviders[platform];
     const targetUrl = providerFn ? providerFn(currentShareUrl, currentShareTitle) : (fallbackHref || currentShareUrl);
 
-    // On desktop, open a neat centered 600x550 window
     const width = 600;
     const height = 550;
     const left = Math.max(0, window.screenX + (window.outerWidth - width) / 2);
     const top = Math.max(0, window.screenY + (window.outerHeight - height) / 2);
     const features = `width=${width},height=${height},top=${top},left=${left},scrollbars=yes,resizable=yes,noopener,noreferrer`;
-    
+
     const popup = window.open(targetUrl, 'lamsSharePopup', features);
     if (!popup || popup.closed || typeof popup.closed === 'undefined') {
       window.open(targetUrl, '_blank', 'noopener,noreferrer');
@@ -446,7 +476,6 @@ document.addEventListener('DOMContentLoaded', () => {
     let success = false;
     const url = currentShareUrl;
 
-    // Method 1: Modern Async Clipboard API
     if (navigator.clipboard && window.isSecureContext) {
       try {
         await navigator.clipboard.writeText(url);
@@ -454,7 +483,6 @@ document.addEventListener('DOMContentLoaded', () => {
       } catch (e) {}
     }
 
-    // Method 2: High-Compatibility Fallback for iOS Safari & Android WebViews
     if (!success) {
       try {
         const textarea = document.createElement('textarea');
@@ -506,7 +534,6 @@ document.addEventListener('DOMContentLoaded', () => {
     lastFocusedShareElement = document.activeElement;
     if (shareUrlInput) shareUrlInput.value = currentShareUrl;
 
-    // Show Native Share button in modal if supported by mobile OS
     if (btnShareNative && typeof navigator.share === 'function') {
       btnShareNative.style.display = 'flex';
     }
@@ -528,12 +555,11 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function isMobileDevice() {
-    return /Android|iPhone|iPad|iPod/i.test(navigator.userAgent) || 
+    return /Android|iPhone|iPad|iPod/i.test(navigator.userAgent) ||
            (navigator.maxTouchPoints > 1 && window.innerWidth <= 1024) ||
            (window.innerWidth <= 768 && 'ontouchstart' in window);
   }
 
-  // 1. Primary Share Button: Always opens the website's In-Page Modal (both Mobile & Desktop)
   if (btnMainShare) {
     btnMainShare.addEventListener('click', (e) => {
       e.preventDefault();
@@ -541,7 +567,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 2. Quick Copy Buttons
   if (btnQuickCopy) {
     btnQuickCopy.addEventListener('click', (e) => {
       e.preventDefault();
@@ -556,8 +581,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 3. Social Platform Buttons
-  document.querySelectorAll('[data-share]').forEach(btn => {
+  document.querySelectorAll('[data-share]').forEach((btn) => {
     const platform = btn.getAttribute('data-share');
     const providerFn = shareProviders[platform];
     if (providerFn && btn.tagName === 'A') {
@@ -566,8 +590,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     btn.addEventListener('click', async (e) => {
       if (isMobileDevice()) {
-        // Facebook App on mobile does not support sharer.php deep-linking (redirects to home feed).
-        // On mobile devices, using Web Share API is the only reliable standard to open the native Facebook Composer.
         if (platform === 'facebook') {
           if (typeof navigator.share === 'function') {
             e.preventDefault();
@@ -586,7 +608,6 @@ document.addEventListener('DOMContentLoaded', () => {
               return;
             }
           } else {
-            // Fallback for older mobile browsers without navigator.share: prevent blank feed redirect
             e.preventDefault();
             copyNewsUrl(btn);
             showShareToast('คัดลอกลิงก์แล้ว! เปิดแอป Facebook เพื่อวางโพสต์ได้ทันที');
@@ -594,20 +615,17 @@ document.addEventListener('DOMContentLoaded', () => {
           }
         }
 
-        // For LINE or fallback, allow native browser navigation
         if (providerFn && btn.tagName === 'A') {
           btn.href = providerFn(currentShareUrl, currentShareTitle);
         }
         return;
       }
 
-      // On desktop, open centered popup
       e.preventDefault();
       openCenteredShare(platform, btn.href);
     });
   });
 
-  // 4. Native OS Share Sheet inside Modal
   if (btnShareNative) {
     btnShareNative.addEventListener('click', async (e) => {
       e.preventDefault();
@@ -631,7 +649,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 5. Close Events
   if (closeShareModal) {
     closeShareModal.addEventListener('click', closeShareModalDialog);
   }
@@ -649,10 +666,11 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
 
-    // Focus trap inside share modal
     shareNewsModal.addEventListener('keydown', (e) => {
       if (e.key === 'Tab') {
-        const focusables = shareNewsModal.querySelectorAll('button:not([hidden]):not([disabled]), [href]:not([hidden]):not([disabled]), input:not([hidden]), [tabindex]:not([tabindex="-1"]):not([hidden])');
+        const focusables = shareNewsModal.querySelectorAll(
+          'button:not([hidden]):not([disabled]), [href]:not([hidden]):not([disabled]), input:not([hidden]), [tabindex]:not([tabindex="-1"]):not([hidden])'
+        );
         if (focusables.length === 0) return;
         const first = focusables[0];
         const last = focusables[focusables.length - 1];
@@ -670,6 +688,21 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   }
+}
 
-  console.log('✅ LAMS PSU Surat Thani 2026 - Main Scripts Initialized.');
+// Master DOM Initialization Chain
+document.addEventListener('DOMContentLoaded', () => {
+  initSiteHeader();
+  initSiteNav();
+  initInfoAccordion();
+  initVideoCampaign();
+  initFloatingMessenger();
+  initSmoothScroll();
+  initProcurementFilters();
+  initToastHelper();
+  initScholarshipModal();
+  initResearchHandlers();
+  initLanguageSwitcher();
+  initCampusVideoModal();
+  initSocialShareSystem();
 });
