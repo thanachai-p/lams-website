@@ -197,3 +197,8 @@ img {
     scroll-behavior: auto !important;
   }
 }
+
+/* Accessibility & Utility States */
+.is-hidden {
+  display: none !important;
+}

@@ -409,66 +409,6 @@
 
   <!-- Scripts -->
   <script src="../js/programs-data.js"></script>
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      // 1. Filter Tabs
-      const tabs = document.querySelectorAll('.catalog-tab');
-      const cards = document.querySelectorAll('.program-card-item');
-      const emptyState = document.getElementById('catalog-empty-state');
-      const searchInput = document.getElementById('program-search-input');
-
-      function filterPrograms() {
-        const activeTab = document.querySelector('.catalog-tab.active');
-        const filterCategory = activeTab ? activeTab.getAttribute('data-filter') : 'all';
-        const query = searchInput ? searchInput.value.toLowerCase().trim() : '';
-
-        let visibleCount = 0;
-
-        cards.forEach(card => {
-          const category = card.getAttribute('data-category');
-          const text = card.textContent.toLowerCase();
-
-          const matchesCategory = (filterCategory === 'all' || category === filterCategory);
-          const matchesQuery = (!query || text.includes(query));
-
-          if (matchesCategory && matchesQuery) {
-            card.style.display = 'flex';
-            visibleCount++;
-          } else {
-            card.style.display = 'none';
-          }
-        });
-
-        if (emptyState) {
-          emptyState.style.display = visibleCount === 0 ? 'block' : 'none';
-        }
-      }
-
-      tabs.forEach(tab => {
-        tab.addEventListener('click', () => {
-          tabs.forEach(t => {
-            t.classList.remove('active');
-            t.setAttribute('aria-selected', 'false');
-          });
-          tab.classList.add('active');
-          tab.setAttribute('aria-selected', 'true');
-          filterPrograms();
-        });
-      });
-
-      if (searchInput) {
-        searchInput.addEventListener('input', filterPrograms);
-      }
-
-      // Check URL query `?level=bachelor` or `?level=master`
-      const urlParams = new URLSearchParams(window.location.search);
-      const level = urlParams.get('level');
-      if (level) {
-        const targetTab = document.querySelector(`.catalog-tab[data-filter="${level}"]`);
-        if (targetTab) targetTab.click();
-      }
-    });
-  </script>
   <script src="../js/main.js"></script>
 </body>
 </html>

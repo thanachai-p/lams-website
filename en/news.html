@@ -239,37 +239,6 @@
     </div>
   </footer>
 
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const tabs = document.querySelectorAll('.catalog-tab');
-      const searchInput = document.getElementById('news-search-input');
-      const cards = document.querySelectorAll('.news-grid-page .program-card-item');
-
-      function filterNews() {
-        const activeTab = document.querySelector('.catalog-tab.active');
-        const cat = activeTab ? activeTab.getAttribute('data-filter') : 'all';
-        const q = searchInput.value.toLowerCase().trim();
-
-        cards.forEach(c => {
-          const cardCat = c.getAttribute('data-category');
-          const text = c.textContent.toLowerCase();
-          const matchCat = (cat === 'all' || cardCat === cat);
-          const matchQ = !q || text.includes(q);
-          c.style.display = (matchCat && matchQ) ? 'flex' : 'none';
-        });
-      }
-
-      tabs.forEach(t => {
-        t.addEventListener('click', () => {
-          tabs.forEach(item => item.classList.remove('active'));
-          t.classList.add('active');
-          filterNews();
-        });
-      });
-
-      if (searchInput) searchInput.addEventListener('input', filterNews);
-    });
-  </script>
   <script src="../js/main.js?v=20261029_0900"></script>
 </body>
 </html>

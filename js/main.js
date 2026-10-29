@@ -123,28 +123,56 @@ function initSmoothScroll() {
   });
 }
 
-// 7. Interactive Procurement Filter Tabs
+// 7. Interactive Procurement Filter Tabs & Search
 function initProcurementFilters() {
-  const filterPills = document.querySelectorAll('.filter-pill');
   const procurementItems = document.querySelectorAll('.procurement-item');
-  if (filterPills.length === 0 || procurementItems.length === 0) return;
+  if (procurementItems.length === 0) return;
 
-  filterPills.forEach((pill) => {
-    pill.addEventListener('click', () => {
-      filterPills.forEach((p) => {
-        p.classList.remove('active', 'is-active', 'filter-pill--active');
+  const filterTabs = document.querySelectorAll('.catalog-filters .catalog-tab, .filter-pill');
+  const searchInput = document.getElementById('procure-search-input');
+  const emptyState = document.getElementById('procure-empty-state');
+
+  function filterProcure() {
+    const activeTab = document.querySelector('.catalog-filters .catalog-tab.active, .filter-pill.active, .catalog-filters .catalog-tab.filter-pill--active');
+    const cat = activeTab ? activeTab.getAttribute('data-filter') : 'all';
+    const q = searchInput ? searchInput.value.toLowerCase().trim() : '';
+
+    let visibleCount = 0;
+    procurementItems.forEach((it) => {
+      const itemCat = it.getAttribute('data-category');
+      const text = it.textContent.toLowerCase();
+      const matchCat = (cat === 'all' || itemCat === cat);
+      const matchQ = !q || text.includes(q);
+      const show = matchCat && matchQ;
+
+      it.style.display = show ? '' : 'none';
+      it.classList.toggle('is-hidden', !show);
+      it.setAttribute('aria-hidden', (!show).toString());
+
+      if (show) visibleCount++;
+    });
+
+    if (emptyState) {
+      emptyState.style.display = visibleCount === 0 ? 'block' : 'none';
+      emptyState.classList.toggle('is-hidden', visibleCount !== 0);
+    }
+  }
+
+  filterTabs.forEach((t) => {
+    t.addEventListener('click', () => {
+      filterTabs.forEach((item) => {
+        item.classList.remove('active', 'filter-pill--active');
+        item.setAttribute('aria-selected', 'false');
       });
-      pill.classList.add('active', 'is-active', 'filter-pill--active');
-      const filter = pill.getAttribute('data-filter');
-      procurementItems.forEach((item) => {
-        if (filter === 'all' || item.getAttribute('data-category') === filter) {
-          item.style.display = 'flex';
-        } else {
-          item.style.display = 'none';
-        }
-      });
+      t.classList.add('active', 'filter-pill--active');
+      t.setAttribute('aria-selected', 'true');
+      filterProcure();
     });
   });
+
+  if (searchInput) {
+    searchInput.addEventListener('input', filterProcure);
+  }
 }
 
 // 8. Toast Helper Function
@@ -685,6 +713,322 @@ function initSocialShareSystem() {
         }
       }
     });
+  }
+}
+
+
+// 14. News Filter System (Bilingual & Safe State)
+function initNewsFilter() {
+  const searchInput = document.getElementById('news-search-input');
+  const newsContainer = document.querySelector('.news-grid-page');
+  if (!newsContainer && !searchInput) return;
+
+  const tabs = document.querySelectorAll('.catalog-tab');
+  const cards = document.querySelectorAll('.news-grid-page .program-card-item');
+
+  function filterNews() {
+    const activeTab = document.querySelector('.catalog-tab.active, .catalog-tab.filter-pill--active');
+    const cat = activeTab ? activeTab.getAttribute('data-filter') : 'all';
+    const q = searchInput ? searchInput.value.toLowerCase().trim() : '';
+
+    cards.forEach((c) => {
+      const cardCat = c.getAttribute('data-category');
+      const text = c.textContent.toLowerCase();
+      const matchCat = (cat === 'all' || cardCat === cat);
+      const matchQ = !q || text.includes(q);
+      const show = matchCat && matchQ;
+
+      c.style.display = show ? '' : 'none';
+      c.classList.toggle('is-hidden', !show);
+      c.setAttribute('aria-hidden', (!show).toString());
+    });
+  }
+
+  tabs.forEach((t) => {
+    t.addEventListener('click', () => {
+      tabs.forEach((item) => {
+        item.classList.remove('active', 'filter-pill--active');
+        item.setAttribute('aria-selected', 'false');
+      });
+      t.classList.add('active', 'filter-pill--active');
+      t.setAttribute('aria-selected', 'true');
+      filterNews();
+    });
+  });
+
+  if (searchInput) {
+    searchInput.addEventListener('input', filterNews);
+  }
+}
+
+// 15. Directory & Faculty People Filter
+function initPeopleFilter() {
+  const peopleGrid = document.getElementById('peopleGrid');
+  if (!peopleGrid) return;
+
+  const tabs = document.querySelectorAll('#peopleFilters .catalog-tab');
+  const searchInput = document.getElementById('peopleSearchInput');
+  const cards = document.querySelectorAll('#peopleGrid .people-card');
+  const emptyState = document.getElementById('peopleEmptyState');
+
+  let currentFilter = 'all';
+  let currentQuery = '';
+
+  function filterDirectory() {
+    let visibleCount = 0;
+    cards.forEach((card) => {
+      const cardCategory = card.getAttribute('data-category');
+      const keywords = (card.getAttribute('data-keywords') || '').toLowerCase();
+      const cardText = card.textContent.toLowerCase();
+
+      const matchesCategory = (currentFilter === 'all') || (cardCategory === currentFilter);
+      const matchesSearch = !currentQuery || keywords.includes(currentQuery) || cardText.includes(currentQuery);
+      const show = matchesCategory && matchesSearch;
+
+      card.style.display = show ? '' : 'none';
+      card.classList.toggle('is-hidden', !show);
+      card.setAttribute('aria-hidden', (!show).toString());
+
+      if (show) visibleCount++;
+    });
+
+    if (emptyState) {
+      emptyState.style.display = visibleCount === 0 ? 'block' : 'none';
+      emptyState.classList.toggle('is-hidden', visibleCount !== 0);
+    }
+  }
+
+  tabs.forEach((tab) => {
+    tab.addEventListener('click', () => {
+      tabs.forEach((t) => {
+        t.classList.remove('active', 'filter-pill--active');
+        t.setAttribute('aria-selected', 'false');
+      });
+      tab.classList.add('active', 'filter-pill--active');
+      tab.setAttribute('aria-selected', 'true');
+      currentFilter = tab.getAttribute('data-filter') || 'all';
+      filterDirectory();
+    });
+  });
+
+  if (searchInput) {
+    searchInput.addEventListener('input', (e) => {
+      currentQuery = e.target.value.trim().toLowerCase();
+      filterDirectory();
+    });
+  }
+}
+
+// 16. Academic Degree Programs Catalog Filter & URL Sync
+function initProgramCatalog() {
+  const programSearch = document.getElementById('program-search-input');
+  const emptyState = document.getElementById('catalog-empty-state');
+  const programCards = document.querySelectorAll('.program-catalog-grid .program-card-item, .program-card-item');
+
+  // Guard: Run only on pages that have the program search or empty state and aren't news
+  if (!programSearch && !emptyState) return;
+  if (document.querySelector('.news-grid-page')) return; // Avoid colliding with news catalog
+
+  const tabs = document.querySelectorAll('.catalog-tab');
+
+  // Check URL query parameters (e.g. ?level=bachelor or ?level=master)
+  const urlParams = new URLSearchParams(window.location.search);
+  const initialLevel = urlParams.get('level');
+  if (initialLevel) {
+    tabs.forEach((tab) => {
+      if (tab.getAttribute('data-filter') === initialLevel) {
+        tabs.forEach((t) => {
+          t.classList.remove('active', 'filter-pill--active');
+          t.setAttribute('aria-selected', 'false');
+        });
+        tab.classList.add('active', 'filter-pill--active');
+        tab.setAttribute('aria-selected', 'true');
+      }
+    });
+  }
+
+  function filterPrograms() {
+    const activeTab = document.querySelector('.catalog-tab.active, .catalog-tab.filter-pill--active');
+    const filterCategory = activeTab ? activeTab.getAttribute('data-filter') : 'all';
+    const query = programSearch ? programSearch.value.toLowerCase().trim() : '';
+
+    let visibleCount = 0;
+
+    programCards.forEach((card) => {
+      const cardCategory = card.getAttribute('data-category');
+      const cardText = card.textContent.toLowerCase();
+
+      const matchesCategory = (filterCategory === 'all' || cardCategory === filterCategory);
+      const matchesQuery = !query || cardText.includes(query);
+      const show = matchesCategory && matchesQuery;
+
+      card.style.display = show ? '' : 'none';
+      card.classList.toggle('is-hidden', !show);
+      card.setAttribute('aria-hidden', (!show).toString());
+
+      if (show) visibleCount++;
+    });
+
+    if (emptyState) {
+      emptyState.style.display = visibleCount === 0 ? 'block' : 'none';
+      emptyState.classList.toggle('is-hidden', visibleCount !== 0);
+    }
+  }
+
+  tabs.forEach((tab) => {
+    tab.addEventListener('click', () => {
+      tabs.forEach((t) => {
+        t.classList.remove('active', 'filter-pill--active');
+        t.setAttribute('aria-selected', 'false');
+      });
+      tab.classList.add('active', 'filter-pill--active');
+      tab.setAttribute('aria-selected', 'true');
+      filterPrograms();
+    });
+  });
+
+  if (programSearch) {
+    programSearch.addEventListener('input', filterPrograms);
+  }
+
+  // Initial filter run
+  filterPrograms();
+}
+
+// 17. Program Detail Page Renderer (Bilingual TH / EN)
+function initProgramDetail() {
+  const detailHero = document.getElementById('detail-hero');
+  const crumbName = document.getElementById('crumb-program-name');
+  if (!detailHero && !crumbName) return;
+
+  const isEn = document.documentElement.lang === 'en' || window.location.pathname.includes('/en/');
+  const urlParams = new URLSearchParams(window.location.search);
+  const programId = urlParams.get('id') || 'bba-mgmt';
+
+  // Synchronize Language Switcher Links
+  const thSwitch = document.getElementById('lang-switch-th-link');
+  const enSwitch = document.getElementById('lang-switch-en-link');
+  if (thSwitch) thSwitch.href = isEn ? `../pages/program-detail.html?id=${encodeURIComponent(programId)}` : `program-detail.html?id=${encodeURIComponent(programId)}`;
+  if (enSwitch) enSwitch.href = isEn ? `program-detail.html?id=${encodeURIComponent(programId)}` : `../en/program-detail.html?id=${encodeURIComponent(programId)}`;
+
+  if (typeof window.getLamsProgramById !== 'function') return;
+
+  const exactProgram = window.getLamsProgramById(programId);
+  const program = exactProgram || (window.LAMS_PROGRAMS_DATA && window.LAMS_PROGRAMS_DATA[0]);
+
+  if (!exactProgram && program && detailHero) {
+    const alertBox = document.createElement('div');
+    alertBox.style.cssText = 'background: rgba(245, 158, 11, 0.15); border: 1px solid var(--theme-amber); color: #fff; padding: 12px 18px; border-radius: 10px; margin-bottom: 20px; font-size: 0.9rem; max-width: 800px;';
+    alertBox.innerHTML = isEn
+      ? '<i class="fa-solid fa-circle-exclamation" style="color: var(--theme-amber); margin-right: 8px;"></i> Notice: The specified curriculum ID was not found. Displaying default featured program.'
+      : '<i class="fa-solid fa-circle-exclamation" style="color: var(--theme-amber); margin-right: 8px;"></i> ไม่พบรหัสหลักสูตรที่ระบุ ระบบกำลังแสดงผลหลักสูตรแนะนำเริ่มต้น';
+    const subHeroContainer = detailHero.querySelector('.subpage-hero-container');
+    if (subHeroContainer) subHeroContainer.prepend(alertBox);
+  }
+
+  if (!program) return;
+
+  // Page Title & Breadcrumb
+  const shortTitle = isEn ? (program.shortNameEn || program.nameEn) : program.shortName;
+  document.title = isEn
+    ? `${shortTitle} | Faculty of Liberal Arts and Management Sciences, PSU`
+    : `${program.shortName} | คณะศิลปศาสตร์และวิทยาการจัดการ ม.อ.สุราษฎร์ธานี`;
+
+  if (crumbName) crumbName.textContent = shortTitle;
+
+  // Hero Fields
+  const badgeText = document.getElementById('detail-badge-text');
+  if (badgeText) {
+    badgeText.textContent = isEn
+      ? `${program.levelNameEn || program.levelName} • ${program.durationEn || program.duration}`
+      : `${program.levelName} • ${program.duration}`;
+  }
+
+  const degreeCode = document.getElementById('detail-degree-code');
+  if (degreeCode) {
+    const icon = program.icon || 'fa-solid fa-graduation-cap';
+    degreeCode.innerHTML = isEn
+      ? `<i class="${icon}"></i> ${program.degreeCodeEn || program.degreeCode}`
+      : `<i class="${program.icon}"></i> ${program.degreeCode} (${program.shortName})`;
+  }
+
+  const titleEn = document.getElementById('detail-title-en');
+  if (titleEn) titleEn.textContent = program.nameEn;
+
+  const titleTh = document.getElementById('detail-title-th');
+  if (titleTh) titleTh.textContent = program.nameTh;
+
+  // Philosophy
+  const philosophy = document.getElementById('detail-philosophy');
+  if (philosophy) {
+    philosophy.textContent = isEn ? (program.philosophyEn || program.philosophy) : program.philosophy;
+  }
+
+  // Tracks
+  const tracksContainer = document.getElementById('detail-tracks-container');
+  const tracks = isEn ? (program.tracksEn || program.tracks) : program.tracks;
+  if (tracksContainer && tracks && tracks.length > 0) {
+    tracksContainer.innerHTML = tracks.map((t) => `
+      <div class="track-box">
+        <h4>${t.title}</h4>
+        <p>${t.desc}</p>
+      </div>
+    `).join('');
+  }
+
+  // Careers
+  const careersContainer = document.getElementById('detail-careers-container');
+  const careers = isEn ? (program.careersEn || program.careers) : program.careers;
+  if (careersContainer && careers && careers.length > 0) {
+    careersContainer.innerHTML = careers.map((c) => `
+      <li><i class="fa-solid fa-circle-check"></i> ${c}</li>
+    `).join('');
+  }
+
+  // Sidebar Quick Facts
+  const factLevel = document.getElementById('detail-fact-level');
+  if (factLevel) factLevel.textContent = isEn ? (program.levelNameEn || program.levelName) : program.levelName;
+
+  const factDuration = document.getElementById('detail-fact-duration');
+  if (factDuration) factDuration.textContent = isEn ? (program.durationEn || program.duration) : program.duration;
+
+  const factCredits = document.getElementById('detail-fact-credits');
+  if (factCredits) factCredits.textContent = isEn ? (program.creditsEn || program.credits) : program.credits;
+
+  const factPdfYear = document.getElementById('detail-fact-pdfyear');
+  if (factPdfYear) {
+    factPdfYear.textContent = isEn
+      ? (program.pdfYearEn || program.pdfYear || '2026 (Latest)')
+      : (program.pdfYear || 'รหัส 69 (ล่าสุด)');
+  }
+
+  const pdfBtn = document.getElementById('detail-pdf-btn');
+  if (pdfBtn && program.pdfCurriculum) {
+    pdfBtn.href = program.pdfCurriculum;
+  }
+
+  // Admission Link Routing
+  const applyBtn = document.getElementById('detail-apply-btn') || document.querySelector('.btn-sidebar-tcas');
+  if (applyBtn) {
+    if (program.id === 'mba') {
+      applyBtn.href = 'https://grad.surat.psu.ac.th/';
+      applyBtn.innerHTML = isEn
+        ? 'Apply MBA <i class="fa-solid fa-arrow-up-right-from-square" style="font-size: 0.8rem; margin-left: 6px;"></i>'
+        : 'สมัครเรียน ป.โท MBA <i class="fa-solid fa-arrow-up-right-from-square" style="font-size: 0.8rem; margin-left: 6px;"></i>';
+    } else {
+      applyBtn.href = 'https://entrance.surat.psu.ac.th/';
+      applyBtn.innerHTML = isEn
+        ? 'Apply TCAS <i class="fa-solid fa-arrow-up-right-from-square" style="font-size: 0.8rem; margin-left: 6px;"></i>'
+        : 'สมัครเรียน TCAS ม.อ. <i class="fa-solid fa-arrow-up-right-from-square" style="font-size: 0.8rem; margin-left: 6px;"></i>';
+    }
+  }
+
+  // Tuition Note
+  const feeNote = document.getElementById('detail-fee-note');
+  if (feeNote) {
+    feeNote.textContent = isEn
+      ? (program.tuitionFeeEstimateEn || program.tuitionFeeEstimate)
+      : program.tuitionFeeEstimate;
   }
 }
 
