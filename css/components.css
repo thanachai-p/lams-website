@@ -1988,12 +1988,12 @@ a.btn-share-quick {
   background-image:
     linear-gradient(to bottom, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.55)),
     var(--bg-image, none),
-    linear-gradient(135deg, var(--surface-header, #0E0204) 0%, var(--surface-page, #140406) 100%);
-  background-color: var(--surface-page, #140406);
+    linear-gradient(135deg, var(--surface-header) 0%, var(--surface-page) 100%);
+  background-color: var(--surface-page);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  color: var(--text-primary, #ffffff);
+  color: var(--text-primary);
 }
 
 .has-bg-card {
@@ -2002,8 +2002,8 @@ a.btn-share-quick {
   background-image:
     linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.6)),
     var(--bg-image, none),
-    linear-gradient(160deg, var(--surface-card, #22080D), var(--surface-header, #0E0204));
-  background-color: var(--surface-card, #22080D);
+    linear-gradient(160deg, var(--surface-card), var(--surface-header));
+  background-color: var(--surface-card);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -2044,7 +2044,7 @@ a.btn-share-quick {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  color: #ffffff;
+  color: var(--text-primary);
   text-decoration: none;
   font-size: 0.9rem;
   padding: 5px 8px;
@@ -2112,7 +2112,7 @@ a.btn-share-quick {
 .badge-status-upcoming {
   font-size: 0.75rem;
   background: var(--theme-amber);
-  color: #1A0508;
+  color: var(--text-dark-contrast);
   padding: 2px 8px;
   border-radius: 999px;
   margin-left: 6px;
@@ -2128,7 +2128,7 @@ a.btn-share-quick {
 
 /* Footer program links replacing inline style & onmouseover (Batch 3.2) */
 .footer-program-link {
-  color: #ffffff;
+  color: var(--text-primary);
   text-decoration: none;
   font-size: 0.9rem;
   padding: 5px 8px;
@@ -2374,7 +2374,7 @@ a.btn-share-quick {
 }
 
 .text-success {
-  color: #10B981;
+  color: var(--theme-success);
 }
 
 .is-hidden {
@@ -2391,7 +2391,7 @@ a.btn-share-quick {
 }
 
 .text-success-lg {
-  color: #10B981;
+  color: var(--theme-success);
   font-size: 1.1rem;
 }
 
@@ -2476,7 +2476,7 @@ a.btn-share-quick {
   border-radius: 999px;
   background: rgba(220, 38, 38, 0.15);
   border: 1px solid var(--theme-red-bright);
-  color: #fff;
+  color: var(--text-primary);
   box-shadow: 0 4px 15px rgba(220, 38, 38, 0.2);
   transition: transform 0.2s, box-shadow 0.2s;
 }
@@ -2522,7 +2522,7 @@ a.btn-share-quick {
 }
 
 .icon-brand--fb {
-  color: #1877F2;
+  color: var(--brand-facebook);
   width: 25px;
 }
 
@@ -2559,11 +2559,11 @@ a.btn-share-quick {
 
 /* Brand & Success Icon Utilities */
 .icon-brand--tiktok {
-  color: #25F4EE;
+  color: var(--brand-tiktok-cyan);
 }
 
 .icon-brand--youtube {
-  color: #FF0000;
+  color: var(--brand-youtube);
 }
 
 .icon-prefix--success {
@@ -2796,7 +2796,7 @@ a.btn-share-quick {
 
 .video-player-frame {
   padding: 16px;
-  background: #000000;
+  background: var(--surface-black);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -2809,7 +2809,7 @@ a.btn-share-quick {
   width: 100%;
   max-height: 65vh;
   border-radius: 12px;
-  background: #000000;
+  background: var(--surface-black);
 }
 
 .video-showcase-box {
@@ -2819,7 +2819,7 @@ a.btn-share-quick {
   align-items: center;
   border-radius: 14px;
   overflow: hidden;
-  background: #0a0a0c;
+  background: var(--surface-header);
   border: 1px solid var(--border-subtle);
   box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.6);
 }
@@ -2848,11 +2848,11 @@ a.btn-share-quick {
   width: 72px;
   height: 72px;
   border-radius: 50%;
-  background: linear-gradient(135deg, var(--theme-red-bright), #b91c1c);
+  background: var(--gradient-btn-sparkle);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #ffffff;
+  color: var(--text-primary);
   font-size: 1.8rem;
   box-shadow: 0 10px 30px rgba(220, 38, 38, 0.6);
   padding-left: 4px;
@@ -2876,7 +2876,7 @@ a.btn-share-quick {
 }
 
 .video-showcase-bottom-title {
-  color: #ffffff;
+  color: var(--text-primary);
   font-size: 1.15rem;
   font-weight: 700;
   line-height: 1.4;
@@ -2887,8 +2887,8 @@ a.btn-share-quick {
   align-items: center;
   justify-content: center;
   gap: 10px;
-  background: linear-gradient(135deg, var(--theme-red-bright), #991b1b);
-  color: #ffffff;
+  background: var(--gradient-btn-sparkle);
+  color: var(--text-primary);
   font-size: 1rem;
   font-weight: 700;
   padding: 12px 28px;
@@ -2951,7 +2951,7 @@ a.btn-share-quick {
 
 /* Supplementary Batch 3.12 Components (Qwen 3.7 Plus & GLM-5.3 Reviewed) */
 .section-intro-lead {
-  color: var(--text-secondary, #94a3b8);
+  color: var(--text-secondary);
   font-size: 1.05rem;
   line-height: 1.6;
 }
@@ -2963,7 +2963,7 @@ a.btn-share-quick {
 }
 
 .dropdown-program-link {
-  color: var(--text-inverse, #ffffff);
+  color: var(--text-primary);
   text-decoration: none;
   font-size: 0.9rem;
   padding: 5px 8px;
@@ -2976,14 +2976,14 @@ a.btn-share-quick {
 }
 
 .modal-feature-desc--muted {
-  color: var(--text-muted, #64748b);
+  color: var(--text-muted);
   font-size: 0.88rem;
   margin: 0;
 }
 
 .video-modal-tag--cyan {
   background: rgba(37, 244, 238, 0.15);
-  color: var(--text-inverse, #ffffff);
+  color: var(--text-primary);
   padding: 4px 10px;
   border-radius: 999px;
   font-size: 0.75rem;
@@ -2999,19 +2999,19 @@ a.btn-share-quick {
 }
 
 .video-direct-link {
-  color: var(--theme-amber, #f59e0b);
+  color: var(--theme-amber);
   font-size: 0.88rem;
   font-weight: 600;
   text-decoration: none;
 }
 
 .link-amber-underline {
-  color: var(--theme-amber, #f59e0b);
+  color: var(--theme-amber);
   text-decoration: underline;
 }
 
 .text-amber {
-  color: var(--theme-amber, #f59e0b);
+  color: var(--theme-amber);
 }
 
 .icon-gap-sm {
