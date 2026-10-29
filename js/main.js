@@ -249,15 +249,22 @@ function initToastHelper() {
 
 // 9. Scholarship Modal Interactive Handlers
 function initScholarshipModal() {
-  const scholarshipBtn = document.getElementById('card-scholarships-btn');
   const scholarshipModal = document.getElementById('scholarshipModal');
+  if (!scholarshipModal) return;
+
+  const scholarshipTriggers = document.querySelectorAll(
+    '#card-scholarships-btn, [data-trigger="scholarship-modal"], #footerScholarshipLink, #footerScholarshipLinkEn'
+  );
   const closeScholarshipModal = document.getElementById('closeScholarshipModal');
   const dismissScholarshipBtn = document.getElementById('dismissScholarshipBtn');
 
-  if (!scholarshipBtn || !scholarshipModal) return;
+  if (scholarshipTriggers.length === 0) return;
 
-  scholarshipBtn.addEventListener('click', () => {
-    scholarshipModal.style.display = 'flex';
+  scholarshipTriggers.forEach((btn) => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      scholarshipModal.style.display = 'flex';
+    });
   });
 
   const hideModal = () => {

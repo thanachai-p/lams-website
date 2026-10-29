@@ -202,6 +202,16 @@ for (const fn of requiredInitializers) {
   assert(masterInitBlock.includes(fn), 'js/main.js runMasterInit() does not register initializer: ' + fn);
 }
 
+// 13. Zero inline event handlers and zero javascript: pseudo-protocol
+console.log('13. Verifying zero inline event handlers (on*) and zero javascript: pseudo-protocols across all 16 HTML pages...');
+for (const p of allPages) {
+  const content = fs.readFileSync(path.join(rootDir, p), 'utf8');
+  const eventMatches = content.match(/\bon(click|change|input|submit|load|keyup|keydown)\s*=/gi);
+  assert(!eventMatches, `${p} contains forbidden inline event handlers: ${eventMatches ? eventMatches.join(', ') : ''}`);
+  const jsPseudo = content.match(/href\s*=\s*["']javascript:/gi);
+  assert(!jsPseudo, `${p} contains forbidden href="javascript:": ${jsPseudo ? jsPseudo.length : 0}`);
+}
+
 // Summary
 console.log('\n======================================================');
 if (errors.length === 0) {
