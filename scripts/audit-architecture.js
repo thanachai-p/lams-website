@@ -175,6 +175,33 @@ for (const detailPage of ['pages/program-detail.html', 'en/program-detail.html']
   assert(dataIdx < mainIdx, `${detailPage} must load js/programs-data.js before js/main.js`);
 }
 
+// 12. Component initializers invocation in runMasterInit
+console.log('12. Verifying all 17 component initializers in js/main.js are registered in runMasterInit()...');
+const requiredInitializers = [
+  'initSiteHeader',
+  'initSiteNav',
+  'initInfoAccordion',
+  'initVideoCampaign',
+  'initFloatingMessenger',
+  'initSmoothScroll',
+  'initProcurementFilters',
+  'initToastHelper',
+  'initScholarshipModal',
+  'initResearchHandlers',
+  'initLanguageSwitcher',
+  'initCampusVideoModal',
+  'initSocialShareSystem',
+  'initNewsFilter',
+  'initPeopleFilter',
+  'initProgramCatalog',
+  'initProgramDetail'
+];
+assert(mainJs.includes('function runMasterInit()'), 'js/main.js missing runMasterInit() bootstrap');
+const masterInitBlock = mainJs.slice(mainJs.indexOf('function runMasterInit()'));
+for (const fn of requiredInitializers) {
+  assert(masterInitBlock.includes(fn), 'js/main.js runMasterInit() does not register initializer: ' + fn);
+}
+
 // Summary
 console.log('\n======================================================');
 if (errors.length === 0) {

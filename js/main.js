@@ -204,7 +204,22 @@ function initProcurementFilters() {
   });
 
   if (searchInput) {
-    searchInput.addEventListener('input', filterProcure);
+    let isComposing = false;
+    searchInput.addEventListener('compositionstart', () => { isComposing = true; });
+    searchInput.addEventListener('compositionend', () => {
+      isComposing = false;
+      filterProcure();
+    });
+    searchInput.addEventListener('input', () => {
+      if (!isComposing) filterProcure();
+    });
+    searchInput.addEventListener('search', filterProcure);
+    searchInput.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        searchInput.value = '';
+        filterProcure();
+      }
+    });
   }
 }
 
@@ -739,78 +754,184 @@ function initSocialShareSystem() {
   }
 }
 
-// 14. News Filter System (Hardened & Scoped)
+// 14. News Filter System (Hardened, Scoped, IME-Aware & Popstate Supported)
 function initNewsFilter() {
   const newsGrid = document.getElementById('news-grid') || document.querySelector('.news-grid-page');
   if (!newsGrid) return;
   if (newsGrid.dataset.initialized === 'true') return;
   newsGrid.dataset.initialized = 'true';
 
-  const toolbar = newsGrid.closest('section')?.querySelector('.catalog-toolbar') || document.querySelector('.catalog-toolbar');
-  const tabs = toolbar ? toolbar.querySelectorAll('.catalog-tab') : [];
+  const toolbar = newsGrid.closest('section')?.querySelector('.catalog-toolbar') || 
+                  newsGrid.closest('main')?.previousElementSibling || 
+                  document.querySelector('.catalog-toolbar');
+  const tabs = toolbar ? Array.from(toolbar.querySelectorAll('.catalog-tab')) : [];
   const searchInput = document.getElementById('news-search-input');
-  const cards = newsGrid.querySelectorAll('.program-card-item');
+  const emptyState = document.getElementById('news-empty-state');
+  const cards = Array.from(newsGrid.querySelectorAll('.program-card-item, .news-card-item'));
 
-  function filterNews() {
-    const activeTab = toolbar ? toolbar.querySelector('.catalog-tab.active, .catalog-tab.filter-pill--active') : null;
-    const cat = activeTab ? activeTab.getAttribute('data-filter') : 'all';
-    const q = searchInput ? searchInput.value.toLowerCase().trim() : '';
+  let currentCategory = 'all';
+  let searchQuery = '';
+  let isComposing = false;
 
-    cards.forEach((c) => {
-      const cardCat = c.getAttribute('data-category');
-      const text = c.textContent.toLowerCase();
-      const matchCat = (cat === 'all' || cardCat === cat);
-      const matchQ = !q || text.includes(q);
-      const show = matchCat && matchQ;
+  const normalize = (val) => (val || '').trim().toLowerCase().replace(/\s+/g, ' ');
 
-      c.style.display = show ? '' : 'none';
-      c.classList.toggle('is-hidden', !show);
-      c.hidden = !show;
-      c.setAttribute('aria-hidden', (!show).toString());
-    });
+  function updateNewsUrl(cat, pushState = false) {
+    if (typeof window === 'undefined' || !window.history?.replaceState) return;
+    try {
+      const url = new URL(window.location.href);
+      if (cat && cat !== 'all') {
+        url.searchParams.set('category', cat);
+      } else {
+        url.searchParams.delete('category');
+      }
+      const targetUrl = url.pathname + url.search + url.hash;
+      if (pushState && window.history.pushState) {
+        window.history.pushState(null, '', targetUrl);
+      } else if (window.history.replaceState) {
+        window.history.replaceState(null, '', targetUrl);
+      }
+    } catch (e) {}
   }
 
-  tabs.forEach((t) => {
-    t.addEventListener('click', () => {
-      tabs.forEach((item) => {
-        item.classList.remove('active', 'filter-pill--active');
-        item.setAttribute('aria-selected', 'false');
-      });
-      t.classList.add('active', 'filter-pill--active');
-      t.setAttribute('aria-selected', 'true');
-      filterNews();
+  function filterNews() {
+    let visibleCount = 0;
+    cards.forEach((card) => {
+      const cardCat = card.getAttribute('data-category') || '';
+      const text = normalize(card.textContent);
+      const matchCat = (currentCategory === 'all' || cardCat === currentCategory);
+      const matchQ = !searchQuery || text.includes(searchQuery);
+      const show = matchCat && matchQ;
+
+      card.style.display = show ? '' : 'none';
+      card.classList.toggle('is-hidden', !show);
+      card.hidden = !show;
+      card.setAttribute('aria-hidden', (!show).toString());
+
+      if (show) visibleCount++;
+    });
+
+    if (emptyState) {
+      emptyState.style.display = visibleCount === 0 ? 'block' : 'none';
+      emptyState.classList.toggle('is-hidden', visibleCount !== 0);
+      emptyState.hidden = visibleCount !== 0;
+    }
+  }
+
+  function setCategory(cat, syncUrl = true, pushState = false) {
+    currentCategory = cat || 'all';
+    tabs.forEach((tab) => {
+      const isMatch = (tab.getAttribute('data-filter') || 'all') === currentCategory;
+      tab.classList.toggle('active', isMatch);
+      tab.classList.toggle('filter-pill--active', isMatch);
+      tab.setAttribute('aria-selected', isMatch.toString());
+    });
+    filterNews();
+    if (syncUrl) updateNewsUrl(currentCategory, pushState);
+  }
+
+  // Restore from URL parameter (?category=)
+  try {
+    const urlParams = new URLSearchParams(window.location.search);
+    const initialCat = urlParams.get('category');
+    if (initialCat) {
+      const valid = tabs.some((t) => t.getAttribute('data-filter') === initialCat);
+      if (valid) currentCategory = initialCat;
+    }
+  } catch (e) {}
+
+  tabs.forEach((tab) => {
+    tab.addEventListener('click', () => {
+      const cat = tab.getAttribute('data-filter') || 'all';
+      setCategory(cat, true, true);
     });
   });
 
   if (searchInput) {
-    searchInput.addEventListener('input', filterNews);
+    searchInput.addEventListener('compositionstart', () => { isComposing = true; });
+    searchInput.addEventListener('compositionend', () => {
+      isComposing = false;
+      searchQuery = normalize(searchInput.value);
+      filterNews();
+    });
+    searchInput.addEventListener('input', (e) => {
+      if (isComposing) return;
+      searchQuery = normalize(e.target.value);
+      filterNews();
+    });
+    searchInput.addEventListener('search', () => {
+      searchQuery = normalize(searchInput.value);
+      filterNews();
+    });
+    searchInput.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        searchInput.value = '';
+        searchQuery = '';
+        filterNews();
+      }
+    });
   }
+
+  // Browser Back/Forward support
+  window.addEventListener('popstate', () => {
+    try {
+      const params = new URLSearchParams(window.location.search);
+      const cat = params.get('category') || 'all';
+      setCategory(cat, false);
+    } catch (e) {}
+  });
+
+  // Initial Filter Application
+  setCategory(currentCategory, false);
 }
 
-// 15. Directory & Faculty People Filter (Hardened & Scoped)
+// 15. Directory & Faculty People Filter (Hardened, IME-Aware, Popstate & Deep-Link Enabled)
 function initPeopleFilter() {
   const peopleGrid = document.getElementById('peopleGrid');
   if (!peopleGrid) return;
   if (peopleGrid.dataset.initialized === 'true') return;
   peopleGrid.dataset.initialized = 'true';
 
-  const tabs = document.querySelectorAll('#peopleFilters .catalog-tab');
+  const filterContainer = document.getElementById('peopleFilters');
+  const tabs = filterContainer ? Array.from(filterContainer.querySelectorAll('.catalog-tab')) : [];
   const searchInput = document.getElementById('peopleSearchInput');
-  const cards = peopleGrid.querySelectorAll('.people-card');
   const emptyState = document.getElementById('peopleEmptyState');
+  const cards = Array.from(peopleGrid.querySelectorAll('.people-card'));
 
+  const VALID_FILTERS = new Set(['all', 'executive', 'faculty', 'staff']);
   let currentFilter = 'all';
-  let currentQuery = '';
+  let searchQuery = '';
+  let isComposing = false;
+
+  const normalize = (val) => (val || '').trim().toLowerCase().replace(/\s+/g, ' ');
+
+  function updatePeopleUrl(filter, pushState = false) {
+    if (typeof window === 'undefined' || !window.history?.replaceState) return;
+    try {
+      const url = new URL(window.location.href);
+      if (filter && filter !== 'all') {
+        url.searchParams.set('category', filter);
+      } else {
+        url.searchParams.delete('category');
+        url.searchParams.delete('filter');
+      }
+      const targetUrl = url.pathname + url.search + url.hash;
+      if (pushState && window.history.pushState) {
+        window.history.pushState(null, '', targetUrl);
+      } else if (window.history.replaceState) {
+        window.history.replaceState(null, '', targetUrl);
+      }
+    } catch (e) {}
+  }
 
   function filterDirectory() {
     let visibleCount = 0;
     cards.forEach((card) => {
-      const cardCategory = card.getAttribute('data-category');
-      const keywords = (card.getAttribute('data-keywords') || '').toLowerCase();
-      const cardText = card.textContent.toLowerCase();
+      const cardCategory = card.getAttribute('data-category') || '';
+      const keywords = normalize(card.getAttribute('data-keywords'));
+      const text = normalize(card.textContent);
 
       const matchesCategory = (currentFilter === 'all') || (cardCategory === currentFilter);
-      const matchesSearch = !currentQuery || keywords.includes(currentQuery) || cardText.includes(currentQuery);
+      const matchesSearch = !searchQuery || keywords.includes(searchQuery) || text.includes(searchQuery);
       const show = matchesCategory && matchesSearch;
 
       card.style.display = show ? '' : 'none';
@@ -828,28 +949,73 @@ function initPeopleFilter() {
     }
   }
 
+  function setDirectoryFilter(filter, syncUrl = true, pushState = false) {
+    currentFilter = VALID_FILTERS.has(filter) ? filter : 'all';
+    tabs.forEach((tab) => {
+      const isMatch = (tab.getAttribute('data-filter') || 'all') === currentFilter;
+      tab.classList.toggle('active', isMatch);
+      tab.classList.toggle('filter-pill--active', isMatch);
+      tab.setAttribute('aria-selected', isMatch.toString());
+    });
+    filterDirectory();
+    if (syncUrl) updatePeopleUrl(currentFilter, pushState);
+  }
+
+  // Restore filter from URL parameters (?category= or ?filter=)
+  try {
+    const urlParams = new URLSearchParams(window.location.search);
+    const initialFilter = urlParams.get('category') || urlParams.get('filter');
+    if (initialFilter && VALID_FILTERS.has(initialFilter)) {
+      currentFilter = initialFilter;
+    }
+  } catch (e) {}
+
   tabs.forEach((tab) => {
     tab.addEventListener('click', () => {
-      tabs.forEach((t) => {
-        t.classList.remove('active', 'filter-pill--active');
-        t.setAttribute('aria-selected', 'false');
-      });
-      tab.classList.add('active', 'filter-pill--active');
-      tab.setAttribute('aria-selected', 'true');
-      currentFilter = tab.getAttribute('data-filter') || 'all';
-      filterDirectory();
+      const filter = tab.getAttribute('data-filter') || 'all';
+      setDirectoryFilter(filter, true, true);
     });
   });
 
   if (searchInput) {
-    searchInput.addEventListener('input', (e) => {
-      currentQuery = e.target.value.trim().toLowerCase();
+    searchInput.addEventListener('compositionstart', () => { isComposing = true; });
+    searchInput.addEventListener('compositionend', () => {
+      isComposing = false;
+      searchQuery = normalize(searchInput.value);
       filterDirectory();
     });
+    searchInput.addEventListener('input', (e) => {
+      if (isComposing) return;
+      searchQuery = normalize(e.target.value);
+      filterDirectory();
+    });
+    searchInput.addEventListener('search', () => {
+      searchQuery = normalize(searchInput.value);
+      filterDirectory();
+    });
+    searchInput.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        searchInput.value = '';
+        searchQuery = '';
+        filterDirectory();
+      }
+    });
   }
+
+  // Browser Back/Forward support
+  window.addEventListener('popstate', () => {
+    try {
+      const params = new URLSearchParams(window.location.search);
+      const cat = params.get('category') || params.get('filter') || 'all';
+      setDirectoryFilter(cat, false);
+    } catch (e) {}
+  });
+
+  // Initial Filter Application
+  setDirectoryFilter(currentFilter, false);
 }
 
-// 16. Academic Degree Programs Catalog Filter & URL Sync (Hardened & Scoped)
+// 16. Academic Degree Programs Catalog Filter & URL Sync (Hardened, IME-Aware & Popstate Supported)
 function initProgramCatalog() {
   const programsGrid = document.getElementById('programs-grid');
   if (!programsGrid) return;
@@ -858,38 +1024,42 @@ function initProgramCatalog() {
 
   const programSearch = document.getElementById('program-search-input');
   const emptyState = document.getElementById('catalog-empty-state');
-  const programCards = programsGrid.querySelectorAll('.program-card-item');
+  const programCards = Array.from(programsGrid.querySelectorAll('.program-card-item'));
   const toolbar = programsGrid.closest('main')?.previousElementSibling || document.querySelector('.catalog-toolbar');
-  const tabs = toolbar ? toolbar.querySelectorAll('.catalog-tab') : [];
+  const tabs = toolbar ? Array.from(toolbar.querySelectorAll('.catalog-tab')) : [];
 
-  const urlParams = new URLSearchParams(window.location.search);
-  const initialLevel = urlParams.get('level');
-  if (initialLevel) {
-    tabs.forEach((tab) => {
-      if (tab.getAttribute('data-filter') === initialLevel) {
-        tabs.forEach((t) => {
-          t.classList.remove('active', 'filter-pill--active');
-          t.setAttribute('aria-selected', 'false');
-        });
-        tab.classList.add('active', 'filter-pill--active');
-        tab.setAttribute('aria-selected', 'true');
+  let currentLevel = 'all';
+  let searchQuery = '';
+  let isComposing = false;
+
+  const normalize = (val) => (val || '').trim().toLowerCase().replace(/\s+/g, ' ');
+
+  function updateProgramUrl(level, pushState = false) {
+    if (typeof window === 'undefined' || !window.history?.replaceState) return;
+    try {
+      const url = new URL(window.location.href);
+      if (level && level !== 'all') {
+        url.searchParams.set('level', level);
+      } else {
+        url.searchParams.delete('level');
       }
-    });
+      const targetUrl = url.pathname + url.search + url.hash;
+      if (pushState && window.history.pushState) {
+        window.history.pushState(null, '', targetUrl);
+      } else if (window.history.replaceState) {
+        window.history.replaceState(null, '', targetUrl);
+      }
+    } catch (e) {}
   }
 
   function filterPrograms() {
-    const activeTab = toolbar ? toolbar.querySelector('.catalog-tab.active, .catalog-tab.filter-pill--active') : null;
-    const filterCategory = activeTab ? activeTab.getAttribute('data-filter') : 'all';
-    const query = programSearch ? programSearch.value.toLowerCase().trim() : '';
-
     let visibleCount = 0;
-
     programCards.forEach((card) => {
-      const cardCategory = card.getAttribute('data-category');
-      const cardText = card.textContent.toLowerCase();
+      const cardCategory = card.getAttribute('data-category') || '';
+      const text = normalize(card.textContent);
 
-      const matchesCategory = (filterCategory === 'all' || cardCategory === filterCategory);
-      const matchesQuery = !query || cardText.includes(query);
+      const matchesCategory = (currentLevel === 'all' || cardCategory === currentLevel);
+      const matchesQuery = !searchQuery || text.includes(searchQuery);
       const show = matchesCategory && matchesQuery;
 
       card.style.display = show ? '' : 'none';
@@ -907,23 +1077,71 @@ function initProgramCatalog() {
     }
   }
 
+  function setProgramLevel(level, syncUrl = true, pushState = false) {
+    currentLevel = level || 'all';
+    tabs.forEach((tab) => {
+      const isMatch = (tab.getAttribute('data-filter') || 'all') === currentLevel;
+      tab.classList.toggle('active', isMatch);
+      tab.classList.toggle('filter-pill--active', isMatch);
+      tab.setAttribute('aria-selected', isMatch.toString());
+    });
+    filterPrograms();
+    if (syncUrl) updateProgramUrl(currentLevel, pushState);
+  }
+
+  // Restore level from URL parameter (?level=)
+  try {
+    const urlParams = new URLSearchParams(window.location.search);
+    const initialLevel = urlParams.get('level');
+    if (initialLevel) {
+      const valid = tabs.some((t) => t.getAttribute('data-filter') === initialLevel);
+      if (valid) currentLevel = initialLevel;
+    }
+  } catch (e) {}
+
   tabs.forEach((tab) => {
     tab.addEventListener('click', () => {
-      tabs.forEach((t) => {
-        t.classList.remove('active', 'filter-pill--active');
-        t.setAttribute('aria-selected', 'false');
-      });
-      tab.classList.add('active', 'filter-pill--active');
-      tab.setAttribute('aria-selected', 'true');
-      filterPrograms();
+      const level = tab.getAttribute('data-filter') || 'all';
+      setProgramLevel(level, true, true);
     });
   });
 
   if (programSearch) {
-    programSearch.addEventListener('input', filterPrograms);
+    programSearch.addEventListener('compositionstart', () => { isComposing = true; });
+    programSearch.addEventListener('compositionend', () => {
+      isComposing = false;
+      searchQuery = normalize(programSearch.value);
+      filterPrograms();
+    });
+    programSearch.addEventListener('input', (e) => {
+      if (isComposing) return;
+      searchQuery = normalize(e.target.value);
+      filterPrograms();
+    });
+    programSearch.addEventListener('search', () => {
+      searchQuery = normalize(programSearch.value);
+      filterPrograms();
+    });
+    programSearch.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        programSearch.value = '';
+        searchQuery = '';
+        filterPrograms();
+      }
+    });
   }
 
-  filterPrograms();
+  // Browser Back/Forward support
+  window.addEventListener('popstate', () => {
+    try {
+      const params = new URLSearchParams(window.location.search);
+      const lvl = params.get('level') || 'all';
+      setProgramLevel(lvl, false);
+    } catch (e) {}
+  });
+
+  // Initial Filter Application
+  setProgramLevel(currentLevel, false);
 }
 
 // 17. Program Detail Page Renderer (Hardened, Zero-innerHTML & Safe URL)
@@ -1098,19 +1316,39 @@ function initProgramDetail() {
   }
 }
 
-// Master DOM Initialization Chain
-document.addEventListener('DOMContentLoaded', () => {
-  initSiteHeader();
-  initSiteNav();
-  initInfoAccordion();
-  initVideoCampaign();
-  initFloatingMessenger();
-  initSmoothScroll();
-  initProcurementFilters();
-  initToastHelper();
-  initScholarshipModal();
-  initResearchHandlers();
-  initLanguageSwitcher();
-  initCampusVideoModal();
-  initSocialShareSystem();
-});
+// Master DOM Initialization Chain (Defensive, Safe Bootstrap)
+function runMasterInit() {
+  const initializers = [
+    initSiteHeader,
+    initSiteNav,
+    initInfoAccordion,
+    initVideoCampaign,
+    initFloatingMessenger,
+    initSmoothScroll,
+    initProcurementFilters,
+    initToastHelper,
+    initScholarshipModal,
+    initResearchHandlers,
+    initLanguageSwitcher,
+    initCampusVideoModal,
+    initSocialShareSystem,
+    initNewsFilter,
+    initPeopleFilter,
+    initProgramCatalog,
+    initProgramDetail
+  ];
+
+  initializers.forEach((fn) => {
+    try {
+      fn();
+    } catch (err) {
+      // Graceful error isolation
+    }
+  });
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', runMasterInit, { once: true });
+} else {
+  runMasterInit();
+}
