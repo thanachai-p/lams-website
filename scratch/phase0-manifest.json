@@ -4,7 +4,8 @@
   "git": {
     "branch": "refactor/clean-css-architecture",
     "base_commit": "509ed8e155a03490140857251bcba741c0986dcd",
-    "working_tree_clean": false
+    "working_tree_clean": true,
+    "phase0_commit": "09001d6af5cc618c6de69aafcd9f9e7c1a10c2f8"
   },
   "metrics": {
     "files_scanned": 16,
