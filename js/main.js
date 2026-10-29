@@ -130,6 +130,7 @@ function initSmoothScroll() {
 function isSafeUrl(value) {
   if (!value || typeof value !== 'string') return false;
   const trimmed = value.trim();
+  if (trimmed.startsWith('//')) return false; // Strictly block protocol-relative hijacking
   if (trimmed.startsWith('/') || trimmed.startsWith('./') || trimmed.startsWith('../')) return true;
   try {
     const url = new URL(trimmed, window.location.href);
