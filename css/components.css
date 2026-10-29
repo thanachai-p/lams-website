@@ -2182,3 +2182,206 @@ a.btn-share-quick {
   font-size: 0.8rem;
   margin-left: 4px;
 }
+
+
+/* ==========================================================================
+   SUBPAGE & COMPONENT REFACTORING (BATCH 3.7 - 3.10)
+   Co-Authored by: Qwen 3.7 Plus & GLM-5.3
+   ========================================================================== */
+
+/* 1. Program Detail Page */
+.program-degree-code--hero {
+  font-size: 1.15rem;
+  margin-bottom: 10px;
+}
+
+.subpage-desc--subtitle {
+  font-style: italic;
+  opacity: 0.9;
+}
+
+.btn-card-pdf--lg {
+  display: inline-flex;
+  padding: 12px 24px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.fee-note {
+  margin-top: 6px;
+}
+
+.sidebar-contact-desc {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+.sidebar-contact-item {
+  font-size: 0.95rem;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+
+.sidebar-contact-item--last {
+  margin-bottom: 0;
+}
+
+.icon-prefix--rose-gap {
+  color: var(--theme-red-light);
+  margin-right: 8px;
+}
+
+/* 2. People & Programs Empty States */
+.empty-state-card {
+  text-align: center;
+  padding: 60px 20px;
+  background: var(--surface-card);
+  border: 1px dashed var(--border-card);
+  border-radius: 16px;
+  margin-top: 30px;
+}
+
+.empty-state-card--simple {
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  margin-top: 0;
+}
+
+.empty-state-card__icon {
+  font-size: 3rem;
+  color: var(--theme-red-light);
+  margin-bottom: 16px;
+}
+
+.empty-state-card__icon--amber {
+  color: var(--theme-amber);
+}
+
+.empty-state-card__title {
+  color: var(--text-primary);
+  font-size: 1.3rem;
+  margin-bottom: 8px;
+}
+
+.empty-state-card__desc {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+.programs-container--pt-sm {
+  padding-top: 30px;
+}
+
+.info-accordion--mt-lg {
+  margin-top: 60px;
+}
+
+.icon-external-amber {
+  color: var(--theme-amber);
+  margin-right: 6px;
+  font-size: 0.8rem;
+}
+
+.notice-box--mt {
+  margin-top: 40px;
+}
+
+.text-link-amber {
+  color: var(--theme-amber);
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+.btn-card-pdf--amber {
+  background: rgba(245, 158, 11, 0.15);
+  border-color: var(--theme-amber);
+  color: var(--theme-amber-light);
+  font-weight: 600;
+}
+
+/* 3. News Detail Page Components */
+.detail-meta-bar {
+  display: flex;
+  gap: 20px;
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  margin-top: 15px;
+  flex-wrap: wrap;
+}
+
+.detail-featured-img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  margin-bottom: 25px;
+  border: 1px solid var(--border-subtle);
+}
+
+.sidebar-news-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar-news-item {
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.sidebar-news-link {
+  color: var(--text-primary);
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 600;
+  display: block;
+  line-height: 1.4;
+  transition: var(--transition-smooth);
+}
+
+.sidebar-news-link:hover {
+  color: var(--theme-red-light);
+}
+
+.sidebar-news-date {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-top: 4px;
+  display: block;
+}
+
+.sidebar-tcas-desc {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin-bottom: 18px;
+}
+
+.btn-sidebar-tcas--mb {
+  margin-bottom: 10px;
+}
+
+.text-success {
+  color: #10B981;
+}
+
+.is-hidden {
+  display: none;
+}
+
+
+.catalog-empty-state--mt {
+  margin-top: 25px;
+}
+
+.procurement-egp-note--mt {
+  margin-top: 35px;
+}
+
+.text-success-lg {
+  color: #10B981;
+  font-size: 1.1rem;
+}

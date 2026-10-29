@@ -1,33 +1,33 @@
 {
   "meta": {
-    "timestamp": "2026-10-29T04:58:16.895Z",
+    "timestamp": "2026-10-29T05:37:49.955Z",
     "rootDir": "D:\\Projects\\lams-website",
     "totalFiles": 16,
     "expectedFiles": 16
   },
   "totals": {
-    "inlineStyleAttributes": 323,
-    "declarationsTotal": 957,
+    "inlineStyleAttributes": 261,
+    "declarationsTotal": 796,
     "byCategory": {
       "DYNAMIC_BACKGROUND": 54,
-      "STATE_TOGGLE": 9,
-      "HARDCODED_LAYOUT_VISUAL": 894
+      "STATE_TOGGLE": 5,
+      "HARDCODED_LAYOUT_VISUAL": 737
     },
     "topProperties": {
-      "color": 155,
-      "font-size": 109,
-      "display": 69,
-      "margin-bottom": 59,
+      "color": 118,
+      "font-size": 83,
+      "display": 57,
       "background-image": 54,
-      "padding": 52,
-      "font-weight": 44,
-      "border-radius": 37,
-      "gap": 32,
-      "background": 32,
-      "text-decoration": 27,
-      "margin": 26,
-      "border": 25,
-      "width": 23,
+      "margin-bottom": 45,
+      "padding": 43,
+      "font-weight": 36,
+      "border-radius": 34,
+      "gap": 31,
+      "background": 29,
+      "margin": 25,
+      "text-decoration": 22,
+      "border": 22,
+      "width": 22,
       "align-items": 21
     }
   },
@@ -190,8 +190,8 @@
     },
     {
       "file": "en/people.html",
-      "inlineCount": 9,
-      "hardcodedCount": 9,
+      "inlineCount": 0,
+      "hardcodedCount": 0,
       "dynamicBgCount": 0,
       "stateToggleCount": 0,
       "stylesheets": [
@@ -242,8 +242,8 @@
     },
     {
       "file": "en/program-detail.html",
-      "inlineCount": 9,
-      "hardcodedCount": 9,
+      "inlineCount": 2,
+      "hardcodedCount": 2,
       "dynamicBgCount": 0,
       "stateToggleCount": 0,
       "stylesheets": [
@@ -294,8 +294,8 @@
     },
     {
       "file": "en/programs.html",
-      "inlineCount": 14,
-      "hardcodedCount": 6,
+      "inlineCount": 8,
+      "hardcodedCount": 0,
       "dynamicBgCount": 8,
       "stateToggleCount": 0,
       "stylesheets": [
@@ -502,10 +502,10 @@
     },
     {
       "file": "pages/news-detail.html",
-      "inlineCount": 20,
-      "hardcodedCount": 18,
+      "inlineCount": 1,
+      "hardcodedCount": 0,
       "dynamicBgCount": 0,
-      "stateToggleCount": 2,
+      "stateToggleCount": 1,
       "stylesheets": [
         {
           "line": 27,
@@ -606,8 +606,8 @@
     },
     {
       "file": "pages/people.html",
-      "inlineCount": 9,
-      "hardcodedCount": 9,
+      "inlineCount": 0,
+      "hardcodedCount": 0,
       "dynamicBgCount": 0,
       "stateToggleCount": 0,
       "stylesheets": [
@@ -658,8 +658,8 @@
     },
     {
       "file": "pages/procurement.html",
-      "inlineCount": 2,
-      "hardcodedCount": 2,
+      "inlineCount": 0,
+      "hardcodedCount": 0,
       "dynamicBgCount": 0,
       "stateToggleCount": 0,
       "stylesheets": [
@@ -710,8 +710,8 @@
     },
     {
       "file": "pages/program-detail.html",
-      "inlineCount": 10,
-      "hardcodedCount": 10,
+      "inlineCount": 3,
+      "hardcodedCount": 3,
       "dynamicBgCount": 0,
       "stateToggleCount": 0,
       "stylesheets": [
@@ -762,8 +762,8 @@
     },
     {
       "file": "pages/programs.html",
-      "inlineCount": 11,
-      "hardcodedCount": 3,
+      "inlineCount": 8,
+      "hardcodedCount": 0,
       "dynamicBgCount": 8,
       "stateToggleCount": 0,
       "stylesheets": [

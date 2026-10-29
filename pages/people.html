@@ -95,7 +95,7 @@
   </div>
 
   <!-- Main People Directory Container -->
-  <main class="programs-container" style="padding-top: 30px;">
+  <main class="programs-container programs-container--pt-sm">
     
     <div class="people-grid" id="peopleGrid">
 
@@ -107,7 +107,7 @@
           <div class="people-avatar-placeholder">
             <i class="fa-solid fa-user-tie"></i>
           </div>
-          <span class="people-badge"><i class="fa-solid fa-star" style="color: var(--theme-amber);"></i> คณบดีคณะ LAMS</span>
+          <span class="people-badge"><i class="fa-solid fa-star text-amber"></i> คณบดีคณะ LAMS</span>
         </div>
         <div class="people-body">
           <div class="people-role"><i class="fa-solid fa-shield-halved"></i> คณบดีคณะศิลปศาสตร์และวิทยาการจัดการ</div>
@@ -429,16 +429,16 @@
     </div>
 
     <!-- Empty Results Alert (hidden by default) -->
-    <div id="peopleEmptyState" style="display: none; text-align: center; padding: 60px 20px; background: var(--surface-card); border: 1px dashed var(--border-card); border-radius: 16px; margin-top: 30px;">
-      <i class="fa-solid fa-user-slash" style="font-size: 3rem; color: var(--theme-red-light); margin-bottom: 16px;"></i>
-      <h3 style="color: var(--text-primary); font-size: 1.3rem; margin-bottom: 8px;">ไม่พบบุคลากรที่ตรงกับคำค้นหา</h3>
-      <p style="color: var(--text-muted); font-size: 0.95rem;">ลองเปลี่ยนคำค้นหา หรือคลิกเลือกหมวดหมู่ "ทั้งหมด" ด้านบนเพื่อดูรายชื่อทั้งหมด</p>
+    <div id="peopleEmptyState" class="empty-state-card is-hidden">
+      <i class="fa-solid fa-user-slash empty-state-card__icon"></i>
+      <h3 class="empty-state-card__title">ไม่พบบุคลากรที่ตรงกับคำค้นหา</h3>
+      <p class="empty-state-card__desc">ลองเปลี่ยนคำค้นหา หรือคลิกเลือกหมวดหมู่ "ทั้งหมด" ด้านบนเพื่อดูรายชื่อทั้งหมด</p>
     </div>
 
   </main>
 
   <!-- Pre-Footer Quick Links & Contact Strip -->
-  <section class="info-accordion" style="margin-top: 60px;">
+  <section class="info-accordion info-accordion--mt-lg">
     <div class="quick-links container">
       <div class="quick-links__col">
         <h5>ข้อมูลการศึกษา</h5>
@@ -451,8 +451,8 @@
       <div class="quick-links__col">
         <h5>ข้อมูลการสมัคร</h5>
         <ul>
-          <li><a class="link-reset" href="https://entrance.surat.psu.ac.th/" target="_blank" rel="noopener noreferrer" ><i class="fa-solid fa-arrow-up-right-from-square" style="color: var(--theme-amber); margin-right: 6px; font-size: 0.8rem;"></i> สมัครเรียน <span class="btn-apply-tcas-text">TCAS</span></a></li>
-          <li><a class="link-reset" href="https://grad.surat.psu.ac.th/" target="_blank" rel="noopener noreferrer" ><i class="fa-solid fa-arrow-up-right-from-square" style="color: var(--theme-amber); margin-right: 6px; font-size: 0.8rem;"></i> สมัครเรียน MBA (บัณฑิตศึกษา)</a></li>
+          <li><a class="link-reset" href="https://entrance.surat.psu.ac.th/" target="_blank" rel="noopener noreferrer" ><i class="fa-solid fa-arrow-up-right-from-square icon-external-amber"></i> สมัครเรียน <span class="btn-apply-tcas-text">TCAS</span></a></li>
+          <li><a class="link-reset" href="https://grad.surat.psu.ac.th/" target="_blank" rel="noopener noreferrer" ><i class="fa-solid fa-arrow-up-right-from-square icon-external-amber"></i> สมัครเรียน MBA (บัณฑิตศึกษา)</a></li>
         </ul>
       </div>
 
