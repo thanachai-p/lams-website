@@ -1,9 +1,9 @@
 {
   "manifestVersion": "1.0.0-final",
-  "timestamp": "2026-10-29T05:54:38.937Z",
+  "timestamp": "2026-10-29T06:15:38.658Z",
   "git": {
     "branch": "refactor/clean-css-architecture",
-    "commit": "9d33125d99afb3d2fe45c8f3950e4d8c3814a8dc"
+    "commit": "1d9f17338b2de673f66c23582f22b37107f02004"
   },
   "metrics": {
     "totalFiles": 16,
@@ -18,11 +18,11 @@
     "cleanPercentage": "100.00%"
   },
   "artifacts": {
-    "scratch/phase0-inventory.json": "e0739714f008b69b3720a9dc87a4aeecaab0568a51b93f3b9e29ecec2e6a7499",
+    "scratch/phase0-inventory.json": "be03a8fe2215baaaf4acd9262deb3c5e67a25ca7ddc17a1c3abb4e4f41681f42",
     "scratch/phase0-inline-styles.csv": "e4210de907c425f313ba02bcc996ced71b6d230cf24fc2aed5f8118b9fc3b6bc",
     "scratch/phase0-cache-versions.csv": "deab09ce294c1fb92ff45fda4db0083501622f8c9a01014dd8145977c0776376",
     "scratch/pixel-diff-report.json": "8e1670a321833f346300bed61852f913fd494ea05cee13cb27735d91576db408",
-    "css/components.css": "5fe9df46d19dbda3791b2429e932b1ba907a849f7d7104d9ee753c276f386f77",
+    "css/components.css": "eaaf36cef9e9e94546e32e4543e587a902db84095b2c07c9a9591f383262af7f",
     "css/pages.css": "cf9f71004000148db1731a1ae46eec84d32a7d940944765fd03c668e416c5528",
     "css/style.css": "911e646bad9d152462024b5d037a6e408240f3ea39a1c5f2dc9a4ff820fc48d3"
   },
