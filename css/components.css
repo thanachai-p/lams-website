@@ -2115,3 +2115,29 @@ a.btn-share-quick {
 .card-overlay-badge--lg {
   font-size: 1.4rem;
 }
+
+
+/* Footer program links replacing inline style & onmouseover (Batch 3.2) */
+.footer-program-link {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 0.9rem;
+  padding: 5px 8px;
+  border-radius: 6px;
+  transition: background var(--transition-smooth, 0.2s);
+  display: block;
+}
+
+.footer-program-link:hover,
+.footer-program-link:focus-visible {
+  background: rgba(220, 38, 38, 0.2);
+}
+
+.grid-responsive-320--mb-lg {
+  margin-bottom: 40px;
+}
+
+.list-unstyled {
+  list-style: none;
+  padding: 0;
+}

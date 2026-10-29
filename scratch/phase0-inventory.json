@@ -1,41 +1,41 @@
 {
   "meta": {
-    "timestamp": "2026-10-29T04:54:55.776Z",
+    "timestamp": "2026-10-29T04:56:12.993Z",
     "rootDir": "D:\\Projects\\lams-website",
     "totalFiles": 16,
     "expectedFiles": 16
   },
   "totals": {
-    "inlineStyleAttributes": 412,
-    "declarationsTotal": 1191,
+    "inlineStyleAttributes": 377,
+    "declarationsTotal": 1059,
     "byCategory": {
       "DYNAMIC_BACKGROUND": 54,
       "STATE_TOGGLE": 9,
-      "HARDCODED_LAYOUT_VISUAL": 1128
+      "HARDCODED_LAYOUT_VISUAL": 996
     },
     "topProperties": {
-      "color": 195,
-      "font-size": 151,
-      "display": 80,
-      "margin-bottom": 78,
-      "padding": 70,
+      "color": 183,
+      "font-size": 131,
+      "display": 75,
+      "margin-bottom": 71,
       "background-image": 54,
-      "border-radius": 49,
-      "font-weight": 48,
-      "gap": 43,
-      "background": 38,
-      "text-decoration": 35,
-      "margin": 30,
-      "align-items": 29,
-      "border": 27,
+      "padding": 52,
+      "font-weight": 44,
+      "gap": 38,
+      "border-radius": 37,
+      "background": 34,
+      "align-items": 27,
+      "text-decoration": 27,
+      "margin": 26,
+      "border": 25,
       "width": 23
     }
   },
   "files": [
     {
       "file": "en/about.html",
-      "inlineCount": 48,
-      "hardcodedCount": 48,
+      "inlineCount": 43,
+      "hardcodedCount": 43,
       "dynamicBgCount": 0,
       "stateToggleCount": 0,
       "stylesheets": [
@@ -86,8 +86,8 @@
     },
     {
       "file": "en/index.html",
-      "inlineCount": 78,
-      "hardcodedCount": 70,
+      "inlineCount": 69,
+      "hardcodedCount": 61,
       "dynamicBgCount": 8,
       "stateToggleCount": 0,
       "stylesheets": [
@@ -398,8 +398,8 @@
     },
     {
       "file": "index.html",
-      "inlineCount": 96,
-      "hardcodedCount": 88,
+      "inlineCount": 79,
+      "hardcodedCount": 71,
       "dynamicBgCount": 8,
       "stateToggleCount": 0,
       "stylesheets": [
@@ -450,8 +450,8 @@
     },
     {
       "file": "pages/about.html",
-      "inlineCount": 48,
-      "hardcodedCount": 48,
+      "inlineCount": 44,
+      "hardcodedCount": 44,
       "dynamicBgCount": 0,
       "stateToggleCount": 0,
       "stylesheets": [
