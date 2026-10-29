@@ -4,7 +4,7 @@
 **คณะผู้วางแผน (Multi-Model Architecture Panel):**
 - **GPT-5.6 Luna** — Lead UI/UX Architect & Mobile Ergonomics Specialist
 - **Qwen 3.8 27B** — Lead Technical Engineer & Code Architect
-- **Qwen 3.7 Plus** — Academic Strategy & WordPress CMS Architect
+- **Qwen 3.7 Plus** — Academic Strategy & Static Web Architecture Specialist
 - **Gemini 3.8 Flash** — Implementation Engine & Code Writer
 
 ---
@@ -121,28 +121,26 @@
 
 ---
 
-### 🔹 เฟสที่ 3: WordPress Enterprise Theme Architecture (เดือนที่ 3 - 4)
-*เป้าหมาย: แปลงโครงสร้างจาก Landing Page แบบคงที่ ไปสู่ระบบจัดการเนื้อหา (CMS) ที่บุคลากรของคณะสามารถอัปเดตได้เอง*
+### 🔹 เฟสที่ 3: Pure Static Multi-Page Architecture & Design System (เดือนที่ 3 - 4)
+*เป้าหมาย: ขยายโครงสร้างจากหน้าแรก ไปสู่ระบบเว็บสแตติกสมบูรณ์ 16 หน้า (ไทย-อังกฤษ) พร้อมระเบียบ BEM และ Token มาตรฐาน*
 
-#### [Task 3.1] การตัดแบ่งโครงสร้างไฟล์ธีม (Theme Template Hierarchy)
-* **โครงสร้างโฟลเดอร์ธีม:** `wp-content/themes/lams-psu-2026/`
-  - `style.css` — ข้อมูล Meta Header ของธีม WordPress
-  - `header.php` — โลโก้, ระบบนำทางหลัก, ปุ่มสำหรับบุคลากร, เมนูดรอปดาวน์
-  - `front-page.php` — โครงสร้างหน้าแรกทั้ง 11 เซกชัน
-  - `footer.php` — สโลแกน, ข้อมูลลิขสิทธิ์, นโยบาย PDPA
-  - `functions.php` — ฟังก์ชัน `wp_enqueue_scripts()`, ลงทะเบียน Menu Locations และ CPTs
+#### [Task 3.1] การจัดสถาปัตยกรรมหลายหน้า (Multi-Page Architecture)
+* **โครงสร้างหน้าเว็บ (16 หน้า):**
+  - ภาษาไทย 9 หน้า: `index.html`, `pages/about.html`, `pages/news.html`, `pages/news-detail.html`, `pages/people.html`, `pages/procurement.html`, `pages/program-detail.html`, `pages/programs.html`, `pages/staff.html`
+  - ภาษาอังกฤษ 7 หน้า: `en/index.html`, `en/about.html`, `en/news.html`, `en/people.html`, `en/program-detail.html`, `en/programs.html`, `en/staff.html`
+  - สไตล์สถาปัตยกรรม: แยกสิทธิ์การควบคุมเป็น `style.css` (Tokens & Base), `components.css` (BEM Components), `pages.css` (Inner Pages & Shared Modals)
 
-#### [Task 3.2] การสร้าง Custom Post Types (CPT) และ ACF Fields
-1. **CPT ข่าวจัดซื้อจัดจ้าง (`procurement_news`):**
-   - ฟิลด์: เลขที่ประกาศ, ราคากลาง, วันที่เริ่ม/สิ้นสุด, ไฟล์แนบ PDF (`procurement_pdf_file`)
-   - Taxonomy: หมวดหมู่ (e-Bidding, ประกาศราคากลาง, ประกาศผลผู้ชนะ, แผนจัดซื้อจัดจ้าง)
-2. **CPT ข่าวความภาคภูมิใจ LAMS PRIDE (`lams_pride`):**
-   - ฟิลด์: ข่าวเด่นไฮไลท์ (Checkbox: `is_featured`), วันที่เผยแพร่, ภาพปก, แท็กสาขาวิชา
-3. **Theme Options (ACF Options Page):**
-   - ข้อมูลอัตราค่าเล่าเรียนแต่ละสาขา และวงเงิน กยศ. สำหรับส่งค่าไปยัง `calculator.js` แบบไดนามิก
+#### [Task 3.2] การวางระบบจัดซื้อจัดจ้างและตัวกรองข้อมูลฝั่งไคลเอนต์ (Client-Side Filtering)
+1. **ระบบตัวกรอง e-Bidding (`initProcurementFilters`):**
+   - แท็บตัวกรอง: ทั้งหมด, e-Bidding, ประกาศราคากลาง, ประกาศผลผู้ชนะ, แผนจัดซื้อจัดจ้าง
+   - ควบคุมการแสดงผลการ์ดแบบ Instant DOM Filtering โดยไม่ต้องพึ่งพาเซิร์ฟเวอร์
+2. **ระบบการ์ดหลักสูตรและ Modal แสดงรายละเอียด (`initCampusVideoModal`, `initScholarshipModal`):**
+   - ผูก Event แบบ Event Delegation หรือ Idempotent Initializer ป้องกัน Memory Leak
+3. **ระบบสลับภาษา (Bilingual Navigation):**
+   - ลิงก์เชื่อมโยงข้ามหน้าระหว่าง TH ⟷ EN สอดคล้องตรงกันทุกหน้า
 
-#### [Task 3.3] การเชื่อมโยงระบบ Single Sign-On (PSU Passport)
-* ปุ่ม "สำหรับบุคลากร" เชื่อมต่อกับระบบยืนยันตัวตนกลางของมหาวิทยาลัยสงขลานครินทร์ (OAuth 2.0 / SAML 2.0 PSU Passport) เพื่อนำอาจารย์และเจ้าหน้าที่เข้าสู่ระบบ Intranet คณะ
+#### [Task 3.3] การเชื่อมโยงระบบบุคลากร (Staff Portal & Intranet)
+* ปุ่ม "สำหรับบุคลากร" เชื่อมต่อกับระบบยืนยันตัวตนกลางของมหาวิทยาลัยสงขลานครินทร์ (PSU Passport Portal) เพื่อนำอาจารย์และเจ้าหน้าที่เข้าสู่ระบบ Intranet คณะ
 
 ---
 
@@ -158,4 +156,4 @@
 | **T-1.4** | กำหนด Aspect Ratio ป้องกัน CLS | `css/components.css` | ทุกหน้าจอ | CLS < 0.05, ภาพไม่กระตุกขณะดาวน์โหลด |
 | **T-2.1** | โครงสร้างรูปภาพ Local WebP/AVIF | `assets/images/`, `index.html` | Retina & High DPI Displays | ภาพคมชัด โหลดไว ไม่พึ่งพา Unsplash ภายนอก |
 | **T-2.2** | ติดตั้ง SRI Hash & Security Headers | `index.html` | ทุกเบราว์เซอร์ | มี `integrity` บน CDN Links ทั้งหมด |
-| **T-3.1** | วางโครงสร้างไฟล์ WordPress Custom Theme | `wp-theme/` หรือ `README.md` | CMS Production | แยก `header.php`, `front-page.php`, `footer.php` ได้อย่างสมบูรณ์ |
+| **T-3.1** | โครงสร้าง Pure Static 16 หน้า & BEM Modularization | `css/`, `js/`, `pages/`, `en/` | CMS-Free Production | รองรับ 2 ภาษา 16 หน้า, แยกโมดูล BEM สมบูรณ์, 0 Build Step |

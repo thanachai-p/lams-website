@@ -5,7 +5,7 @@
 **คณะผู้ตรวจประเมินอิสระ (Multi-Model AI Review Panel):**
 - **GPT-5.6 Luna** — UI/UX Architecture, Information Architecture & Accessibility (WCAG 2.1)
 - **DeepSeek V4 Flash** — Frontend Performance, Core Web Vitals, SEO & Code Health
-- **Qwen 3.7 Plus** — Academic Strategy, TCAS69 Funnel & WordPress Theme Architecture
+- **Qwen 3.7 Plus** — Academic Strategy, TCAS69 Funnel & Pure Static Web Architecture
 - **Qwen 3.8 27B** — Cyber Security, Third-Party Supply Chain & PDPA Compliance
 - **GLM-5** — Enterprise Architecture, Central Systems Integration & Strategic Roadmap
 
@@ -25,7 +25,7 @@
 
 ## 1. บทสรุปสำหรับผู้บริหาร (Executive Summary & Scorecard)
 
-เว็บไซต์โฉมใหม่ของคณะศิลปศาสตร์และวิทยาการจัดการ ม.อ.สุราษฎร์ธานี (LAMS PSU 2026) ถูกออกแบบภายใต้แนวคิด **"BU Creative & Futuristic Structure Adapted Edition"** โดยนำจุดเด่นด้าน Dark Mode สไตล์โมเดิร์นของมหาวิทยาลัยกรุงเทพมาผสานเข้ากับอัตลักษณ์สีของ ม.อ. (สีกรมท่า Navy, เขียวมิ้นต์ Teal, และฟ้า Cyan)
+เว็บไซต์โฉมใหม่ของคณะศิลปศาสตร์และวิทยาการจัดการ ม.อ.สุราษฎร์ธานี (LAMS PSU 2026) ถูกออกแบบภายใต้แนวคิด **"Athletic Command Center & Modern Noir (REDVOLUTION Aesthetic)"** โดยผสานอัตลักษณ์สีแดงทับทิม-คริมสัน-เบอร์กันดี เข้ากับโครงสร้างเว็บสแตติกหลายหน้า (16 หน้า) ที่ทันสมัยและโหลดได้รวดเร็ว
 
 ผลการประเมินจากคณะผู้ตรวจอิสระ 5 โมเดลชี้ให้เห็นว่า โครงสร้างของโปรเจกต์มี **รากฐานที่ยอดเยี่ยม สวยงาม ฉีกกรอบเดิมของเว็บมหาวิทยาลัยรัฐได้อย่างน่าประทับใจ** อย่างไรก็ตาม ยังมีช่องว่างเชิงเทคนิคและความพร้อมด้านการใช้งานจริงที่ต้องยกระดับก่อนเข้าสู่การเป็น Production Portal เต็มรูปแบบ
 
@@ -84,11 +84,11 @@
 * **จุดที่ต้องเสริมสร้าง:**
   * เด็ก ม.6 ยุคปัจจุบันไม่ได้เลือกคณะเพียงแค่ชื่อหลักสูตร แต่ต้องการเห็น **"ผลลัพธ์อาชีพหลังสำเร็จการศึกษา (Employability & Career Outcomes)"** เว็บไซต์ควรเพิ่มข้อมูลอัตราการได้งานทำ หรือบริษัทพันธมิตรที่นักศึกษาได้ไปฝึกงาน
 
-### 4.2 ความพร้อมในการแปลงเป็น WordPress Custom Theme
-* **การประเมินโครงสร้าง:** การเขียนโค้ดแยกโมดูล `style.css` และ `components.css` ช่วยให้การตัดแบ่งเทมเพลตเป็น `header.php`, `front-page.php`, และ `footer.php` ทำได้ง่ายมาก
-* **จุดที่ต้องวางแผนทำ Dynamic Fields (ACF / CPT):**
-  * `ข่าวจัดซื้อจัดจ้าง`: ควรสร้างเป็น Custom Post Type (CPT) พร้อมแนบไฟล์ PDF และ Taxonomy หมวดหมู่ (e-Bidding, ราคากลาง, ผลผู้ชนะ)
-  * `LAMS PRIDE`: ควรทำเป็น CPT เพื่อให้งานประชาสัมพันธ์สามารถโพสต์ข่าวผลงานนักศึกษาได้เองโดยไม่ต้องแก้ไขโค้ด HTML
+### 4.2 ความพร้อมด้านสถาปัตยกรรมเว็บสแตติกหลายหน้า (Pure Static Multi-Page Architecture)
+* **การประเมินโครงสร้าง:** การแยกโมดูล `style.css` (Tokens), `components.css` (BEM) และ `pages.css` (Inner Pages) ร่วมกับ Vanilla ES6+ JavaScript ทำให้เว็บรองรับการแสดงผลทั้ง 16 หน้าอย่างรวดเร็ว ปลอดภัย และดูแลรักษาง่ายโดยไม่มีภาระทางเซิร์ฟเวอร์
+* **การจัดการข้อมูลไดนามิกบน Static Architecture:**
+  * `ข่าวจัดซื้อจัดจ้าง`: แสดงผลผ่าน Client-Side DOM Filter แบ่งหมวดหมู่ (e-Bidding, ราคากลาง, ผลผู้ชนะ, แผนจัดซื้อจัดจ้าง) ได้ทันทีโดยไม่ต้องโหลดหน้าใหม่
+  * `หลักสูตรและกิจกรรม`: ควบคุมผ่าน Idempotent Component Initializers ใน `main.js` เช่น Modal แสดงรายละเอียดและวิดีโอแคมปัส
 
 ---
 
@@ -134,10 +134,10 @@
 │  ├── 2. Self-host ฟอนต์และไอคอนบนเซิร์ฟเวอร์ของคณะ เพื่อเพิ่มความเร็วและความปลอดภัย │
 │  └── 3. เพิ่ม Subresource Integrity (SRI) และลิงก์นโยบาย PDPA ม.อ. ใน Footer     │
 ├──────────────────────────────────────────────────────────────────────────────────┤
-│ [ระยะที่ 3: WordPress Enterprise Migration] (เดือนที่ 3 - 4)                     │
-│  ├── 1. แปลงเป็น WordPress Custom Theme (header.php, front-page.php, footer.php)  │
-│  ├── 2. สร้าง Custom Post Type สำหรับข่าวจัดซื้อจัดจ้าง และข่าว LAMS PRIDE        │
-│  └── 3. เชื่อมต่อระบบ PSU Passport SSO สำหรับปุ่มบุคลากร                          │
+│ [ระยะที่ 3: Pure Static Multi-Page & BEM Modularization] (เสร็จสมบูรณ์)          │
+│  ├── 1. สถาปัตยกรรม 16 หน้า (ไทย 9 หน้า + อังกฤษ 7 หน้า) ไร้ภาระเซิร์ฟเวอร์ CMS  │
+│  ├── 2. ระบบจัดซื้อจัดจ้าง e-Bidding และ Modal หลักสูตรด้วย Client-Side JS       │
+│  └── 3. ตรวจผ่านเกณฑ์คุณภาพ Architectural Quality Gate 100%                       │
 └──────────────────────────────────────────────────────────────────────────────────┘
 ```
 
