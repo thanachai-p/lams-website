@@ -2175,3 +2175,10 @@ a.btn-share-quick {
 .text-red-bright { color: var(--theme-red-bright); }
 .text-amber { color: var(--theme-amber); }
 .text-red-light { color: var(--theme-red-light); }
+
+
+/* Micro icon utilities */
+.icon-external-sm {
+  font-size: 0.8rem;
+  margin-left: 4px;
+}

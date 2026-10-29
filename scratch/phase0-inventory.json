@@ -1,21 +1,21 @@
 {
   "meta": {
-    "timestamp": "2026-10-29T04:57:25.412Z",
+    "timestamp": "2026-10-29T04:58:16.895Z",
     "rootDir": "D:\\Projects\\lams-website",
     "totalFiles": 16,
     "expectedFiles": 16
   },
   "totals": {
-    "inlineStyleAttributes": 355,
-    "declarationsTotal": 1005,
+    "inlineStyleAttributes": 323,
+    "declarationsTotal": 957,
     "byCategory": {
       "DYNAMIC_BACKGROUND": 54,
       "STATE_TOGGLE": 9,
-      "HARDCODED_LAYOUT_VISUAL": 942
+      "HARDCODED_LAYOUT_VISUAL": 894
     },
     "topProperties": {
-      "color": 171,
-      "font-size": 125,
+      "color": 155,
+      "font-size": 109,
       "display": 69,
       "margin-bottom": 59,
       "background-image": 54,
@@ -34,8 +34,8 @@
   "files": [
     {
       "file": "en/about.html",
-      "inlineCount": 43,
-      "hardcodedCount": 43,
+      "inlineCount": 41,
+      "hardcodedCount": 41,
       "dynamicBgCount": 0,
       "stateToggleCount": 0,
       "stylesheets": [
@@ -86,8 +86,8 @@
     },
     {
       "file": "en/index.html",
-      "inlineCount": 69,
-      "hardcodedCount": 61,
+      "inlineCount": 67,
+      "hardcodedCount": 59,
       "dynamicBgCount": 8,
       "stateToggleCount": 0,
       "stylesheets": [
@@ -138,8 +138,8 @@
     },
     {
       "file": "en/news.html",
-      "inlineCount": 8,
-      "hardcodedCount": 2,
+      "inlineCount": 6,
+      "hardcodedCount": 0,
       "dynamicBgCount": 6,
       "stateToggleCount": 0,
       "stylesheets": [
@@ -190,8 +190,8 @@
     },
     {
       "file": "en/people.html",
-      "inlineCount": 11,
-      "hardcodedCount": 11,
+      "inlineCount": 9,
+      "hardcodedCount": 9,
       "dynamicBgCount": 0,
       "stateToggleCount": 0,
       "stylesheets": [
@@ -242,8 +242,8 @@
     },
     {
       "file": "en/program-detail.html",
-      "inlineCount": 11,
-      "hardcodedCount": 11,
+      "inlineCount": 9,
+      "hardcodedCount": 9,
       "dynamicBgCount": 0,
       "stateToggleCount": 0,
       "stylesheets": [
@@ -294,8 +294,8 @@
     },
     {
       "file": "en/programs.html",
-      "inlineCount": 16,
-      "hardcodedCount": 8,
+      "inlineCount": 14,
+      "hardcodedCount": 6,
       "dynamicBgCount": 8,
       "stateToggleCount": 0,
       "stylesheets": [
@@ -346,8 +346,8 @@
     },
     {
       "file": "en/staff.html",
-      "inlineCount": 2,
-      "hardcodedCount": 2,
+      "inlineCount": 0,
+      "hardcodedCount": 0,
       "dynamicBgCount": 0,
       "stateToggleCount": 0,
       "stylesheets": [
@@ -398,8 +398,8 @@
     },
     {
       "file": "index.html",
-      "inlineCount": 79,
-      "hardcodedCount": 71,
+      "inlineCount": 77,
+      "hardcodedCount": 69,
       "dynamicBgCount": 8,
       "stateToggleCount": 0,
       "stylesheets": [
@@ -450,8 +450,8 @@
     },
     {
       "file": "pages/about.html",
-      "inlineCount": 44,
-      "hardcodedCount": 44,
+      "inlineCount": 42,
+      "hardcodedCount": 42,
       "dynamicBgCount": 0,
       "stateToggleCount": 0,
       "stylesheets": [
@@ -502,8 +502,8 @@
     },
     {
       "file": "pages/news-detail.html",
-      "inlineCount": 22,
-      "hardcodedCount": 20,
+      "inlineCount": 20,
+      "hardcodedCount": 18,
       "dynamicBgCount": 0,
       "stateToggleCount": 2,
       "stylesheets": [
@@ -554,8 +554,8 @@
     },
     {
       "file": "pages/news.html",
-      "inlineCount": 8,
-      "hardcodedCount": 2,
+      "inlineCount": 6,
+      "hardcodedCount": 0,
       "dynamicBgCount": 6,
       "stateToggleCount": 0,
       "stylesheets": [
@@ -606,8 +606,8 @@
     },
     {
       "file": "pages/people.html",
-      "inlineCount": 11,
-      "hardcodedCount": 11,
+      "inlineCount": 9,
+      "hardcodedCount": 9,
       "dynamicBgCount": 0,
       "stateToggleCount": 0,
       "stylesheets": [
@@ -658,8 +658,8 @@
     },
     {
       "file": "pages/procurement.html",
-      "inlineCount": 4,
-      "hardcodedCount": 4,
+      "inlineCount": 2,
+      "hardcodedCount": 2,
       "dynamicBgCount": 0,
       "stateToggleCount": 0,
       "stylesheets": [
@@ -710,8 +710,8 @@
     },
     {
       "file": "pages/program-detail.html",
-      "inlineCount": 12,
-      "hardcodedCount": 12,
+      "inlineCount": 10,
+      "hardcodedCount": 10,
       "dynamicBgCount": 0,
       "stateToggleCount": 0,
       "stylesheets": [
@@ -762,8 +762,8 @@
     },
     {
       "file": "pages/programs.html",
-      "inlineCount": 13,
-      "hardcodedCount": 5,
+      "inlineCount": 11,
+      "hardcodedCount": 3,
       "dynamicBgCount": 8,
       "stateToggleCount": 0,
       "stylesheets": [
@@ -814,8 +814,8 @@
     },
     {
       "file": "pages/staff.html",
-      "inlineCount": 2,
-      "hardcodedCount": 2,
+      "inlineCount": 0,
+      "hardcodedCount": 0,
       "dynamicBgCount": 0,
       "stateToggleCount": 0,
       "stylesheets": [
