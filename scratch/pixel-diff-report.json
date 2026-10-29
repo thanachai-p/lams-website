@@ -1,0 +1,939 @@
+{
+  "generatedAt": "2026-10-29T05:53:56.609Z",
+  "toleranceRule": "|R1-R2| + |G1-G2| + |B1-B2| > 15",
+  "summary": {
+    "totalPairs": 32,
+    "identicalDimensionPairs": 32,
+    "zeroToleranceDiffPairs": 3,
+    "changedToleranceDiffPairs": 29,
+    "zeroExactDiffPairs": 2,
+    "changedExactDiffPairs": 30
+  },
+  "pairs": [
+    {
+      "name": "en_about-1440.png",
+      "width": 1440,
+      "height": 900,
+      "dimensionsMatch": true,
+      "baselineSize": "1440x900",
+      "postRefactorSize": "1440x900",
+      "totalPixels": 1296000,
+      "diffPixels": 125666,
+      "diffPercentage": 9.6965,
+      "exactDiffPixels": 197809,
+      "exactDiffPercentage": 15.263,
+      "maxChannelDeltaSum": 730,
+      "boundingBox": {
+        "minX": 144,
+        "minY": 293,
+        "maxX": 1436,
+        "maxY": 899,
+        "width": 1293,
+        "height": 607
+      },
+      "exactBoundingBox": {
+        "minX": 0,
+        "minY": 293,
+        "maxX": 1436,
+        "maxY": 899,
+        "width": 1437,
+        "height": 607
+      }
+    },
+    {
+      "name": "en_about-360.png",
+      "width": 360,
+      "height": 800,
+      "dimensionsMatch": true,
+      "baselineSize": "360x800",
+      "postRefactorSize": "360x800",
+      "totalPixels": 288000,
+      "diffPixels": 22159,
+      "diffPercentage": 7.6941,
+      "exactDiffPixels": 37302,
+      "exactDiffPercentage": 12.9521,
+      "maxChannelDeltaSum": 726,
+      "boundingBox": {
+        "minX": 24,
+        "minY": 534,
+        "maxX": 359,
+        "maxY": 799,
+        "width": 336,
+        "height": 266
+      },
+      "exactBoundingBox": {
+        "minX": 0,
+        "minY": 534,
+        "maxX": 359,
+        "maxY": 799,
+        "width": 360,
+        "height": 266
+      }
+    },
+    {
+      "name": "en_index-1440.png",
+      "width": 1440,
+      "height": 900,
+      "dimensionsMatch": true,
+      "baselineSize": "1440x900",
+      "postRefactorSize": "1440x900",
+      "totalPixels": 1296000,
+      "diffPixels": 8433,
+      "diffPercentage": 0.6507,
+      "exactDiffPixels": 60808,
+      "exactDiffPercentage": 4.692,
+      "maxChannelDeltaSum": 614,
+      "boundingBox": {
+        "minX": 281,
+        "minY": 15,
+        "maxX": 1343,
+        "maxY": 899,
+        "width": 1063,
+        "height": 885
+      },
+      "exactBoundingBox": {
+        "minX": 281,
+        "minY": 0,
+        "maxX": 1381,
+        "maxY": 899,
+        "width": 1101,
+        "height": 900
+      }
+    },
+    {
+      "name": "en_index-360.png",
+      "width": 360,
+      "height": 800,
+      "dimensionsMatch": true,
+      "baselineSize": "360x800",
+      "postRefactorSize": "360x800",
+      "totalPixels": 288000,
+      "diffPixels": 3603,
+      "diffPercentage": 1.251,
+      "exactDiffPixels": 6037,
+      "exactDiffPercentage": 2.0962,
+      "maxChannelDeltaSum": 566,
+      "boundingBox": {
+        "minX": 68,
+        "minY": 14,
+        "maxX": 359,
+        "maxY": 707,
+        "width": 292,
+        "height": 694
+      },
+      "exactBoundingBox": {
+        "minX": 68,
+        "minY": 0,
+        "maxX": 359,
+        "maxY": 707,
+        "width": 292,
+        "height": 708
+      }
+    },
+    {
+      "name": "en_news-1440.png",
+      "width": 1440,
+      "height": 900,
+      "dimensionsMatch": true,
+      "baselineSize": "1440x900",
+      "postRefactorSize": "1440x900",
+      "totalPixels": 1296000,
+      "diffPixels": 15420,
+      "diffPercentage": 1.1898,
+      "exactDiffPixels": 113356,
+      "exactDiffPercentage": 8.7466,
+      "maxChannelDeltaSum": 745,
+      "boundingBox": {
+        "minX": 59,
+        "minY": 12,
+        "maxX": 1341,
+        "maxY": 702,
+        "width": 1283,
+        "height": 691
+      },
+      "exactBoundingBox": {
+        "minX": 59,
+        "minY": 0,
+        "maxX": 1380,
+        "maxY": 796,
+        "width": 1322,
+        "height": 797
+      }
+    },
+    {
+      "name": "en_news-360.png",
+      "width": 360,
+      "height": 800,
+      "dimensionsMatch": true,
+      "baselineSize": "360x800",
+      "postRefactorSize": "360x800",
+      "totalPixels": 288000,
+      "diffPixels": 6233,
+      "diffPercentage": 2.1642,
+      "exactDiffPixels": 6891,
+      "exactDiffPercentage": 2.3927,
+      "maxChannelDeltaSum": 745,
+      "boundingBox": {
+        "minX": 24,
+        "minY": 10,
+        "maxX": 359,
+        "maxY": 799,
+        "width": 336,
+        "height": 790
+      },
+      "exactBoundingBox": {
+        "minX": 24,
+        "minY": 10,
+        "maxX": 359,
+        "maxY": 799,
+        "width": 336,
+        "height": 790
+      }
+    },
+    {
+      "name": "en_people-1440.png",
+      "width": 1440,
+      "height": 900,
+      "dimensionsMatch": true,
+      "baselineSize": "1440x900",
+      "postRefactorSize": "1440x900",
+      "totalPixels": 1296000,
+      "diffPixels": 132186,
+      "diffPercentage": 10.1995,
+      "exactDiffPixels": 370323,
+      "exactDiffPercentage": 28.5743,
+      "maxChannelDeltaSum": 745,
+      "boundingBox": {
+        "minX": 59,
+        "minY": 12,
+        "maxX": 1341,
+        "maxY": 899,
+        "width": 1283,
+        "height": 888
+      },
+      "exactBoundingBox": {
+        "minX": 0,
+        "minY": 0,
+        "maxX": 1424,
+        "maxY": 899,
+        "width": 1425,
+        "height": 900
+      }
+    },
+    {
+      "name": "en_people-360.png",
+      "width": 360,
+      "height": 800,
+      "dimensionsMatch": true,
+      "baselineSize": "360x800",
+      "postRefactorSize": "360x800",
+      "totalPixels": 288000,
+      "diffPixels": 22402,
+      "diffPercentage": 7.7785,
+      "exactDiffPixels": 23846,
+      "exactDiffPercentage": 8.2799,
+      "maxChannelDeltaSum": 745,
+      "boundingBox": {
+        "minX": 24,
+        "minY": 10,
+        "maxX": 359,
+        "maxY": 799,
+        "width": 336,
+        "height": 790
+      },
+      "exactBoundingBox": {
+        "minX": 0,
+        "minY": 10,
+        "maxX": 359,
+        "maxY": 799,
+        "width": 360,
+        "height": 790
+      }
+    },
+    {
+      "name": "en_program-detail-1440.png",
+      "width": 1440,
+      "height": 900,
+      "dimensionsMatch": true,
+      "baselineSize": "1440x900",
+      "postRefactorSize": "1440x900",
+      "totalPixels": 1296000,
+      "diffPixels": 172956,
+      "diffPercentage": 13.3454,
+      "exactDiffPixels": 437588,
+      "exactDiffPercentage": 33.7645,
+      "maxChannelDeltaSum": 740,
+      "boundingBox": {
+        "minX": 0,
+        "minY": 207,
+        "maxX": 1436,
+        "maxY": 899,
+        "width": 1437,
+        "height": 693
+      },
+      "exactBoundingBox": {
+        "minX": 0,
+        "minY": 92,
+        "maxX": 1436,
+        "maxY": 899,
+        "width": 1437,
+        "height": 808
+      }
+    },
+    {
+      "name": "en_program-detail-360.png",
+      "width": 360,
+      "height": 800,
+      "dimensionsMatch": true,
+      "baselineSize": "360x800",
+      "postRefactorSize": "360x800",
+      "totalPixels": 288000,
+      "diffPixels": 58855,
+      "diffPercentage": 20.4358,
+      "exactDiffPixels": 92195,
+      "exactDiffPercentage": 32.0122,
+      "maxChannelDeltaSum": 740,
+      "boundingBox": {
+        "minX": 0,
+        "minY": 176,
+        "maxX": 359,
+        "maxY": 798,
+        "width": 360,
+        "height": 623
+      },
+      "exactBoundingBox": {
+        "minX": 0,
+        "minY": 88,
+        "maxX": 359,
+        "maxY": 799,
+        "width": 360,
+        "height": 712
+      }
+    },
+    {
+      "name": "en_programs-1440.png",
+      "width": 1440,
+      "height": 900,
+      "dimensionsMatch": true,
+      "baselineSize": "1440x900",
+      "postRefactorSize": "1440x900",
+      "totalPixels": 1296000,
+      "diffPixels": 6905,
+      "diffPercentage": 0.5328,
+      "exactDiffPixels": 76971,
+      "exactDiffPercentage": 5.9391,
+      "maxChannelDeltaSum": 177,
+      "boundingBox": {
+        "minX": 729,
+        "minY": 598,
+        "maxX": 1279,
+        "maxY": 792,
+        "width": 551,
+        "height": 195
+      },
+      "exactBoundingBox": {
+        "minX": 729,
+        "minY": 598,
+        "maxX": 1279,
+        "maxY": 797,
+        "width": 551,
+        "height": 200
+      }
+    },
+    {
+      "name": "en_programs-360.png",
+      "width": 360,
+      "height": 800,
+      "dimensionsMatch": true,
+      "baselineSize": "360x800",
+      "postRefactorSize": "360x800",
+      "totalPixels": 288000,
+      "diffPixels": 0,
+      "diffPercentage": 0,
+      "exactDiffPixels": 0,
+      "exactDiffPercentage": 0,
+      "maxChannelDeltaSum": 0,
+      "boundingBox": null,
+      "exactBoundingBox": null
+    },
+    {
+      "name": "en_staff-1440.png",
+      "width": 1440,
+      "height": 900,
+      "dimensionsMatch": true,
+      "baselineSize": "1440x900",
+      "postRefactorSize": "1440x900",
+      "totalPixels": 1296000,
+      "diffPixels": 199152,
+      "diffPercentage": 15.3667,
+      "exactDiffPixels": 223273,
+      "exactDiffPercentage": 17.2279,
+      "maxChannelDeltaSum": 745,
+      "boundingBox": {
+        "minX": 59,
+        "minY": 12,
+        "maxX": 1436,
+        "maxY": 899,
+        "width": 1378,
+        "height": 888
+      },
+      "exactBoundingBox": {
+        "minX": 59,
+        "minY": 0,
+        "maxX": 1436,
+        "maxY": 899,
+        "width": 1378,
+        "height": 900
+      }
+    },
+    {
+      "name": "en_staff-360.png",
+      "width": 360,
+      "height": 800,
+      "dimensionsMatch": true,
+      "baselineSize": "360x800",
+      "postRefactorSize": "360x800",
+      "totalPixels": 288000,
+      "diffPixels": 54296,
+      "diffPercentage": 18.8528,
+      "exactDiffPixels": 59283,
+      "exactDiffPercentage": 20.5844,
+      "maxChannelDeltaSum": 745,
+      "boundingBox": {
+        "minX": 24,
+        "minY": 10,
+        "maxX": 359,
+        "maxY": 799,
+        "width": 336,
+        "height": 790
+      },
+      "exactBoundingBox": {
+        "minX": 0,
+        "minY": 10,
+        "maxX": 359,
+        "maxY": 799,
+        "width": 360,
+        "height": 790
+      }
+    },
+    {
+      "name": "index-1440.png",
+      "width": 1440,
+      "height": 900,
+      "dimensionsMatch": true,
+      "baselineSize": "1440x900",
+      "postRefactorSize": "1440x900",
+      "totalPixels": 1296000,
+      "diffPixels": 10068,
+      "diffPercentage": 0.7769,
+      "exactDiffPixels": 74295,
+      "exactDiffPercentage": 5.7326,
+      "maxChannelDeltaSum": 614,
+      "boundingBox": {
+        "minX": 297,
+        "minY": 15,
+        "maxX": 1436,
+        "maxY": 899,
+        "width": 1140,
+        "height": 885
+      },
+      "exactBoundingBox": {
+        "minX": 0,
+        "minY": 0,
+        "maxX": 1436,
+        "maxY": 899,
+        "width": 1437,
+        "height": 900
+      }
+    },
+    {
+      "name": "index-360.png",
+      "width": 360,
+      "height": 800,
+      "dimensionsMatch": true,
+      "baselineSize": "360x800",
+      "postRefactorSize": "360x800",
+      "totalPixels": 288000,
+      "diffPixels": 4245,
+      "diffPercentage": 1.474,
+      "exactDiffPixels": 10473,
+      "exactDiffPercentage": 3.6365,
+      "maxChannelDeltaSum": 400,
+      "boundingBox": {
+        "minX": 28,
+        "minY": 22,
+        "maxX": 359,
+        "maxY": 784,
+        "width": 332,
+        "height": 763
+      },
+      "exactBoundingBox": {
+        "minX": 0,
+        "minY": 14,
+        "maxX": 359,
+        "maxY": 799,
+        "width": 360,
+        "height": 786
+      }
+    },
+    {
+      "name": "pages_about-1440.png",
+      "width": 1440,
+      "height": 900,
+      "dimensionsMatch": true,
+      "baselineSize": "1440x900",
+      "postRefactorSize": "1440x900",
+      "totalPixels": 1296000,
+      "diffPixels": 130800,
+      "diffPercentage": 10.0926,
+      "exactDiffPixels": 222011,
+      "exactDiffPercentage": 17.1305,
+      "maxChannelDeltaSum": 730,
+      "boundingBox": {
+        "minX": 144,
+        "minY": 302,
+        "maxX": 1436,
+        "maxY": 899,
+        "width": 1293,
+        "height": 598
+      },
+      "exactBoundingBox": {
+        "minX": 0,
+        "minY": 302,
+        "maxX": 1436,
+        "maxY": 899,
+        "width": 1437,
+        "height": 598
+      }
+    },
+    {
+      "name": "pages_about-360.png",
+      "width": 360,
+      "height": 800,
+      "dimensionsMatch": true,
+      "baselineSize": "360x800",
+      "postRefactorSize": "360x800",
+      "totalPixels": 288000,
+      "diffPixels": 40516,
+      "diffPercentage": 14.0681,
+      "exactDiffPixels": 57350,
+      "exactDiffPercentage": 19.9132,
+      "maxChannelDeltaSum": 734,
+      "boundingBox": {
+        "minX": 24,
+        "minY": 480,
+        "maxX": 359,
+        "maxY": 799,
+        "width": 336,
+        "height": 320
+      },
+      "exactBoundingBox": {
+        "minX": 0,
+        "minY": 480,
+        "maxX": 359,
+        "maxY": 799,
+        "width": 360,
+        "height": 320
+      }
+    },
+    {
+      "name": "pages_news-1440.png",
+      "width": 1440,
+      "height": 900,
+      "dimensionsMatch": true,
+      "baselineSize": "1440x900",
+      "postRefactorSize": "1440x900",
+      "totalPixels": 1296000,
+      "diffPixels": 149,
+      "diffPercentage": 0.0115,
+      "exactDiffPixels": 101248,
+      "exactDiffPercentage": 7.8123,
+      "maxChannelDeltaSum": 26,
+      "boundingBox": {
+        "minX": 487,
+        "minY": 568,
+        "maxX": 1238,
+        "maxY": 673,
+        "width": 752,
+        "height": 106
+      },
+      "exactBoundingBox": {
+        "minX": 145,
+        "minY": 568,
+        "maxX": 1279,
+        "maxY": 767,
+        "width": 1135,
+        "height": 200
+      }
+    },
+    {
+      "name": "pages_news-360.png",
+      "width": 360,
+      "height": 800,
+      "dimensionsMatch": true,
+      "baselineSize": "360x800",
+      "postRefactorSize": "360x800",
+      "totalPixels": 288000,
+      "diffPixels": 0,
+      "diffPercentage": 0,
+      "exactDiffPixels": 0,
+      "exactDiffPercentage": 0,
+      "maxChannelDeltaSum": 0,
+      "boundingBox": null,
+      "exactBoundingBox": null
+    },
+    {
+      "name": "pages_news-detail-1440.png",
+      "width": 1440,
+      "height": 900,
+      "dimensionsMatch": true,
+      "baselineSize": "1440x900",
+      "postRefactorSize": "1440x900",
+      "totalPixels": 1296000,
+      "diffPixels": 100,
+      "diffPercentage": 0.0077,
+      "exactDiffPixels": 47950,
+      "exactDiffPercentage": 3.6998,
+      "maxChannelDeltaSum": 345,
+      "boundingBox": {
+        "minX": 1428,
+        "minY": 399,
+        "maxX": 1436,
+        "maxY": 412,
+        "width": 9,
+        "height": 14
+      },
+      "exactBoundingBox": {
+        "minX": 0,
+        "minY": 399,
+        "maxX": 1436,
+        "maxY": 899,
+        "width": 1437,
+        "height": 501
+      }
+    },
+    {
+      "name": "pages_news-detail-360.png",
+      "width": 360,
+      "height": 800,
+      "dimensionsMatch": true,
+      "baselineSize": "360x800",
+      "postRefactorSize": "360x800",
+      "totalPixels": 288000,
+      "diffPixels": 63340,
+      "diffPercentage": 21.9931,
+      "exactDiffPixels": 112055,
+      "exactDiffPercentage": 38.908,
+      "maxChannelDeltaSum": 712,
+      "boundingBox": {
+        "minX": 0,
+        "minY": 424,
+        "maxX": 359,
+        "maxY": 799,
+        "width": 360,
+        "height": 376
+      },
+      "exactBoundingBox": {
+        "minX": 0,
+        "minY": 71,
+        "maxX": 359,
+        "maxY": 799,
+        "width": 360,
+        "height": 729
+      }
+    },
+    {
+      "name": "pages_people-1440.png",
+      "width": 1440,
+      "height": 900,
+      "dimensionsMatch": true,
+      "baselineSize": "1440x900",
+      "postRefactorSize": "1440x900",
+      "totalPixels": 1296000,
+      "diffPixels": 137523,
+      "diffPercentage": 10.6113,
+      "exactDiffPixels": 387098,
+      "exactDiffPercentage": 29.8687,
+      "maxChannelDeltaSum": 704,
+      "boundingBox": {
+        "minX": 116,
+        "minY": 476,
+        "maxX": 1274,
+        "maxY": 899,
+        "width": 1159,
+        "height": 424
+      },
+      "exactBoundingBox": {
+        "minX": 0,
+        "minY": 445,
+        "maxX": 1424,
+        "maxY": 899,
+        "width": 1425,
+        "height": 455
+      }
+    },
+    {
+      "name": "pages_people-360.png",
+      "width": 360,
+      "height": 800,
+      "dimensionsMatch": true,
+      "baselineSize": "360x800",
+      "postRefactorSize": "360x800",
+      "totalPixels": 288000,
+      "diffPixels": 41124,
+      "diffPercentage": 14.2792,
+      "exactDiffPixels": 44838,
+      "exactDiffPercentage": 15.5688,
+      "maxChannelDeltaSum": 364,
+      "boundingBox": {
+        "minX": 24,
+        "minY": 480,
+        "maxX": 359,
+        "maxY": 799,
+        "width": 336,
+        "height": 320
+      },
+      "exactBoundingBox": {
+        "minX": 0,
+        "minY": 450,
+        "maxX": 359,
+        "maxY": 799,
+        "width": 360,
+        "height": 350
+      }
+    },
+    {
+      "name": "pages_procurement-1440.png",
+      "width": 1440,
+      "height": 900,
+      "dimensionsMatch": true,
+      "baselineSize": "1440x900",
+      "postRefactorSize": "1440x900",
+      "totalPixels": 1296000,
+      "diffPixels": 403,
+      "diffPercentage": 0.0311,
+      "exactDiffPixels": 403,
+      "exactDiffPercentage": 0.0311,
+      "maxChannelDeltaSum": 405,
+      "boundingBox": {
+        "minX": 177,
+        "minY": 663,
+        "maxX": 237,
+        "maxY": 674,
+        "width": 61,
+        "height": 12
+      },
+      "exactBoundingBox": {
+        "minX": 177,
+        "minY": 663,
+        "maxX": 237,
+        "maxY": 674,
+        "width": 61,
+        "height": 12
+      }
+    },
+    {
+      "name": "pages_procurement-360.png",
+      "width": 360,
+      "height": 800,
+      "dimensionsMatch": true,
+      "baselineSize": "360x800",
+      "postRefactorSize": "360x800",
+      "totalPixels": 288000,
+      "diffPixels": 377,
+      "diffPercentage": 0.1309,
+      "exactDiffPixels": 377,
+      "exactDiffPercentage": 0.1309,
+      "maxChannelDeltaSum": 406,
+      "boundingBox": {
+        "minX": 58,
+        "minY": 771,
+        "maxX": 114,
+        "maxY": 782,
+        "width": 57,
+        "height": 12
+      },
+      "exactBoundingBox": {
+        "minX": 58,
+        "minY": 771,
+        "maxX": 114,
+        "maxY": 782,
+        "width": 57,
+        "height": 12
+      }
+    },
+    {
+      "name": "pages_program-detail-1440.png",
+      "width": 1440,
+      "height": 900,
+      "dimensionsMatch": true,
+      "baselineSize": "1440x900",
+      "postRefactorSize": "1440x900",
+      "totalPixels": 1296000,
+      "diffPixels": 156613,
+      "diffPercentage": 12.0843,
+      "exactDiffPixels": 399210,
+      "exactDiffPercentage": 30.8032,
+      "maxChannelDeltaSum": 740,
+      "boundingBox": {
+        "minX": 0,
+        "minY": 244,
+        "maxX": 1436,
+        "maxY": 899,
+        "width": 1437,
+        "height": 656
+      },
+      "exactBoundingBox": {
+        "minX": 0,
+        "minY": 87,
+        "maxX": 1436,
+        "maxY": 899,
+        "width": 1437,
+        "height": 813
+      }
+    },
+    {
+      "name": "pages_program-detail-360.png",
+      "width": 360,
+      "height": 800,
+      "dimensionsMatch": true,
+      "baselineSize": "360x800",
+      "postRefactorSize": "360x800",
+      "totalPixels": 288000,
+      "diffPixels": 54337,
+      "diffPercentage": 18.867,
+      "exactDiffPixels": 79889,
+      "exactDiffPercentage": 27.7392,
+      "maxChannelDeltaSum": 740,
+      "boundingBox": {
+        "minX": 0,
+        "minY": 213,
+        "maxX": 359,
+        "maxY": 799,
+        "width": 360,
+        "height": 587
+      },
+      "exactBoundingBox": {
+        "minX": 0,
+        "minY": 84,
+        "maxX": 359,
+        "maxY": 799,
+        "width": 360,
+        "height": 716
+      }
+    },
+    {
+      "name": "pages_programs-1440.png",
+      "width": 1440,
+      "height": 900,
+      "dimensionsMatch": true,
+      "baselineSize": "1440x900",
+      "postRefactorSize": "1440x900",
+      "totalPixels": 1296000,
+      "diffPixels": 7391,
+      "diffPercentage": 0.5703,
+      "exactDiffPixels": 79761,
+      "exactDiffPercentage": 6.1544,
+      "maxChannelDeltaSum": 177,
+      "boundingBox": {
+        "minX": 729,
+        "minY": 598,
+        "maxX": 1279,
+        "maxY": 792,
+        "width": 551,
+        "height": 195
+      },
+      "exactBoundingBox": {
+        "minX": 729,
+        "minY": 598,
+        "maxX": 1279,
+        "maxY": 797,
+        "width": 551,
+        "height": 200
+      }
+    },
+    {
+      "name": "pages_programs-360.png",
+      "width": 360,
+      "height": 800,
+      "dimensionsMatch": true,
+      "baselineSize": "360x800",
+      "postRefactorSize": "360x800",
+      "totalPixels": 288000,
+      "diffPixels": 0,
+      "diffPercentage": 0,
+      "exactDiffPixels": 427,
+      "exactDiffPercentage": 0.1483,
+      "maxChannelDeltaSum": 2,
+      "boundingBox": null,
+      "exactBoundingBox": {
+        "minX": 0,
+        "minY": 677,
+        "maxX": 354,
+        "maxY": 799,
+        "width": 355,
+        "height": 123
+      }
+    },
+    {
+      "name": "pages_staff-1440.png",
+      "width": 1440,
+      "height": 900,
+      "dimensionsMatch": true,
+      "baselineSize": "1440x900",
+      "postRefactorSize": "1440x900",
+      "totalPixels": 1296000,
+      "diffPixels": 199026,
+      "diffPercentage": 15.3569,
+      "exactDiffPixels": 219325,
+      "exactDiffPercentage": 16.9232,
+      "maxChannelDeltaSum": 735,
+      "boundingBox": {
+        "minX": 143,
+        "minY": 475,
+        "maxX": 1436,
+        "maxY": 899,
+        "width": 1294,
+        "height": 425
+      },
+      "exactBoundingBox": {
+        "minX": 143,
+        "minY": 475,
+        "maxX": 1436,
+        "maxY": 899,
+        "width": 1294,
+        "height": 425
+      }
+    },
+    {
+      "name": "pages_staff-360.png",
+      "width": 360,
+      "height": 800,
+      "dimensionsMatch": true,
+      "baselineSize": "360x800",
+      "postRefactorSize": "360x800",
+      "totalPixels": 288000,
+      "diffPixels": 52739,
+      "diffPercentage": 18.3122,
+      "exactDiffPixels": 59823,
+      "exactDiffPercentage": 20.7719,
+      "maxChannelDeltaSum": 734,
+      "boundingBox": {
+        "minX": 24,
+        "minY": 507,
+        "maxX": 359,
+        "maxY": 799,
+        "width": 336,
+        "height": 293
+      },
+      "exactBoundingBox": {
+        "minX": 0,
+        "minY": 507,
+        "maxX": 359,
+        "maxY": 799,
+        "width": 360,
+        "height": 293
+      }
+    }
+  ]
+}
