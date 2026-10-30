@@ -933,13 +933,40 @@ function initPeopleFilter() {
 
   function filterDirectory() {
     let visibleCount = 0;
+    const normQuery = normalize(searchQuery);
+    const compQuery = normQuery.replace(/\s+/g, '');
+
+    // Evaluate zone matching context
+    const zoneMatchMap = new Map();
+    zones.forEach((zone) => {
+      const zTitle = normalize(zone.getAttribute('data-zone-title') || '');
+      const zKw = normalize(zone.getAttribute('data-zone-keywords') || '');
+      const compZTitle = zTitle.replace(/\s+/g, '');
+      const compZKw = zKw.replace(/\s+/g, '');
+
+      const zoneMatches = !normQuery ||
+        zTitle.includes(normQuery) || compZTitle.includes(compQuery) ||
+        zKw.includes(normQuery) || compZKw.includes(compQuery);
+
+      zoneMatchMap.set(zone, zoneMatches);
+    });
+
     cards.forEach((card) => {
       const cardCategory = card.getAttribute('data-category') || '';
       const keywords = normalize(card.getAttribute('data-keywords'));
       const text = normalize(card.textContent);
+      const compKw = keywords.replace(/\s+/g, '');
+      const compText = text.replace(/\s+/g, '');
+
+      const parentZone = card.closest('.curriculum-zone');
+      const zoneMatches = parentZone ? (zoneMatchMap.get(parentZone) || false) : false;
+
+      const cardDirectMatch = !normQuery ||
+        keywords.includes(normQuery) || compKw.includes(compQuery) ||
+        text.includes(normQuery) || compText.includes(compQuery);
 
       const matchesCategory = (currentFilter === 'all') || (cardCategory === currentFilter);
-      const matchesSearch = !searchQuery || keywords.includes(searchQuery) || text.includes(searchQuery);
+      const matchesSearch = cardDirectMatch || zoneMatches;
       const show = matchesCategory && matchesSearch;
 
       card.style.display = show ? '' : 'none';
@@ -956,7 +983,7 @@ function initPeopleFilter() {
       const visibleCardsInZone = zone.querySelectorAll('.people-card:not([hidden])');
       const matchesCat = (currentFilter === 'all') || (currentFilter === zoneCategory);
       const hasVisible = matchesCat && visibleCardsInZone.length > 0;
-      
+
       zone.style.display = hasVisible ? '' : 'none';
       zone.classList.toggle('is-hidden', !hasVisible);
       zone.hidden = !hasVisible;
