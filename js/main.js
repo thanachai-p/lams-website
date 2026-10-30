@@ -893,16 +893,17 @@ function initNewsFilter() {
 
 // 15. Directory & Faculty People Filter (Hardened, IME-Aware, Popstate & Deep-Link Enabled)
 function initPeopleFilter() {
-  const peopleGrid = document.getElementById('peopleGrid');
-  if (!peopleGrid) return;
-  if (peopleGrid.dataset.initialized === 'true') return;
-  peopleGrid.dataset.initialized = 'true';
+  const peopleContainer = document.getElementById('peopleContainer') || document.getElementById('peopleGrid');
+  if (!peopleContainer) return;
+  if (peopleContainer.dataset.initialized === 'true') return;
+  peopleContainer.dataset.initialized = 'true';
 
   const filterContainer = document.getElementById('peopleFilters');
   const tabs = filterContainer ? Array.from(filterContainer.querySelectorAll('.catalog-tab')) : [];
   const searchInput = document.getElementById('peopleSearchInput');
   const emptyState = document.getElementById('peopleEmptyState');
-  const cards = Array.from(peopleGrid.querySelectorAll('.people-card'));
+  const cards = Array.from(peopleContainer.querySelectorAll('.people-card'));
+  const zones = Array.from(peopleContainer.querySelectorAll('.curriculum-zone'));
 
   const VALID_FILTERS = new Set(['all', 'executive', 'faculty', 'staff']);
   let currentFilter = 'all';
@@ -949,6 +950,18 @@ function initPeopleFilter() {
       if (show) visibleCount++;
     });
 
+    // Update visibility of curriculum zones
+    zones.forEach((zone) => {
+      const zoneCategory = zone.getAttribute('data-category') || 'faculty';
+      const visibleCardsInZone = zone.querySelectorAll('.people-card:not([hidden])');
+      const matchesCat = (currentFilter === 'all') || (currentFilter === zoneCategory);
+      const hasVisible = matchesCat && visibleCardsInZone.length > 0;
+      
+      zone.style.display = hasVisible ? '' : 'none';
+      zone.classList.toggle('is-hidden', !hasVisible);
+      zone.hidden = !hasVisible;
+    });
+
     if (emptyState) {
       emptyState.style.display = visibleCount === 0 ? 'block' : 'none';
       emptyState.classList.toggle('is-hidden', visibleCount !== 0);
@@ -991,35 +1004,27 @@ function initPeopleFilter() {
       searchQuery = normalize(searchInput.value);
       filterDirectory();
     });
-    searchInput.addEventListener('input', (e) => {
+
+    let debounceTimer;
+    searchInput.addEventListener('input', () => {
       if (isComposing) return;
-      searchQuery = normalize(e.target.value);
-      filterDirectory();
-    });
-    searchInput.addEventListener('search', () => {
-      searchQuery = normalize(searchInput.value);
-      filterDirectory();
-    });
-    searchInput.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') {
-        searchInput.value = '';
-        searchQuery = '';
+      clearTimeout(debounceTimer);
+      debounceTimer = setTimeout(() => {
+        searchQuery = normalize(searchInput.value);
         filterDirectory();
-      }
+      }, 150);
     });
   }
 
-  // Browser Back/Forward support
   window.addEventListener('popstate', () => {
     try {
       const params = new URLSearchParams(window.location.search);
-      const cat = params.get('category') || params.get('filter') || 'all';
-      setDirectoryFilter(cat, false);
+      const popFilter = params.get('category') || params.get('filter') || 'all';
+      setDirectoryFilter(popFilter, false, false);
     } catch (e) {}
   });
 
-  // Initial Filter Application
-  setDirectoryFilter(currentFilter, false);
+  setDirectoryFilter(currentFilter, false, false);
 }
 
 // 16. Academic Degree Programs Catalog Filter & URL Sync (Hardened, IME-Aware & Popstate Supported)
