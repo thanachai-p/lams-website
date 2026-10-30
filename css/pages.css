@@ -890,20 +890,82 @@
   }
 }
 
+/* Quick Jump Navigation Chips */
+.curriculum-quicknav {
+  margin: 10px 0 16px;
+  width: 100%;
+}
+
+.curriculum-quicknav__track {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding: 6px 4px 10px;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(220, 38, 38, 0.4) transparent;
+  -webkit-overflow-scrolling: touch;
+}
+
+.curriculum-quicknav__track::-webkit-scrollbar {
+  height: 4px;
+}
+
+.curriculum-quicknav__track::-webkit-scrollbar-thumb {
+  background: rgba(220, 38, 38, 0.35);
+  border-radius: 999px;
+}
+
+.curriculum-quickchip {
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  background: rgba(20, 5, 8, 0.7);
+  border: 1px solid rgba(220, 38, 38, 0.25);
+  border-radius: 999px;
+  padding: 6px 14px;
+  text-decoration: none;
+  transition: border-color 0.2s ease, background 0.2s ease, transform 0.2s ease, color 0.2s ease;
+  user-select: none;
+}
+
+.curriculum-quickchip:hover {
+  color: var(--text-primary);
+  border-color: rgba(220, 38, 38, 0.6);
+  background: rgba(220, 38, 38, 0.15);
+  transform: translateY(-1px);
+}
+
+.curriculum-quickchip:focus-visible {
+  outline: 2px solid var(--theme-red-light);
+  outline-offset: 2px;
+}
+
+.curriculum-quickchip.is-active {
+  color: var(--text-primary);
+  background: var(--theme-red);
+  border-color: var(--theme-red-light);
+  box-shadow: 0 2px 10px rgba(220, 38, 38, 0.35);
+  font-weight: 600;
+}
+
 /* Curriculum Zones - Homepage Section Style (Crimson & Burgundy Alternating Panels) */
 .curriculum-zone {
   margin-top: 35px;
   padding: 35px 30px;
-  border-radius: 24px;
-  border: 1px solid rgba(220, 38, 38, 0.25);
+  border-radius: 20px;
+  border: 1px solid rgba(220, 38, 38, 0.22);
   background: radial-gradient(800px 300px at 50% 0%, rgba(69, 10, 10, 0.35), transparent 70%), var(--surface-card);
   box-shadow: 0 8px 30px rgba(14, 2, 4, 0.6);
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  scroll-margin-top: 110px;
 }
 
 .curriculum-zone:nth-of-type(even) {
   background: var(--gradient-experience);
-  border-color: rgba(127, 29, 29, 0.35);
+  border-color: rgba(127, 29, 29, 0.3);
 }
 
 .curriculum-zone:hover {
@@ -914,24 +976,9 @@
   margin-bottom: 25px;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 6px;
   border-bottom: 1px solid rgba(220, 38, 38, 0.15);
   padding-bottom: 18px;
-}
-
-.curriculum-zone__badge {
-  align-self: flex-start;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 4px 14px;
-  border: 1px solid rgba(220, 38, 38, 0.4);
-  color: var(--theme-red-light);
-  background: rgba(220, 38, 38, 0.1);
-  border-radius: 999px;
-  font-size: 0.82rem;
-  font-weight: 600;
-  letter-spacing: 0.5px;
 }
 
 .curriculum-zone__title {
@@ -950,23 +997,42 @@
   opacity: 0.85;
 }
 
-/* Featured Program Chair Card */
+@media (max-width: 640px) {
+  .curriculum-zone {
+    margin-top: 24px;
+    padding: 20px 16px;
+    border-radius: 16px;
+    scroll-margin-top: 90px;
+  }
+
+  .curriculum-zone__header {
+    margin-bottom: 18px;
+    padding-bottom: 14px;
+  }
+}
+
+/* Featured Program Chair Card - Crimson & Burgundy Palette */
 .people-card--chair {
-  border: 1.5px solid rgba(212, 175, 55, 0.5);
-  background: linear-gradient(135deg, rgba(212, 175, 55, 0.08) 0%, rgba(20, 5, 8, 0.95) 100%);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+  border: 1.5px solid rgba(220, 38, 38, 0.45);
+  background: linear-gradient(135deg, rgba(220, 38, 38, 0.08) 0%, rgba(20, 5, 8, 0.95) 100%);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
 }
 
 .people-card--chair:hover {
-  border-color: var(--theme-amber);
-  box-shadow: 0 12px 30px rgba(212, 175, 55, 0.2);
+  border-color: var(--theme-red-light);
+  box-shadow: 0 12px 30px rgba(220, 38, 38, 0.25);
 }
 
 .people-badge--chair {
-  background: rgba(212, 175, 55, 0.2);
-  border-color: var(--theme-amber);
-  color: var(--theme-amber);
+  background: rgba(220, 38, 38, 0.2);
+  border-color: rgba(220, 38, 38, 0.6);
+  color: var(--theme-red-light);
   font-weight: 700;
+}
+
+.people-badge--chair i,
+.people-badge i {
+  color: var(--theme-red-light);
 }
 
 .people-avatar-img {
@@ -982,7 +1048,7 @@
 }
 
 .people-scholar-link {
-  color: var(--theme-amber);
+  color: var(--theme-red-light);
   font-size: 0.82rem;
   display: inline-flex;
   align-items: center;
@@ -994,7 +1060,7 @@
 
 .people-scholar-link:hover {
   text-decoration: underline;
-  color: #fff;
+  color: var(--text-primary);
 }
 
 .curriculum-zone.is-hidden {
