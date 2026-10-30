@@ -890,67 +890,6 @@
   }
 }
 
-/* Quick Jump Navigation Chips */
-.curriculum-quicknav {
-  margin: 10px 0 16px;
-  width: 100%;
-}
-
-.curriculum-quicknav__track {
-  display: flex;
-  gap: 8px;
-  overflow-x: auto;
-  padding: 6px 4px 10px;
-  scrollbar-width: thin;
-  scrollbar-color: rgba(220, 38, 38, 0.4) transparent;
-  -webkit-overflow-scrolling: touch;
-}
-
-.curriculum-quicknav__track::-webkit-scrollbar {
-  height: 4px;
-}
-
-.curriculum-quicknav__track::-webkit-scrollbar-thumb {
-  background: rgba(220, 38, 38, 0.35);
-  border-radius: 999px;
-}
-
-.curriculum-quickchip {
-  display: inline-flex;
-  align-items: center;
-  white-space: nowrap;
-  font-size: 0.82rem;
-  font-weight: 500;
-  color: var(--text-secondary);
-  background: rgba(20, 5, 8, 0.7);
-  border: 1px solid rgba(220, 38, 38, 0.25);
-  border-radius: 999px;
-  padding: 6px 14px;
-  text-decoration: none;
-  transition: border-color 0.2s ease, background 0.2s ease, transform 0.2s ease, color 0.2s ease;
-  user-select: none;
-}
-
-.curriculum-quickchip:hover {
-  color: var(--text-primary);
-  border-color: rgba(220, 38, 38, 0.6);
-  background: rgba(220, 38, 38, 0.15);
-  transform: translateY(-1px);
-}
-
-.curriculum-quickchip:focus-visible {
-  outline: 2px solid var(--theme-red-light);
-  outline-offset: 2px;
-}
-
-.curriculum-quickchip.is-active {
-  color: var(--text-primary);
-  background: var(--theme-red);
-  border-color: var(--theme-red-light);
-  box-shadow: 0 2px 10px rgba(220, 38, 38, 0.35);
-  font-weight: 600;
-}
-
 /* Curriculum Zones - Homepage Section Style (Crimson & Burgundy Alternating Panels) */
 .curriculum-zone {
   margin-top: 35px;
