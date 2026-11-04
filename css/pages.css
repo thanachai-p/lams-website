@@ -204,8 +204,8 @@
    4. Programs Grid & Cards
    ========================================================================== */
 .programs-container--people {
-  max-width: 1440px;
-  padding: 0 clamp(1rem, 4%, 2.5rem) 80px;
+  max-width: 1560px;
+  padding: 0 clamp(1rem, 3.5%, 2.5rem) 80px;
 }
 
 .programs-container {
@@ -755,8 +755,8 @@
    ========================================================================== */
 .people-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(315px, 1fr));
-  gap: 25px;
+  grid-template-columns: repeat(auto-fill, minmax(min(380px, 100%), 1fr));
+  gap: 28px;
   margin-top: 25px;
 }
 
@@ -779,7 +779,7 @@
 
 .people-avatar-wrap {
   width: 100%;
-  height: 260px;
+  height: 280px;
   background: linear-gradient(180deg, rgba(220,38,38,0.1) 0%, rgba(14,2,4,0.95) 100%);
   position: relative;
   overflow: hidden;
@@ -823,31 +823,35 @@
 }
 
 .people-name {
-  font-size: 1.15rem;
+  font-size: clamp(1.05rem, 1vw + 0.65rem, 1.18rem);
   font-weight: 700;
   color: var(--text-primary);
   margin-bottom: 4px;
-  line-height: 1.38;
+  line-height: 1.35;
   word-break: keep-all;
   overflow-wrap: break-word;
 }
 
-.people-title {
-  display: inline;
+.vision-text {
+  font-size: 1.05rem;
+  line-height: 1.7;
 }
 
-.people-fullname {
+.u-text-block {
+  display: block;
+}
+
+.u-nowrap {
   display: inline-block;
   white-space: nowrap;
 }
 
-@media (max-width: 480px) {
-  .people-name {
-    font-size: 1.05rem;
+@media (max-width: 640px) {
+  .u-text-block {
+    display: inline;
   }
-  .people-fullname {
+  .u-nowrap {
     white-space: normal;
-    word-break: keep-all;
   }
 }
 
