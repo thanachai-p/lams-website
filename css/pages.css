@@ -204,8 +204,16 @@
    4. Programs Grid & Cards
    ========================================================================== */
 .programs-container--people {
+  width: 95%;
+  max-width: 1780px;
+  margin: 0 auto;
+  padding: 0 1.5% 80px;
+}
+
+.programs-container--about {
+  width: 92%;
   max-width: 1560px;
-  padding: 0 clamp(1rem, 3.5%, 2.5rem) 80px;
+  margin: 0 auto;
 }
 
 .programs-container {
@@ -755,8 +763,8 @@
    ========================================================================== */
 .people-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(min(380px, 100%), 1fr));
-  gap: 28px;
+  grid-template-columns: repeat(auto-fill, minmax(min(340px, 100%), 1fr));
+  gap: 24px;
   margin-top: 25px;
 }
 
@@ -779,7 +787,7 @@
 
 .people-avatar-wrap {
   width: 100%;
-  height: 280px;
+  height: 270px;
   background: linear-gradient(180deg, rgba(220,38,38,0.1) 0%, rgba(14,2,4,0.95) 100%);
   position: relative;
   overflow: hidden;
@@ -833,25 +841,17 @@
 }
 
 .vision-text {
-  font-size: 1.05rem;
+  font-size: 1.08rem;
   line-height: 1.7;
 }
 
-.u-text-block {
+.vision-line {
   display: block;
 }
 
-.u-nowrap {
-  display: inline-block;
-  white-space: nowrap;
-}
-
 @media (max-width: 640px) {
-  .u-text-block {
+  .vision-line {
     display: inline;
-  }
-  .u-nowrap {
-    white-space: normal;
   }
 }
 

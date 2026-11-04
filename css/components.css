@@ -2513,14 +2513,24 @@ a.btn-share-quick {
    ========================================================================== */
 
 .checklist-item {
-  margin-bottom: 12px;
+  margin-bottom: 14px;
   display: flex;
-  gap: 10px;
+  gap: 12px;
+  align-items: flex-start;
 }
 
 .checklist-item__icon {
   color: var(--theme-red-bright);
-  margin-top: 5px;
+  margin-top: 4px;
+  flex-shrink: 0;
+}
+
+.checklist-item__text {
+  flex: 1 1 auto;
+  min-width: 0;
+  line-height: 1.6;
+  word-break: keep-all;
+  overflow-wrap: break-word;
 }
 
 .gateway-banner__tag {
