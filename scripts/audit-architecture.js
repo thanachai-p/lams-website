@@ -9,7 +9,7 @@ const path = require('path');
 
 const rootDir = path.resolve(__dirname, '..');
 const TARGET_FONT_KEY = 'Prompt:wght@300;400;500;600;700;800;900';
-const TARGET_VERSION = '20261029_1200';
+const TARGET_VERSION = '20261105_1200';
 
 const thPages = [
   'index.html',
@@ -33,7 +33,17 @@ const enPages = [
   'en/staff.html'
 ];
 
-const allPages = [...thPages, ...enPages];
+const zhPages = [
+  'zh/index.html',
+  'zh/about.html',
+  'zh/news.html',
+  'zh/people.html',
+  'zh/program-detail.html',
+  'zh/programs.html',
+  'zh/staff.html'
+];
+
+const allPages = [...thPages, ...enPages, ...zhPages];
 const cssFiles = ['css/style.css', 'css/components.css', 'css/pages.css'];
 const jsFiles = ['js/main.js', 'js/programs-data.js'];
 
@@ -57,8 +67,8 @@ function warn(condition, message) {
 console.log('=== LAMS ARCHITECTURAL AUDIT & PRE-DEPLOYMENT GATE ===\n');
 
 // 1. File existence & page count
-console.log('1. Verifying all 16 pages exist...');
-assert(allPages.length === 16, `Expected exactly 16 HTML pages, got ${allPages.length}`);
+console.log('1. Verifying all 23 pages exist...');
+assert(allPages.length === 23, `Expected exactly 23 HTML pages, got ${allPages.length}`);
 for (const p of allPages) {
   assert(fs.existsSync(path.join(rootDir, p)), `Missing page: ${p}`);
 }
@@ -131,7 +141,7 @@ assert(!varHexFallbacks, `Codebase still contains var() with hardcoded hex fallb
 console.log('7. Verifying HTML semantics, lang tags, and accessible headings...');
 for (const p of allPages) {
   const content = fs.readFileSync(path.join(rootDir, p), 'utf8');
-  const expectedLang = p.startsWith('en/') ? 'en' : 'th';
+  const expectedLang = p.startsWith('en/') ? 'en' : (p.startsWith('zh/') ? 'zh-Hans' : 'th');
   assert(content.includes(`<html lang="${expectedLang}">`), `${p} lang tag does not match expected: ${expectedLang}`);
   assert(/<title[^>]*>[^<]+<\/title>/i.test(content), `${p} has missing or empty <title> tag`);
   assert(/<header\s+class=["'][^"']*site-header/i.test(content), `${p} missing .site-header`);
@@ -150,8 +160,8 @@ const styleOutsideRoot = styleCss.replace(/:root\s*\{([\s\S]*?)\}/, '');
 const styleHexMatches = styleOutsideRoot.match(/#[0-9a-fA-F]{3,8}\b/g);
 assert(!styleHexMatches, `css/style.css contains raw hardcoded hex colors outside :root: ${styleHexMatches ? styleHexMatches.join(', ') : ''}`);
 
-// 9. Zero inline scripts across all 16 pages
-console.log('9. Verifying zero inline scripts across all 16 HTML pages...');
+// 9. Zero inline scripts across all 23 pages
+console.log('9. Verifying zero inline scripts across all 23 HTML pages...');
 for (const p of allPages) {
   const content = fs.readFileSync(path.join(rootDir, p), 'utf8');
   const scriptMatches = [...content.matchAll(/<script\b([^>]*)>([\s\S]*?)<\/script>/gi)];
@@ -166,13 +176,13 @@ assert(mainJs.includes("siteNav.classList.remove('is-open')"), "js/main.js missi
 
 // 11. Program Detail dependencies verification
 console.log('11. Verifying program detail data script loading...');
-for (const detailPage of ['pages/program-detail.html', 'en/program-detail.html']) {
+for (const detailPage of ['pages/program-detail.html', 'en/program-detail.html', 'zh/program-detail.html']) {
   const content = fs.readFileSync(path.join(rootDir, detailPage), 'utf8');
-  const dataIdx = content.indexOf('js/programs-data.js');
-  const mainIdx = content.indexOf('js/main.js');
-  assert(dataIdx !== -1, `${detailPage} is missing js/programs-data.js`);
-  assert(mainIdx !== -1, `${detailPage} is missing js/main.js`);
-  assert(dataIdx < mainIdx, `${detailPage} must load js/programs-data.js before js/main.js`);
+  const dataMatch = content.match(/<script[^>]+js\/programs-data\.js/);
+  const mainMatch = content.match(/<script[^>]+js\/main\.js/);
+  assert(dataMatch !== null, `${detailPage} is missing js/programs-data.js script tag`);
+  assert(mainMatch !== null, `${detailPage} is missing js/main.js script tag`);
+  assert(dataMatch && mainMatch && dataMatch.index < mainMatch.index, `${detailPage} must load js/programs-data.js before js/main.js`);
 }
 
 // 12. Component initializers invocation in runMasterInit
@@ -203,7 +213,7 @@ for (const fn of requiredInitializers) {
 }
 
 // 13. Zero inline event handlers and zero javascript: pseudo-protocol
-console.log('13. Verifying zero inline event handlers (on*) and zero javascript: pseudo-protocols across all 16 HTML pages...');
+console.log('13. Verifying zero inline event handlers (on*) and zero javascript: pseudo-protocols across all 23 HTML pages...');
 for (const p of allPages) {
   const content = fs.readFileSync(path.join(rootDir, p), 'utf8');
   const eventMatches = content.match(/\bon(click|change|input|submit|load|keyup|keydown)\s*=/gi);

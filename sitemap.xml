@@ -87,6 +87,7 @@
     <loc>https://lams.surat.psu.ac.th/pages/news.html</loc>
     <xhtml:link rel="alternate" hreflang="th" href="https://lams.surat.psu.ac.th/pages/news.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://lams.surat.psu.ac.th/en/news.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://lams.surat.psu.ac.th/zh/news.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://lams.surat.psu.ac.th/pages/news.html"/>
     <lastmod>2026-10-28</lastmod>
     <changefreq>weekly</changefreq>
@@ -96,6 +97,7 @@
     <loc>https://lams.surat.psu.ac.th/en/news.html</loc>
     <xhtml:link rel="alternate" hreflang="th" href="https://lams.surat.psu.ac.th/pages/news.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://lams.surat.psu.ac.th/en/news.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://lams.surat.psu.ac.th/zh/news.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://lams.surat.psu.ac.th/pages/news.html"/>
     <lastmod>2026-10-28</lastmod>
     <changefreq>weekly</changefreq>
@@ -129,6 +131,7 @@
     <loc>https://lams.surat.psu.ac.th/pages/staff.html</loc>
     <xhtml:link rel="alternate" hreflang="th" href="https://lams.surat.psu.ac.th/pages/staff.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://lams.surat.psu.ac.th/en/staff.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://lams.surat.psu.ac.th/zh/staff.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://lams.surat.psu.ac.th/pages/staff.html"/>
     <lastmod>2026-10-28</lastmod>
     <changefreq>monthly</changefreq>
@@ -138,6 +141,7 @@
     <loc>https://lams.surat.psu.ac.th/en/staff.html</loc>
     <xhtml:link rel="alternate" hreflang="th" href="https://lams.surat.psu.ac.th/pages/staff.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://lams.surat.psu.ac.th/en/staff.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://lams.surat.psu.ac.th/zh/staff.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://lams.surat.psu.ac.th/pages/staff.html"/>
     <lastmod>2026-10-28</lastmod>
     <changefreq>monthly</changefreq>
@@ -192,6 +196,36 @@
     <lastmod>2026-11-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://lams.surat.psu.ac.th/zh/people.html</loc>
+    <xhtml:link rel="alternate" hreflang="th" href="https://lams.surat.psu.ac.th/pages/people.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lams.surat.psu.ac.th/en/people.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://lams.surat.psu.ac.th/zh/people.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lams.surat.psu.ac.th/pages/people.html"/>
+    <lastmod>2026-11-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://lams.surat.psu.ac.th/zh/news.html</loc>
+    <xhtml:link rel="alternate" hreflang="th" href="https://lams.surat.psu.ac.th/pages/news.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lams.surat.psu.ac.th/en/news.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://lams.surat.psu.ac.th/zh/news.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lams.surat.psu.ac.th/pages/news.html"/>
+    <lastmod>2026-11-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://lams.surat.psu.ac.th/zh/staff.html</loc>
+    <xhtml:link rel="alternate" hreflang="th" href="https://lams.surat.psu.ac.th/pages/staff.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lams.surat.psu.ac.th/en/staff.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://lams.surat.psu.ac.th/zh/staff.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lams.surat.psu.ac.th/pages/staff.html"/>
+    <lastmod>2026-11-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
 
 </urlset>
