@@ -9,7 +9,7 @@ const path = require('path');
 
 const rootDir = path.resolve(__dirname, '..');
 const TARGET_FONT_KEY = 'Prompt:wght@300;400;500;600;700;800;900';
-const TARGET_VERSION = '20261105_1200';
+const TARGET_VERSION = '20261105_1345';
 
 const thPages = [
   'index.html',

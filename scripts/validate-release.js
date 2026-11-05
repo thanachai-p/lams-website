@@ -233,7 +233,7 @@ console.log('✅ Program credit numbers 100% match official curriculum.');
 // 5. Cache Version Consistency Check
 // -------------------------------------------------------------
 console.log('\n--- 5. AUDITING CACHE QUERY STRINGS (?v=) ---');
-const TARGET_VERSION = '20261105_1200';
+const TARGET_VERSION = '20261105_1345';
 let versionMatchesCount = 0;
 
 for (const p of allPages) {
