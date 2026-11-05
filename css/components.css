@@ -3204,5 +3204,10 @@ html[lang^="zh"] .bar-item {
 html[lang="zh-Hans"] .catalog-tab,
 html[lang^="zh"] .catalog-tab {
   min-width: 100px;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
   text-align: center;
 }
