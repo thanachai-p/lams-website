@@ -1191,14 +1191,17 @@ function initProgramDetail() {
   detailHero.dataset.initialized = 'true';
 
   const crumbName = document.getElementById('crumb-program-name');
-  const isEn = document.documentElement.lang === 'en' || window.location.pathname.includes('/en/');
+  const isZh = document.documentElement.lang.startsWith('zh') || window.location.pathname.includes('/zh/');
+  const isEn = !isZh && (document.documentElement.lang === 'en' || window.location.pathname.includes('/en/'));
   const urlParams = new URLSearchParams(window.location.search);
   const programId = urlParams.get('id') || 'bba-mgmt';
 
   const thSwitch = document.getElementById('lang-switch-th-link');
   const enSwitch = document.getElementById('lang-switch-en-link');
-  if (thSwitch) thSwitch.href = isEn ? '../pages/program-detail.html?id=' + encodeURIComponent(programId) : 'program-detail.html?id=' + encodeURIComponent(programId);
+  const zhSwitch = document.getElementById('lang-switch-zh-link');
+  if (thSwitch) thSwitch.href = (isEn || isZh) ? '../pages/program-detail.html?id=' + encodeURIComponent(programId) : 'program-detail.html?id=' + encodeURIComponent(programId);
   if (enSwitch) enSwitch.href = isEn ? 'program-detail.html?id=' + encodeURIComponent(programId) : '../en/program-detail.html?id=' + encodeURIComponent(programId);
+  if (zhSwitch) zhSwitch.href = isZh ? 'program-detail.html?id=' + encodeURIComponent(programId) : '../zh/program-detail.html?id=' + encodeURIComponent(programId);
 
   if (typeof window.getLamsProgramById !== 'function') return;
 
@@ -1212,9 +1215,11 @@ function initProgramDetail() {
     alertIcon.className = 'fa-solid fa-circle-exclamation';
     alertIcon.setAttribute('aria-hidden', 'true');
     const alertMsg = document.createElement('span');
-    alertMsg.textContent = isEn
-      ? 'Notice: The specified curriculum ID was not found. Displaying default featured program.'
-      : 'ไม่พบรหัสหลักสูตรที่ระบุ ระบบกำลังแสดงผลหลักสูตรแนะนำเริ่มต้น';
+    alertMsg.textContent = isZh
+      ? '提示：未找到指定的课程编号，系统正在显示默认推荐课程。'
+      : (isEn
+        ? 'Notice: The specified curriculum ID was not found. Displaying default featured program.'
+        : 'ไม่พบรหัสหลักสูตรที่ระบุ ระบบกำลังแสดงผลหลักสูตรแนะนำเริ่มต้น');
     alertBox.append(alertIcon, alertMsg);
     const subHeroContainer = detailHero.querySelector('.subpage-hero-container');
     if (subHeroContainer) subHeroContainer.prepend(alertBox);
@@ -1222,18 +1227,25 @@ function initProgramDetail() {
 
   if (!program) return;
 
-  const shortTitle = isEn ? (program.shortNameEn || program.nameEn) : program.shortName;
-  document.title = isEn
-    ? shortTitle + ' | Faculty of Liberal Arts and Management Sciences, PSU'
-    : program.shortName + ' | คณะศิลปศาสตร์และวิทยาการจัดการ ม.อ.สุราษฎร์ธานี';
+  const shortTitle = isZh
+    ? (program.shortNameZh || program.nameZh || program.shortNameEn || program.shortName)
+    : (isEn ? (program.shortNameEn || program.nameEn) : program.shortName);
+
+  document.title = isZh
+    ? shortTitle + ' | 宋卡王子大学素拉他尼校区文学院与管理科学学院'
+    : (isEn
+      ? shortTitle + ' | Faculty of Liberal Arts and Management Sciences, PSU'
+      : program.shortName + ' | คณะศิลปศาสตร์และวิทยาการจัดการ ม.อ.สุราษฎร์ธานี');
 
   if (crumbName) crumbName.textContent = shortTitle;
 
   const badgeText = document.getElementById('detail-badge-text');
   if (badgeText) {
-    badgeText.textContent = isEn
-      ? (program.levelNameEn || program.levelName) + ' • ' + (program.durationEn || program.duration)
-      : program.levelName + ' • ' + program.duration;
+    badgeText.textContent = isZh
+      ? (program.levelNameZh || program.levelNameEn || program.levelName) + ' • ' + (program.durationZh || program.durationEn || program.duration)
+      : (isEn
+        ? (program.levelNameEn || program.levelName) + ' • ' + (program.durationEn || program.duration)
+        : program.levelName + ' • ' + program.duration);
   }
 
   // Safe Degree Code DOM construction (Zero innerHTML)
@@ -1246,9 +1258,11 @@ function initProgramDetail() {
     icon.setAttribute('aria-hidden', 'true');
     icon.style.marginRight = '8px';
     const textNode = document.createTextNode(
-      isEn
-        ? (program.degreeCodeEn || program.degreeCode)
-        : program.degreeCode + ' (' + program.shortName + ')'
+      isZh
+        ? (program.degreeCodeZh || program.degreeCodeEn || program.degreeCode)
+        : (isEn
+          ? (program.degreeCodeEn || program.degreeCode)
+          : program.degreeCode + ' (' + program.shortName + ')')
     );
     degreeCode.append(icon, textNode);
   }
@@ -1257,16 +1271,20 @@ function initProgramDetail() {
   if (titleEn) titleEn.textContent = program.nameEn || '';
 
   const titleTh = document.getElementById('detail-title-th');
-  if (titleTh) titleTh.textContent = program.nameTh || '';
+  if (titleTh) titleTh.textContent = isZh ? (program.nameZh || program.nameTh || '') : (program.nameTh || '');
 
   const philosophy = document.getElementById('detail-philosophy');
   if (philosophy) {
-    philosophy.textContent = isEn ? (program.philosophyEn || program.philosophy) : program.philosophy;
+    philosophy.textContent = isZh
+      ? (program.philosophyZh || program.philosophyEn || program.philosophy)
+      : (isEn ? (program.philosophyEn || program.philosophy) : program.philosophy);
   }
 
   // Safe Tracks DOM construction (Zero innerHTML)
   const tracksContainer = document.getElementById('detail-tracks-container');
-  const tracks = isEn ? (program.tracksEn || program.tracks) : program.tracks;
+  const tracks = isZh
+    ? (program.tracksZh || program.tracksEn || program.tracks)
+    : (isEn ? (program.tracksEn || program.tracks) : program.tracks);
   if (tracksContainer) {
     tracksContainer.replaceChildren();
     if (tracks && tracks.length > 0) {
@@ -1285,7 +1303,9 @@ function initProgramDetail() {
 
   // Safe Careers DOM construction (Zero innerHTML)
   const careersContainer = document.getElementById('detail-careers-container');
-  const careers = isEn ? (program.careersEn || program.careers) : program.careers;
+  const careers = isZh
+    ? (program.careersZh || program.careersEn || program.careers)
+    : (isEn ? (program.careersEn || program.careers) : program.careers);
   if (careersContainer) {
     careersContainer.replaceChildren();
     if (careers && careers.length > 0) {
@@ -1305,19 +1325,33 @@ function initProgramDetail() {
 
   // Sidebar Quick Facts
   const factLevel = document.getElementById('detail-fact-level');
-  if (factLevel) factLevel.textContent = isEn ? (program.levelNameEn || program.levelName) : program.levelName;
+  if (factLevel) {
+    factLevel.textContent = isZh
+      ? (program.levelNameZh || program.levelNameEn || program.levelName)
+      : (isEn ? (program.levelNameEn || program.levelName) : program.levelName);
+  }
 
   const factDuration = document.getElementById('detail-fact-duration');
-  if (factDuration) factDuration.textContent = isEn ? (program.durationEn || program.duration) : program.duration;
+  if (factDuration) {
+    factDuration.textContent = isZh
+      ? (program.durationZh || program.durationEn || program.duration)
+      : (isEn ? (program.durationEn || program.duration) : program.duration);
+  }
 
   const factCredits = document.getElementById('detail-fact-credits');
-  if (factCredits) factCredits.textContent = isEn ? (program.creditsEn || program.credits) : program.credits;
+  if (factCredits) {
+    factCredits.textContent = isZh
+      ? (program.creditsZh || program.creditsEn || program.credits)
+      : (isEn ? (program.creditsEn || program.credits) : program.credits);
+  }
 
   const factPdfYear = document.getElementById('detail-fact-pdfyear');
   if (factPdfYear) {
-    factPdfYear.textContent = isEn
-      ? (program.pdfYearEn || program.pdfYear || '2026 (Latest)')
-      : (program.pdfYear || 'รหัส 69 (ล่าสุด)');
+    factPdfYear.textContent = isZh
+      ? (program.pdfYearZh || program.pdfYearEn || '2026年最新教学大纲')
+      : (isEn
+        ? (program.pdfYearEn || program.pdfYear || '2026 (Latest)')
+        : (program.pdfYear || 'รหัส 69 (ล่าสุด)'));
   }
 
   // Safe PDF Link (Protocol Sanitized)
@@ -1335,9 +1369,11 @@ function initProgramDetail() {
     applyBtn.replaceChildren();
 
     const btnText = document.createTextNode(
-      isEn
-        ? (isMba ? 'Apply MBA ' : 'Apply TCAS ')
-        : (isMba ? 'สมัครเรียน ป.โท MBA ' : 'สมัครเรียน TCAS ม.อ. ')
+      isZh
+        ? (isMba ? '申请 MBA 研究生 ' : '国际学生申请咨询 ')
+        : (isEn
+          ? (isMba ? 'Apply MBA ' : 'Apply TCAS ')
+          : (isMba ? 'สมัครเรียน ป.โท MBA ' : 'สมัครเรียน TCAS ม.อ. '))
     );
     const arrowIcon = document.createElement('i');
     arrowIcon.className = 'fa-solid fa-arrow-up-right-from-square';
@@ -1349,9 +1385,11 @@ function initProgramDetail() {
 
   const feeNote = document.getElementById('detail-fee-note');
   if (feeNote) {
-    feeNote.textContent = isEn
-      ? (program.tuitionFeeEstimateEn || program.tuitionFeeEstimate)
-      : program.tuitionFeeEstimate;
+    feeNote.textContent = isZh
+      ? (program.tuitionFeeEstimateZh || program.tuitionFeeEstimateEn || program.tuitionFeeEstimate)
+      : (isEn
+        ? (program.tuitionFeeEstimateEn || program.tuitionFeeEstimate)
+        : program.tuitionFeeEstimate);
   }
 }
 

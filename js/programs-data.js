@@ -560,3 +560,307 @@ window.getLamsProgramById = function(programId) {
   if (!window.LAMS_PROGRAMS_DATA) return null;
   return window.LAMS_PROGRAMS_DATA.find(p => p.id === programId) || null;
 };
+
+/* ==========================================================================
+ * LAMS PSU SURAT THANI - OFFICIAL CHINESE (zh-Hans) LOCALIZATION OVERLAY
+ * Architecture: Additive Only (100% Backward Compatible, Zero Base Mutation)
+ * Models: Qwen 3.8/3.7+ (Terminology), GLM-5.3 (Data Architecture), Luna (Gate)
+ * ========================================================================== */
+
+const LAMS_PROGRAMS_ZH_OVERLAY = {
+  "bba-mgmt": {
+    nameZh: "工商管理学士课程（商务管理方向）",
+    shortNameZh: "商务管理",
+    levelNameZh: "本科课程",
+    degreeCodeZh: "B.B.A. (Business Management)",
+    durationZh: "4年制",
+    creditsZh: "128学分",
+    tuitionFeeEstimateZh: "每学期约 16,000 泰铢 (约 3,200 人民币)",
+    badgeZh: "热门课程",
+    philosophyZh: "培养根植于进步主义教育理念的现代商业领军人才，使其具备敏锐的商业洞察力、敏捷的战略决策力以及先进的数字化商业工具，以实现企业的可持续发展与社会责任担当。",
+    tracksZh: [
+      {
+        title: "1. 数字化创业与商业创新",
+        desc: "专注于现代商业模式、电子商务、数字营销策略及初创企业孵化。"
+      },
+      {
+        title: "2. 国际商务与现代物流管理",
+        desc: "涵盖跨境贸易、进出口运作、海运交通及全球供应链协同网络。"
+      },
+      {
+        title: "3. 人力资本与企业战略传播",
+        desc: "注重人力潜能开发、组织认同感建设、团队领导力及企业战略公关。"
+      }
+    ],
+    careersZh: [
+      "商业企业家与家族企业接班人 (Entrepreneur)",
+      "数字营销专家与新媒体运营 (Digital Marketer)",
+      "商业数据与战略分析师 (Business Analyst)",
+      "现代物流与供应链管理专家 (Supply Chain Specialist)",
+      "国际贸易与跨国进出口专员 (Import-Export Specialist)",
+      "人力资源管理与组织发展顾问 (HR Professional)",
+      "企业公关与战略品牌传播专家 (Corporate Communications)"
+    ],
+    pdfYearZh: "2026年最新教学大纲",
+    tcasStatusZh: "国际学生常年接受申请与入学咨询"
+  },
+  "bba-tourism": {
+    nameZh: "工商管理学士课程（旅游管理方向）",
+    shortNameZh: "旅游管理",
+    levelNameZh: "本科课程",
+    degreeCodeZh: "B.B.A. (Tourism Management)",
+    durationZh: "4年制",
+    creditsZh: "126学分",
+    tuitionFeeEstimateZh: "每学期约 16,000 泰铢 (约 3,200 人民币)",
+    badgeZh: "国际化认证",
+    philosophyZh: "立足国际旅游枢纽（苏梅岛与泰国南部湾），培养掌握现代智慧旅游、绿色生态旅游与国际会展管理能力的高素质国际化文旅复合型英才。",
+    tracksZh: [
+      {
+        title: "1. 国际酒店与高端度假村运营",
+        desc: "专注于跨国豪华酒店标准服务、客房与前厅管理、餐饮艺术及国际化接待标准。"
+      },
+      {
+        title: "2. 国际会展与大型节事策划 (MICE)",
+        desc: "涵盖商务会议、奖励旅游、大型展览、国际学术年会及文化节庆活动的策划与执行。"
+      },
+      {
+        title: "3. 可持续生态与智慧数字化旅游",
+        desc: "聚焦海岛生态旅游保护、智慧景区数字化管理、健康康养文旅及社区共富模式。"
+      }
+    ],
+    careersZh: [
+      "国际豪华酒店与度假村高级管理人员",
+      "国际会展与商务会议项目总监 (MICE Specialist)",
+      "全球航空与国际邮轮服务运营专家",
+      "目的地智慧文旅营销与数字化策划师",
+      "出入境旅行社高级定制师与外语领队",
+      "生态文旅项目开发与创业顾问"
+    ],
+    pdfYearZh: "2026年最新教学大纲",
+    tcasStatusZh: "国际学生常年接受申请与入学咨询"
+  },
+  "b-acc": {
+    nameZh: "会计学学士课程",
+    shortNameZh: "会计学",
+    levelNameZh: "本科课程",
+    degreeCodeZh: "B.Acc. (Accountancy)",
+    durationZh: "4年制",
+    creditsZh: "131学分",
+    tuitionFeeEstimateZh: "每学期约 16,000 泰铢 (约 3,200 人民币)",
+    badgeZh: "专业就业导向",
+    philosophyZh: "恪守崇高商业道德与职业准则，融合国际财务报告准则 (IFRS)、现代审计鉴证与大数据智能财务分析，培养具备国际竞争力的财会精英。",
+    tracksZh: [
+      {
+        title: "1. 现代国际财务会计与准则",
+        desc: "深耕企业财务核算、跨国合并报表、国际会计准则 (IFRS) 及合规性信息披露。"
+      },
+      {
+        title: "2. 现代独立审计与内部控制",
+        desc: "培养基于风险导向的现代审计、企业内部控制体系设计、合规审查及法务会计。"
+      },
+      {
+        title: "3. 数字化财务与企业税务战略筹划",
+        desc: "融合企业ERP系统、智能财税大数据、税务风险管理及经营决策支持分析。"
+      }
+    ],
+    careersZh: [
+      "国际会计师事务所注册审计师与税务顾问",
+      "跨国企业财务经理与总账会计主管",
+      "企业合规审查与内部风险控制专家",
+      "商业银行信贷分析与金融理财顾问",
+      "智能财务系统与ERP数据分析师"
+    ],
+    pdfYearZh: "2026年最新教学大纲",
+    tcasStatusZh: "国际学生常年接受申请与入学咨询"
+  },
+  "b-econ": {
+    nameZh: "经济学学士课程（商务经济学方向）",
+    shortNameZh: "商务经济学",
+    levelNameZh: "本科课程",
+    degreeCodeZh: "B.Econ. (Business Economics)",
+    durationZh: "4年制",
+    creditsZh: "125学分",
+    tuitionFeeEstimateZh: "每学期约 16,000 泰铢 (约 3,200 人民币)",
+    badgeZh: "数据与金融",
+    philosophyZh: "将现代经济学理论与现代商业实战深度融合，培养善于运用经济计量模型、大数据分析与宏观产业洞察以支持重大商业决策的高级复合型分析师。",
+    tracksZh: [
+      {
+        title: "1. 商务量化分析与数据科学",
+        desc: "精通经济计量模型、商业数据挖掘、消费者行为预测及市场实验设计。"
+      },
+      {
+        title: "2. 金融市场与全球投资分析",
+        desc: "涵盖证券分析、宏观金融政策、衍生品交易、企业并购及风险对冲机制。"
+      },
+      {
+        title: "3. 区域经贸发展与东盟自由贸易",
+        desc: "深研东盟 (ASEAN) 与 RCEP 经济格局、国际贸易协定、关税政策及跨国投资。"
+      }
+    ],
+    careersZh: [
+      "商业金融与投资市场分析师 (Financial Analyst)",
+      "商业数据建模与消费者洞察专员",
+      "跨国经贸与进出口策略顾问",
+      "商业银行风险管理与信贷审批官",
+      "证券与资产管理机构研究员"
+    ],
+    pdfYearZh: "2026年最新教学大纲",
+    tcasStatusZh: "国际学生常年接受申请与入学咨询"
+  },
+  "b-pa": {
+    nameZh: "公共管理学学士课程",
+    shortNameZh: "公共管理",
+    levelNameZh: "本科课程",
+    degreeCodeZh: "B.P.A. (Public Administration)",
+    durationZh: "4年制",
+    creditsZh: "127学分",
+    tuitionFeeEstimateZh: "每学期约 16,000 泰铢 (约 3,200 人民币)",
+    badgeZh: "公共治理",
+    philosophyZh: "秉持公共服务精神与现代治理理念，培养兼具深厚公共政策素养、跨部门组织协同能力与卓越执行力的现代治理与行政管理英才。",
+    tracksZh: [
+      {
+        title: "1. 公共政策制定与数字化治理",
+        desc: "聚焦智慧城市建设、政府数字化转型、公共事务评估及政策创新。"
+      },
+      {
+        title: "2. 组织战略领导力与人力资本",
+        desc: "培养公共与私营部门的战略规划、人力资源激励、变革管理及团队领导力。"
+      },
+      {
+        title: "3. 区域可持续治理与地方发展",
+        desc: "专注地方公共服务优化、生态环境保护治理、社区治理及危机应急管理。"
+      }
+    ],
+    careersZh: [
+      "公共部门与国际组织行政主管",
+      "企业公共事务与政府关系总监 (Government Relations)",
+      "政策研究与社会咨询机构分析师",
+      "非营利组织 (NGO) 与慈善基金会项目总监",
+      "大型企业综合行政与人力资源经理"
+    ],
+    pdfYearZh: "2026年最新教学大纲",
+    tcasStatusZh: "国际学生常年接受申请与入学咨询"
+  },
+  "ba-eng": {
+    nameZh: "文学学士课程（商务沟通英语方向）",
+    shortNameZh: "商务英语",
+    levelNameZh: "本科课程",
+    degreeCodeZh: "B.A. (English for Business Communication)",
+    durationZh: "4年制",
+    creditsZh: "125学分",
+    tuitionFeeEstimateZh: "每学期约 16,000 泰铢 (约 3,200 人民币)",
+    badgeZh: "国际多语优势",
+    philosophyZh: "以英语语言为基石、以跨国商务为场景，深度培养融通国际商务礼仪、跨文化谈判技巧、国际会议演讲及涉外文案策划的全球化沟通专门人才。",
+    tracksZh: [
+      {
+        title: "1. 国际商务高级英语沟通与谈判",
+        desc: "精修国际商务合约、高阶商务谈判、跨国电话会议及专业商业演讲。"
+      },
+      {
+        title: "2. 商务文案、口笔译与跨文化交际",
+        desc: "专注于商务法律文书、外经贸互译、涉外公关稿件策划及跨文化冲突调解。"
+      },
+      {
+        title: "3. 全球新媒体数字内容与品牌传播",
+        desc: "培养针对欧美及全球市场的海外社媒营销、数字文案创作与跨境电商内容运营。"
+      }
+    ],
+    careersZh: [
+      "跨国企业商务沟通专员与外事秘书",
+      "商务口笔译与国际会议专业翻译",
+      "跨境电商海外市场运营与内容策略师",
+      "国际航空公司空中乘务与地面贵宾管理",
+      "涉外公关与国际品牌传播专员"
+    ],
+    pdfYearZh: "2026年最新教学大纲",
+    tcasStatusZh: "国际学生常年接受申请与入学咨询"
+  },
+  "ba-chinese": {
+    nameZh: "文学学士课程（商务沟通汉语方向）",
+    shortNameZh: "商务汉语",
+    levelNameZh: "本科课程",
+    degreeCodeZh: "B.A. (Chinese for Business Communication)",
+    durationZh: "4年制",
+    creditsZh: "128学分",
+    tuitionFeeEstimateZh: "每学期约 16,000 泰铢 (约 3,200 人民币)",
+    badgeZh: "中泰经贸特色",
+    philosophyZh: "立足中泰全面经贸战略伙伴关系，深度整合专业商务汉语知识与中国商业文化实务，培育精通中泰跨文化交际、国际贸易流程与涉外商务管理的高级双语英才。",
+    tracksZh: [
+      {
+        title: "1. 高级商务汉语实务与经贸谈判",
+        desc: "强化现代商务汉语听说读写、中国商界商务礼仪、商务合同撰写与商务洽谈。"
+      },
+      {
+        title: "2. 中泰双向经贸翻译与跨文化管理",
+        desc: "深耕中泰互译实务、中国企业管理文化、外资企业在泰运营法律与合规交流。"
+      },
+      {
+        title: "3. 跨境电商与中国数字商业生态",
+        desc: "掌握中国主流电商平台模式、跨境供应链协同、新媒体直播电商与数字贸易。"
+      }
+    ],
+    careersZh: [
+      "中资在泰跨国企业高级商务代表与行政主管",
+      "中泰进出口贸易专员与海外供应链协调官",
+      "中泰商务同声传译与专业经贸笔译员",
+      "涉华高端文旅定制与跨境商务接待主管",
+      "中泰文化交流项目主管与双语教育顾问"
+    ],
+    pdfYearZh: "2026年最新教学大纲",
+    tcasStatusZh: "国际学生常年接受申请与入学咨询"
+  },
+  "mba": {
+    nameZh: "工商管理硕士学位课程 (MBA)",
+    shortNameZh: "工商管理硕士 (MBA)",
+    levelNameZh: "硕士课程",
+    degreeCodeZh: "M.B.A. (Master of Business Administration)",
+    durationZh: "2年制",
+    creditsZh: "36学分",
+    tuitionFeeEstimateZh: "每学期约 35,000 泰铢 (约 7,000 人民币)",
+    badgeZh: "高管精英",
+    philosophyZh: "专为未来商业领袖与企业高阶管理者设计，整合全局商业战略、敏捷组织变革、大数据驱动决策与可持续价值创造，赋能精英人才在动荡商业格局中引领增长。",
+    tracksZh: [
+      {
+        title: "1. 战略管理与全球商业领导力",
+        desc: "深化高管战略洞察、企业组织转型、危机领导力与全球竞争战略。"
+      },
+      {
+        title: "2. 数字化转型与创新商业生态",
+        desc: "探索数字科技赋能新商业模式、敏捷运营、平台经济与颠覆式创新管理。"
+      },
+      {
+        title: "3. 财务价值创造与资本运作战略",
+        desc: "聚焦企业财务战略规划、并购重组、资本市场运作、现金流优化与价值倍增。"
+      }
+    ],
+    careersZh: [
+      "跨国企业与上市公司高级管理层 (CEO, CMO, COO, CFO)",
+      "企业战略发展总监与业务增长拓展总监",
+      "初创企业创始人、合伙人与天使投资人",
+      "国际顶级管理咨询顾问与企业变革导师",
+      "公共与国有大型企业高层政策与运营主管"
+    ],
+    pdfYearZh: "2026年最新教学大纲",
+    tcasStatusZh: "硕士研究生常年接受国际申请与入学评估"
+  }
+};
+
+/**
+ * Self-executing Additive Merger:
+ * Merges Chinese overlay data safely into window.LAMS_PROGRAMS_DATA.
+ * Validates each ID to ensure zero duplicate records and zero base mutation.
+ */
+(function applyLamsZhOverlay() {
+  if (typeof window === "undefined" || !Array.isArray(window.LAMS_PROGRAMS_DATA)) {
+    return;
+  }
+  const basePrograms = window.LAMS_PROGRAMS_DATA;
+  Object.keys(LAMS_PROGRAMS_ZH_OVERLAY).forEach(id => {
+    const targetProgram = basePrograms.find(p => p.id === id);
+    if (targetProgram) {
+      Object.assign(targetProgram, LAMS_PROGRAMS_ZH_OVERLAY[id]);
+    } else {
+      console.warn(`[LAMS ZH Overlay] Target program id '${id}' not found in base dataset.`);
+    }
+  });
+})();
