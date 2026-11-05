@@ -1,7 +1,7 @@
 /**
  * LAMS Website - Comprehensive Multi-Locale Release & Parity Validator
  * Addresses 100% of GPT-5.6 Luna's audit requirements:
- * 1. Internal link resolution & fragment target check across all 23 pages
+ * 1. Internal link resolution & fragment target check across all 25 pages
  * 2. Reciprocal canonical & hreflang validation (HTML head & sitemap.xml)
  * 3. DOM-level faculty card parity (EN vs ZH)
  * 4. Program credit accuracy parity across data file & all HTML catalogs
@@ -29,6 +29,7 @@ const enPages = [
   'en/index.html',
   'en/about.html',
   'en/news.html',
+  'en/news-detail.html',
   'en/people.html',
   'en/program-detail.html',
   'en/programs.html',
@@ -39,6 +40,7 @@ const zhPages = [
   'zh/index.html',
   'zh/about.html',
   'zh/news.html',
+  'zh/news-detail.html',
   'zh/people.html',
   'zh/program-detail.html',
   'zh/programs.html',
@@ -106,7 +108,7 @@ for (const p of allPages) {
     }
   }
 }
-console.log(`✅ Checked ${linkCount} internal links and fragments across all 23 pages.`);
+console.log(`✅ Checked ${linkCount} internal links and fragments across all 25 pages.`);
 
 // -------------------------------------------------------------
 // 2. Canonical & Hreflang Reciprocal Mapping
@@ -128,7 +130,7 @@ for (const p of allPages) {
 
   // Verify hreflang tags for multilingual pages
   const baseName = path.basename(p);
-  const isMultilingual = ['index.html', 'about.html', 'news.html', 'people.html', 'program-detail.html', 'programs.html', 'staff.html'].includes(baseName);
+  const isMultilingual = ['index.html', 'about.html', 'news.html', 'news-detail.html', 'people.html', 'program-detail.html', 'programs.html', 'staff.html'].includes(baseName);
 
   if (isMultilingual) {
     const thHreflang = baseName === 'index.html' ? `${domain}/index.html` : `${domain}/pages/${baseName}`;
@@ -244,7 +246,7 @@ for (const p of allPages) {
     assert(v === TARGET_VERSION, `[${p}] Cache version mismatch: ?v=${v} (expected ${TARGET_VERSION})`);
   }
 }
-console.log(`✅ Verified ${versionMatchesCount} version query strings across all 23 files (all = ${TARGET_VERSION}).`);
+console.log(`✅ Verified ${versionMatchesCount} version query strings across all 25 files (all = ${TARGET_VERSION}).`);
 
 // -------------------------------------------------------------
 // Summary

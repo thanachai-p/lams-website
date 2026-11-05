@@ -27,6 +27,7 @@ const enPages = [
   'en/index.html',
   'en/about.html',
   'en/news.html',
+  'en/news-detail.html',
   'en/people.html',
   'en/program-detail.html',
   'en/programs.html',
@@ -37,6 +38,7 @@ const zhPages = [
   'zh/index.html',
   'zh/about.html',
   'zh/news.html',
+  'zh/news-detail.html',
   'zh/people.html',
   'zh/program-detail.html',
   'zh/programs.html',
@@ -67,8 +69,8 @@ function warn(condition, message) {
 console.log('=== LAMS ARCHITECTURAL AUDIT & PRE-DEPLOYMENT GATE ===\n');
 
 // 1. File existence & page count
-console.log('1. Verifying all 23 pages exist...');
-assert(allPages.length === 23, `Expected exactly 23 HTML pages, got ${allPages.length}`);
+console.log('1. Verifying all 25 pages exist...');
+assert(allPages.length === 25, `Expected exactly 23 HTML pages, got ${allPages.length}`);
 for (const p of allPages) {
   assert(fs.existsSync(path.join(rootDir, p)), `Missing page: ${p}`);
 }
@@ -161,7 +163,7 @@ const styleHexMatches = styleOutsideRoot.match(/#[0-9a-fA-F]{3,8}\b/g);
 assert(!styleHexMatches, `css/style.css contains raw hardcoded hex colors outside :root: ${styleHexMatches ? styleHexMatches.join(', ') : ''}`);
 
 // 9. Zero inline scripts across all 23 pages
-console.log('9. Verifying zero inline scripts across all 23 HTML pages...');
+console.log('9. Verifying zero inline scripts across all 25 HTML pages...');
 for (const p of allPages) {
   const content = fs.readFileSync(path.join(rootDir, p), 'utf8');
   const scriptMatches = [...content.matchAll(/<script\b([^>]*)>([\s\S]*?)<\/script>/gi)];
@@ -213,7 +215,7 @@ for (const fn of requiredInitializers) {
 }
 
 // 13. Zero inline event handlers and zero javascript: pseudo-protocol
-console.log('13. Verifying zero inline event handlers (on*) and zero javascript: pseudo-protocols across all 23 HTML pages...');
+console.log('13. Verifying zero inline event handlers (on*) and zero javascript: pseudo-protocols across all 25 HTML pages...');
 for (const p of allPages) {
   const content = fs.readFileSync(path.join(rootDir, p), 'utf8');
   const eventMatches = content.match(/\bon(click|change|input|submit|load|keyup|keydown)\s*=/gi);
