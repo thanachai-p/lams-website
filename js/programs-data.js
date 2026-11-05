@@ -859,8 +859,6 @@ const LAMS_PROGRAMS_ZH_OVERLAY = {
     const targetProgram = basePrograms.find(p => p.id === id);
     if (targetProgram) {
       Object.assign(targetProgram, LAMS_PROGRAMS_ZH_OVERLAY[id]);
-    } else {
-      console.warn(`[LAMS ZH Overlay] Target program id '${id}' not found in base dataset.`);
     }
   });
 })();

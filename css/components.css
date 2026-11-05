@@ -2063,32 +2063,7 @@ a.btn-share-quick {
   background-repeat: no-repeat;
 }
 
-.has-bg-image--scrim {
-  background-image:
-    linear-gradient(to bottom, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.55)),
-    var(--bg-image, none),
-    linear-gradient(135deg, var(--surface-header) 0%, var(--surface-page) 100%);
-  background-color: var(--surface-page);
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  color: var(--text-primary);
-}
 
-.has-bg-card {
-  position: relative;
-  isolation: isolate;
-  background-image:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.6)),
-    var(--bg-image, none),
-    linear-gradient(160deg, var(--surface-card), var(--surface-header));
-  background-color: var(--surface-card);
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  border-radius: 14px;
-  overflow: hidden;
-}
 
 /* 2. Defensive Layout Utilities (GLM-5.3) */
 .grid-responsive-320 {
@@ -2143,24 +2118,7 @@ a.btn-share-quick {
   }
 }
 
-.footer-social-link {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--text-primary);
-  text-decoration: none;
-  font-size: 0.9rem;
-  padding: 5px 8px;
-  border-radius: 6px;
-  transition: background var(--transition-smooth, 0.2s);
-}
 
-.footer-social-link:hover,
-.footer-social-link:focus-visible {
-  background: rgba(255, 255, 255, 0.12);
-  outline: 2px solid var(--theme-red-bright);
-  outline-offset: 2px;
-}
 
 /* 3. Procurement Card BEM Elements (Qwen 3.7 Plus) */
 .procurement-item__left {
@@ -2624,14 +2582,6 @@ a.btn-share-quick {
   box-shadow: 0 6px 20px rgba(220, 38, 38, 0.35);
 }
 
-.map-card-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 15px;
-  margin-bottom: 20px;
-}
 
 .map-card-title {
   color: var(--text-primary);
@@ -3113,11 +3063,6 @@ a.btn-share-quick {
   background: rgba(255, 255, 255, 0.08);
 }
 
-.modal-feature-desc--muted {
-  color: var(--text-muted);
-  font-size: 0.88rem;
-  margin: 0;
-}
 
 .video-modal-tag--cyan {
   background: rgba(37, 244, 238, 0.15);
@@ -3157,9 +3102,6 @@ a.btn-share-quick {
   margin-left: 4px;
 }
 
-.text-right {
-  text-align: right;
-}
 
 .btn-card-detail--lg {
   padding: 10px 22px;
@@ -3191,10 +3133,8 @@ html[lang^="zh"] .hero-title {
 
 /* Maintain button visual balance & ergonomics for concise Hanzi */
 html[lang="zh-Hans"] .btn-apply-sparkle,
-html[lang="zh-Hans"] .btn-detail,
 html[lang="zh-Hans"] .bar-item,
 html[lang^="zh"] .btn-apply-sparkle,
-html[lang^="zh"] .btn-detail,
 html[lang^="zh"] .bar-item {
   min-width: 130px;
   padding-inline: 1.25rem;

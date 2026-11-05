@@ -1012,14 +1012,6 @@
   box-shadow: 0 12px 30px rgba(220, 38, 38, 0.25);
 }
 
-.people-badge--chair {
-  background: rgba(220, 38, 38, 0.2);
-  border-color: rgba(220, 38, 38, 0.6);
-  color: var(--theme-red-light);
-  font-weight: 700;
-}
-
-.people-badge--chair i,
 .people-badge i {
   color: var(--theme-red-light);
 }
