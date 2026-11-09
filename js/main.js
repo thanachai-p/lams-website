@@ -1232,7 +1232,7 @@ function initProgramDetail() {
     : (isEn ? (program.shortNameEn || program.nameEn) : program.shortName);
 
   document.title = isZh
-    ? shortTitle + ' | 宋卡王子大学素拉他尼校区文学院与管理科学学院'
+    ? shortTitle + ' | 宋卡王子大学素叻他尼校区人文与管理科学学院'
     : (isEn
       ? shortTitle + ' | Faculty of Liberal Arts and Management Sciences, PSU'
       : program.shortName + ' | คณะศิลปศาสตร์และวิทยาการจัดการ ม.อ.สุราษฎร์ธานี');

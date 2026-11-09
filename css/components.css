@@ -3113,27 +3113,23 @@ a.btn-share-quick {
  * Models: Qwen 3.7+ (Architecture & BEM), Luna (Visual Parity)
  * ========================================================================== */
 
-html[lang="zh-Hans"] body,
 html[lang^="zh"] body {
   font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans SC", sans-serif;
 }
 
-html[lang="zh-Hans"],
 html[lang^="zh"] {
   line-height: 1.6;
   word-break: normal;
   overflow-wrap: anywhere;
 }
 
-html[lang="zh-Hans"] .hero-title,
 html[lang^="zh"] .hero-title {
   line-height: 1.35;
   text-wrap: balance;
 }
 
 /* Maintain button visual balance & ergonomics for concise Hanzi */
-html[lang="zh-Hans"] .btn-apply-sparkle,
-html[lang="zh-Hans"] .bar-item,
+
 html[lang^="zh"] .btn-apply-sparkle,
 html[lang^="zh"] .bar-item {
   min-width: 130px;
@@ -3141,7 +3137,6 @@ html[lang^="zh"] .bar-item {
   text-align: center;
 }
 
-html[lang="zh-Hans"] .catalog-tab,
 html[lang^="zh"] .catalog-tab {
   min-width: 100px;
   min-height: 44px;
@@ -3151,3 +3146,4 @@ html[lang^="zh"] .catalog-tab {
   box-sizing: border-box;
   text-align: center;
 }
+

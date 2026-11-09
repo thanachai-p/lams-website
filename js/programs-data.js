@@ -742,8 +742,8 @@ const LAMS_PROGRAMS_ZH_OVERLAY = {
     tcasStatusZh: "国际学生常年接受申请与入学咨询"
   },
   "ba-eng": {
-    nameZh: "文学学士课程（商务沟通英语方向）",
-    shortNameZh: "商务英语",
+    nameZh: "文学学士课程（商务英语交际专业）",
+    shortNameZh: "商务英语交际",
     levelNameZh: "本科课程",
     degreeCodeZh: "B.A. (English for Business Communication)",
     durationZh: "4年制",
@@ -776,8 +776,8 @@ const LAMS_PROGRAMS_ZH_OVERLAY = {
     tcasStatusZh: "国际学生常年接受申请与入学咨询"
   },
   "ba-chinese": {
-    nameZh: "文学学士课程（商务沟通汉语方向）",
-    shortNameZh: "商务汉语",
+    nameZh: "文学学士课程（商务汉语交际专业）",
+    shortNameZh: "商务汉语交际",
     levelNameZh: "本科课程",
     degreeCodeZh: "B.A. (Chinese for Business Communication)",
     durationZh: "4年制",
