@@ -59,10 +59,10 @@ To prevent solo model drift, unverified assumptions, and lazy shortcuts, enforce
 2. **GLM-5.3 (`z-ai/glm-5.3`) — Defensive Logic & Responsive Clamp Author**:
    - Authors responsive media queries, fluid `clamp()` typography, defensive fallbacks, safe patterns, and test automation scripts.
    - May NOT certify visual parity from source inspection alone.
-3. **Gemini Flash — Environment Runner & DevTools Driver**:
-   - Assembles patches in workspace, runs terminal scripts, and executes `chrome-devtools` actions.
-   - **STRICTLY PROHIBITED** from authoring solo speculative architecture or BEM tokens without Qwen/GLM.
-   - MUST attach actual MCP tool receipts when claiming another model reviewed or authored code.
+3. **`Gemini 4 Hydrogen (high)` — Local Orchestrator, Integrator & DevTools Driver (compatible with `Argon` / `Claude`)**:
+   - Runs read-only recon, integrates PSU AI-authored patches into workspace (`<= 3` files / `<= 15` net lines wiring/typo/config only), runs tests, and drives `chrome-devtools` MCP.
+   - **STRICTLY PROHIBITED** from solo speculative CSS/BEM/architecture drift; delegates substantive code to the **Top-4 PSU AI Council** (`ALLOWED_COUNCIL_MODELS`) via explicit `model` on `psu_ai_chat` and stops cleanly on `429`/outage.
+   - MUST attach actual current-turn `call_mcp_tool` receipts when claiming external model authorship or review.
 4. **GPT-5.6 Luna (`openai/gpt-5.6-luna`) — Supreme Gatekeeper & Veto Authority**:
    - Holds absolute Veto/Reject power over architecture, diffs, and verification claims.
    - Rejects any result that satisfies superficial appearance while violating structure, symmetry, or parity.
@@ -89,7 +89,7 @@ Universal workflow for all tasks:
   - `[ ]` Batch `getValues()` / `setValues()`; GAS CacheService chunking ≤ 75KB UTF-8 bytes.
   - `[ ]` All inputs sanitized (`escapeHtml`, formula injection prefix `'`); structured `{success, error}` returns.
   - `[ ]` **UI Gate**: Measured via `chrome-devtools` (geometry, fonts ready, console errors = 0).
-  - `[ ]` **Subagent Gate**: Delegated to `research` subagent or `delegate_to_flash` if scope > 3 files.
+  - `[ ]` **Council & Subagent Gate**: Delegated heavy recon to `research`/`self` (scope > 3 files) and substantive code authorship/critique via `call_mcp_tool` (`psu_ai_chat`) to the **Top-4 PSU AI Council**.
   - `[ ]` **Luna Gate**: Obtained formal `PASS` from `openai/gpt-5.6-luna` via `psu_ai_chat` in the same single turn on latest diff.
 
 ### 0.6 Ironclad Pre-Deployment Safety Gate & 6-Step GAS Execution Chain
