@@ -53,19 +53,17 @@
 
 ### 0.3 Multi-Model Collaborative Code Authorship & Authority Matrix
 To prevent solo model drift, unverified assumptions, and lazy shortcuts, enforce separation of concerns:
-1. **Qwen 3.7 Plus (`qwen/qwen3.7-plus`) — CSS Architecture & BEM Author**:
-   - Designs/authors CSS tokens, BEM naming, cascade/layer strategy, flex/grid layouts, and HTML semantic refactors.
-   - May NOT certify browser behavior without DevTools evidence.
-2. **GLM-5.3 (`z-ai/glm-5.3`) — Defensive Logic & Responsive Clamp Author**:
-   - Authors responsive media queries, fluid `clamp()` typography, defensive fallbacks, safe patterns, and test automation scripts.
-   - May NOT certify visual parity from source inspection alone.
-3. **`Gemini 4 Hydrogen (high)` — Local Orchestrator, Integrator & DevTools Driver (compatible with `Argon` / `Claude`)**:
-   - Runs read-only recon, integrates PSU AI-authored patches into workspace (`<= 3` files / `<= 15` net lines wiring/typo/config only), runs tests, and drives `chrome-devtools` MCP.
-   - **STRICTLY PROHIBITED** from solo speculative CSS/BEM/architecture drift; delegates substantive code to the **Top-4 PSU AI Council** (`ALLOWED_COUNCIL_MODELS`) via explicit `model` on `psu_ai_chat` and stops cleanly on `429`/outage.
-   - MUST attach actual current-turn `call_mcp_tool` receipts when claiming external model authorship or review.
-4. **GPT-5.6 Luna (`openai/gpt-5.6-luna`) — Supreme Gatekeeper & Veto Authority**:
-   - Holds absolute Veto/Reject power over architecture, diffs, and verification claims.
-   - Rejects any result that satisfies superficial appearance while violating structure, symmetry, or parity.
+1. **Claude Haiku 5.5 (`anthropic/claude-haiku-5.5`, `x1`, `200k` ctx, `max_tokens: 8192`) — Primary Code Author, Bug-Hunt & Broad-Repo Analyst**:
+   - Authors clean modular/GAS code, runs coupling/UX scans, and writes tests via concise focused prompts (never monolithic multi-part rewrites). May NOT certify runtime browser parity without DevTools.
+2. **GLM-5.3 (`z-ai/glm-5.3`, `x3`, `max_tokens: 8192`) — Deep Adversarial Security, PII & Edge-Case Auditor**:
+   - Audits applied diffs/plans via brief structured prompts for concurrency, PII leaks, and edge cases (NOT unchecked solo code author). May NOT certify visual parity without DevTools.
+3. **`Gemini 4 Hydrogen (high)` — Thin Orchestrator, Integrator & DevTools Driver (compatible with `Argon` / `Claude`)**:
+   - Runs targeted recon, sanitizes/quotes active `SKILL.md` rules into subordinate `psu_ai_chat` `constraints` (never overriding Sec 0.1–0.2, leaking secrets, or granting unapproved mutations/delegations), integrates verbatim PSU patches (direct solo authoring restricted to `<= 3` files/task for deterministic edits ONLY: wiring/imports/config/formatting or DevTools-validated CSS/DOM), executes tests, and drives `chrome-devtools` MCP.
+   - **STRICTLY PROHIBITED** from solo speculative behavioral logic or fallbacks; delegates substantive coding/bug-hunts via `psu_ai_chat` (`ALLOWED_COUNCIL_MODELS`, `max_tokens: 8192`, `<= 3` focused calls/turn, 60s per-call hard timeout; discard incomplete output, never apply partial patches, never fallback/hot-retry on timeout/`429`/outage; ban `deepseek/deepseek-chat`, `Gemini 3.8 Flash`, `claude_flash`, `9router*`, `psu_free_ai`, `PSU-LLM2/qwen3.8-27B-nvfp4`). Halts if required receipts or Sec 0.1 approvals are absent.
+4. **GPT-5.6 Luna (`openai/gpt-5.6-luna`, `x2`, `max_tokens: 8192`) — Supreme Plan & Final Gatekeeper (Veto Authority)**:
+   - Must issue `PASS` on applied diff + real test/DevTools evidence before `commit`/`clasp push`/`deploy` on substantive changes (NOT bulk O(N) code author).
+5. **GPT-6 Luna (`openai/gpt-6-luna`, `x1`, `max_tokens: 8192`) & Qwen 3.7 Plus (`qwen/qwen3.7-plus`, `x3`, `max_tokens: 8192`)**:
+   - `gpt-6-luna`: Secondary Algorithm & Code Backup. `qwen3.7-plus`: Scoped Short UI/CSS & Thai Copy Specialist ONLY (no multi-file/monolithic prompts due to 60s timeout).
 
 ### 0.4 Mechanical Proof & Geometry Parity Verification (Chrome DevTools MCP)
 Visual similarity ("looks similar") is **STRICTLY REJECTED**. All layout and interactive claims must be measured mechanically:
@@ -89,7 +87,7 @@ Universal workflow for all tasks:
   - `[ ]` Batch `getValues()` / `setValues()`; GAS CacheService chunking ≤ 75KB UTF-8 bytes.
   - `[ ]` All inputs sanitized (`escapeHtml`, formula injection prefix `'`); structured `{success, error}` returns.
   - `[ ]` **UI Gate**: Measured via `chrome-devtools` (geometry, fonts ready, console errors = 0).
-  - `[ ]` **Council & Subagent Gate**: Delegated heavy recon to `research`/`self` (scope > 3 files) and substantive code authorship/critique via `call_mcp_tool` (`psu_ai_chat`) to the **Top-4 PSU AI Council**.
+  - `[ ]` **Council & Subagent Gate**: Delegated heavy recon to `research`/`self` (scope > 3 files) and substantive coding/critique via `call_mcp_tool` (`psu_ai_chat`) to `ALLOWED_COUNCIL_MODELS`.
   - `[ ]` **Luna Gate**: Obtained formal `PASS` from `openai/gpt-5.6-luna` via `psu_ai_chat` in the same single turn on latest diff.
 
 ### 0.6 Ironclad Pre-Deployment Safety Gate & 6-Step GAS Execution Chain
