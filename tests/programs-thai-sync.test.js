@@ -105,6 +105,16 @@ test('Thai philosophy and careers are synced', () => {
 });
 
 test('program cards and detail careers reflect synced Thai content', () => {
+  const expectedCardSummaries = {
+    'bba-mgmt': 'ผลิตบัณฑิตที่มีทักษะความเป็นผู้ประกอบการ ประยุกต์ใช้เครื่องมือบริหารธุรกิจเพื่อจัดการอย่างยั่งยืน มีภาวะผู้นำ คุณธรรม และรับผิดชอบต่อสังคม',
+    'bba-tourism': 'สร้างบัณฑิตที่มีความรู้ ทักษะวิชาชีพ ดิจิทัล ภาษา และความเป็นผู้ประกอบการ เพื่อตอบสนองการทำงานในอุตสาหกรรมการท่องเที่ยวและบริการภายใต้ความเปลี่ยนแปลงของสถานการณ์โลก',
+    'b-acc': 'ผลิตนักบัญชีมืออาชีพที่เชี่ยวชาญการวิเคราะห์ข้อมูลธุรกิจ วางแผนภาษี ใช้เทคโนโลยี และสื่อสารภาษาอังกฤษในที่ทำงานได้อย่างมีจรรยาบรรณวิชาชีพ',
+    'b-econ': 'ผลิตบัณฑิตทางเศรษฐศาสตร์ที่แก้ปัญหาและค้นคว้าด้วยตนเอง พัฒนาทักษะการปรับตัวทันต่อสถานการณ์ คำนึงถึงเศรษฐกิจยั่งยืนและการใช้ทรัพยากรอย่างมีประสิทธิภาพ',
+    'b-pa': 'สร้างนักจัดการภาครัฐที่นำหลักรัฐประศาสนศาสตร์มาพัฒนานวัตกรรมบริหาร แก้ปัญหาองค์กร และจัดการภาวะวิกฤติ โดยยึดหลักธรรมาภิบาลและจิตสำนึกสาธารณะ',
+    'ba-eng': 'ผลิตบัณฑิตที่สื่อสารภาษาอังกฤษสำหรับธุรกิจบริการได้อย่างถูกต้อง ครอบคลุมงานการโรงแรม การท่องเที่ยว และการบิน พร้อมคิดอย่างเป็นระบบและใช้เทคโนโลยี',
+    'ba-chinese': 'ผลิตบัณฑิตผู้เชี่ยวชาญภาษาและวัฒนธรรมจีนเพื่อการสื่อสารทางธุรกิจอย่างมีประสิทธิภาพ ใช้เทคโนโลยีทำงานร่วมกับผู้อื่นได้อย่างมีคุณธรรมในระดับสากล',
+    mba: 'พัฒนาทรัพยากรบุคคลด้านบริหารธุรกิจให้นำเทคโนโลยีดิจิทัล นวัตกรรม เครื่องมือทางธุรกิจ และการวิจัยมาพัฒนากลยุทธ์ แก้ปัญหา และต่อยอดความสามารถในการแข่งขันอย่างยั่งยืน'
+  };
   const html = read('pages/programs.html');
   const cards = new Map();
   for (const match of html.matchAll(/<article\b[^>]*>[\s\S]*?<\/article>/g)) {
@@ -119,11 +129,13 @@ test('program cards and detail careers reflect synced Thai content', () => {
     const card = cards.get(id);
     const section = card.match(/<div[^>]+class=["'][^"']*\bprogram-card-tracks\b[^"']*["'][^>]*>([\s\S]*?)<\/div>/);
     assert.ok(section, `${id}: missing program-card-tracks`);
-    const items = [...section[1].matchAll(/<li\b[^>]*>([\s\S]*?)<\/li>/g)]
-      .map((m) => m[1].replace(/<[^>]*>/g, ' ').replace(/&nbsp;/g, ' ').trim());
-    const expected = expectedTracks[id].length ? expectedTracks[id] : ['ไม่มีการแบ่งกลุ่มวิชาเอกเลือก'];
-    assert.equal(items.length, expected.length, `${id} card track count`);
-    expected.forEach((text, i) => assert.ok(items[i].includes(text), `${id}: missing card track "${text}"`));
+    assert.ok(section[1].includes('<strong>ปรัชญาและวัตถุประสงค์ของหลักสูตรโดยย่อ:</strong>'), `${id}: missing concise philosophy heading`);
+    assert.ok(!section[1].includes('กลุ่มวิชาเอกเลือกเด่น:'), `${id}: unexpected track heading`);
+    assert.doesNotMatch(section[1], /<\/?(?:ul|li)\b/i, `${id}: unexpected list in program-card-tracks`);
+    const paragraph = section[1].match(/<p\b[^>]*>([\s\S]*?)<\/p>/);
+    assert.ok(paragraph, `${id}: missing card summary paragraph`);
+    const actualSummary = paragraph[1].replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim();
+    assert.equal(actualSummary, expectedCardSummaries[id], `${id} card summary`);
   }
   const detail = read('pages/program-detail.html');
   assert.match(detail, /id=["']detail-careers-container["']/);
