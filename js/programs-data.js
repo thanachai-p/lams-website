@@ -15,7 +15,7 @@ window.LAMS_PROGRAMS_DATA = [
     levelName: "ปริญญาตรี",
     levelNameEn: "Bachelor's Degree",
     nameTh: "หลักสูตรบริหารธุรกิจบัณฑิต สาขาวิชาการจัดการธุรกิจ",
-    nameEn: "Bachelor of Business Administration Program in Business Management",
+    nameEn: "Bachelor of Business Administration in Business Management",
     shortName: "การจัดการธุรกิจ",
     shortNameEn: "Business Management",
     duration: "4 ปี",
@@ -55,7 +55,7 @@ window.LAMS_PROGRAMS_DATA = [
         desc: "Covers cross-border commerce, import-export operations, maritime transport, and global supply chain networks."
       },
       {
-        title: "3. Human Capital & Strategic Corporate Communications",
+        title: "3. Human Capital & Corporate Communications",
         desc: "Emphasizes human potential development, organizational engagement, talent leadership, and strategic corporate PR."
       }
     ],
@@ -95,7 +95,7 @@ window.LAMS_PROGRAMS_DATA = [
     levelName: "ปริญญาตรี",
     levelNameEn: "Bachelor's Degree",
     nameTh: "หลักสูตรบริหารธุรกิจบัณฑิต สาขาวิชาการจัดการธุรกิจการท่องเที่ยว",
-    nameEn: "Bachelor of Business Administration Program in Tourism Business Management",
+    nameEn: "Bachelor of Business Administration in Tourism Business Management",
     shortName: "การจัดการธุรกิจการท่องเที่ยว",
     shortNameEn: "Tourism Business Management",
     duration: "4 ปี",
@@ -139,7 +139,7 @@ window.LAMS_PROGRAMS_DATA = [
         desc: "Experience design, eco-tourism development, community-based tourism, and heritage destination stewardship."
       },
       {
-        title: "2. MICE & Event Business Administration",
+        title: "2. MICE & International Event Management",
         desc: "International convention planning, exhibition management, corporate incentive travel, and mega-event logistics."
       }
     ],
@@ -175,7 +175,7 @@ window.LAMS_PROGRAMS_DATA = [
     levelName: "ปริญญาตรี",
     levelNameEn: "Bachelor's Degree",
     nameTh: "หลักสูตรบัญชีบัณฑิต",
-    nameEn: "Bachelor of Accountancy Program",
+    nameEn: "Bachelor of Accountancy",
     shortName: "บัญชีบัณฑิต",
     shortNameEn: "Accountancy",
     duration: "4 ปี",
@@ -194,12 +194,16 @@ window.LAMS_PROGRAMS_DATA = [
     tracks: [],
     tracksEn: [
       {
-        title: "1. Digital Accounting & Corporate Finance",
+        title: "1. Digital Accounting & Enterprise FinTech",
         desc: "Cloud ERP software, enterprise FinTech, strategic cost management, and managerial finance modeling."
       },
       {
-        title: "2. Auditing & Internal Control Systems",
+        title: "2. Auditing & Internal Controls",
         desc: "International Financial Reporting Standards (TFRS/IFRS), forensic tax auditing, and accounting information systems (AIS)."
+      },
+      {
+        title: "3. Pathway to CPA and TA qualifications",
+        desc: "Comprehensive curriculum preparation aligned with Federation of Accounting Professions standards for Certified Public Accountant (CPA) and Tax Auditor (TA) licensing."
       }
     ],
     careers: [
@@ -235,7 +239,7 @@ window.LAMS_PROGRAMS_DATA = [
     levelName: "ปริญญาตรี",
     levelNameEn: "Bachelor's Degree",
     nameTh: "หลักสูตรเศรษฐศาสตรบัณฑิต สาขาวิชาเศรษฐศาสตร์ธุรกิจ",
-    nameEn: "Bachelor of Economics Program in Business Economics",
+    nameEn: "Bachelor of Economics in Business Economics",
     shortName: "เศรษฐศาสตร์ธุรกิจ",
     shortNameEn: "Business Economics",
     duration: "4 ปี",
@@ -271,7 +275,7 @@ window.LAMS_PROGRAMS_DATA = [
         desc: "Securities analysis, portfolio risk management, monetary economics, and digital asset markets."
       },
       {
-        title: "2. Business Economics & International Trade",
+        title: "2. Business Economics, International Trade & Logistics",
         desc: "Market structure analysis, trade agreements, industrial economics, and regional southern economic development."
       }
     ],
@@ -303,7 +307,7 @@ window.LAMS_PROGRAMS_DATA = [
     levelName: "ปริญญาตรี",
     levelNameEn: "Bachelor's Degree",
     nameTh: "หลักสูตรรัฐประศาสนศาสตรบัณฑิต สาขาวิชาการจัดการรัฐกิจ",
-    nameEn: "Bachelor of Public Administration Program in Public Affairs Management",
+    nameEn: "Bachelor of Public Administration in Public Affairs Management",
     shortName: "การจัดการรัฐกิจ",
     shortNameEn: "Public Affairs Management",
     duration: "4 ปี",
@@ -339,7 +343,7 @@ window.LAMS_PROGRAMS_DATA = [
         desc: "Public policy design, smart city governance, administrative law, and digital transformation in government agencies."
       },
       {
-        title: "2. Local Governance & Community Empowerment",
+        title: "2. Local Government Administration & Community Empowerment",
         desc: "Municipal budget administration, civic participation, local development planning, and sustainable community security."
       }
     ],
@@ -372,7 +376,7 @@ window.LAMS_PROGRAMS_DATA = [
     levelName: "ปริญญาตรี",
     levelNameEn: "Bachelor's Degree",
     nameTh: "หลักสูตรศิลปศาสตรบัณฑิต สาขาวิชาภาษาอังกฤษเพื่อการสื่อสารทางธุรกิจ",
-    nameEn: "Bachelor of Arts Program in English for Business Communication",
+    nameEn: "Bachelor of Arts in English for Business Communication",
     shortName: "ภาษาอังกฤษเพื่อการสื่อสารทางธุรกิจ",
     shortNameEn: "English for Business Communication",
     duration: "4 ปี",
@@ -404,12 +408,16 @@ window.LAMS_PROGRAMS_DATA = [
     ],
     tracksEn: [
       {
-        title: "1. English for International Negotiation & Global Marketing",
-        desc: "Cross-border business communication, international trade documentation, contract translation, and pitching."
+        title: "1. English for Hospitality & Guest Services",
+        desc: "Professional English communication for luxury hotels, resort management, guest relations, and international service excellence."
       },
       {
-        title: "2. English for Aviation & Luxury Hospitality",
-        desc: "Specialized airline communication, inflight service protocols, luxury resort guest relations, and tourism narration."
+        title: "2. English for Tourism & Aviation Services",
+        desc: "Specialized communication for airline operations, inflight services, airport passenger handling, and international tourism curation."
+      },
+      {
+        title: "3. English for International Affairs & Global Communication",
+        desc: "Cross-border business negotiation, international trade correspondence, corporate storytelling, and global public relations."
       }
     ],
     careers: [
@@ -437,16 +445,16 @@ window.LAMS_PROGRAMS_DATA = [
   {
     id: "ba-chinese",
     degreeCode: "ศศ.บ. (นานาชาติ)",
-    degreeCodeEn: "B.A. (Chinese - International)",
+    degreeCodeEn: "B.A. (Chinese for Business Communication)",
     level: "bachelor",
     levelName: "ปริญญาตรี (หลักสูตรนานาชาติ)",
     levelNameEn: "Bachelor's Degree (International Program)",
     nameTh: "หลักสูตรศิลปศาสตรบัณฑิต สาขาวิชาภาษาจีนเพื่อการสื่อสารทางธุรกิจ หลักสูตรนานาชาติ",
-    nameEn: "Bachelor of Arts Program in Chinese for Business Communication (International Program)",
+    nameEn: "Bachelor of Arts in Chinese for Business Communication (International)",
     shortName: "ภาษาจีนเพื่อการสื่อสารทางธุรกิจ หลักสูตรนานาชาติ",
     shortNameEn: "Chinese for Business Communication (International)",
     duration: "4 ปี (โครงการ 3+1 เรียนที่ ม.อ. 3 ปี และมหาวิทยาลัยพันธมิตรในจีน 1 ปี)",
-    durationEn: "4 Years (3+1 Program: 3 years at PSU + 1 year at Partner University in China)",
+    durationEn: "International Program · 3 Years at PSU + 1 Year in China",
     credits: "128 หน่วยกิต",
     creditsEn: "128 Credits",
     tuitionFeeEstimate: "ประมาณการ 32,000 บาท/ภาคการศึกษา",
@@ -461,11 +469,11 @@ window.LAMS_PROGRAMS_DATA = [
     tracks: [],
     tracksEn: [
       {
-        title: "1. China-ASEAN Cross-Border Trade & Digital Commerce",
+        title: "1. Chinese for International Trade & China-ASEAN E-Commerce",
         desc: "Trade diplomacy, Chinese digital commerce platforms (Douyin, Taobao, WeChat), and bilateral logistics chains."
       },
       {
-        title: "2. Chinese for International Tourism & Hospitality Management",
+        title: "2. Chinese for Tourism & International Hospitality",
         desc: "Chinese tourist engagement, luxury hospitality service, and cross-cultural heritage interpretation."
       }
     ],
@@ -498,11 +506,11 @@ window.LAMS_PROGRAMS_DATA = [
     levelName: "ปริญญาโท",
     levelNameEn: "Master's Degree",
     nameTh: "หลักสูตรบริหารธุรกิจมหาบัณฑิต",
-    nameEn: "Master of Business Administration Program",
+    nameEn: "Master of Business Administration (MBA)",
     shortName: "บริหารธุรกิจมหาบัณฑิต",
     shortNameEn: "Master of Business Administration",
     duration: "2 ปี (แผน 1 แบบวิชาการ ก1, ก2 และแผน 2 แบบวิชาชีพ)",
-    durationEn: "2 Years (Weekend Executive Schedule - Plan A & Plan B)",
+    durationEn: "2 Years · Weekend Study (Saturday–Sunday) · Plan A (Thesis), Plan B (Independent Study)",
     credits: "36 หน่วยกิต",
     creditsEn: "36 Credits",
     tuitionFeeEstimate: "ประมาณการ 35,000 บาท/ภาคการศึกษา (รอประกาศทางการ)",
@@ -517,11 +525,11 @@ window.LAMS_PROGRAMS_DATA = [
     tracks: [],
     tracksEn: [
       {
-        title: "1. Strategic Management & Digital Business Transformation",
+        title: "1. Strategic Business Management & Digital Transformation",
         desc: "Competitive advantage orchestration, advanced decision analytics, corporate restructuring, and AI-driven business models."
       },
       {
-        title: "2. Corporate Entrepreneurship & Innovation Management",
+        title: "2. Corporate Entrepreneurship, Digital Business Transformation",
         desc: "New venture incubation, advanced corporate financial strategy, venture capital, and market expansion tactics."
       }
     ],
