@@ -1393,6 +1393,240 @@ function initProgramDetail() {
   }
 }
 
+// 18. Dean Contact & Feedback Form Handler (Demo UI + Programmer Hook)
+function initDeanContactForm() {
+  const form = document.getElementById('deanContactForm');
+  if (!form) return;
+
+  const status = document.getElementById('deanFormStatus');
+  const message = document.getElementById('deanMessage');
+  const count = document.getElementById('deanMessageCount');
+  const senderDetails = document.getElementById('deanSenderDetails');
+  const anonNotice = document.getElementById('deanAnonNotice');
+  const edited = new Set();
+  const fields = {
+    subject: { error: 'subject-error', controls: [document.getElementById('deanSubject')] },
+    message: { error: 'message-error', controls: [message] },
+    name: { error: 'name-error', controls: [document.getElementById('deanName')] },
+    email: { error: 'email-error', controls: [document.getElementById('deanEmail')] },
+    phone: { error: 'phone-error', controls: [document.getElementById('deanPhone')] }
+  };
+  const MSG = {
+    th: {
+      subject: 'กรุณากรอกหัวข้อเรื่อง',
+      message: 'กรุณากรอกข้อความอย่างน้อย 10 ตัวอักษร',
+      name: 'กรุณากรอกชื่อของคุณ',
+      email: 'กรุณากรอกอีเมลที่ถูกต้อง',
+      invalidSummary: 'โปรดแก้ไขข้อมูลที่ไฮไลต์แล้วลองอีกครั้ง',
+      demoSuccess: 'โหมดตัวอย่าง (Demo UI): ตรวจสอบข้อมูลครบถ้วนแล้ว — พร้อมเชื่อมต่อระบบรับข้อมูลจากโปรแกรมเมอร์'
+    },
+    en: {
+      subject: 'Please enter a subject.',
+      message: 'Please enter a message of at least 10 characters.',
+      name: 'Please enter your name.',
+      email: 'Please enter a valid email address.',
+      invalidSummary: 'Please correct the highlighted fields and try again.',
+      demoSuccess: 'Demo UI Preview: All required fields validated — ready for backend integration.'
+    },
+    'zh-Hans': {
+      subject: '请输入主题。',
+      message: '请输入至少 10 个字符的内容。',
+      name: '请输入您的姓名。',
+      email: '请输入有效的电子邮箱地址。',
+      invalidSummary: '请更正突出显示的字段后重试。',
+      demoSuccess: '演示模式 (Demo UI)：表单校验已通过，待后端开发接入后即可正式提交。'
+    }
+  };
+  const documentLang = document.documentElement.lang.toLowerCase();
+  const msg = MSG[documentLang.startsWith('zh') ? 'zh-Hans' : documentLang.startsWith('en') ? 'en' : 'th'];
+
+  Object.values(fields).forEach(({ controls }) => controls.forEach(control => {
+    if (control) control.setAttribute('aria-invalid', 'false');
+  }));
+
+  const keyFor = control => ({
+    subject: 'subject',
+    message: 'message',
+    name: 'name',
+    email: 'email',
+    phone: 'phone'
+  })[control.name];
+
+  const isAnonymous = () =>
+    form.querySelector('[name="anonymous"]:checked')?.value === 'yes';
+
+  function setDescription(control, id, add) {
+    const ids = new Set((control.getAttribute('aria-describedby') || '')
+      .split(/\s+/).filter(Boolean));
+    if (add) ids.add(id);
+    else ids.delete(id);
+    if (ids.size) control.setAttribute('aria-describedby', [...ids].join(' '));
+    else control.removeAttribute('aria-describedby');
+  }
+
+  function clearError(key) {
+    const field = fields[key];
+    const error = document.getElementById(field.error);
+    field.controls.filter(Boolean).forEach(control => {
+      control.classList.remove('is-invalid');
+      control.setAttribute('aria-invalid', 'false');
+      setDescription(control, field.error, false);
+    });
+    if (error) {
+      error.classList.remove('is-visible', 'is-invalid');
+      error.textContent = '';
+    }
+  }
+
+  function showError(key, text) {
+    const field = fields[key];
+    const error = document.getElementById(field.error);
+    field.controls.filter(Boolean).forEach(control => {
+      control.classList.add('is-invalid');
+      control.setAttribute('aria-invalid', 'true');
+      setDescription(control, field.error, true);
+    });
+    if (error) {
+      error.textContent = text;
+      error.classList.add('is-visible');
+    }
+  }
+
+  function validate(key) {
+    const control = fields[key].controls[0];
+    if (!control) return true;
+
+    let valid = true;
+    let text = '';
+
+    switch (key) {
+      case 'subject':
+        valid = Boolean(control.value.trim());
+        text = msg.subject;
+        break;
+      case 'message':
+        valid = control.value.trim().length >= 10;
+        text = msg.message;
+        break;
+      case 'name':
+        if (isAnonymous()) return true;
+        valid = Boolean(control.value.trim());
+        text = msg.name;
+        break;
+      case 'email':
+        valid = !control.value.trim() || !control.validity.typeMismatch;
+        text = msg.email;
+        break;
+      default:
+        return true;
+    }
+
+    if (valid) clearError(key);
+    else showError(key, text);
+    return valid;
+  }
+
+  function syncAnonymous() {
+    const anonymous = isAnonymous();
+    if (senderDetails) senderDetails.hidden = anonymous;
+    if (anonNotice) anonNotice.hidden = !anonymous;
+    senderDetails?.querySelectorAll('input, textarea, select').forEach(control => {
+      control.disabled = anonymous;
+    });
+    const name = fields.name.controls[0];
+    if (name) name.required = !anonymous;
+    if (anonymous) ['name', 'email', 'phone'].forEach(clearError);
+  }
+
+  function updateCount() {
+    if (!message || !count) return;
+    count.textContent = message.maxLength > 0
+      ? `${message.value.length} / ${message.maxLength}`
+      : String(message.value.length);
+  }
+
+  function hideStatus() {
+    if (!status) return;
+    status.classList.add('is-hidden');
+    status.classList.remove('is-demo-success', 'is-error');
+    status.textContent = '';
+  }
+
+  function showStatus(text, success = false) {
+    if (!status) return;
+    status.textContent = text;
+    status.classList.toggle('is-demo-success', success);
+    status.classList.toggle('is-error', !success);
+    status.classList.remove('is-hidden');
+  }
+
+  syncAnonymous();
+  updateCount();
+
+  form.addEventListener('input', event => {
+    const key = keyFor(event.target);
+    if (key) {
+      edited.add(key);
+      if (event.target.getAttribute('aria-invalid') === 'true') validate(key);
+    }
+    if (event.target === message) updateCount();
+  });
+
+  form.addEventListener('blur', event => {
+    const key = keyFor(event.target);
+    if (key && edited.has(key)) validate(key);
+  }, true);
+
+  form.addEventListener('change', event => {
+    if (event.target.name === 'anonymous') {
+      syncAnonymous();
+      return;
+    }
+    const key = keyFor(event.target);
+    if (key && (event.target.type === 'radio' || event.target.type === 'checkbox')) {
+      edited.add(key);
+      validate(key);
+    }
+  });
+
+  form.addEventListener('submit', event => {
+    event.preventDefault();
+    const keys = ['subject', 'message'];
+    if (!isAnonymous()) keys.push('name', 'email');
+
+    const invalid = keys.filter(key => !validate(key));
+    if (invalid.length) {
+      showStatus(msg.invalidSummary);
+      fields[invalid[0]].controls[0]?.focus();
+      return;
+    }
+
+    if (form.dataset.submitMode === 'demo') {
+      const toast = msg.demoSuccess;
+      showStatus(toast, true);
+      if (typeof window.showLamsToast === 'function') window.showLamsToast(toast);
+    }
+  });
+
+  form.addEventListener('reset', () => {
+    setTimeout(() => {
+      const defaultAnonymous = form.querySelector('[name="anonymous"][value="no"]');
+      if (defaultAnonymous) defaultAnonymous.checked = true;
+      syncAnonymous();
+      Object.keys(fields).forEach(clearError);
+      edited.clear();
+      form.querySelectorAll('.is-invalid, .is-visible').forEach(element => {
+        element.classList.remove('is-invalid', 'is-visible');
+      });
+      form.querySelectorAll('input, textarea').forEach(control => {
+        control.setAttribute('aria-invalid', 'false');
+      });
+      updateCount();
+      hideStatus();
+    }, 0);
+  });
+}
+
 // Master DOM Initialization Chain (Defensive, Safe Bootstrap)
 function runMasterInit() {
   const initializers = [
@@ -1412,7 +1646,8 @@ function runMasterInit() {
     initNewsFilter,
     initPeopleFilter,
     initProgramCatalog,
-    initProgramDetail
+    initProgramDetail,
+    initDeanContactForm
   ];
 
   initializers.forEach((fn) => {

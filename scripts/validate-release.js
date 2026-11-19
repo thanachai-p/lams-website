@@ -22,7 +22,8 @@ const thPages = [
   'pages/procurement.html',
   'pages/program-detail.html',
   'pages/programs.html',
-  'pages/staff.html'
+  'pages/staff.html',
+  'pages/contact-dean.html'
 ];
 
 const enPages = [
@@ -33,7 +34,8 @@ const enPages = [
   'en/people.html',
   'en/program-detail.html',
   'en/programs.html',
-  'en/staff.html'
+  'en/staff.html',
+  'en/contact-dean.html'
 ];
 
 const zhPages = [
@@ -44,7 +46,8 @@ const zhPages = [
   'zh/people.html',
   'zh/program-detail.html',
   'zh/programs.html',
-  'zh/staff.html'
+  'zh/staff.html',
+  'zh/contact-dean.html'
 ];
 
 const allPages = [...thPages, ...enPages, ...zhPages];
@@ -130,7 +133,7 @@ for (const p of allPages) {
 
   // Verify hreflang tags for multilingual pages
   const baseName = path.basename(p);
-  const isMultilingual = ['index.html', 'about.html', 'news.html', 'news-detail.html', 'people.html', 'program-detail.html', 'programs.html', 'staff.html'].includes(baseName);
+  const isMultilingual = ['index.html', 'about.html', 'news.html', 'news-detail.html', 'people.html', 'program-detail.html', 'programs.html', 'staff.html', 'contact-dean.html'].includes(baseName);
 
   if (isMultilingual) {
     const thHreflang = baseName === 'index.html' ? `${domain}/index.html` : `${domain}/pages/${baseName}`;

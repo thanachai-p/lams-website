@@ -248,5 +248,35 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
+  <url>
+    <loc>https://lams.surat.psu.ac.th/pages/contact-dean.html</loc>
+    <xhtml:link rel="alternate" hreflang="th" href="https://lams.surat.psu.ac.th/pages/contact-dean.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lams.surat.psu.ac.th/en/contact-dean.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://lams.surat.psu.ac.th/zh/contact-dean.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lams.surat.psu.ac.th/pages/contact-dean.html"/>
+    <lastmod>2026-11-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://lams.surat.psu.ac.th/en/contact-dean.html</loc>
+    <xhtml:link rel="alternate" hreflang="th" href="https://lams.surat.psu.ac.th/pages/contact-dean.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lams.surat.psu.ac.th/en/contact-dean.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://lams.surat.psu.ac.th/zh/contact-dean.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lams.surat.psu.ac.th/pages/contact-dean.html"/>
+    <lastmod>2026-11-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://lams.surat.psu.ac.th/zh/contact-dean.html</loc>
+    <xhtml:link rel="alternate" hreflang="th" href="https://lams.surat.psu.ac.th/pages/contact-dean.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lams.surat.psu.ac.th/en/contact-dean.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://lams.surat.psu.ac.th/zh/contact-dean.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lams.surat.psu.ac.th/pages/contact-dean.html"/>
+    <lastmod>2026-11-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
 
 </urlset>

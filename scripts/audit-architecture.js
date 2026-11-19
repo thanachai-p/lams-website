@@ -20,7 +20,8 @@ const thPages = [
   'pages/procurement.html',
   'pages/program-detail.html',
   'pages/programs.html',
-  'pages/staff.html'
+  'pages/staff.html',
+  'pages/contact-dean.html'
 ];
 
 const enPages = [
@@ -31,7 +32,8 @@ const enPages = [
   'en/people.html',
   'en/program-detail.html',
   'en/programs.html',
-  'en/staff.html'
+  'en/staff.html',
+  'en/contact-dean.html'
 ];
 
 const zhPages = [
@@ -42,7 +44,8 @@ const zhPages = [
   'zh/people.html',
   'zh/program-detail.html',
   'zh/programs.html',
-  'zh/staff.html'
+  'zh/staff.html',
+  'zh/contact-dean.html'
 ];
 
 const allPages = [...thPages, ...enPages, ...zhPages];
@@ -69,8 +72,8 @@ function warn(condition, message) {
 console.log('=== LAMS ARCHITECTURAL AUDIT & PRE-DEPLOYMENT GATE ===\n');
 
 // 1. File existence & page count
-console.log('1. Verifying all 25 pages exist...');
-assert(allPages.length === 25, `Expected exactly 23 HTML pages, got ${allPages.length}`);
+console.log('1. Verifying all 28 pages exist...');
+assert(allPages.length === 28, `Expected exactly 28 HTML pages, got ${allPages.length}`);
 for (const p of allPages) {
   assert(fs.existsSync(path.join(rootDir, p)), `Missing page: ${p}`);
 }
@@ -188,7 +191,7 @@ for (const detailPage of ['pages/program-detail.html', 'en/program-detail.html',
 }
 
 // 12. Component initializers invocation in runMasterInit
-console.log('12. Verifying all 17 component initializers in js/main.js are registered in runMasterInit()...');
+console.log('12. Verifying all 18 component initializers in js/main.js are registered in runMasterInit()...');
 const requiredInitializers = [
   'initSiteHeader',
   'initSiteNav',
@@ -206,7 +209,8 @@ const requiredInitializers = [
   'initNewsFilter',
   'initPeopleFilter',
   'initProgramCatalog',
-  'initProgramDetail'
+  'initProgramDetail',
+  'initDeanContactForm'
 ];
 assert(mainJs.includes('function runMasterInit()'), 'js/main.js missing runMasterInit() bootstrap');
 const masterInitBlock = mainJs.slice(mainJs.indexOf('function runMasterInit()'));
