@@ -200,7 +200,7 @@
 
 .hero-banner__content {
   max-width: 960px;
-  max-width: clamp(720px, 85vw, 980px);
+  max-width: clamp(720px, 90vw, 1080px);
   z-index: 2;
 }
 
@@ -893,7 +893,7 @@
 }
 
 .accordion-heading {
-  font-size: 2.6rem;
+  font-size: clamp(1.55rem, 2.5vw, 2.25rem);
   font-weight: 900;
   margin-bottom: 30px;
 }
@@ -3145,5 +3145,49 @@ html[lang^="zh"] .catalog-tab {
   justify-content: center;
   box-sizing: border-box;
   text-align: center;
+}
+
+/* ==========================================================================
+ * Structured Line-Break & Single-Line Desktop Modifiers
+ * ========================================================================== */
+.hero-sub--structured {
+  font-size: clamp(1.1rem, 1.9vw, 1.5rem);
+  text-wrap: wrap;
+}
+
+@media (min-width: 1180px) {
+  .hero-sub--structured {
+    white-space: nowrap;
+  }
+}
+
+.courses-subtext--wide {
+  max-width: 1020px;
+}
+
+.section-container-center--wide-lead {
+  text-align: center;
+  max-width: 1140px;
+  margin: 0 auto 35px;
+}
+
+.section-intro-lead--single-line {
+  text-align: center;
+}
+
+@media (min-width: 1180px) {
+  .section-intro-lead--single-line {
+    white-space: nowrap;
+  }
+}
+
+.text-line {
+  display: inline;
+}
+
+@media (min-width: 641px) {
+  .text-line {
+    display: block;
+  }
 }
 
