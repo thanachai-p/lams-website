@@ -10,20 +10,26 @@
   /* ==========================================================================
      1. Semantic Red & Crimson Color Tokens (REDVOLUTION Aesthetic)
      ========================================================================== */
-  --theme-red-deep: #450A0A;        /* Deep rich dark red / burgundy */
-  --theme-red-dark: #7F1D1D;        /* Dark wine / crimson secondary */
-  --theme-red-primary: #B91C1C;     /* Strong primary crimson (WCAG AAA) */
-  --theme-red-bright: #DC2626;      /* Vibrant athletic ruby red */
-  --theme-red-light: #F87171;       /* Rose highlight / light accent */
-  --theme-red-pale: #FECDD3;        /* Soft pale rose for subtle tags & selections */
+  --theme-red-deep: #4D050D;        /* Deep rich dark red / burgundy */
+  --theme-red-dark: #8F0A19;        /* Dark wine / crimson secondary */
+  --theme-red-primary: #D60824;     /* Strong primary crimson (AA 5.36:1 w/ #FFFFFF) */
+  --theme-red-bright: #FF1E42;      /* Electric Athletic Scarlet (borders, glows, icons, spotlight, text-on-dark) */
+  --theme-red-light: #FF6680;       /* Rose highlight / light accent */
+  --theme-red-pale: #FFE6EA;        /* Soft pale rose for subtle tags & selections */
 
-  --theme-ruby: #991B1B;            /* Deep ruby core */
+  --theme-red-deep-rgb: 77, 5, 13;
+  --theme-red-dark-rgb: 143, 10, 25;
+  --theme-red-bright-rgb: 255, 30, 66;
+  --theme-red-light-rgb: 255, 102, 128;
+
+  --theme-ruby: #B3001A;            /* Deep ruby core */
 
   /* Flame & Amber Accents (Matches the gold torch / badge accents) */
   --theme-amber: #F59E0B;
   --theme-amber-light: #FBBF24;
   --theme-amber-pale: #FDE68A;
-  --theme-red-hover: #EF4444;
+  --theme-red-hover: #FF3859;       /* Decorative / text-on-dark accent ONLY */
+  --theme-red-action-hover: #E60B2E;
 
   /* Success & Status (Preserved Emerald for complete/success badges) */
   --theme-success: #10B981;
@@ -44,25 +50,27 @@
      3. Text & Typography Tokens
      ========================================================================== */
   --text-primary: #FFFFFF;          /* Pure white high contrast headers */
-  --text-secondary: #FECDD3;        /* Soft rose tinted secondary text */
+  --text-secondary: #FFE6EA;        /* Soft rose tinted secondary text */
   --text-muted: #CBD5E1;            /* Clean light slate muted text */
   --text-dark-contrast: #1A0508;    /* Deep contrast text for bright badges */
 
   /* ==========================================================================
      4. Borders, Focus & Atmospheric Glow Tokens
      ========================================================================== */
-  --border-subtle: rgba(248, 113, 113, 0.16);
-  --border-card: rgba(248, 113, 113, 0.22);
+  --border-subtle: rgba(255, 102, 128, 0.16);
+  --border-card: rgba(255, 102, 128, 0.24);
+  --border-control: rgba(255, 102, 128, 0.60);
   --border-focus: #FBBF24;          /* Warm amber focus indicator */
 
-  --theme-red-glow: rgba(220, 38, 38, 0.35);
-  --theme-red-glow-strong: rgba(220, 38, 38, 0.55);
+  --theme-red-glow: rgba(255, 30, 66, 0.45);
+  --theme-red-glow-strong: rgba(255, 30, 66, 0.70);
 
   /* Composite Section Gradients */
   --gradient-pride: linear-gradient(180deg, #100204 0%, #0C0103 100%);
   --gradient-experience: linear-gradient(180deg, #260810 0%, #1A050B 100%);
   --gradient-procurement: linear-gradient(180deg, #21070C 0%, #150407 100%);
-  --gradient-btn-sparkle: linear-gradient(135deg, #EF4444, #B91C1C);
+  --gradient-btn-sparkle: linear-gradient(135deg, #E60B2E 0%, #B3001A 100%);
+  --gradient-btn-sparkle-hover: linear-gradient(135deg, #E60B2E 0%, #D60824 100%);
 
   /* Off-Palette Semantic & Brand Color Tokens */
   --badge-ebidding-bg: rgba(56, 189, 248, 0.18);
@@ -103,7 +111,7 @@ body {
   background:
     radial-gradient(
       circle at 50% -20%,
-      rgba(127, 29, 29, 0.25),
+      rgba(var(--theme-red-dark-rgb), 0.28),
       transparent 50%
     ),
     var(--surface-page);
@@ -202,4 +210,41 @@ img {
 /* Accessibility & Utility States */
 .is-hidden {
   display: none !important;
+}
+
+@media (forced-colors: active) {
+  .btn-apply-sparkle, .btn-apply-sparkle:hover, .btn-staff-portal, .btn-staff-portal:hover,
+  .btn-read-all, .btn-read-all:hover, .btn-share-main, .share-copy-btn,
+  .btn-card-detail, .btn-card-detail:hover, .btn-card-pdf, .btn-card-pdf:hover,
+  .btn-sidebar-tcas, .btn-sidebar-tcas:hover, .btn-sidebar-pdf, .btn-sidebar-pdf:hover,
+  .btn-download-pdf, .btn-download-pdf:hover, .people-dean-link, .about-dean-card__btn,
+  .lang-switch-btn, .filter-pill, .catalog-tab {
+    background: ButtonFace;
+    color: ButtonText;
+    border: 2px solid ButtonText;
+  }
+
+  .lang-switch-btn.active, .filter-pill.active, .catalog-tab.active,
+  .dean-anon-option__input:checked + .dean-anon-option__label::before {
+    background: Highlight;
+    color: HighlightText;
+    border-color: Highlight;
+  }
+
+  .dean-anon-option__input:checked + .dean-anon-option__label {
+    border: 2px solid Highlight;
+  }
+
+  .hero-tag, .floating-action-bar, .pride-card, .sub-pride-card, .program-card-item, .people-card,
+  .detail-section-card, .sidebar-action-card, .procurement-item,
+  .catalog-search-input, .dean-form__input, .dean-form__textarea, .dean-anon-option__label {
+    background: Canvas;
+    color: CanvasText;
+    border: 1px solid CanvasText;
+  }
+
+  :focus-visible {
+    outline: 2px solid Highlight;
+    outline-offset: 2px;
+  }
 }
