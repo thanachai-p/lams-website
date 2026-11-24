@@ -1,7 +1,34 @@
-/**
+/*!
  * LAMS PSU SURAT THANI 2026 - MAIN JAVASCRIPT
  * Modular Component Initializers: Header, Nav, Modals, Filters, Video Showcase & Social Share
+ * Author: Thanachai Promkaew (ธนาชัย พรหมแก้ว)
+ * Position: Academic Officer (นักวิชาการอุดมศึกษา)
+ * Organization: Faculty of Liberal Arts and Management Sciences, Prince of Songkla University, Surat Thani Campus
+ * Contact: thanachai.p@psu.ac.th
+ * GitHub: https://github.com/thanachai-p
+ * Signature: lams-psu-sha256:547a05645bdf9a11
  */
+
+if (typeof window !== 'undefined' && !Object.prototype.hasOwnProperty.call(window, '__LAMS_AUTHORSHIP__')) {
+  Object.defineProperty(window, '__LAMS_AUTHORSHIP__', {
+    value: Object.freeze({
+      authorTh: 'ธนาชัย พรหมแก้ว',
+      authorEn: 'Thanachai Promkaew',
+      positionTh: 'นักวิชาการอุดมศึกษา',
+      positionEn: 'Academic Officer',
+      organizationTh: 'คณะศิลปศาสตร์และวิทยาการจัดการ มหาวิทยาลัยสงขลานครินทร์ วิทยาเขตสุราษฎร์ธานี',
+      organizationEn: 'Faculty of Liberal Arts and Management Sciences, Prince of Songkla University, Surat Thani Campus',
+      contact: 'thanachai.p@psu.ac.th',
+      github: 'https://github.com/thanachai-p',
+      project: 'lams-website',
+      signature: 'lams-psu-sha256:547a05645bdf9a11',
+      sha256: '547a05645bdf9a11ec6703aad5ac3cf8ca01bfcf5e00c2e6fa6e42e54dc943f6'
+    }),
+    writable: false,
+    enumerable: false,
+    configurable: false
+  });
+}
 
 // 1. Sticky Header Visual Scroll Effect
 function initSiteHeader() {

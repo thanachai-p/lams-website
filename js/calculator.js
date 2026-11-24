@@ -1,6 +1,12 @@
-/**
+/*!
  * LAMS PSU SURAT THANI 2026 - TUITION FEE & SCHOLARSHIP CALCULATOR
  * Modular Calculator Utility for Undergraduate & Postgraduate Programs
+ * Author: Thanachai Promkaew (ธนาชัย พรหมแก้ว)
+ * Position: Academic Officer (นักวิชาการอุดมศึกษา)
+ * Organization: Faculty of Liberal Arts and Management Sciences, Prince of Songkla University, Surat Thani Campus
+ * Contact: thanachai.p@psu.ac.th
+ * GitHub: https://github.com/thanachai-p
+ * Signature: lams-psu-sha256:547a05645bdf9a11
  */
 
 const LAMS_PROGRAMS = {

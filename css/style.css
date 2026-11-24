@@ -1,7 +1,13 @@
-/**
+/*!
  * LAMS PSU SURAT THANI 2026 - CORE STYLESHEET
  * Faculty of Liberal Arts and Management Sciences, Prince of Songkla University
  * Design Architecture: Crimson & Burgundy Athletic Command Center (REDVOLUTION Aesthetic)
+ * Author: Thanachai Promkaew (ธนาชัย พรหมแก้ว)
+ * Position: Academic Officer (นักวิชาการอุดมศึกษา)
+ * Organization: Faculty of Liberal Arts and Management Sciences, Prince of Songkla University, Surat Thani Campus
+ * Contact: thanachai.p@psu.ac.th
+ * GitHub: https://github.com/thanachai-p
+ * Signature: lams-psu-sha256:547a05645bdf9a11
  */
 
 :root {
@@ -92,6 +98,9 @@
   --container-max-width: 1280px;
   --section-padding: 85px 5%;
   --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Layer 3 authorship fingerprint (lams-psu-sha256) */
+  --lams-author-sig: "lams-psu-sha256:547a05645bdf9a11";
 }
 
 /* Global Reset */

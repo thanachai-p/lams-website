@@ -1,0 +1,10 @@
+/* humans.txt | LAMS PSU Surat Thani 2026 */
+Author: Thanachai Promkaew (ธนาชัย พรหมแก้ว)
+Position: Academic Officer (นักวิชาการอุดมศึกษา)
+Organization: Faculty of Liberal Arts and Management Sciences, Prince of Songkla University, Surat Thani Campus (คณะศิลปศาสตร์และวิทยาการจัดการ มหาวิทยาลัยสงขลานครินทร์ วิทยาเขตสุราษฎร์ธานี)
+Contact: thanachai.p@psu.ac.th
+GitHub: https://github.com/thanachai-p
+Date: 2026-11-24
+Project: lams-website
+Signature: lams-psu-sha256:547a05645bdf9a11
+SHA-256: 547a05645bdf9a11ec6703aad5ac3cf8ca01bfcf5e00c2e6fa6e42e54dc943f6
