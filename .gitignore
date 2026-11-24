@@ -1,1 +1,15 @@
+# Local development scratch & AI workflow files
 scratch/
+.agent/
+AGENTS.md
+
+# Internal planning & audit reports
+ANALYSIS_REPORT.md
+CHINESE_LOCALIZATION_PLAN.md
+IMPLEMENTATION_PLAN.md
+
+# Local reference assets & build artifacts
+CN_edit/
+ENG_edit/
+tone for web/
+dist/

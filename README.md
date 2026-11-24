@@ -125,14 +125,12 @@ D:\Projects\lams-website\
 │   └── icons/                   # ไฟล์ไอคอนและ SVG assets
 ├── scripts/                     # สคริปต์ Node.js สำหรับตรวจสอบคุณภาพสถาปัตยกรรม (Quality Gates)
 │   ├── audit-architecture.js    # ตรวจสอบ 13 ข้อกำหนดสถาปัตยกรรม (CSS tokens, zero inline script/event)
-│   ├── validate-release.js      # ตรวจสอบความพร้อมก่อน Release (600 ลิงก์, hreflang, Card Parity)
+│   ├── validate-release.js      # ตรวจสอบความพร้อมก่อน Release (628 ลิงก์, hreflang, Card Parity)
 │   ├── verify-full-site.js      # ทดสอบการตอบสนองและ HTTP Status Code ทุกหน้าผ่าน Dev Server
 │   └── test-all-interactions.js # ทดสอบ Event Handlers และ Client-side Interactions
 ├── tests/                       # ยูนิตเทสต์ฝั่งข้อมูลและเนื้อหาภาษาไทย
 │   └── programs-thai-sync.test.js # ตรวจสอบความสอดคล้องของข้อมูลหลักสูตรภาษาไทย (node --test)
-├── scratch/                     # โฟลเดอร์เครื่องมือสำหรับพัฒนาในเครื่อง (Local Dev Tools)
-│   └── dev-server.js            # Node.js Static Server ขนาดกะทัดรัด (Zero npm dependencies, Port 8088)
-├── tone for web/                # คลังศึกษาและเปรียบเทียบโทนสี (Reference Design Assets — ไม่ใช่ runtime dependency)
+├── humans.txt                   # ข้อมูลผู้พัฒนา ตำแหน่ง สังกัด และลายเซ็นดิจิทัล SHA-256 (humanstxt.org)
 ├── .nojekyll                    # ปิด Jekyll บน GitHub Pages เพื่อให้โหลดโฟลเดอร์และไฟล์ทั้งหมดได้อย่างสมบูรณ์
 ├── robots.txt                   # ข้อกำหนดสำหรับ Search Engine Crawlers ครอบคลุมทั้ง 3 ภาษา
 ├── sitemap.xml                  # Multilingual XML Sitemap พร้อม alternate hreflang สำหรับโครงสร้าง 3 ภาษา (27 URLs)
@@ -205,7 +203,6 @@ D:\Projects\lams-website\
 * **RGB Channel Tokens & Forced Colors**: กำหนด `--theme-red-deep-rgb`, `--theme-red-dark-rgb`, `--theme-red-bright-rgb`, `--theme-red-light-rgb` สำหรับค่าโปร่งแสง `rgba()` ทุกระดับ พร้อมบล็อก `@media (forced-colors: active)` รองรับ Windows High Contrast Mode
 * **Typography**: ใช้ฟอนต์ **Prompt** (Google Fonts) น้ำหนัก `300, 400, 500, 600, 700, 800, 900` เพียงครอบครัวเดียวทั้งระบบ เพื่อความเป็นเอกภาพและประสิทธิภาพในการเรนเดอร์
 * **Asset Cache Busting**: ทุกหน้าเชื่อมโยงไฟล์สไตล์และสคริปต์ผ่าน Parameter `?v=20261123_1500` อย่างสอดคล้องกันทั้ง 28 หน้า
-* **Visual Exploration Assets**: ในโฟลเดอร์ `tone for web/` ได้รวบรวมภาพตัวอย่างหน้าจอจริงจากการทดลอง 6 โทนสีและคู่สีอ้างอิง เพื่อใช้เป็นข้อมูลประกอบการตัดสินใจเชิงออกแบบ (Reference Assets เท่านั้น ไม่ใช่ runtime dependency)
 
 ---
 
@@ -229,10 +226,7 @@ D:\Projects\lams-website\
 * **เปิดทดสอบเต็มรูปแบบ (แนะนำ)**: เนื่องจากการทำงานบางส่วน เช่น การโหลดข้อมูลหลักสูตรจาก `programs-data.js`, Modal Dialogs, และการเปลี่ยนเส้นทางข้ามหน้า แนะนำให้รันผ่าน Local HTTP Server:
 
 ```bash
-# วิธีที่ 1: รันผ่าน Node.js Dev Server ใน scratch/ (Zero npm dependency, แนะนำ)
-node scratch/dev-server.js
-
-# หรือ Python Built-in Server
+# Python Built-in Server (แนะนำ)
 python -m http.server 8088
 
 # หรือ Node npx serve (ต้องมีอินเทอร์เน็ตในการเรียกแพ็กเกจครั้งแรก)
@@ -251,8 +245,8 @@ npx serve -l 8088 .
 # (CSS Custom Properties tokens, Zero inline scripts/events, 18 initializers registry)
 node scripts/audit-architecture.js
 
-# 2. ตรวจสอบความพร้อมระดับ Release (600 Link & Fragment checks, Hreflang, Card Parity, Cache Query Strings)
-# เกณฑ์ตรวจรับ: 0 errors (910 assertions passed)
+# 2. ตรวจสอบความพร้อมระดับ Release (628 Link & Fragment checks, Hreflang, Card Parity, Cache Query Strings)
+# เกณฑ์ตรวจรับ: 0 errors (938 assertions passed)
 node scripts/validate-release.js
 
 # 3. ทดสอบการตอบสนองและ HTTP Status Code ของหน้าเว็บ (ต้องเปิดเซิร์ฟเวอร์พอร์ต 8088 ไว้ก่อน)
